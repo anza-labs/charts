@@ -1,0 +1,20 @@
+{{- if .Values.networkPolicy.create -}}
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: {{ include "bitwarden-webhook.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "bitwarden-webhook.labels" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "bitwarden-webhook.selectorLabels" . | nindent 6 }}
+  ingress:
+  - from:
+      {{- range $v := .Values.networkPolicy.podSelectors }}
+      - podSelector:
+          matchLabels:
+            {{- $v | toYaml | nindent 12 }}
+      {{- end }}
+{{- end }}

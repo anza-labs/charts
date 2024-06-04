@@ -19,7 +19,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          scopes: bitwarden-webhook
-            sidero-omni
           requireScope: true
           subjectPattern: ^(?![A-Z]).+$

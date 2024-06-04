@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "bitwarden-webhook.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "bitwarden-webhook.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8087
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "bitwarden-webhook.selectorLabels" . | nindent 4 }}

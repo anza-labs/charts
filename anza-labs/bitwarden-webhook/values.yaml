@@ -1,0 +1,86 @@
+# Default values for bitwarden-webhook.
+
+# -- Number of replicas for the deployment.
+replicaCount: 1
+
+image:
+  # -- Registry and repository for the image.
+  repository: ghcr.io/charlesthomas/bitwarden-cli
+  # -- Tag for the image.
+  tag: "2023.12.1"
+  # -- Image pull policy.
+  pullPolicy: IfNotPresent
+
+# -- Secrets for pulling images.
+imagePullSecrets: []
+# -- Override for the name.
+nameOverride: ""
+# -- Override for the full name.
+fullnameOverride: ""
+
+serviceAccount:
+  # -- Specifies whether a service account should be created.
+  create: true
+  # -- Automatically mount a ServiceAccount's API credentials.
+  automount: true
+  # -- Annotations to add to the service account.
+  annotations: {}
+  # -- The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template.
+  name: ""
+
+networkPolicy:
+  # -- Specifies whether a network policy should be created.
+  create: true
+  # -- Pod selectors for the network policy.
+  podSelectors:
+    - app.kubernetes.io/instance: external-secrets
+      app.kubernetes.io/name: external-secrets
+
+secret:
+  # -- Specifies whether a secret should be created.
+  create: true
+  # -- Name of the existing secret.
+  existingSecretName: ""
+  # -- Host for Bitwarden.
+  bitwardenHost: ""
+  # -- Username for Bitwarden.
+  bitwardenUsername: ""
+  # -- Password for Bitwarden.
+  bitwardenPassword: ""
+
+# -- Annotations to be added to the pods.
+podAnnotations: {}
+# -- Labels to be added to the pods.
+podLabels: {}
+
+podSecurityContext:
+  {}
+  # fsGroup: 2000
+
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources:
+  {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# -- Node selector for the pods.
+nodeSelector: {}
+
+# -- Tolerations for the pods.
+tolerations: []
+
+# -- Affinity settings for the pods.
+affinity: {}
