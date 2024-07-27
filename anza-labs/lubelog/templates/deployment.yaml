@@ -81,11 +81,11 @@ spec:
                 secretKeyRef:
                   name: {{ include "lubelog.mailSecret" . }}
                   key: MailConfig__Password
-            {{- if .Values.postgres.connect }}
+            {{- if or .Values.postgres.connect .Values.postgres.create }}
             - name: POSTGRES_CONNECTION
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "lubelog.fullname" . }}-postgres-connection
+                  name: {{ include "lubelog.postgresSecret" . }}
                   key: POSTGRES_CONNECTION
             {{- end }}
       {{- with .Values.nodeSelector }}

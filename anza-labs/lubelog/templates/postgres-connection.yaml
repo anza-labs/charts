@@ -16,5 +16,5 @@ metadata:
     {{- end }}
 type: Opaque
 stringData:
-  POSTGRES_CONNECTION: "Host={{ $pgHost }}:{{ $pgPort }};Username={{ $pgUser }};Password={{ $pgPass }};Database={{ $pgDatabase }};"
+  {{- include "lubelog.postgresSecretKey" . | nindent 2}}: "Host={{ $pgHost }}:{{ $pgPort }};Username={{ $pgUser }};Password={{ $pgPass }};Database={{ $pgDatabase }};"
 {{- end }}

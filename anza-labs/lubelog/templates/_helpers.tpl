@@ -64,3 +64,17 @@ Create secret name used for configuring mail.
 {{- define "lubelog.mailSecret" -}}
     {{- default (include "lubelog.fullname" .) .Values.secret.name }}
 {{- end }}
+
+{{/*
+Create secret name used for configuring PostgreSQL connection.
+*/}}
+{{- define "lubelog.postgresSecret" -}}
+    {{- default ( printf "%s-postgres-connection" (include "lubelog.fullname" .)) .Values.postgres.name }}
+{{- end }}
+
+{{/*
+Create key under which PostgreSQL connection string can be found.
+*/}}
+{{- define "lubelog.postgresSecretKey" -}}
+    {{- default "POSTGRES_CONNECTION" .Values.postgres.keyRef }}
+{{- end }}

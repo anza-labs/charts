@@ -32,10 +32,13 @@ LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 | podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | podLabels | object | `{}` | Labels to be added to the pods. |
 | podSecurityContext | object | `{}` |  |
-| postgres | object | `{"connect":false,"database":"postgres","host":"postgres","password":"postgres","port":5432,"user":"postgres"}` | PostgreSQL connection details. |
-| postgres.connect | bool | `false` | Defines if the secret with Postgres connection details should be created. |
+| postgres | object | `{"connect":false,"create":false,"database":"postgres","host":"postgres","keyRef":"POSTGRES_CONNECTION","name":"","password":"postgres","port":5432,"user":"postgres"}` | PostgreSQL connection details. |
+| postgres.connect | bool | `false` | Defines if the LubeLogger should connect to the Postgres backend. It has no effect when `postgres.create=true`. |
+| postgres.create | bool | `false` | Defines if the secret with Postgres connection details should be created. |
 | postgres.database | string | `"postgres"` | Database name. |
 | postgres.host | string | `"postgres"` | Host of the Postgres database. |
+| postgres.keyRef | string | `"POSTGRES_CONNECTION"` | Defines the key under which postgres connection string can be found. It uses Npgsql connection format. |
+| postgres.name | string | `""` | Specifies name of a secret used to configure the LubeLogger's Postgres backend. If not filled, uses full name. |
 | postgres.password | string | `"postgres"` | Password for the user used to connect to the Postgres database. |
 | postgres.port | int | `5432` | Port of the Postgres database. |
 | postgres.user | string | `"postgres"` | User used to connect to the Postgres database. |
@@ -45,7 +48,7 @@ LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 | secret.create | bool | `true` | Specifies whether a secret should be created. |
 | secret.emailFrom | string | `""` | Email from address for the secret. |
 | secret.emailServer | string | `""` | Email server for the secret. |
-| secret.name | string | `""` | Specifies name of a secret used to configure the lubelog. |
+| secret.name | string | `""` | Specifies name of a secret used to configure the LubeLogger's mail connection. If not filled, uses full name. |
 | secret.password | string | `""` | Password for the email server. |
 | secret.port | int | `587` | Port for the email server. |
 | secret.username | string | `""` | Username for the email server. |

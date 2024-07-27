@@ -43,7 +43,8 @@ serviceAccount:
 secret:
   # -- Specifies whether a secret should be created.
   create: true
-  # -- Specifies name of a secret used to configure the lubelog.
+  # -- Specifies name of a secret used to configure the LubeLogger's mail connection.
+  # If not filled, uses full name.
   name: ""
   # -- Email server for the secret.
   emailServer: ""
@@ -59,7 +60,16 @@ secret:
 # -- PostgreSQL connection details.
 postgres:
   # -- Defines if the secret with Postgres connection details should be created.
+  create: false
+  # -- Defines if the LubeLogger should connect to the Postgres backend.
+  # It has no effect when `postgres.create=true`.
   connect: false
+  # -- Specifies name of a secret used to configure the LubeLogger's Postgres backend.
+  # If not filled, uses full name.
+  name: ""
+  # -- Defines the key under which postgres connection string can be found.
+  # It uses Npgsql connection format.
+  keyRef: "POSTGRES_CONNECTION"
   # -- Host of the Postgres database.
   host: "postgres"
   # -- Port of the Postgres database.
