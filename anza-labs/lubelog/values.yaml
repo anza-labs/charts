@@ -7,7 +7,7 @@ image:
   # -- Registry and repository for the image.
   repository: ghcr.io/hargata/lubelogger
   # -- Tag for the image.
-  tag: "v1.3.4"
+  tag: "v1.3.5"
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
