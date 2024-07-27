@@ -57,3 +57,10 @@ Create the name of the service account to use
         {{- default "default" .Values.serviceAccount.name }}
     {{- end }}
 {{- end }}
+
+{{/*
+Create secret name used for configuring mail.
+*/}}
+{{- define "lubelog.mailSecret" -}}
+    {{- default (include "lubelog.fullname" .) .Values.secret.name }}
+{{- end }}

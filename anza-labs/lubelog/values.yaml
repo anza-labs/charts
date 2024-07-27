@@ -12,10 +12,10 @@ image:
   pullPolicy: IfNotPresent
 
 config:
-  # -- Same as above. Note that some languages don't have UTF-8 encodings.
-  LANG: en_US.UTF-8
   # -- Locale and Language Settings, this will affect how numbers, currencies, and dates are 
   # formatted.
+  LANG: en_US.UTF-8
+  # -- Same as above. Note that some languages don't have UTF-8 encodings.
   LC_ALL: en_US.UTF-8
   # -- Specifies the level of logs. Valid levels are `Trace`, `Debug`, `Information`, 
   # `Warning`, `Error`, `Critical` and `None`. Learn more at:
@@ -43,6 +43,8 @@ serviceAccount:
 secret:
   # -- Specifies whether a secret should be created.
   create: true
+  # -- Specifies name of a secret used to configure the lubelog.
+  name: ""
   # -- Email server for the secret.
   emailServer: ""
   # -- Email from address for the secret.
@@ -56,11 +58,17 @@ secret:
 
 # -- PostgreSQL connection details.
 postgres:
+  # -- Defines if the secret with Postgres connection details should be created.
   connect: false
+  # -- Host of the Postgres database.
   host: "postgres"
+  # -- Port of the Postgres database.
   port: 5432
+  # -- User used to connect to the Postgres database.
   user: "postgres"
+  # -- Password for the user used to connect to the Postgres database.
   password: "postgres"
+  # -- Database name.
   database: "postgres"
 
 # -- Annotations to be added to the pods.

@@ -59,27 +59,27 @@ spec:
             - name: MailConfig__EmailServer
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "lubelog.fullname" . }}
+                  name: {{ include "lubelog.mailSecret" . }}
                   key: MailConfig__EmailServer
             - name: MailConfig__EmailFrom
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "lubelog.fullname" . }}
+                  name: {{ include "lubelog.mailSecret" . }}
                   key: MailConfig__EmailFrom
             - name: MailConfig__Port
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "lubelog.fullname" . }}
+                  name: {{ include "lubelog.mailSecret" . }}
                   key: MailConfig__Port
             - name: MailConfig__Username
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "lubelog.fullname" . }}
+                  name: {{ include "lubelog.mailSecret" . }}
                   key: MailConfig__Username
             - name: MailConfig__Password
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "lubelog.fullname" . }}
+                  name: {{ include "lubelog.mailSecret" . }}
                   key: MailConfig__Password
             {{- if .Values.postgres.connect }}
             - name: POSTGRES_CONNECTION

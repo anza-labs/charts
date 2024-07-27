@@ -1,6 +1,6 @@
 # lubelog
 
-![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat)
+![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat)
 
 LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 
@@ -13,8 +13,8 @@ LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 | autoscaling.maxReplicas | int | `3` | Maximum number of replicas for autoscaling. |
 | autoscaling.minReplicas | int | `1` | Minimum number of replicas for autoscaling. |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` | Target CPU utilization percentage for autoscaling. |
-| config.LANG | string | `"en_US.UTF-8"` | Same as above. Note that some languages don't have UTF-8 encodings. |
-| config.LC_ALL | string | `"en_US.UTF-8"` | Locale and Language Settings, this will affect how numbers, currencies, and dates are  formatted. |
+| config.LANG | string | `"en_US.UTF-8"` | Locale and Language Settings, this will affect how numbers, currencies, and dates are  formatted. |
+| config.LC_ALL | string | `"en_US.UTF-8"` | Same as above. Note that some languages don't have UTF-8 encodings. |
 | config.LOGLEVEL | string | `"Information"` | Specifies the level of logs. Valid levels are `Trace`, `Debug`, `Information`,  `Warning`, `Error`, `Critical` and `None`. Learn more at: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/ |
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
@@ -33,12 +33,19 @@ LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 | podLabels | object | `{}` | Labels to be added to the pods. |
 | podSecurityContext | object | `{}` |  |
 | postgres | object | `{"connect":false,"database":"postgres","host":"postgres","password":"postgres","port":5432,"user":"postgres"}` | PostgreSQL connection details. |
+| postgres.connect | bool | `false` | Defines if the secret with Postgres connection details should be created. |
+| postgres.database | string | `"postgres"` | Database name. |
+| postgres.host | string | `"postgres"` | Host of the Postgres database. |
+| postgres.password | string | `"postgres"` | Password for the user used to connect to the Postgres database. |
+| postgres.port | int | `5432` | Port of the Postgres database. |
+| postgres.user | string | `"postgres"` | User used to connect to the Postgres database. |
 | readinessProbe.httpGet | object | `{"path":"/","port":"http"}` | Readiness probe configuration. |
 | replicaCount | int | `1` | Number of replicas for the deployment. |
 | resources | object | `{}` |  |
 | secret.create | bool | `true` | Specifies whether a secret should be created. |
 | secret.emailFrom | string | `""` | Email from address for the secret. |
 | secret.emailServer | string | `""` | Email server for the secret. |
+| secret.name | string | `""` | Specifies name of a secret used to configure the lubelog. |
 | secret.password | string | `""` | Password for the email server. |
 | secret.port | int | `587` | Port for the email server. |
 | secret.username | string | `""` | Username for the email server. |
