@@ -1,0 +1,72 @@
+{{- if and .Values.persistence.data.enabled (not .Values.persistence.data.existingClaim) }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "lubelog.pvcData" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "lubelog.labels" . | nindent 4 }}
+    {{- with .Values.podLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  annotations:
+    helm.sh/resource-policy: "keep"
+spec:
+  accessModes:
+    - {{ .Values.persistence.data.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.data.size }}
+  {{- if .Values.persistence.data.storageClass }}
+  storageClassName: {{ .Values.persistence.data.storageClass }}
+  {{- end }}
+{{- end }}
+{{- if and .Values.persistence.images.enabled (not .Values.persistence.images.existingClaim) }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "lubelog.pvcImages" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "lubelog.labels" . | nindent 4 }}
+    {{- with .Values.podLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  annotations:
+    helm.sh/resource-policy: "keep"
+spec:
+  accessModes:
+    - {{ .Values.persistence.images.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.images.size }}
+  {{- if .Values.persistence.images.storageClass }}
+  storageClassName: {{ .Values.persistence.images.storageClass }}
+  {{- end }}
+{{- end }}
+{{- if and .Values.persistence.documents.enabled (not .Values.persistence.documents.existingClaim) }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "lubelog.pvcDocuments" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "lubelog.labels" . | nindent 4 }}
+    {{- with .Values.podLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  annotations:
+    helm.sh/resource-policy: "keep"
+spec:
+  accessModes:
+    - {{ .Values.persistence.documents.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.documents.size }}
+  {{- if .Values.persistence.documents.storageClass }}
+  storageClassName: {{ .Values.persistence.documents.storageClass }}
+  {{- end }}
+{{- end }}

@@ -3,11 +3,19 @@
 # -- Number of replicas for the deployment.
 replicaCount: 1
 
-image:
-  # -- Registry and repository for the image.
+lubelogger:
+  # -- Registry and repository for the lubelogger image.
   repository: ghcr.io/hargata/lubelogger
   # -- Tag for the image.
   tag: "v1.3.6"
+  # -- Image pull policy.
+  pullPolicy: IfNotPresent
+
+curl:
+  # -- Registry and repository for the image.
+  repository: docker.io/curlimages/curl
+  # -- Tag for the image.
+  tag: "8.10.0"
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
@@ -21,6 +29,74 @@ config:
   # `Warning`, `Error`, `Critical` and `None`. Learn more at:
   # https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/
   LOGLEVEL: Information
+  # -- Translations defines a list of URLs from which translation files will be fetched.
+  # These URLs point to JSON files containing translations for different languages or regions.
+  # The files will be downloaded by the init container and stored in the appropriate directory.
+  translations:
+    - https://raw.githubusercontent.com/hargata/lubelog_translations/main/Europe/pl_PL.json
+  userConfig:
+    Logging:
+      LogLevel:
+        # -- Specifies the default log level for all components.
+        # Valid levels are `Trace`, `Debug`, `Information`,
+        # `Warning`, `Error`, `Critical` and `None`. Learn more at:
+        # https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/
+        Default: Information
+        # -- Sets the log level for Microsoft.AspNetCore-related components.
+        # Valid levels are `Trace`, `Debug`, `Information`,
+        # `Warning`, `Error`, `Critical` and `None`. Learn more at:
+        # https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/
+        Microsoft.AspNetCore: Warning
+    # -- Specifies allowed hosts for the application (use "*" to allow all hosts).
+    AllowedHosts: "*"
+    # -- Enables or disables dark mode in the user interface.
+    UseDarkMode: false
+    # -- Enables the ability to import data from CSV files.
+    EnableCsvImports: true
+    # -- Configures whether to use miles per gallon (MPG) as the fuel economy unit.
+    UseMPG: true
+    # -- Determines if lists are ordered in descending order by default.
+    UseDescending: false
+    # -- Enables or disables authentication for the application.
+    EnableAuth: true
+    # -- Determines whether zero values should be hidden in the UI.
+    HideZero: false
+    # -- Automatically refreshes reminders without manual intervention.
+    EnableAutoReminderRefresh: false
+    # -- Automatically inserts odometer readings based on previous data.
+    EnableAutoOdometerInsert: false
+    # -- Enables tracking of shop supplies in transactions.
+    EnableShopSupplies: false
+    # -- Enables additional columns for extra field entries.
+    EnableExtraFieldColumns: false
+    # -- Uses UK miles per gallon (UK MPG) as the fuel economy unit.
+    UseUKMPG: false
+    # -- Enables displaying gas costs with three decimal places for accuracy.
+    UseThreeDecimalGasCost: true
+    # -- Allows saved notes to support markdown formatting.
+    UseMarkDownOnSavedNotes: false
+    # -- Hides vehicles marked as sold from the display.
+    HideSoldVehicles: false
+    # -- Specifies the preferred unit for gas mileage.
+    PreferredGasMileageUnit: ""
+    # -- Stores user preferences for column visibility.
+    UserColumnPreferences: []
+    # -- Specifies the preferred unit for gas volume.
+    PreferredGasUnit: ""
+    # -- Defines the user's language preference (e.g., "en_US").
+    UserLanguage: en_US
+    # -- Specifies which tabs are visible in the user interface.
+    VisibleTabs: [0, 1, 4, 2, 3, 6, 5, 8]
+    # -- Sets the default tab to be shown when the application starts.
+    DefaultTab: 8
+    # -- Stores a hashed version of the user's username.
+    # It is sha256, and can be created using one the following commands:
+    # `python3 -c 'import hashlib; print(hashlib.sha256("admin".encode("utf-8")).hexdigest())'`
+    UserNameHash: "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"
+    # -- Stores a hashed version of the user's password.
+    # It is sha256, and can be created using one the following commands:
+    # `python3 -c 'import hashlib; print(hashlib.sha256("password".encode("utf-8")).hexdigest())'`
+    UserPasswordHash: "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8"
 
 # -- Secrets for pulling images.
 imagePullSecrets: []
@@ -56,6 +132,41 @@ secret:
   username: ""
   # -- Password for the email server.
   password: ""
+
+persistence:
+  data:
+    # -- Enable/disable PVC creation for data.
+    enabled: false
+    # -- Use an existing PVC if defined, otherwise create one.
+    existingClaim: ""
+    # -- Specify the StorageClass (if required).
+    storageClass: ""
+    # -- Access mode for the PVC.
+    accessMode: ReadWriteOnce
+    # -- Storage size for the PVC.
+    size: 10Gi
+  documents:
+    # -- Enable/disable PVC creation for documents.
+    enabled: true
+    # -- Use an existing PVC if defined, otherwise create one.
+    existingClaim: ""
+    # -- Specify the StorageClass (if required).
+    storageClass: ""
+    # -- Access mode for the PVC.
+    accessMode: ReadWriteOnce
+    # -- Storage size for the PVC.
+    size: 10Gi
+  images:
+    # -- Enable/disable PVC creation for images.
+    enabled: true
+    # -- Use an existing PVC if defined, otherwise create one.
+    existingClaim: ""
+    # -- Specify the StorageClass (if required).
+    storageClass: ""
+    # -- Access mode for the PVC.
+    accessMode: ReadWriteOnce
+    # -- Storage size for the PVC.
+    size: 10Gi
 
 postgres:
   # -- Defines if the secret with Postgres connection details should be created.
@@ -157,7 +268,7 @@ autoscaling:
   # -- Target CPU utilization percentage for autoscaling.
   targetCPUUtilizationPercentage: 80
   # -- Target memory utilization percentage for autoscaling.
-  # targetMemoryUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
 
 # -- Node selector for the pods.
 nodeSelector: {}
@@ -167,3 +278,16 @@ tolerations: []
 
 # -- Affinity settings for the pods.
 affinity: {}
+  # nodeAffinity:
+  #   requiredDuringSchedulingIgnoredDuringExecution:
+  #     nodeSelectorTerms:
+  #       - matchExpressions:
+  #         - key: kubernetes.io/arch
+  #           operator: In
+  #           values:
+  #             - amd64
+  #             - arm64
+  #         - key: kubernetes.io/os
+  #           operator: In
+  #           values:
+  #             - linux

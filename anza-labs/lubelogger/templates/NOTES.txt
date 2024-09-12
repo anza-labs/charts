@@ -1,4 +1,4 @@
-1. Get the application URL by running these commands:
+Get the application URL by running these commands:
 {{- if .Values.ingress.enabled }}
 {{- range $host := .Values.ingress.hosts }}
   {{- range .paths }}
@@ -9,4 +9,12 @@
   export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "lubelog.name" . }},app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
   echo "Visit http://127.0.0.1:8080 to use your application"
   kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:8080
+{{- end }}
+
+{{- $maxReplicas := int 1 }}
+{{- if (gt (int .Values.replicaCount) ($maxReplicas) ) }}
+WARNING!
+
+Your set the replica count to >1. Application does not sync Data, Documents and Images between replicas, so you will see 
+inconsistency and you will might observe data loss.
 {{- end }}

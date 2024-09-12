@@ -31,13 +31,61 @@ spec:
       serviceAccountName: {{ include "lubelog.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      volumes: []
+      volumes:
+        - name: config-ro
+          secret:
+            secretName: {{ include "lubelog.fullname" . }}
+            items:
+              - key: userConfig
+                path: userConfig.json
+        - name: translations
+          emptyDir: {}
+        - name: config
+          emptyDir: {}
+      {{- if .Values.persistence.data.enabled }}
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "lubelog.pvcData" . }}
+      {{- end }}
+      {{- if .Values.persistence.documents.enabled }}
+        - name: documents
+          persistentVolumeClaim:
+            claimName: {{ include "lubelog.pvcDocuments" . }}
+      {{- end }}
+      {{- if .Values.persistence.images.enabled }}
+        - name: images
+          persistentVolumeClaim:
+            claimName: {{ include "lubelog.pvcImages" . }}
+      {{- end }}
+      {{- if .Values.config.translations }}
+      initContainers:
+        - name: init-translations
+          image: "{{ .Values.curl.repository }}:{{ .Values.curl.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.curl.pullPolicy }}
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              mkdir -p /config
+              cp /config-ro/* /config
+              mkdir -p /translations
+              {{- range .Values.config.translations }}
+              echo "Fetching {{ . }}"
+              curl -o "/translations/$(basename {{ . }})" "{{ . }}"
+              {{- end }}
+          volumeMounts:
+            - name: config-ro
+              mountPath: /config-ro
+            - name: config
+              mountPath: /config
+            - name: translations
+              mountPath: /translations
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.lubelogger.repository }}:{{ .Values.lubelogger.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.lubelogger.pullPolicy }}
           ports:
             - name: http
               containerPort: 8080
@@ -48,7 +96,23 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          volumeMounts: []
+          volumeMounts:
+            - name: config
+              mountPath: /App/config
+            - name: translations
+              mountPath: /App/wwwroot/translations
+          {{- if .Values.persistence.data.enabled }}
+            - name: data
+              mountPath: /App/data
+          {{- end }}
+          {{- if .Values.persistence.documents.enabled }}
+            - name: documents
+              mountPath: /App/wwwroot/documents
+          {{- end }}
+          {{- if .Values.persistence.images.enabled }}
+            - name: images
+              mountPath: /App/wwwroot/images
+          {{- end }}
           env:
             - name: "LC_ALL"
               value: {{ .Values.config.LC_ALL | default "en_US.UTF-8" | quote }}

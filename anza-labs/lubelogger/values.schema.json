@@ -18,6 +18,9 @@
         },
         "targetCPUUtilizationPercentage": {
           "type": "integer"
+        },
+        "targetMemoryUtilizationPercentage": {
+          "type": "integer"
         }
       },
       "type": "object"
@@ -32,14 +35,110 @@
         },
         "LOGLEVEL": {
           "type": "string"
+        },
+        "translations": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "userConfig": {
+          "properties": {
+            "AllowedHosts": {
+              "type": "string"
+            },
+            "DefaultTab": {
+              "type": "integer"
+            },
+            "EnableAuth": {
+              "type": "boolean"
+            },
+            "EnableAutoOdometerInsert": {
+              "type": "boolean"
+            },
+            "EnableAutoReminderRefresh": {
+              "type": "boolean"
+            },
+            "EnableCsvImports": {
+              "type": "boolean"
+            },
+            "EnableExtraFieldColumns": {
+              "type": "boolean"
+            },
+            "EnableShopSupplies": {
+              "type": "boolean"
+            },
+            "HideSoldVehicles": {
+              "type": "boolean"
+            },
+            "HideZero": {
+              "type": "boolean"
+            },
+            "Logging": {
+              "properties": {
+                "LogLevel": {
+                  "properties": {
+                    "Default": {
+                      "type": "string"
+                    },
+                    "Microsoft.AspNetCore": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "PreferredGasMileageUnit": {
+              "type": "string"
+            },
+            "PreferredGasUnit": {
+              "type": "string"
+            },
+            "UseDarkMode": {
+              "type": "boolean"
+            },
+            "UseDescending": {
+              "type": "boolean"
+            },
+            "UseMPG": {
+              "type": "boolean"
+            },
+            "UseMarkDownOnSavedNotes": {
+              "type": "boolean"
+            },
+            "UseThreeDecimalGasCost": {
+              "type": "boolean"
+            },
+            "UseUKMPG": {
+              "type": "boolean"
+            },
+            "UserColumnPreferences": {
+              "type": "array"
+            },
+            "UserLanguage": {
+              "type": "string"
+            },
+            "UserNameHash": {
+              "type": "string"
+            },
+            "UserPasswordHash": {
+              "type": "string"
+            },
+            "VisibleTabs": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
         }
       },
       "type": "object"
     },
-    "fullnameOverride": {
-      "type": "string"
-    },
-    "image": {
+    "curl": {
       "properties": {
         "pullPolicy": {
           "type": "string"
@@ -52,6 +151,9 @@
         }
       },
       "type": "object"
+    },
+    "fullnameOverride": {
+      "type": "string"
     },
     "imagePullSecrets": {
       "type": "array"
@@ -115,11 +217,90 @@
       },
       "type": "object"
     },
+    "lubelogger": {
+      "properties": {
+        "pullPolicy": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "nameOverride": {
       "type": "string"
     },
     "nodeSelector": {
       "properties": {},
+      "type": "object"
+    },
+    "persistence": {
+      "properties": {
+        "data": {
+          "properties": {
+            "accessMode": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "existingClaim": {
+              "type": "string"
+            },
+            "size": {
+              "type": "string"
+            },
+            "storageClass": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "documents": {
+          "properties": {
+            "accessMode": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "existingClaim": {
+              "type": "string"
+            },
+            "size": {
+              "type": "string"
+            },
+            "storageClass": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "images": {
+          "properties": {
+            "accessMode": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "existingClaim": {
+              "type": "string"
+            },
+            "size": {
+              "type": "string"
+            },
+            "storageClass": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
       "type": "object"
     },
     "podAnnotations": {

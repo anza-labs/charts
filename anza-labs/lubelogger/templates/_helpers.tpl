@@ -62,7 +62,7 @@ Create the name of the service account to use
 Create secret name used for configuring mail.
 */}}
 {{- define "lubelog.mailSecret" -}}
-    {{- default (include "lubelog.fullname" .) .Values.secret.name }}
+    {{- default (printf "%s-mail" (include "lubelog.fullname" .)) .Values.secret.name }}
 {{- end }}
 
 {{/*
@@ -77,4 +77,25 @@ Create key under which PostgreSQL connection string can be found.
 */}}
 {{- define "lubelog.postgresSecretKey" -}}
     {{- default "POSTGRES_CONNECTION" .Values.postgres.keyRef }}
+{{- end }}
+
+{{/*
+Create pvc name used for configuring the data persistence in app.
+*/}}
+{{- define "lubelog.pvcData" -}}
+    {{- default ( printf "%s-data" (include "lubelog.fullname" .)) .Values.persistence.data.existingClaim }}
+{{- end }}
+
+{{/*
+Create pvc name used for configuring the documents persistence in app.
+*/}}
+{{- define "lubelog.pvcDocuments" -}}
+    {{- default ( printf "%s-documents" (include "lubelog.fullname" .)) .Values.persistence.documents.existingClaim }}
+{{- end }}
+
+{{/*
+Create pvc name used for configuring the images persistence in app.
+*/}}
+{{- define "lubelog.pvcImages" -}}
+    {{- default ( printf "%s-images" (include "lubelog.fullname" .)) .Values.persistence.images.existingClaim }}
 {{- end }}
