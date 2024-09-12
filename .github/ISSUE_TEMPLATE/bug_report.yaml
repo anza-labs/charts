@@ -11,6 +11,7 @@ body:
       multiple: true
       options:
         - lubelogger
+        - scribe
   - type: textarea
     id: what-happened
     attributes:
