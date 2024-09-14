@@ -1,0 +1,21 @@
+---
+{{- $separator := "/" }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "scribe.fullname" . }}
+rules:
+  {{- range .Values.config }}
+  - apiGroups:
+      - {{ index (.apiVersion | split "/") "_0" }}
+    resources:
+      {{- range .resources }}
+      - {{ if .plural }}{{ .plural }}{{ else }}{{ .kind | lower }}s{{ end }}
+      {{- end }}
+    verbs:
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  {{- end }}

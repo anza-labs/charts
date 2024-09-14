@@ -5,22 +5,27 @@
       "properties": {},
       "type": "object"
     },
-    "autoscaling": {
-      "properties": {
-        "enabled": {
-          "type": "boolean"
+    "config": {
+      "items": {
+        "properties": {
+          "apiVersion": {
+            "type": "string"
+          },
+          "resources": {
+            "items": {
+              "properties": {
+                "kind": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          }
         },
-        "maxReplicas": {
-          "type": "integer"
-        },
-        "minReplicas": {
-          "type": "integer"
-        },
-        "targetCPUUtilizationPercentage": {
-          "type": "integer"
-        }
+        "type": "object"
       },
-      "type": "object"
+      "type": "array"
     },
     "fullnameOverride": {
       "type": "string"
@@ -41,49 +46,6 @@
     },
     "imagePullSecrets": {
       "type": "array"
-    },
-    "ingress": {
-      "properties": {
-        "annotations": {
-          "properties": {},
-          "type": "object"
-        },
-        "className": {
-          "type": "string"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "hosts": {
-          "items": {
-            "properties": {
-              "host": {
-                "type": "string"
-              },
-              "paths": {
-                "items": {
-                  "properties": {
-                    "path": {
-                      "type": "string"
-                    },
-                    "pathType": {
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              }
-            },
-            "type": "object"
-          },
-          "type": "array"
-        },
-        "tls": {
-          "type": "array"
-        }
-      },
-      "type": "object"
     },
     "livenessProbe": {
       "properties": {
@@ -147,17 +109,6 @@
       "properties": {},
       "type": "object"
     },
-    "service": {
-      "properties": {
-        "port": {
-          "type": "integer"
-        },
-        "type": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
     "serviceAccount": {
       "properties": {
         "annotations": {
@@ -177,12 +128,6 @@
       "type": "object"
     },
     "tolerations": {
-      "type": "array"
-    },
-    "volumeMounts": {
-      "type": "array"
-    },
-    "volumes": {
       "type": "array"
     }
   },

@@ -40,7 +40,7 @@ backfill-app-version: yq
 
 .PHONY: _backfill-app-version
 _backfill-app-version:
-	yq '.appVersion = load("${CHART}/values.yaml").image.tag' ${CHART}/Chart.yaml -i
+	cd ${CHART}; ./.backfill.sh $(YQ)
 
 .PHONY: generate-docs
 generate-docs: helm-docs ## Run kube-linter on Kubernetes manifests.

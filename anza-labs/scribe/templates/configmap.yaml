@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "scribe.fullname" . }}
+data:
+  config.yaml: |
+    ---
+    types:
+    {{- range .Values.config }}
+      {{- $apiVersion := .apiVersion }}
+      {{- range .resources }}
+      - apiVersion: {{ $apiVersion  }}
+        kind: {{ .kind }}
+      {{- end }}
+    {{- end }}
