@@ -5,9 +5,9 @@ replicaCount: 1
 
 image:
   # -- Registry and repository for the scribe image.
-  repository: localhost:5005/manager
+  repository: ghcr.io/anza-labs/scribe
   # -- Tag for the image.
-  tag: "e2e"
+  tag: "v0.1.0"
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
@@ -64,18 +64,6 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
-
-livenessProbe:
-  # -- Liveness probe configuration.
-  httpGet:
-    path: /
-    port: http
-
-readinessProbe:
-  # -- Readiness probe configuration.
-  httpGet:
-    path: /
-    port: http
 
 # -- Node selector for the pods.
 nodeSelector: {}

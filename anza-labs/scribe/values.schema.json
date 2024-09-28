@@ -47,22 +47,6 @@
     "imagePullSecrets": {
       "type": "array"
     },
-    "livenessProbe": {
-      "properties": {
-        "httpGet": {
-          "properties": {
-            "path": {
-              "type": "string"
-            },
-            "port": {
-              "type": "string"
-            }
-          },
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
     "nameOverride": {
       "type": "string"
     },
@@ -80,22 +64,6 @@
     },
     "podSecurityContext": {
       "properties": {},
-      "type": "object"
-    },
-    "readinessProbe": {
-      "properties": {
-        "httpGet": {
-          "properties": {
-            "path": {
-              "type": "string"
-            },
-            "port": {
-              "type": "string"
-            }
-          },
-          "type": "object"
-        }
-      },
       "type": "object"
     },
     "replicaCount": {

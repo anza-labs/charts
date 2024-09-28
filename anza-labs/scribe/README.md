@@ -25,13 +25,11 @@ A Helm chart for Kubernetes
 | image.repository | string | `"ghcr.io/anza-labs/scribe"` | Registry and repository for the scribe image. |
 | image.tag | string | `"v0.1.0"` | Tag for the image. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
-| livenessProbe.httpGet | object | `{"path":"/","port":"http"}` | Liveness probe configuration. |
 | nameOverride | string | `""` | Override for the name. |
 | nodeSelector | object | `{}` | Node selector for the pods. |
 | podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | podLabels | object | `{}` | Labels to be added to the pods. |
 | podSecurityContext | object | `{}` |  |
-| readinessProbe.httpGet | object | `{"path":"/","port":"http"}` | Readiness probe configuration. |
 | replicaCount | int | `1` | Number of replicas for the deployment. |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |

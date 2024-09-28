@@ -4,7 +4,69 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: {{ include "scribe.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "scribe.labels" . | nindent 4 }}
 rules:
+  # Leader election
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+      - delete
+  - apiGroups:
+      - coordination.k8s.io
+    resources:
+      - leases
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+      - delete
+  - apiGroups:
+      - ""
+    resources:
+      - events
+    verbs:
+      - create
+      - patch
+  # Metrics Auth
+  - apiGroups:
+      - authentication.k8s.io
+    resources:
+      - tokenreviews
+    verbs:
+      - create
+  - apiGroups:
+      - authorization.k8s.io
+    resources:
+      - subjectaccessreviews
+    verbs:
+      - create
+  - nonResourceURLs:
+      - "/metrics"
+    verbs:
+      - get
+  # Namespaces
+  - apiGroups:
+      - ""
+    resources:
+      - namespaces
+    verbs:
+      - get
+      - list
+      - watch
+  # Observed objects
   {{- range .Values.config }}
   - apiGroups:
       - {{ index (.apiVersion | split "/") "_0" }}

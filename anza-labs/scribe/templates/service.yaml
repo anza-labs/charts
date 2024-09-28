@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "scribe.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "scribe.labels" . | nindent 4 }}
+spec:
+  ports:
+    - name: https
+      port: 8443
+      protocol: TCP
+      targetPort: 8443
+  selector:
+    {{- include "scribe.selectorLabels" . | nindent 4 }}
