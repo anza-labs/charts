@@ -34,9 +34,5 @@ on the annotations in a Namespace.
 | replicaCount | int | `1` | Number of replicas for the deployment. |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
-| serviceAccount.annotations | object | `{}` | Annotations to add to the service account. |
-| serviceAccount.automount | bool | `true` | Automatically mount a ServiceAccount's API credentials. |
-| serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
-| serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
 | tolerations | list | `[]` | Tolerations for the pods. |
 

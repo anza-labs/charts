@@ -11,5 +11,9 @@ spec:
       port: 8443
       protocol: TCP
       targetPort: 8443
+    - name: probes
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
   selector:
     {{- include "scribe.selectorLabels" . | nindent 4 }}

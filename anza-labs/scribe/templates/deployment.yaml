@@ -40,6 +40,13 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: probes
+              containerPort: 8081
+              protocol: TCP
+            - name: https
+              containerPort: 8443
+              protocol: TCP
           livenessProbe:
             httpGet:
               path: /healthz

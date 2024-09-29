@@ -51,18 +51,7 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
-Create the name of the service account to use
-*/}}
-{{- define "scribe.serviceAccountName" -}}
-    {{- if .Values.serviceAccount.create }}
-        {{- default (include "scribe.fullname" .) .Values.serviceAccount.name }}
-    {{- else }}
-        {{- default "default" .Values.serviceAccount.name }}
-    {{- end }}
-{{- end }}
-
-{{/*
-Create secret name used for configuring mail.
+Create secret name used for configuring the tool.
 */}}
 {{- define "scribe.config" -}}
     {{- printf "%s-config" (include "scribe.fullname" .) }}
