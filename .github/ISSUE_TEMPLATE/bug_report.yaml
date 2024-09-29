@@ -4,14 +4,6 @@ title: "[BUG]: <title>"
 labels:
   - kind/bug
 body:
-  - type: dropdown
-    id: chart
-    attributes:
-      label: What chart are you seeing the problem on?
-      multiple: true
-      options:
-        - lubelogger
-        - scribe
   - type: textarea
     id: what-happened
     attributes:
