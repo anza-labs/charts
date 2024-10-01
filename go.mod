@@ -5,7 +5,7 @@ go 1.22.0
 toolchain go1.23.2
 
 require (
-	github.com/losisin/helm-values-schema-json v1.5.3
+	github.com/losisin/helm-values-schema-json v1.5.4
 	github.com/mikefarah/yq/v4 v4.44.3
 	github.com/norwoodj/helm-docs v1.14.2
 	golang.stackrox.io/kube-linter v0.6.8
