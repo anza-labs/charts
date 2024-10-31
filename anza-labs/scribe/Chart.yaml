@@ -5,7 +5,7 @@ description: |
   on the annotations in a Namespace.
 type: application
 version: 0.1.2
-appVersion: "v0.1.0"
+appVersion: "v0.1.1"
 maintainers:
   - name: Mateusz Urbanek
     email: matueusz.urbanek.98@gmail.com
