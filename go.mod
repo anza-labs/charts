@@ -8,7 +8,7 @@ require (
 	github.com/losisin/helm-values-schema-json v1.6.1
 	github.com/mikefarah/yq/v4 v4.44.3
 	github.com/norwoodj/helm-docs v1.14.2
-	golang.stackrox.io/kube-linter v0.7.0
+	golang.stackrox.io/kube-linter v0.7.1
 )
 
 require (
