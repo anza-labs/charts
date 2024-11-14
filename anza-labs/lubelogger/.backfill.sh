@@ -4,4 +4,4 @@ set -eu
 
 YQ="${1}"
 
-"${YQ}" '.appVersion = load("./values.yaml").lubelogger.tag' './Chart.yaml' -i
+"${YQ}" '.appVersion = load("./values.yaml").image.tag' './Chart.yaml' -i

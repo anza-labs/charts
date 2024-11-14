@@ -16,6 +16,9 @@
               "properties": {
                 "kind": {
                   "type": "string"
+                },
+                "plural": {
+                  "type": "string"
                 }
               },
               "type": "object"
