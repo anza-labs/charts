@@ -188,7 +188,7 @@ curl:
     # -- Registry and repository for the image.
     repository: docker.io/curlimages/curl
     # -- Tag for the image.
-    tag: "8.10.1"
+    tag: "8.11.0"
     # -- Image pull policy.
     pullPolicy: IfNotPresent
 
