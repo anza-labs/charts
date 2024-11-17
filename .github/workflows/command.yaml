@@ -1,0 +1,36 @@
+name: Trigger CI on Comment
+
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  process-comment:
+    if: startsWith(github.event.comment.body, '/ci ')
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: fregante/setup-git-user@v2
+      - id: extract_info
+        run: |
+          ./hack/comment.sh "${{ github.event.comment.body }}" "${GITHUB_ENV}"
+      - run: |
+          PR_NUMBER=${{ github.event.issue.number }}
+          BRANCH_NAME=$(gh pr view $PR_NUMBER --json headRefName --jq '.headRefName')
+          git fetch origin $BRANCH_NAME
+          git checkout $BRANCH_NAME
+      - run: |
+          make ci CHART=anza-labs/${{ env.chart_name }} VERSION=${{ env.chart_version }}
+      - run: |
+          git add .
+          git commit -m "fix: generated chart ${{ env.chart_name }} version ${{ env.chart_version }}" || echo "No changes to commit"
+          git push origin HEAD

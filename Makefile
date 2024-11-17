@@ -13,7 +13,7 @@ SHELL = /usr/bin/env bash -o pipefail
 .SHELLFLAGS = -ec
 
 .PHONY: all
-all: backfill-app-version generate-schemas generate-docs
+all: backfill-all-app-version generate-schemas generate-docs
 
 ##@ General
 
@@ -34,24 +34,39 @@ help: ## Display this help.
 
 ##@ Development
 
-.PHONY: backfill-app-versions
-backfill-app-version: yq
+.PHONY: ci
+ci: _ci _generate-schema _generate-docs
+
+.PHONY: _ci
+_ci:
+	$(MAKE) _backfill-app-version CHART=${CHART}
+	$(MAKE) _set-chart-version VERSION=${VERSION}
+
+.PHONY: backfill-all-app-versions
+backfill-all-app-versions: yq
 	for dir in anza-labs/*; do $(MAKE) _backfill-app-version CHART="$$dir"; done
 
 .PHONY: _backfill-app-version
-_backfill-app-version:
+_backfill-app-version: yq
 	cd ${CHART}; ./.backfill.sh $(YQ)
+
+.PHONY: _set-chart-version
+_set-chart-version: yq
+	cd ${CHART}; $(YQ) ".version = \"${VERSION}\"" './Chart.yaml' -i
 
 .PHONY: generate-docs
 generate-docs: helm-docs ## Run kube-linter on Kubernetes manifests.
-	$(HELM_DOCS) --badge-style=flat
+	for dir in anza-labs/*; do $(MAKE) _ggenerate-docs CHART="$$dir"; done
+
+_generate-docs: helm-docs
+	cd ${CHART}; $(HELM_DOCS) --badge-style=flat
 
 .PHONY: generate-schemas
 generate-schemas: helm-values-schema-json ## Run kube-linter on Kubernetes manifests.
 	for dir in anza-labs/*; do $(MAKE) _generate-schema CHART="$$dir"; done
 
 .PHONY: _generate-schema
-_generate-schema:
+_generate-schema: helm-values-schema-json
 	$(HELM_VALUES_SCHEMA_JSON) \
 		-draft=7 \
 		-indent=2 \
