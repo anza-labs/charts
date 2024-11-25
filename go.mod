@@ -5,7 +5,7 @@ go 1.22.5
 toolchain go1.23.3
 
 require (
-	github.com/losisin/helm-values-schema-json v1.6.3
+	github.com/losisin/helm-values-schema-json v1.6.4
 	github.com/mikefarah/yq/v4 v4.44.5
 	github.com/norwoodj/helm-docs v1.14.2
 	golang.stackrox.io/kube-linter v0.7.1
@@ -115,7 +115,7 @@ require (
 	github.com/spf13/cobra v1.8.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/spf13/viper v1.19.0 // indirect
-	github.com/stretchr/testify v1.9.0 // indirect
+	github.com/stretchr/testify v1.10.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
