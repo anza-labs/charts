@@ -2,7 +2,7 @@ module charts
 
 go 1.22.5
 
-toolchain go1.23.3
+toolchain go1.23.4
 
 require (
 	github.com/losisin/helm-values-schema-json v1.6.4
