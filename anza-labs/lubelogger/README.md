@@ -1,6 +1,6 @@
 # lubelogger
 
-![Version: 0.5.2](https://img.shields.io/badge/Version-0.5.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.4.1](https://img.shields.io/badge/AppVersion-v1.4.1-informational?style=flat)
+![Version: 0.5.3](https://img.shields.io/badge/Version-0.5.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.4.1](https://img.shields.io/badge/AppVersion-v1.4.1-informational?style=flat)
 
 LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 
@@ -51,7 +51,7 @@ LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 | config.userConfig.VisibleTabs | list | `[0,1,4,2,3,6,5,8]` | Specifies which tabs are visible in the user interface. |
 | curl.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | curl.image.repository | string | `"docker.io/curlimages/curl"` | Registry and repository for the image. |
-| curl.image.tag | string | `"8.11.0"` | Tag for the image. |
+| curl.image.tag | string | `"8.11.1"` | Tag for the image. |
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"ghcr.io/hargata/lubelogger"` | Registry and repository for the lubelogger image. |

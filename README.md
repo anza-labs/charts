@@ -8,5 +8,5 @@ This repository contains the following Helm charts:
 
 | Name | Version | App Version | About | Artifact Hub |
 |------|---------|-------------|-------|--------------|
-| [lubelogger](anza-labs/lubelogger) | `0.5.2` | `v1.4.1` | LubeLogger is a web-based vehicle maintenance and fuel mileage tracker | [![Artifact Hub](https://img.shields.io/static/v1?label=ArtifactHub&message=View&color=informational)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
+| [lubelogger](anza-labs/lubelogger) | `0.5.3` | `v1.4.1` | LubeLogger is a web-based vehicle maintenance and fuel mileage tracker | [![Artifact Hub](https://img.shields.io/static/v1?label=ArtifactHub&message=View&color=informational)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
 | [scribe](anza-labs/scribe) | `0.1.4` | `v0.1.1` | Scribe is a tool that automates the propagation of annotations across Kubernetes resources based on the annotations in a Namespace.  | [![Artifact Hub](https://img.shields.io/static/v1?label=ArtifactHub&message=View&color=informational)](https://artifacthub.io/packages/helm/anza-labs/scribe) |
