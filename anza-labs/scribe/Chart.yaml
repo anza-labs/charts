@@ -4,8 +4,8 @@ description: |
   Scribe is a tool that automates the propagation of annotations across Kubernetes resources based
   on the annotations in a Namespace.
 type: application
-version: 0.1.5
-appVersion: "v0.1.2"
+version: 0.2.0
+appVersion: "v0.2.0"
 maintainers:
   - name: Mateusz Urbanek
     email: matueusz.urbanek.98@gmail.com
