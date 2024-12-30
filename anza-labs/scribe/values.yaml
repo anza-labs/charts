@@ -7,7 +7,7 @@ image:
   # -- Registry and repository for the scribe image.
   repository: ghcr.io/anza-labs/scribe
   # -- Tag for the image.
-  tag: "v0.1.1"
+  tag: "v0.1.2"
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
