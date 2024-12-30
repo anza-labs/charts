@@ -1,6 +1,6 @@
 # scribe
 
-![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.1.2](https://img.shields.io/badge/AppVersion-v0.1.2-informational?style=flat)
+![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.1.2](https://img.shields.io/badge/AppVersion-v0.1.2-informational?style=flat)
 
 Scribe is a tool that automates the propagation of annotations across Kubernetes resources based
 on the annotations in a Namespace.
