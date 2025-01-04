@@ -1,6 +1,6 @@
 # scribe
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.2.0](https://img.shields.io/badge/AppVersion-v0.2.0-informational?style=flat)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.3.0](https://img.shields.io/badge/AppVersion-v0.3.0-informational?style=flat)
 
 Scribe is a tool that automates the propagation of annotations across Kubernetes resources based
 on the annotations in a Namespace.
@@ -24,7 +24,7 @@ on the annotations in a Namespace.
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"ghcr.io/anza-labs/scribe"` | Registry and repository for the scribe image. |
-| image.tag | string | `"v0.2.0"` | Tag for the image. |
+| image.tag | string | `"v0.3.0"` | Tag for the image. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | nameOverride | string | `""` | Override for the name. |
 | nodeSelector | object | `{}` | Node selector for the pods. |
