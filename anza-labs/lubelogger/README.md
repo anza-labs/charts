@@ -1,6 +1,6 @@
 # lubelogger
 
-![Version: 0.5.4](https://img.shields.io/badge/Version-0.5.4-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.4.2](https://img.shields.io/badge/AppVersion-v1.4.2-informational?style=flat)
+![Version: 0.5.5](https://img.shields.io/badge/Version-0.5.5-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.4.3](https://img.shields.io/badge/AppVersion-v1.4.3-informational?style=flat)
 
 LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 
@@ -55,7 +55,7 @@ LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"ghcr.io/hargata/lubelogger"` | Registry and repository for the lubelogger image. |
-| image.tag | string | `"v1.4.2"` | Tag for the image. |
+| image.tag | string | `"v1.4.3"` | Tag for the image. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | ingress.annotations | object | `{}` | Annotations to add to the ingress. |
 | ingress.className | string | `""` | Ingress class name. |
