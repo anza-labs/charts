@@ -1,11 +1,12 @@
 apiVersion: v2
+deprecated: true # Mark as deprecated, due to bug https://github.com/anza-labs/scribe/issues/64
 type: application
 name: scribe
 description: |
   _Scribe_ is a tool that automates the propagation of annotations across Kubernetes resources based
   on the annotations in a Namespace.
 home: https://github.com/anza-labs/scribe
-version: 0.3.5
+version: 0.3.6
 appVersion: "v0.3.0"
 keywords: []
 annotations: {}

@@ -1,6 +1,8 @@
 # scribe
 
-![Version: 0.3.5](https://img.shields.io/badge/Version-0.3.5-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.3.0](https://img.shields.io/badge/AppVersion-v0.3.0-informational?style=flat)
+> **:exclamation: This Helm Chart is deprecated!**
+
+![Version: 0.3.6](https://img.shields.io/badge/Version-0.3.6-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.3.0](https://img.shields.io/badge/AppVersion-v0.3.0-informational?style=flat)
 
 _Scribe_ is a tool that automates the propagation of annotations across Kubernetes resources based
 on the annotations in a Namespace.

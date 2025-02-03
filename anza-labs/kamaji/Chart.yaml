@@ -4,7 +4,7 @@ name: kamaji
 description: |
   _Kamaji_ is the Kubernetes Control Plane Manager.
 home: https://kamaji.clastix.io
-version: 0.1.0
+version: 0.1.1
 appVersion: "edge-24.12.1"
 sources:
   - https://github.com/clastix/kamaji
@@ -17,3 +17,30 @@ dependencies:
     repository: https://clastix.github.io/charts
     version: ">=0.8.1"
     condition: kamaji-etcd.deploy
+annotations:
+  artifacthub.io/images: |
+    - name: proxy-server
+      image: registry.k8s.io/kas-network-proxy/proxy-server:v0.28.6
+      platforms:
+        - linux/amd64
+        - linux/arm64
+    - name: kamaji
+      image: docker.io/clastix/kamaji:edge-24.12.1
+      platforms:
+        - linux/amd64
+        - linux/arm64
+    - name: kube-apiserver
+      image: registry.k8s.io/kube-apiserver:v1.28.6
+      platforms:
+        - linux/amd64
+        - linux/arm64
+    - name: kube-controller-manager
+      image: registry.k8s.io/kube-controller-manager:v1.28.6
+      platforms:
+        - linux/amd64
+        - linux/arm64
+    - name: kube-scheduler
+      image: registry.k8s.io/kube-scheduler:v1.28.6
+      platforms:
+        - linux/amd64
+        - linux/arm64
