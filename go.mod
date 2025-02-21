@@ -1,12 +1,12 @@
 module charts
 
-go 1.22.5
+go 1.23.0
 
 toolchain go1.24.0
 
 require (
 	github.com/Masterminds/sprig/v3 v3.3.0
-	github.com/losisin/helm-values-schema-json v1.6.4
+	github.com/losisin/helm-values-schema-json v1.7.0
 	github.com/mikefarah/yq/v4 v4.45.1
 	github.com/norwoodj/helm-docs v1.14.2
 	golang.stackrox.io/kube-linter v0.7.1
