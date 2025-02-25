@@ -11,7 +11,7 @@ This repository contains the following Helm charts:
 | Name | Version | App Version | Artifact Hub |
 |------|---------|-------------|--------------|
 | [kamaji](anza-labs/kamaji) | `0.1.1` | `edge-24.12.1` | [![Artifact Hub](https://img.shields.io/static/v1?label=ArtifactHub&message=View&color=informational)](https://artifacthub.io/packages/helm/anza-labs/kamaji) |
-| [lubelogger](anza-labs/lubelogger) | `0.5.10` | `v1.4.4` | [![Artifact Hub](https://img.shields.io/static/v1?label=ArtifactHub&message=View&color=informational)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
+| [lubelogger](anza-labs/lubelogger) | `0.5.11` | `v1.4.4` | [![Artifact Hub](https://img.shields.io/static/v1?label=ArtifactHub&message=View&color=informational)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
 
 ### Deprecated Charts
 
