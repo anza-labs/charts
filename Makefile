@@ -122,7 +122,7 @@ HELM_VALUES_SCHEMA_JSON_VERSION ?= v1.6.4
 KIND_VERSION ?= v0.27.0
 
 # renovate: datasource=github-tags depName=stackrox/kube-linter
-KUBE_LINTER_VERSION ?= v0.7.1
+KUBE_LINTER_VERSION ?= v0.7.2
 
 # renovate: datasource=github-tags depName=mikefarah/yq
 YQ_VERSION ?= v4.45.1
