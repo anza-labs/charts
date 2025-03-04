@@ -1,7 +1,7 @@
 kubernetes:
   # -- Version of the Kubernetes Control Plane.
   # renovate: datasource=github-tags depName=kubernetes/kubernetes
-  version: v1.32.0
+  version: v1.32.2
   # -- Set the cluster CIDR.
   clusterCIDR: 10.200.0.0/16
   # -- Set the Service IP range for cluster.
