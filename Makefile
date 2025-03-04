@@ -116,7 +116,7 @@ CTLPTL_VERSION ?= v0.8.39
 HELM_DOCS_VERSION ?= v1.14.2
 
 # renovate: datasource=github-tags depName=losisin/helm-values-schema-json
-HELM_VALUES_SCHEMA_JSON_VERSION ?= v1.6.4
+HELM_VALUES_SCHEMA_JSON_VERSION ?= v1.7.0
 
 # renovate: datasource=github-tags depName=kubernetes-sigs/kind
 KIND_VERSION ?= v0.27.0
