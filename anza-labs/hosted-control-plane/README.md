@@ -1,6 +1,6 @@
 # hosted-control-plane
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.32.0](https://img.shields.io/badge/AppVersion-v1.32.0-informational?style=flat)
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.32.2](https://img.shields.io/badge/AppVersion-v1.32.2-informational?style=flat)
 
 _hosted-control-plane_ is a PoC/testing ground for any improvements that might
 reach KinK Control-Plane provider manifests.
@@ -107,6 +107,6 @@ reach KinK Control-Plane provider manifests.
 | kubeScheduler.verbosity | int | `4` | Set log verbosity of the component. |
 | kubernetes.clusterCIDR | string | `"10.200.0.0/16"` | Set the cluster CIDR. |
 | kubernetes.serviceIPRange | string | `"10.32.0.0/24"` | Set the Service IP range for cluster. |
-| kubernetes.version | string | `"v1.32.0"` | Version of the Kubernetes Control Plane. renovate: datasource=docker depName=registry.k8s.io/kube-apiserver |
+| kubernetes.version | string | `"v1.32.2"` | Version of the Kubernetes Control Plane. renovate: datasource=docker depName=registry.k8s.io/kube-apiserver |
 | nameOverride | string | `""` | Override for the name. |
 
