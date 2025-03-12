@@ -1,7 +1,7 @@
 kubernetes:
   # -- Version of the Kubernetes Control Plane.
   # renovate: datasource=docker depName=registry.k8s.io/kube-apiserver
-  version: v1.32.2
+  version: v1.32.3
   # -- Set the cluster CIDR.
   clusterCIDR: 10.200.0.0/16
   # -- Set the Service IP range for cluster.
