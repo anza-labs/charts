@@ -1,6 +1,6 @@
 # hosted-control-plane
 
-![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.32.2](https://img.shields.io/badge/AppVersion-v1.32.2-informational?style=flat)
+![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.32.3](https://img.shields.io/badge/AppVersion-v1.32.3-informational?style=flat)
 
 _hosted-control-plane_ is a PoC/testing ground for any improvements that might
 reach Cluster API Control Plane Provider KinK manifests.
@@ -30,7 +30,7 @@ reach Cluster API Control Plane Provider KinK manifests.
 | fullnameOverride | string | `""` | Override for the full name. |
 | generator.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | generator.image.repository | string | `"docker.io/bitnami/kubectl"` | Registry and repository for the kine image. |
-| generator.image.tag | string | `"1.32.2"` | Tag for the image. |
+| generator.image.tag | string | `"1.32.3"` | Tag for the image. |
 | generator.nodeSelector | object | `{}` | Node selector for the pods. |
 | generator.podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | generator.podLabels | object | `{}` | Labels to be added to the pods. |
@@ -107,6 +107,6 @@ reach Cluster API Control Plane Provider KinK manifests.
 | kubeScheduler.verbosity | int | `4` | Set log verbosity of the component. |
 | kubernetes.clusterCIDR | string | `"10.200.0.0/16"` | Set the cluster CIDR. |
 | kubernetes.serviceIPRange | string | `"10.32.0.0/24"` | Set the Service IP range for cluster. |
-| kubernetes.version | string | `"v1.32.2"` | Version of the Kubernetes Control Plane. renovate: datasource=docker depName=registry.k8s.io/kube-apiserver |
+| kubernetes.version | string | `"v1.32.3"` | Version of the Kubernetes Control Plane. renovate: datasource=docker depName=registry.k8s.io/kube-apiserver |
 | nameOverride | string | `""` | Override for the name. |
 
