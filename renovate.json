@@ -1,7 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "automerge": true,
-  "extends": ["config:recommended"],
+  "extends": [
+    "config:recommended"
+  ],
   "labels": [
     "area/dependency"
   ],
@@ -11,7 +13,7 @@
       "matchDatasources": [
         "docker"
       ],
-      "paths": [
+      "matchFileNames": [
         "anza-labs/hosted-control-plane/**"
       ]
     },
@@ -20,7 +22,7 @@
       "matchDatasources": [
         "docker"
       ],
-      "paths": [
+      "matchFileNames": [
         "anza-labs/lubelogger/**"
       ]
     },
@@ -29,7 +31,7 @@
       "matchDatasources": [
         "docker"
       ],
-      "paths": [
+      "matchFileNames": [
         "anza-labs/kube-storage-version-migrator/**"
       ]
     },
@@ -38,7 +40,7 @@
       "matchDatasources": [
         "docker"
       ],
-      "paths": [
+      "matchFileNames": [
         "anza-labs/kamaji/**"
       ]
     },
