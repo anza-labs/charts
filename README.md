@@ -11,7 +11,7 @@ This repository contains the following Helm charts:
 | Name | Version | App Version | Artifact Hub |
 |------|---------|-------------|--------------|
 | [hosted-control-plane](anza-labs/hosted-control-plane) | `0.1.5` | `v1.32.3` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/hosted-control-plane) |
-| [kamaji](anza-labs/kamaji) | `0.1.1` | `edge-24.12.1` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/kamaji) |
+| [kamaji](anza-labs/kamaji) | `0.1.2` | `edge-24.12.1` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/kamaji) |
 | [lubelogger](anza-labs/lubelogger) | `0.5.12` | `v1.4.5` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
 | [podvm](anza-labs/podvm) | `0.0.0-alpha.6` | `1.10.1` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=yellow)](https://artifacthub.io/packages/helm/anza-labs/podvm) |
 
