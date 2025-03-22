@@ -110,7 +110,7 @@ YQ                      ?= $(LOCALBIN)/yq
 
 ## Tool Versions
 # renovate: datasource=github-tags depName=tilt-dev/ctlptl
-CTLPTL_VERSION ?= v0.8.39
+CTLPTL_VERSION ?= v0.8.40
 
 # renovate: datasource=github-tags depName=norwoodj/helm-docs
 HELM_DOCS_VERSION ?= v1.14.2
