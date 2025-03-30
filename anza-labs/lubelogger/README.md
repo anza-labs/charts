@@ -67,6 +67,20 @@ _LubeLogger_ is a web-based vehicle maintenance and fuel mileage tracker
 | livenessProbe.httpGet | object | `{"path":"/","port":"http"}` | Liveness probe configuration. |
 | nameOverride | string | `""` | Override for the name. |
 | nodeSelector | object | `{}` | Node selector for the pods. |
+| oidc.authURL | string | `""` | Authorization URL to the Provider's Login Page. |
+| oidc.clientId | string | `""` | Client Id to Authenticate with the Provider. |
+| oidc.clientSecret | string | `""` | Client Secret to Authenticate with the Provider. |
+| oidc.create | bool | false | Defines if the secret with OIDC connection details should be created. |
+| oidc.disableRegularLogin | bool | `false` | Auto re-direct user to OIDC login.auto re-direct user to OIDC login. |
+| oidc.enabled  | bool | false | Defines if OpenID Connect configuration should be included. |
+| oidc.logOutURL | string | `""` | Log Out URL for OIDC Provider, required if `DisableRegularLogin=true`. |
+| oidc.name | string | `""` | Specifies name of a secret used to configure the OpenID Connect.  If not filled, uses full name. |
+| oidc.providerName | string | `""` | Name of the OpenID Connect Provider. |
+| oidc.redirectURL | string | `""` | https://<yourlubeloggerdomain.com>/Login/RemoteAuth(must be HTTPS). |
+| oidc.scope | string | `"openid email"` | The scope for retrieving the user's email claim(usually it's just 'email'). |
+| oidc.tokenURL | string | `""` | URL to retrieve user JWT from the Provider. |
+| oidc.usePKCE | bool | `false` | Whether LubeLogger should use PKCE. |
+| oidc.validateState | bool | `false` | Whether LubeLogger should validate state. |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` | Access mode for the PVC. |
 | persistence.data.enabled | bool | `false` | Enable/disable PVC creation for data. |
 | persistence.data.existingClaim | string | `""` | Use an existing PVC if defined, otherwise create one. |
@@ -94,20 +108,6 @@ _LubeLogger_ is a web-based vehicle maintenance and fuel mileage tracker
 | postgres.password | string | `"postgres"` | Password for the user used to connect to the Postgres database. |
 | postgres.port | int | `5432` | Port of the Postgres database. |
 | postgres.user | string | `"postgres"` | User used to connect to the Postgres database. |
-| oidc.enabled  | bool | false | Defines if OpenID Connect configuration should be included. |
-| oidc.create | bool | false | Defines if the secret with OIDC connection details should be created. |
-| oidc.name | string | `""` | Specifies name of a secret used to configure the OpenID Connect.  If not filled, uses full name. |
-| oidc.providerName | string | `""` | Name of the OpenID Connect Provider. |
-| oidc.clientId | string | `""` | Client Id to Authenticate with the Provider. |
-| oidc.clientSecret | string | `""` | Client Secret to Authenticate with the Provider. |
-| oidc.authURL | string | `""` | Authorization URL to the Provider's Login Page. |
-| oidc.tokenURL | string | `""` | URL to retrieve user JWT from the Provider. |
-| oidc.redirectURL | string | `""` | https://<yourlubeloggerdomain.com>/Login/RemoteAuth(must be HTTPS). |
-| oidc.scope | string | `"openid email"` | The scope for retrieving the user's email claim(usually it's just 'email'). |
-| oidc.validateState| bool | `false` | Whether LubeLogger should validate state. |
-| oidc.usePKCE | bool | `false` | Whether LubeLogger should use PKCE. |
-| oidc.disableRegularLogin | bool | `false` | Auto re-direct user to OIDC login.auto re-direct user to OIDC login. |
-| oidc.logOutURL | string | `""` | Log Out URL for OIDC Provider, required if `DisableRegularLogin=true`. |
 | readinessProbe.httpGet | object | `{"path":"/","port":"http"}` | Readiness probe configuration. |
 | replicaCount | int | `1` | Number of replicas for the deployment. |
 | resources | object | `{}` |  |
