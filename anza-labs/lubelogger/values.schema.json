@@ -243,6 +243,53 @@
       "properties": {},
       "type": "object"
     },
+    "oidc": {
+      "properties": {
+        "authURL": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        },
+        "create": {
+          "type": "boolean"
+        },
+        "disableRegularLogin": {
+          "type": "boolean"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "logOutURL": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "providerName": {
+          "type": "string"
+        },
+        "redirectURL": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "tokenURL": {
+          "type": "string"
+        },
+        "usePKCE": {
+          "type": "boolean"
+        },
+        "validateState": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "persistence": {
       "properties": {
         "data": {

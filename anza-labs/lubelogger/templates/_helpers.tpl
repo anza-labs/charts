@@ -73,6 +73,13 @@ Create secret name used for configuring PostgreSQL connection.
 {{- end }}
 
 {{/*
+Create secret name used for configuring OpenID Connect.
+*/}}
+{{- define "lubelog.oidcSecret" -}}
+    {{- default (printf "%s-oidc" (include "lubelog.fullname" .)) .Values.oidc.name }}
+{{- end }}
+
+{{/*
 Create key under which PostgreSQL connection string can be found.
 */}}
 {{- define "lubelog.postgresSecretKey" -}}

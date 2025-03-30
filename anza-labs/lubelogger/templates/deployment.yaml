@@ -158,6 +158,11 @@ spec:
                   name: {{ include "lubelog.postgresSecret" . }}
                   key: POSTGRES_CONNECTION
             {{- end }}
+          {{- if .Values.oidc.enabled }}
+          envFrom:
+            - secretRef:
+                name: {{ include "lubelog.oidcSecret" . }}
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

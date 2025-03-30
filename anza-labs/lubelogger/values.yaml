@@ -190,6 +190,37 @@ postgres:
   # -- Database name.
   database: "postgres"
 
+oidc:
+  # -- Defines if OpenID Connect configuration should be included.
+  enabled: false
+  # -- Defines if the secret with OIDC connection details should be created.
+  create: false
+  # -- Specifies name of a secret used to configure the OpenID Connect.
+  # If not filled, uses full name.
+  name: ""
+  # -- Name of the OpenID Connect Provider.
+  providerName: ""
+  # -- Client Id to Authenticate with the Provider.
+  clientId: ""
+  # -- Client Secret to Authenticate with the Provider.
+  clientSecret: ""
+  # -- Authorization URL to the Provider's Login Page.
+  authURL: ""
+  # -- URL to retrieve user JWT from the Provider.
+  tokenURL: ""
+  # -- https://<yourlubeloggerdomain.com>/Login/RemoteAuth(must be HTTPS).
+  redirectURL: ""
+  # -- The scope for retrieving the user's email claim(usually it's just 'email').
+  scope: "openid email"
+  # -- Whether LubeLogger should validate state.
+  validateState: false
+  # -- Whether LubeLogger should use PKCE.
+  usePKCE: false
+  # -- Auto re-direct user to OIDC login.auto re-direct user to OIDC login.
+  disableRegularLogin: false
+  # -- Log Out URL for OIDC Provider, required if DisableRegularLogin=true.
+  logOutURL: ""
+
 curl:
   image:
     # -- Registry and repository for the image.
