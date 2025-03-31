@@ -70,14 +70,14 @@ _LubeLogger_ is a web-based vehicle maintenance and fuel mileage tracker
 | oidc.authURL | string | `""` | Authorization URL to the Provider's Login Page. |
 | oidc.clientId | string | `""` | Client Id to Authenticate with the Provider. |
 | oidc.clientSecret | string | `""` | Client Secret to Authenticate with the Provider. |
-| oidc.create | bool | false | Defines if the secret with OIDC connection details should be created. |
-| oidc.disableRegularLogin | bool | `false` | Auto re-direct user to OIDC login.auto re-direct user to OIDC login. |
-| oidc.enabled  | bool | false | Defines if OpenID Connect configuration should be included. |
-| oidc.logOutURL | string | `""` | Log Out URL for OIDC Provider, required if `DisableRegularLogin=true`. |
-| oidc.name | string | `""` | Specifies name of a secret used to configure the OpenID Connect.  If not filled, uses full name. |
+| oidc.create | bool | `false` | Defines if the secret with OIDC connection details should be created. |
+| oidc.disableRegularLogin | bool | `false` | Auto re-direct user to OIDC login. |
+| oidc.enabled | bool | `false` | Defines if OpenID Connect configuration should be included. |
+| oidc.logOutURL | string | `""` | Log Out URL for OIDC Provider, required if DisableRegularLogin=true. |
+| oidc.name | string | `""` | Specifies name of a secret used to configure the OpenID Connect. If not filled, uses full name. |
 | oidc.providerName | string | `""` | Name of the OpenID Connect Provider. |
-| oidc.redirectURL | string | `""` | https://<yourlubeloggerdomain.com>/Login/RemoteAuth(must be HTTPS). |
-| oidc.scope | string | `"openid email"` | The scope for retrieving the user's email claim(usually it's just 'email'). |
+| oidc.redirectURL | string | `""` | https://<yourlubeloggerdomain.com>/Login/RemoteAuth (must be HTTPS). |
+| oidc.scope | string | `"openid email"` | The scope for retrieving the user's email claim (usually it's just 'email'). |
 | oidc.tokenURL | string | `""` | URL to retrieve user JWT from the Provider. |
 | oidc.usePKCE | bool | `false` | Whether LubeLogger should use PKCE. |
 | oidc.validateState | bool | `false` | Whether LubeLogger should validate state. |

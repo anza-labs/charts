@@ -208,15 +208,15 @@ oidc:
   authURL: ""
   # -- URL to retrieve user JWT from the Provider.
   tokenURL: ""
-  # -- https://<yourlubeloggerdomain.com>/Login/RemoteAuth(must be HTTPS).
+  # -- https://<yourlubeloggerdomain.com>/Login/RemoteAuth (must be HTTPS).
   redirectURL: ""
-  # -- The scope for retrieving the user's email claim(usually it's just 'email').
+  # -- The scope for retrieving the user's email claim (usually it's just 'email').
   scope: "openid email"
   # -- Whether LubeLogger should validate state.
   validateState: false
   # -- Whether LubeLogger should use PKCE.
   usePKCE: false
-  # -- Auto re-direct user to OIDC login.auto re-direct user to OIDC login.
+  # -- Auto re-direct user to OIDC login.
   disableRegularLogin: false
   # -- Log Out URL for OIDC Provider, required if DisableRegularLogin=true.
   logOutURL: ""
