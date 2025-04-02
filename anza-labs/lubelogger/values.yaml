@@ -14,7 +14,7 @@ image:
   # -- Registry and repository for the lubelogger image.
   repository: ghcr.io/hargata/lubelogger
   # -- Tag for the image.
-  tag: "v1.4.5"
+  tag: "v1.4.6"
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
