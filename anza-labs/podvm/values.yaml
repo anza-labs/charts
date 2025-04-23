@@ -71,7 +71,7 @@ firecracker:
     # -- Registry and repository for the podvm image.
     repository: ghcr.io/anza-labs/library/firecracker
     # -- Tag for the image.
-    tag: "1.10.1"
+    tag: "v1.11.0"
     # -- Image pull policy.
     pullPolicy: IfNotPresent
 
