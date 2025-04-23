@@ -1,7 +1,7 @@
 kubernetes:
   # -- Version of the Kubernetes Control Plane.
   # renovate: datasource=docker depName=registry.k8s.io/kube-apiserver
-  version: v1.32.3
+  version: v1.33.0
   # -- Set the cluster CIDR.
   clusterCIDR: 10.200.0.0/16
   # -- Set the Service IP range for cluster.
@@ -168,7 +168,7 @@ konnectivity:
       # -- Registry and repository for the kine image.
       repository: docker.io/bitnami/kubectl
       # -- Tag for the image.
-      tag: "1.32.3"
+      tag: "1.32.4"
       # -- Image pull policy.
       pullPolicy: IfNotPresent
 
@@ -362,7 +362,7 @@ kine:
     # -- Registry and repository for the kine image.
     repository: ghcr.io/anza-labs/library/kine
     # -- Tag for the image.
-    tag: "0.13.10"
+    tag: "v0.13.14"
     # -- Image pull policy.
     pullPolicy: IfNotPresent
 
@@ -433,7 +433,7 @@ generator:
     # -- Registry and repository for the kine image.
     repository: docker.io/bitnami/kubectl
     # -- Tag for the image.
-    tag: "1.32.3"
+    tag: "1.32.4"
     # -- Image pull policy.
     pullPolicy: IfNotPresent
 
