@@ -1,6 +1,6 @@
 # hosted-control-plane
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.32.3](https://img.shields.io/badge/AppVersion-v1.32.3-informational?style=flat)
+![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.33.0](https://img.shields.io/badge/AppVersion-v1.33.0-informational?style=flat)
 
 _hosted-control-plane_ is a PoC/testing ground for any improvements that might
 reach Cluster API Control Plane Provider KinK manifests.
@@ -30,7 +30,7 @@ reach Cluster API Control Plane Provider KinK manifests.
 | fullnameOverride | string | `""` | Override for the full name. |
 | generator.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | generator.image.repository | string | `"docker.io/bitnami/kubectl"` | Registry and repository for the kine image. |
-| generator.image.tag | string | `"1.32.3"` | Tag for the image. |
+| generator.image.tag | string | `"1.32.4"` | Tag for the image. |
 | generator.nodeSelector | object | `{}` | Node selector for the pods. |
 | generator.podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | generator.podLabels | object | `{}` | Labels to be added to the pods. |
@@ -50,7 +50,7 @@ reach Cluster API Control Plane Provider KinK manifests.
 | kine.affinity | object | `{}` | Affinity settings for the pods. |
 | kine.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | kine.image.repository | string | `"ghcr.io/anza-labs/library/kine"` | Registry and repository for the kine image. |
-| kine.image.tag | string | `"0.13.10"` | Tag for the image. |
+| kine.image.tag | string | `"v0.13.14"` | Tag for the image. |
 | kine.nodeSelector | object | `{}` | Node selector for the pods. |
 | kine.podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | kine.podLabels | object | `{}` | Labels to be added to the pods. |
@@ -66,7 +66,7 @@ reach Cluster API Control Plane Provider KinK manifests.
 | konnectivity.agent.verbosity | int | `4` | Set log verbosity of the component. |
 | konnectivity.installer.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | konnectivity.installer.image.repository | string | `"docker.io/bitnami/kubectl"` | Registry and repository for the kine image. |
-| konnectivity.installer.image.tag | string | `"1.32.3"` | Tag for the image. |
+| konnectivity.installer.image.tag | string | `"1.32.4"` | Tag for the image. |
 | konnectivity.installer.nodeSelector | object | `{}` | Node selector for the pods. |
 | konnectivity.installer.podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | konnectivity.installer.podLabels | object | `{}` | Labels to be added to the pods. |
@@ -129,6 +129,6 @@ reach Cluster API Control Plane Provider KinK manifests.
 | kubeScheduler.verbosity | int | `4` | Set log verbosity of the component. |
 | kubernetes.clusterCIDR | string | `"10.200.0.0/16"` | Set the cluster CIDR. |
 | kubernetes.serviceIPRange | string | `"10.32.0.0/24"` | Set the Service IP range for cluster. |
-| kubernetes.version | string | `"v1.32.3"` | Version of the Kubernetes Control Plane. renovate: datasource=docker depName=registry.k8s.io/kube-apiserver |
+| kubernetes.version | string | `"v1.33.0"` | Version of the Kubernetes Control Plane. renovate: datasource=docker depName=registry.k8s.io/kube-apiserver |
 | nameOverride | string | `""` | Override for the name. |
 
