@@ -168,7 +168,7 @@ konnectivity:
       # -- Registry and repository for the kine image.
       repository: docker.io/bitnami/kubectl
       # -- Tag for the image.
-      tag: "1.32.4"
+      tag: "1.33.0"
       # -- Image pull policy.
       pullPolicy: IfNotPresent
 
@@ -433,7 +433,7 @@ generator:
     # -- Registry and repository for the kine image.
     repository: docker.io/bitnami/kubectl
     # -- Tag for the image.
-    tag: "1.32.4"
+    tag: "1.33.0"
     # -- Image pull policy.
     pullPolicy: IfNotPresent
 
