@@ -1,6 +1,6 @@
 # hosted-control-plane
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.33.0](https://img.shields.io/badge/AppVersion-v1.33.0-informational?style=flat)
+![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.33.0](https://img.shields.io/badge/AppVersion-v1.33.0-informational?style=flat)
 
 _hosted-control-plane_ is a PoC/testing ground for any improvements that might
 reach Cluster API Control Plane Provider KinK manifests.
@@ -30,7 +30,7 @@ reach Cluster API Control Plane Provider KinK manifests.
 | fullnameOverride | string | `""` | Override for the full name. |
 | generator.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | generator.image.repository | string | `"docker.io/bitnami/kubectl"` | Registry and repository for the kine image. |
-| generator.image.tag | string | `"1.32.4"` | Tag for the image. |
+| generator.image.tag | string | `"1.33.0"` | Tag for the image. |
 | generator.nodeSelector | object | `{}` | Node selector for the pods. |
 | generator.podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | generator.podLabels | object | `{}` | Labels to be added to the pods. |
@@ -66,7 +66,7 @@ reach Cluster API Control Plane Provider KinK manifests.
 | konnectivity.agent.verbosity | int | `4` | Set log verbosity of the component. |
 | konnectivity.installer.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | konnectivity.installer.image.repository | string | `"docker.io/bitnami/kubectl"` | Registry and repository for the kine image. |
-| konnectivity.installer.image.tag | string | `"1.32.4"` | Tag for the image. |
+| konnectivity.installer.image.tag | string | `"1.33.0"` | Tag for the image. |
 | konnectivity.installer.nodeSelector | object | `{}` | Node selector for the pods. |
 | konnectivity.installer.podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | konnectivity.installer.podLabels | object | `{}` | Labels to be added to the pods. |
