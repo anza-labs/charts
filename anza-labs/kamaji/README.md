@@ -1,6 +1,6 @@
 # kamaji
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: edge-25.3.2](https://img.shields.io/badge/AppVersion-edge--25.3.2-informational?style=flat)
+![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: edge-25.4.1](https://img.shields.io/badge/AppVersion-edge--25.4.1-informational?style=flat)
 
 _Kamaji_ is the Kubernetes Control Plane Manager.
 
@@ -33,7 +33,7 @@ _Kamaji_ is the Kubernetes Control Plane Manager.
 | healthProbeBindAddress | string | `":8081"` | The address the probe endpoint binds to. (default ":8081") |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"docker.io/clastix/kamaji"` | Registry and repository for the kamaji image. |
-| image.tag | string | `"edge-25.3.2"` | Tag for the image. |
+| image.tag | string | `"edge-25.4.1"` | Tag for the image. |
 | imagePullSecrets | list | `[]` |  |
 | kamaji-etcd.datastore.enabled | bool | `true` |  |
 | kamaji-etcd.datastore.name | string | `"default"` |  |
