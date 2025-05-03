@@ -162,7 +162,7 @@ KIND_VERSION ?= v0.27.0
 KUBE_LINTER_VERSION ?= v0.7.2
 
 # renovate: datasource=github-tags depName=mikefarah/yq
-YQ_VERSION ?= v4.45.1
+YQ_VERSION ?= v4.45.2
 
 .PHONY: ctlptl
 ctlptl: $(CTLPTL)-$(CTLPTL_VERSION) ## Download ctlptl locally if necessary.
