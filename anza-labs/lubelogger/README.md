@@ -84,6 +84,7 @@ _LubeLogger_ is a web-based vehicle maintenance and fuel mileage tracker
 | oidc.scope | string | `"openid email"` | The scope for retrieving the user's email claim (usually it's just 'email'). |
 | oidc.tokenURL | string | `""` | URL to retrieve user JWT from the Provider. |
 | oidc.usePKCE | bool | `false` | Whether LubeLogger should use PKCE. |
+| oidc.userInfoURL | string | `""` | UserInfo URL as an alternative option to retrieve user claims (required for certain OpenID Providers) |
 | oidc.validateState | bool | `false` | Whether LubeLogger should validate state. |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` | Access mode for the PVC. |
 | persistence.data.enabled | bool | `false` | Enable/disable PVC creation for data. |

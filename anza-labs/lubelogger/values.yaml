@@ -218,6 +218,8 @@ oidc:
   usePKCE: false
   # -- Auto re-direct user to OIDC login.
   disableRegularLogin: false
+  # -- UserInfo URL as an alternative option to retrieve user claims (required for certain OpenID Providers)
+  userInfoURL: ""
   # -- Log Out URL for OIDC Provider, required if DisableRegularLogin=true.
   logOutURL: ""
 

@@ -284,6 +284,9 @@
         "usePKCE": {
           "type": "boolean"
         },
+        "userInfoURL": {
+          "type": "string"
+        },
         "validateState": {
           "type": "boolean"
         }
