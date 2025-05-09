@@ -85,12 +85,12 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /health
+              path: /healthz
               port: http
           readinessProbe:
             initialDelaySeconds: 60
             httpGet:
-              path: /health
+              path: /healthz
               port: http
           resources:
             {{- toYaml .Values.pocketID.resources | nindent 12 }}

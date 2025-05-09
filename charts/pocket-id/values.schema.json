@@ -415,6 +415,9 @@
       },
       "type": "object"
     },
+    "timeZone": {
+      "type": "string"
+    },
     "tolerations": {
       "type": "array"
     },

@@ -1,6 +1,6 @@
 # pocket-id
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.51.1](https://img.shields.io/badge/AppVersion-v0.51.1-informational?style=flat)
+![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.51.1](https://img.shields.io/badge/AppVersion-v0.51.1-informational?style=flat)
 
 _pocket-id_ is a simple and easy-to-use OIDC provider that allows users to authenticate
 with their passkeys to your services.
@@ -99,7 +99,7 @@ with their passkeys to your services.
 | persistence.data.storageClass | string | `""` | Specify the StorageClass (if required). |
 | pocketID.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | pocketID.image.repository | string | `"ghcr.io/pocket-id/pocket-id"` | Registry and repository for the pocket-id image. |
-| pocketID.image.tag | string | `"v0.51.1"` | Tag for the image. |
+| pocketID.image.tag | string | `"v0.53.0"` | Tag for the image. |
 | pocketID.resources | object | `{}` |  |
 | pocketID.securityContext | object | `{}` |  |
 | podAnnotations | object | `{}` | Annotations to be added to the pods. |
@@ -114,6 +114,7 @@ with their passkeys to your services.
 | serviceAccount.automount | bool | `true` | Automatically mount a ServiceAccount's API credentials. |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
+| timeZone | string | `"Etc/UTC"` | Specifies the time zone to be used by the application.  Use a valid IANA time zone string (e.g., "Etc/UTC", "America/New_York"). |
 | tolerations | list | `[]` | Tolerations for the pods. |
 | updateStrategy.rollingUpdate.maxUnavailable | string | `"100%"` |  |
 | updateStrategy.rollingUpdate.partition | int | `0` |  |

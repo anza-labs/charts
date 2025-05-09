@@ -29,6 +29,7 @@ data:
   PUBLIC_UI_CONFIG_DISABLED: "{{ .Values.config.publicUI.useDefaults }}"
   PUBLIC_APP_URL: "https://{{ $host }}"
   DB_PROVIDER: "{{ $provider }}"
+  TZ: "{{ .Values.timeZone }}"
   GEOLITE_DB_URL: "{{ .Values.geoliteDatabaseURL }}"
   {{- if not .Values.config.publicUI.useDefaults }}
   APP_NAME: "{{ .Values.config.publicUI.settings.app.appName }}"
