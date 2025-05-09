@@ -4,7 +4,7 @@ replicaCount: 1
 # -- URL template to download the MaxMind GeoLite2-City database. `%s` will be replaced with the license key.
 geoliteDatabaseURL: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"
 
-# -- Specifies the time zone to be used by the application. 
+# -- Specifies the time zone to be used by the application.
 # Use a valid IANA time zone string (e.g., "Etc/UTC", "America/New_York").
 timeZone: "Etc/UTC"
 

@@ -114,7 +114,7 @@ with their passkeys to your services.
 | serviceAccount.automount | bool | `true` | Automatically mount a ServiceAccount's API credentials. |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
-| timeZone | string | `"Etc/UTC"` | Specifies the time zone to be used by the application.  Use a valid IANA time zone string (e.g., "Etc/UTC", "America/New_York"). |
+| timeZone | string | `"Etc/UTC"` | Specifies the time zone to be used by the application. Use a valid IANA time zone string (e.g., "Etc/UTC", "America/New_York"). |
 | tolerations | list | `[]` | Tolerations for the pods. |
 | updateStrategy.rollingUpdate.maxUnavailable | string | `"100%"` |  |
 | updateStrategy.rollingUpdate.partition | int | `0` |  |
