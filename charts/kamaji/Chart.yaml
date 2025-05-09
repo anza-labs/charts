@@ -4,13 +4,13 @@ name: kamaji
 description: |
   _Kamaji_ is the Kubernetes Control Plane Manager.
 home: https://kamaji.clastix.io
-version: 0.1.8
+version: 0.1.9
 appVersion: "edge-25.4.1"
 sources:
   - https://github.com/clastix/kamaji
 maintainers:
-  - name: Mateusz Urbanek
-    email: matueusz.urbanek.98@gmail.com
+  - name: shanduur
+    email: maturb@proton.me
     url: http://linkedin.com/in/urbanekmateusz
 dependencies:
   - name: kamaji-etcd

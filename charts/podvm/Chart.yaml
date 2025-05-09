@@ -3,9 +3,9 @@ type: application
 name: podvm
 description: |
   _podvm_ is a PoC/testing for running Firecracker in Kubernetes.
-version: 0.0.0-alpha.7
+version: 0.0.0-alpha.8
 appVersion: "v1.11.0"
 maintainers:
-  - name: Mateusz Urbanek
-    email: matueusz.urbanek.98@gmail.com
+  - name: shanduur
+    email: maturb@proton.me
     url: http://linkedin.com/in/urbanekmateusz

@@ -5,11 +5,11 @@ description: |
   _hosted-control-plane_ is a PoC/testing ground for any improvements that might
   reach Cluster API Control Plane Provider KinK manifests.
 home: https://anza-labs.github.io/kink
-version: 0.2.2
+version: 0.2.3
 appVersion: "v1.33.0"
 maintainers:
-  - name: Mateusz Urbanek
-    email: matueusz.urbanek.98@gmail.com
+  - name: shanduur
+    email: maturb@proton.me
     url: http://linkedin.com/in/urbanekmateusz
 dependencies:
   - name: cert-manager

@@ -1,6 +1,6 @@
 # podvm
 
-![Version: 0.0.0-alpha.7](https://img.shields.io/badge/Version-0.0.0--alpha.7-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.11.0](https://img.shields.io/badge/AppVersion-v1.11.0-informational?style=flat)
+![Version: 0.0.0-alpha.8](https://img.shields.io/badge/Version-0.0.0--alpha.8-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.11.0](https://img.shields.io/badge/AppVersion-v1.11.0-informational?style=flat)
 
 _podvm_ is a PoC/testing for running Firecracker in Kubernetes.
 
@@ -8,7 +8,7 @@ _podvm_ is a PoC/testing for running Firecracker in Kubernetes.
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Mateusz Urbanek | <matueusz.urbanek.98@gmail.com> | <http://linkedin.com/in/urbanekmateusz> |
+| shanduur | <maturb@proton.me> | <http://linkedin.com/in/urbanekmateusz> |
 
 ## Values
 

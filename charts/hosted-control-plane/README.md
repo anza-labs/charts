@@ -1,6 +1,6 @@
 # hosted-control-plane
 
-![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.33.0](https://img.shields.io/badge/AppVersion-v1.33.0-informational?style=flat)
+![Version: 0.2.3](https://img.shields.io/badge/Version-0.2.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.33.0](https://img.shields.io/badge/AppVersion-v1.33.0-informational?style=flat)
 
 _hosted-control-plane_ is a PoC/testing ground for any improvements that might
 reach Cluster API Control Plane Provider KinK manifests.
@@ -11,7 +11,7 @@ reach Cluster API Control Plane Provider KinK manifests.
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Mateusz Urbanek | <matueusz.urbanek.98@gmail.com> | <http://linkedin.com/in/urbanekmateusz> |
+| shanduur | <maturb@proton.me> | <http://linkedin.com/in/urbanekmateusz> |
 
 ## Requirements
 

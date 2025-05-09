@@ -11,9 +11,9 @@ description: |
 
   [^1]: https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/
 home: https://github.com/kubernetes-sigs/kube-storage-version-migrator
-version: 0.1.0
+version: 0.1.1
 appVersion: "v0.0.5"
 maintainers:
-  - name: Mateusz Urbanek
-    email: matueusz.urbanek.98@gmail.com
+  - name: shanduur
+    email: maturb@proton.me
     url: http://linkedin.com/in/urbanekmateusz

@@ -1,6 +1,6 @@
 # lubelogger
 
-![Version: 0.9.1](https://img.shields.io/badge/Version-0.9.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.4.7](https://img.shields.io/badge/AppVersion-v1.4.7-informational?style=flat)
+![Version: 0.9.2](https://img.shields.io/badge/Version-0.9.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.4.7](https://img.shields.io/badge/AppVersion-v1.4.7-informational?style=flat)
 
 _LubeLogger_ is a web-based vehicle maintenance and fuel mileage tracker
 
@@ -10,7 +10,7 @@ _LubeLogger_ is a web-based vehicle maintenance and fuel mileage tracker
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Mateusz Urbanek | <matueusz.urbanek.98@gmail.com> | <http://linkedin.com/in/urbanekmateusz> |
+| shanduur | <maturb@proton.me> | <http://linkedin.com/in/urbanekmateusz> |
 
 ## Source Code
 

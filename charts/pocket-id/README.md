@@ -11,7 +11,7 @@ with their passkeys to your services.
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Mateusz Urbanek | <matueusz.urbanek.98@gmail.com> | <http://linkedin.com/in/urbanekmateusz> |
+| shanduur | <maturb@proton.me> | <http://linkedin.com/in/urbanekmateusz> |
 
 ## Source Code
 

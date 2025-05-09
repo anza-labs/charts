@@ -4,13 +4,13 @@ name: lubelogger
 description: |
   _LubeLogger_ is a web-based vehicle maintenance and fuel mileage tracker
 home: https://lubelogger.com
-version: 0.9.1
+version: 0.9.2
 appVersion: "v1.4.7"
 sources:
   - https://github.com/hargata/lubelog
 keywords: []
 annotations: {}
 maintainers:
-  - name: Mateusz Urbanek
-    email: matueusz.urbanek.98@gmail.com
+  - name: shanduur
+    email: maturb@proton.me
     url: http://linkedin.com/in/urbanekmateusz

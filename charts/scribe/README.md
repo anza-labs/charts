@@ -2,7 +2,7 @@
 
 > **:exclamation: This Helm Chart is deprecated!**
 
-![Version: 0.3.6](https://img.shields.io/badge/Version-0.3.6-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.3.0](https://img.shields.io/badge/AppVersion-v0.3.0-informational?style=flat)
+![Version: 0.3.7](https://img.shields.io/badge/Version-0.3.7-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.3.0](https://img.shields.io/badge/AppVersion-v0.3.0-informational?style=flat)
 
 _Scribe_ is a tool that automates the propagation of annotations across Kubernetes resources based
 on the annotations in a Namespace.
@@ -13,7 +13,7 @@ on the annotations in a Namespace.
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Mateusz Urbanek | <matueusz.urbanek.98@gmail.com> | <http://linkedin.com/in/urbanekmateusz> |
+| shanduur | <maturb@proton.me> | <http://linkedin.com/in/urbanekmateusz> |
 
 ## Values
 

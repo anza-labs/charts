@@ -6,11 +6,11 @@ description: |
   _Scribe_ is a tool that automates the propagation of annotations across Kubernetes resources based
   on the annotations in a Namespace.
 home: https://github.com/anza-labs/scribe
-version: 0.3.6
+version: 0.3.7
 appVersion: "v0.3.0"
 keywords: []
 annotations: {}
 maintainers:
-  - name: Mateusz Urbanek
-    email: matueusz.urbanek.98@gmail.com
+  - name: shanduur
+    email: maturb@proton.me
     url: http://linkedin.com/in/urbanekmateusz
