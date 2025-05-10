@@ -1,6 +1,6 @@
 # podvm
 
-![Version: 0.0.0-alpha.8](https://img.shields.io/badge/Version-0.0.0--alpha.8-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.11.0](https://img.shields.io/badge/AppVersion-v1.11.0-informational?style=flat)
+![Version: 0.0.0-alpha.9](https://img.shields.io/badge/Version-0.0.0--alpha.9-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.12.0](https://img.shields.io/badge/AppVersion-v1.12.0-informational?style=flat)
 
 _podvm_ is a PoC/testing for running Firecracker in Kubernetes.
 
@@ -18,7 +18,7 @@ _podvm_ is a PoC/testing for running Firecracker in Kubernetes.
 | config | object | `{"balloon":null,"boot-source":{"boot_args":"console=ttyS0 reboot=k panic=1 pci=off","initrd_path":null,"kernel_image_path":"/mnt/kernel/vmlinux.bin"},"cpu-config":null,"drives":[{"cache_type":"Unsafe","drive_id":"rootfs","io_engine":"Sync","is_read_only":false,"is_root_device":true,"partuuid":null,"path_on_host":"/mnt/rootfs/bionic.rootfs.ext4","rate_limiter":null,"socket":null}],"entropy":null,"logger":null,"machine-config":{"huge_pages":"None","mem_size_mib":1024,"smt":false,"track_dirty_pages":false,"vcpu_count":2},"metrics":null,"mmds-config":null,"network-interfaces":[],"vsock":null}` | Firecracker configuration, in YAML format. It requires at least one drive, and first drive MUST BE a rootfs drive. |
 | firecracker.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | firecracker.image.repository | string | `"ghcr.io/anza-labs/library/firecracker"` | Registry and repository for the podvm image. |
-| firecracker.image.tag | string | `"v1.11.0"` | Tag for the image. |
+| firecracker.image.tag | string | `"v1.12.0"` | Tag for the image. |
 | firecracker.securityContext | object | `{}` |  |
 | fullnameOverride | string | `""` | Override for the full name. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |

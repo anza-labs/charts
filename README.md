@@ -15,7 +15,7 @@ This repository contains the following Helm charts:
 | [lubelogger](charts/lubelogger) | `0.9.2` | `v1.4.7` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
 | [meta-chart](charts/meta-chart) | `0.1.2` | `meta` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/meta-chart) |
 | [pocket-id](charts/pocket-id) | `0.2.1` | `v0.51.1` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/pocket-id) |
-| [podvm](charts/podvm) | `0.0.0-alpha.8` | `v1.11.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=yellow)](https://artifacthub.io/packages/helm/anza-labs/podvm) |
+| [podvm](charts/podvm) | `0.0.0-alpha.9` | `v1.12.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=yellow)](https://artifacthub.io/packages/helm/anza-labs/podvm) |
 
 ### Deprecated Charts
 
