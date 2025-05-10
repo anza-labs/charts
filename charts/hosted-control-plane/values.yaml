@@ -362,7 +362,7 @@ kine:
     # -- Registry and repository for the kine image.
     repository: ghcr.io/anza-labs/library/kine
     # -- Tag for the image.
-    tag: "v0.13.14"
+    tag: "v0.13.15"
     # -- Image pull policy.
     pullPolicy: IfNotPresent
 
