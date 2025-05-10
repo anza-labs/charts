@@ -1,6 +1,6 @@
 # hosted-control-plane
 
-![Version: 0.2.3](https://img.shields.io/badge/Version-0.2.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.33.0](https://img.shields.io/badge/AppVersion-v1.33.0-informational?style=flat)
+![Version: 0.2.4](https://img.shields.io/badge/Version-0.2.4-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.33.0](https://img.shields.io/badge/AppVersion-v1.33.0-informational?style=flat)
 
 _hosted-control-plane_ is a PoC/testing ground for any improvements that might
 reach Cluster API Control Plane Provider KinK manifests.
@@ -50,7 +50,7 @@ reach Cluster API Control Plane Provider KinK manifests.
 | kine.affinity | object | `{}` | Affinity settings for the pods. |
 | kine.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | kine.image.repository | string | `"ghcr.io/anza-labs/library/kine"` | Registry and repository for the kine image. |
-| kine.image.tag | string | `"v0.13.14"` | Tag for the image. |
+| kine.image.tag | string | `"v0.13.15"` | Tag for the image. |
 | kine.nodeSelector | object | `{}` | Node selector for the pods. |
 | kine.podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | kine.podLabels | object | `{}` | Labels to be added to the pods. |
