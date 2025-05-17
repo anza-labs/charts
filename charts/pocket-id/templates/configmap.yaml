@@ -26,7 +26,7 @@ data:
   UPLOAD_PATH: "data/uploads"
   KEYS_PATH: "data/keys"
   GEOLITE_DB_PATH: "data/GeoLite2-City.mmdb"
-  PUBLIC_UI_CONFIG_DISABLED: "{{ .Values.config.publicUI.useDefaults }}"
+  PUBLIC_UI_CONFIG_DISABLED: "{{ not .Values.config.publicUI.useDefaults }}"
   PUBLIC_APP_URL: "https://{{ $host }}"
   DB_PROVIDER: "{{ $provider }}"
   TZ: "{{ .Values.timeZone }}"
