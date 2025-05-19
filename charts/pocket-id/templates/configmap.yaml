@@ -1,6 +1,6 @@
 {{- if .Values.config.create -}}
 {{- $host := default "localhost" .Values.ingress.host }}
-{{- $provider := .Values.database.provider | default "sqlite" }}
+{{- $provider := default "sqlite" .Values.database.provider }}
 {{- if not (or (eq $provider "sqlite") (eq $provider "postgres")) }}
   {{- fail (printf "Invalid database provider: %s. .Values.database.provider must be 'sqlite' or 'postgres'." $provider) }}
 {{- end }}
@@ -32,37 +32,101 @@ data:
   TZ: "{{ .Values.timeZone }}"
   GEOLITE_DB_URL: "{{ .Values.geoliteDatabaseURL }}"
   {{- if not .Values.config.publicUI.useDefaults }}
+  {{ if .Values.config.publicUI.settings.app.appName }}
   APP_NAME: "{{ .Values.config.publicUI.settings.app.appName }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.app.sessionDuration }}
   SESSION_DURATION: "{{ .Values.config.publicUI.settings.app.sessionDuration }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.app.emailsVerified }}
   EMAILS_VERIFIED: "{{ .Values.config.publicUI.settings.app.emailsVerified }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.app.allowOwnAccountEdit }}
   ALLOW_OWN_ACCOUNT_EDIT: "{{ .Values.config.publicUI.settings.app.allowOwnAccountEdit }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.app.disableAnimations }}
   DISABLE_ANIMATIONS: "{{ .Values.config.publicUI.settings.app.disableAnimations }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.smtp.host }}
   SMTP_HOST: "{{ .Values.config.publicUI.settings.smtp.host }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.smtp.port }}
   SMTP_PORT: "{{ .Values.config.publicUI.settings.smtp.port }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.smtp.from }}
   SMTP_FROM: "{{ .Values.config.publicUI.settings.smtp.from }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.smtp.user }}
   SMTP_USER: "{{ .Values.config.publicUI.settings.smtp.user }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.smtp.password }}
   SMTP_PASSWORD: "{{ .Values.config.publicUI.settings.smtp.password }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.smtp.tls }}
   SMTP_TLS: "{{ .Values.config.publicUI.settings.smtp.tls }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.smtp.skipCertVerify }}
   SMTP_SKIP_CERT_VERIFY: "{{ .Values.config.publicUI.settings.smtp.skipCertVerify }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.email.loginNotificationEnabled }}
   EMAIL_LOGIN_NOTIFICATION_ENABLED: "{{ .Values.config.publicUI.settings.email.loginNotificationEnabled }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.email.oneTimeAccessEnabled }}
   EMAIL_ONE_TIME_ACCESS_ENABLED: "{{ .Values.config.publicUI.settings.email.oneTimeAccessEnabled }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.enabled }}
   LDAP_ENABLED: "{{ .Values.config.publicUI.settings.ldap.enabled }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.url }}
   LDAP_URL: "{{ .Values.config.publicUI.settings.ldap.url }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.bindDN }}
   LDAP_BIND_DN: "{{ .Values.config.publicUI.settings.ldap.bindDN }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.bindPassword }}
   LDAP_BIND_PASSWORD: "{{ .Values.config.publicUI.settings.ldap.bindPassword }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.base }}
   LDAP_BASE: "{{ .Values.config.publicUI.settings.ldap.base }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.userSearchFilter }}
   LDAP_USER_SEARCH_FILTER: "{{ .Values.config.publicUI.settings.ldap.userSearchFilter }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.userGroupSearchFilter }}
   LDAP_USER_GROUP_SEARCH_FILTER: "{{ .Values.config.publicUI.settings.ldap.userGroupSearchFilter }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.skipCertVerify }}
   LDAP_SKIP_CERT_VERIFY: "{{ .Values.config.publicUI.settings.ldap.skipCertVerify }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.attributes.user.uniqueIdentifier }}
   LDAP_ATTRIBUTE_USER_UNIQUE_IDENTIFIER: "{{ .Values.config.publicUI.settings.ldap.attributes.user.uniqueIdentifier }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.attributes.user.username }}
   LDAP_ATTRIBUTE_USER_USERNAME: "{{ .Values.config.publicUI.settings.ldap.attributes.user.username }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.attributes.user.email }}
   LDAP_ATTRIBUTE_USER_EMAIL: "{{ .Values.config.publicUI.settings.ldap.attributes.user.email }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.attributes.user.firstName }}
   LDAP_ATTRIBUTE_USER_FIRST_NAME: "{{ .Values.config.publicUI.settings.ldap.attributes.user.firstName }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.attributes.user.lastName }}
   LDAP_ATTRIBUTE_USER_LAST_NAME: "{{ .Values.config.publicUI.settings.ldap.attributes.user.lastName }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.attributes.user.profilePicture }}
   LDAP_ATTRIBUTE_USER_PROFILE_PICTURE: "{{ .Values.config.publicUI.settings.ldap.attributes.user.profilePicture }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.attributes.group.member }}
   LDAP_ATTRIBUTE_GROUP_MEMBER: "{{ .Values.config.publicUI.settings.ldap.attributes.group.member }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.attributes.group.uniqueIdentifier }}
   LDAP_ATTRIBUTE_GROUP_UNIQUE_IDENTIFIER: "{{ .Values.config.publicUI.settings.ldap.attributes.group.uniqueIdentifier }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.attributes.group.name }}
   LDAP_ATTRIBUTE_GROUP_NAME: "{{ .Values.config.publicUI.settings.ldap.attributes.group.name }}"
+  {{ end }}
+  {{ if .Values.config.publicUI.settings.ldap.attributes.group.adminGroup }}
   LDAP_ATTRIBUTE_ADMIN_GROUP: "{{ .Values.config.publicUI.settings.ldap.attributes.group.adminGroup }}"
+  {{ end }}
   {{- end }}
 {{- end }}
