@@ -9,8 +9,18 @@ version: 0.3.0
 appVersion: "v0.51.1"
 sources:
   - https://github.com/pocket-id/pocket-id
-keywords: []
-annotations: {}
+keywords:
+  - idp
+  - oidc
+  - passkeys
+  - sso
+annotations:
+  artifacthub.io/description: >-
+    pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
+    with their passkeys to your services.
+  artifacthub.io/license: Apache-2.0 # This is license of Chart, not the Application
+  artifacthub.io/category: security
+  artifacthub.io/immutable: "true"
 maintainers:
   - name: shanduur
     email: maturb@proton.me

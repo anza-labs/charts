@@ -27,9 +27,22 @@ tests:
       - matchRegex:
           path: data["litestream.yaml"]
           pattern: "monitor-interval: 1s"
+
+
+  - it: Should render ConfigMap with global access/secret keys
+    set:
+      backup.enabled: true
+      backup.secret.accessKey: xxxxxxxxxxxxxxxxxxxABCD0
+      backup.secret.secretKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx98765
+    asserts:
+      - isKind:
+          of: ConfigMap
       - matchRegex:
           path: data["litestream.yaml"]
           pattern: 'access-key-id: "\$ACCESS_KEY"'
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'secret-access-key: "\$SECRET_KEY"'
 
   - it: Should render with multiple replicas
     set:

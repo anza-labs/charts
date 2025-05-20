@@ -16,8 +16,12 @@ data:
       level: {{ .Values.backup.logging.level }}
       type: {{ .Values.backup.logging.type }}
       stderr: {{ .Values.backup.logging.stderr }}
+    {{- if .Values.backup.secret.accessKey }}
     access-key-id: "$ACCESS_KEY"
+    {{- end }}
+    {{- if .Values.backup.secret.secretKey }}
     secret-access-key: "$SECRET_KEY"
+    {{- end }}
     dbs:
       - path: /data/pocket-id.db
         {{- if .Values.backup.monitorInterval }}
