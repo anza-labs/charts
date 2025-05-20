@@ -42,13 +42,13 @@
           "type": "object"
         },
         "maxCheckpointPageCount": {
-          "type": "string"
+          "type": "integer"
         },
         "metricsAddress": {
           "type": "string"
         },
         "minCheckpointPageCount": {
-          "type": "string"
+          "type": "integer"
         },
         "monitorInterval": {
           "type": "string"

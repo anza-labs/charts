@@ -97,15 +97,15 @@ backup:
     stderr: false
 
   # -- Interval for monitoring in Go duration format (e.g. "30s"). If empty, default is used.
-  monitorInterval: ""
+  monitorInterval: 1s
   # -- Interval between checkpoints in Go duration format. If empty, default is used.
-  checkpointInterval: ""
+  checkpointInterval: 1m
   # -- Busy timeout, if empty, default is used.
-  busyTimeout: ""
+  busyTimeout: 1s
   # -- Minimum number of pages to trigger a checkpoint.
-  minCheckpointPageCount: ""
+  minCheckpointPageCount: 1000
   # -- Maximum number of pages processed during a checkpoint.
-  maxCheckpointPageCount: ""
+  maxCheckpointPageCount: 10000
 
   secret:
     # -- Specifies whether a secret should be created.

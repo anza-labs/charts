@@ -20,11 +20,21 @@ data:
     secret-access-key: "$SECRET_KEY"
     dbs:
       - path: /data/pocket-id.db
-        monitor-interval: {{ printf "%d" .Values.backup.monitorInterval }}
-        checkpoint-interval: {{ printf "%d" .Values.backup.checkpointInterval }}
-        busy-timeout: {{ printf "%d" .Values.backup.busyTimeout }}
-        min-checkpoint-page-count: {{ default (printf "%d" .Values.backup.minCheckpointPageCount) "null" }}
-        max-checkpoint-page-count: {{ default (printf "%d" .Values.backup.maxCheckpointPageCount) "null" }}
+        {{- if .Values.backup.monitorInterval }}
+        monitor-interval: {{ .Values.backup.monitorInterval }}
+        {{- end }}
+        {{- if .Values.backup.checkpointInterval }}
+        checkpoint-interval: {{ .Values.backup.checkpointInterval }}
+        {{- end }}
+        {{- if .Values.backup.busyTimeout }}
+        busy-timeout: {{ printf .Values.backup.busyTimeout }}
+        {{- end }}
+        {{- if .Values.backup.minCheckpointPageCount }}
+        min-checkpoint-page-count: {{ .Values.backup.minCheckpointPageCount }}
+        {{- end }}
+        {{- if .Values.backup.maxCheckpointPageCount }}
+        max-checkpoint-page-count: {{ .Values.backup.maxCheckpointPageCount }}
+        {{- end }}
         replicas:
     {{- range $i, $val := .Values.backup.secret.replicas }}
           - type: "{{ printf "$REPLICA_%d_TYPE" $i }}"

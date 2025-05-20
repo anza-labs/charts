@@ -1,6 +1,6 @@
 # pocket-id
 
-![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.51.1](https://img.shields.io/badge/AppVersion-v0.51.1-informational?style=flat)
+![Version: 0.2.3](https://img.shields.io/badge/Version-0.2.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.51.1](https://img.shields.io/badge/AppVersion-v0.51.1-informational?style=flat)
 
 _pocket-id_ is a simple and easy-to-use OIDC provider that allows users to authenticate
 with their passkeys to your services.
@@ -22,18 +22,18 @@ with their passkeys to your services.
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity settings for the pods. |
-| backup.busyTimeout | string | `""` | Busy timeout, if empty, default is used. |
-| backup.checkpointInterval | string | `""` | Interval between checkpoints in Go duration format. If empty, default is used. |
+| backup.busyTimeout | string | `"1s"` | Busy timeout, if empty, default is used. |
+| backup.checkpointInterval | string | `"1m"` | Interval between checkpoints in Go duration format. If empty, default is used. |
 | backup.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | backup.image.repository | string | `"docker.io/litestream/litestream"` | Registry and repository for the pocket-id image. |
 | backup.image.tag | string | `"0.3.13"` | Tag for the image. |
 | backup.logging.level | string | `"INFO"` | Logging level. Options: DEBUG, INFO, WARNING, ERROR |
 | backup.logging.stderr | bool | `false` | Whether to log to stderr (default is stdout) |
 | backup.logging.type | string | `"text"` | Logging format. Options: text or json |
-| backup.maxCheckpointPageCount | string | `""` | Maximum number of pages processed during a checkpoint. |
+| backup.maxCheckpointPageCount | int | `10000` | Maximum number of pages processed during a checkpoint. |
 | backup.metricsAddress | string | `"0.0.0.0:8080"` | The address the metrics endpoint binds to. |
-| backup.minCheckpointPageCount | string | `""` | Minimum number of pages to trigger a checkpoint. |
-| backup.monitorInterval | string | `""` | Interval for monitoring in Go duration format (e.g. "30s"). If empty, default is used. |
+| backup.minCheckpointPageCount | int | `1000` | Minimum number of pages to trigger a checkpoint. |
+| backup.monitorInterval | string | `"1s"` | Interval for monitoring in Go duration format (e.g. "30s"). If empty, default is used. |
 | backup.resources | object | `{}` |  |
 | backup.secret.accessKey | string | `""` | Primary S3 access key. |
 | backup.secret.create | bool | `true` | Specifies whether a secret should be created. |

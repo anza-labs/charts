@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: backup ConfigMap
+
+templates:
+  - backup-configmap.yaml
+
+tests:
+  - it: Should not create backup ConfigMap
+    set:
+      backup.enabled: false
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: Should render ConfigMap with default values
+    set:
+      backup.enabled: true
+    asserts:
+      - isKind:
+          of: ConfigMap
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: "addr: 0.0.0.0:8080"
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: "level: INFO"
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: "monitor-interval: 1s"
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'access-key-id: "\$ACCESS_KEY"'
+
+  - it: Should render with multiple replicas
+    set:
+      backup.enabled: true
+      backup.secret.replicas:
+        - accessKey: foo
+          secretKey: bar
+          region: us-west-1
+          bucket: test-bucket-1
+          path: /some/path
+          endpoint: s3.example.com
+          forcePathStyle: true
+          skipVerify: false
+        - bucket: test-bucket-2
+          path: /some/path
+    asserts:
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'access-key-id: "\$REPLICA_0_ACCESS_KEY"'
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'secret-access-key: "\$REPLICA_0_SECRET_KEY"'
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'region: "\$REPLICA_0_REGION"'
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'bucket: "\$REPLICA_0_BUCKET"'
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'path: "\$REPLICA_0_PATH"'
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'endpoint: "\$REPLICA_0_ENDPOINT"'
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'force-path-style: "\$REPLICA_0_FORCE_PATH_STYLE"'
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'skip-verify: "\$REPLICA_0_SKIP_VERIFY"'
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'bucket: "\$REPLICA_1_BUCKET"'
+      - matchRegex:
+          path: data["litestream.yaml"]
+          pattern: 'path: "\$REPLICA_1_PATH"'
