@@ -16,9 +16,8 @@ keywords:
   - sso
 annotations:
   artifacthub.io/description: >-
-    pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
-    with their passkeys to your services.
-  artifacthub.io/license: Apache-2.0 # This is license of Chart, not the Application
+    pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate with their passkeys to your services.
+  artifacthub.io/license: Apache-2.0  # This is license of Chart, not the Application
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
 maintainers:
