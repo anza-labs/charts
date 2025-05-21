@@ -156,7 +156,7 @@ SEMVER                  ?= $(LOCALBIN)/semver
 CLOUD_PROVIDER_KIND_VERSION ?= v0.6.0
 
 # renovate: datasource=github-tags depName=tilt-dev/ctlptl
-CTLPTL_VERSION ?= v0.8.41
+CTLPTL_VERSION ?= v0.8.42
 
 # renovate: datasource=github-tags depName=norwoodj/helm-docs
 HELM_DOCS_VERSION ?= v1.14.2
