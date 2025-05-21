@@ -4,6 +4,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.33.1
     created: "2025-05-18T11:09:10.671769396Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -25,6 +26,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.33.0
     created: "2025-05-10T14:22:50.677278339Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -46,6 +48,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.33.0
     created: "2025-05-09T15:19:20.049958748Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -67,6 +70,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.33.0
     created: "2025-04-24T14:33:07.712521475Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -88,6 +92,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.33.0
     created: "2025-04-23T19:38:45.798733973Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -109,6 +114,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.3
     created: "2025-04-01T09:34:35.319313067Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -130,6 +136,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.3
     created: "2025-03-12T11:36:52.621582427Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -172,6 +179,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.2
     created: "2025-03-04T11:49:06.102566352Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -193,6 +201,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.0
     created: "2025-03-04T11:39:59.214111981Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -214,6 +223,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.0
     created: "2025-03-04T11:32:46.681578365Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -235,6 +245,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.0
     created: "2025-03-04T11:29:32.519335444Z"
+    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
@@ -833,6 +844,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.0.5
     created: "2025-01-16T07:17:46.453705607Z"
+    deprecated: true
     description: 'This tool migrates stored data in etcd to the latest storage version. '
     digest: 8110d8b11cdd2232b246cde431064fea708147cce2fc7d4c64eca258fe86f317
     maintainers:
@@ -847,6 +859,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.0.5
     created: "2025-01-16T07:06:45.154748254Z"
+    deprecated: true
     description: 'This tool migrates stored data in etcd to the latest storage version. '
     digest: 1c616c7ce070ef91c17a23fca247a182d70aba012d6d94dca7b8c9283a2ee069
     maintainers:
@@ -861,6 +874,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.0.5
     created: "2025-01-16T06:56:40.733018535Z"
+    deprecated: true
     description: 'This tool migrates stored data in etcd to the latest storage version. '
     digest: 37e57c8f8114f07ca566ab7edfcda1029facde5a292ae160eb8083d0d916f83e
     maintainers:
@@ -875,6 +889,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.0.5
     created: "2025-01-16T06:49:22.136485031Z"
+    deprecated: true
     description: 'This tool migrates stored data in etcd to the latest storage version. '
     digest: 7ba5897177e71bf72481fca47585bf819a39380136097ed4f1ab48ad13d592d5
     maintainers:
@@ -1814,6 +1829,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.12.0
     created: "2025-05-10T14:22:50.760911052Z"
+    deprecated: true
     description: '_podvm_ is a PoC/testing for running Firecracker in Kubernetes. '
     digest: b354fc224e41de9efca2c7e4750135ddd6b8e50e6cbc4bb5ffedb7390f2404c9
     maintainers:
@@ -1828,6 +1844,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.11.0
     created: "2025-05-09T15:19:20.783170072Z"
+    deprecated: true
     description: '_podvm_ is a PoC/testing for running Firecracker in Kubernetes. '
     digest: e92bf1571c0e8a24989bfcb5316519f563afdf347ca27edc079fb07c7ec39d4f
     maintainers:
@@ -1856,6 +1873,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.11.0
     created: "2025-04-23T19:58:35.378070618Z"
+    deprecated: true
     description: '_podvm_ is a PoC/testing for running Firecracker in Kubernetes. '
     digest: 7ecebef6f6f8b79c11e2be13cb4e7bc7de09da6b158fd55808c752eb481805e0
     maintainers:
@@ -1870,6 +1888,7 @@ entries:
   - apiVersion: v2
     appVersion: v1.11.0
     created: "2025-05-05T18:10:26.162166395Z"
+    deprecated: true
     description: '_podvm_ is a PoC/testing for running Firecracker in Kubernetes. '
     digest: a23807f84808d9750359a34917229148719a0a154a77b7314c8fdcc71d3671ad
     maintainers:
@@ -1884,6 +1903,7 @@ entries:
   - apiVersion: v2
     appVersion: 1.10.1
     created: "2025-03-21T12:22:14.022612274Z"
+    deprecated: true
     description: '_podvm_ is a PoC/testing for running Firecracker in Kubernetes. '
     digest: 71fb421a995acf0c06256f17f56db661bba3689ba62c97256546ac378d0e9573
     maintainers:
@@ -1898,6 +1918,7 @@ entries:
   - apiVersion: v2
     appVersion: 1.10.1
     created: "2025-03-17T19:04:58.280454316Z"
+    deprecated: true
     description: '_podvm_ is a PoC/testing ground for any improvements that might
       reach Cluster API Infrastructure Provider KinK manifests. '
     digest: 21eb3f5439ce25ca25deff9046ec84ba210d114f3e5a2640520bf0308f526e37
@@ -1914,6 +1935,7 @@ entries:
   - apiVersion: v2
     appVersion: 1.10.1
     created: "2025-03-17T16:08:43.407487215Z"
+    deprecated: true
     description: '_podvm_ is a PoC/testing ground for any improvements that might
       reach Cluster API Infrastructure Provider KinK manifests. '
     digest: 74990a4cb458ea4425f0e93a8db8a26228f5389e51e027450ee499f9d58e402e
@@ -1930,6 +1952,7 @@ entries:
   - apiVersion: v2
     appVersion: 1.10.1
     created: "2025-03-05T13:10:16.221242694Z"
+    deprecated: true
     description: '_podvm_ is a PoC/testing ground for any improvements that might
       reach Cluster API Infrastructure Provider KinK manifests. '
     digest: 4ac7c3c076e5d508fb4f226615a93f31f888341df5c85b441e64a6c2e475ceeb
@@ -1946,6 +1969,7 @@ entries:
   - apiVersion: v2
     appVersion: 1.10.1
     created: "2025-03-05T09:50:24.558892781Z"
+    deprecated: true
     description: '_podvm_ is a PoC/testing ground for any improvements that might
       reach Cluster API Infrastructure Provider KinK manifests. '
     digest: d6d662ced33a6d44fdd6c597051f22cc73ab265b6c8a6e42e87b5109229afdc4
@@ -1962,6 +1986,7 @@ entries:
   - apiVersion: v2
     appVersion: 1.10.1
     created: "2025-03-04T15:23:49.581571138Z"
+    deprecated: true
     description: '_podvm_ is a PoC/testing ground for any improvements that might
       reach Cluster API Infrastructure Provider KinK manifests. '
     digest: 4edff4c2d2190279ffe0da434f2604eb7d98e0a72e76e80f8abe7982560ddd5b
@@ -2013,6 +2038,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.3.0
     created: "2025-01-23T08:01:15.969791681Z"
+    deprecated: true
     description: '_Scribe_ is a tool that automates the propagation of annotations
       across Kubernetes resources based on the annotations in a Namespace. '
     digest: 5622718107375f580c354640bab238ef1228812f5cd16e57f65b6939450ae046
@@ -2029,6 +2055,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.3.0
     created: "2025-01-23T08:00:48.351118673Z"
+    deprecated: true
     description: '_Scribe_ is a tool that automates the propagation of annotations
       across Kubernetes resources based on the annotations in a Namespace. '
     digest: 2bdd01cd6aa7d64604722eb0407747ed68da686c70072ef4e65e7bbdbcd20fea
@@ -2045,6 +2072,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.3.0
     created: "2025-01-16T12:34:22.519469259Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: 7d1deb321900478798930ed512bdc430f1522289f916ceaece3f8215c1344fb1
@@ -2061,6 +2089,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.3.0
     created: "2025-01-16T07:17:46.577519167Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: 5c54a95718b58cd52960eeb08a1a3b92c89fe19266f7d80a38179dfa521b7580
@@ -2076,6 +2105,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.3.0
     created: "2025-01-16T06:49:22.328251447Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: 2359724483901437572181abcb0f385dc68c0936a112d0635765cd3d09eba4ca
@@ -2091,6 +2121,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.3.0
     created: "2025-01-04T13:37:35.776977879Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: 968649dd152fe0c1d1ffa6ffc9bd9888a22c0c2bc36990f8b007dc95dac739ef
@@ -2106,6 +2137,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.2.0
     created: "2024-12-30T20:48:18.697451316Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: 830d77b49061421ab36e686e986286fe0f9ee45e1d11783f57fdd016a6d90f1c
@@ -2121,6 +2153,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.1.2
     created: "2024-12-30T18:24:33.54164813Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: ec1571e88697705b1cdfe8c3c351569b9e76165c439e06b361c78025a66893d1
@@ -2136,6 +2169,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.1.1
     created: "2024-11-14T19:44:41.10227243Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: 6f02c5fc8a36cadffb8a95a457803364dd96445ae49bcbc8e2ceaecbd36b855e
@@ -2151,6 +2185,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.1.1
     created: "2024-10-31T15:23:28.157426938Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: 5813e0c270f7d03fe683d0c274371fc1f6040080525a99830cbab323ac994e49
@@ -2166,6 +2201,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.1.0
     created: "2024-09-30T06:43:41.269447858Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: 2e38b90612cd16fd7f9a2458530c6d7b7018dacbe2190ab0da4b57b6a6a3cb52
@@ -2181,6 +2217,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.1.0
     created: "2024-09-29T17:20:02.215676244Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: 6e638364f661ddd80bd61277b97546237717871368afa999cd6727ec40b4af27
@@ -2196,6 +2233,7 @@ entries:
   - apiVersion: v2
     appVersion: v0.1.0
     created: "2024-09-29T10:24:25.965729257Z"
+    deprecated: true
     description: 'Scribe is a tool that automates the propagation of annotations across
       Kubernetes resources based on the annotations in a Namespace. '
     digest: 1d870048827c898a1837d42e7ce21d43c9e17a87f9d514743ae24d9292fd279f
