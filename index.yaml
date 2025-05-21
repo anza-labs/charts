@@ -281,6 +281,61 @@ entries:
           platforms:
             - linux/amd64
             - linux/arm64
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: edge-25.4.1
+    created: "2025-05-21T06:00:42.498927475Z"
+    dependencies:
+    - condition: kamaji-etcd.deploy
+      name: kamaji-etcd
+      repository: https://clastix.github.io/charts
+      version: '>=0.9.2'
+    description: 'Kamaji is the Kubernetes Control Plane Manager. '
+    digest: 4a8d96574642451fcc2192a51ba5b021b3531b531d455b73d10a58b28b38d317
+    home: https://kamaji.clastix.io
+    keywords:
+    - kubernetes
+    - multi-tenancy
+    - managed-kubernetes
+    - virtual-cluster
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: kamaji
+    sources:
+    - https://github.com/clastix/kamaji
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/kamaji-0.1.10/kamaji-0.1.10.tgz
+    version: 0.1.10
+  - annotations:
+      artifacthub.io/images: |
+        - name: proxy-server
+          image: registry.k8s.io/kas-network-proxy/proxy-server:v0.28.6
+          platforms:
+            - linux/amd64
+            - linux/arm64
+        - name: kamaji
+          image: docker.io/clastix/kamaji:edge-24.12.1
+          platforms:
+            - linux/amd64
+            - linux/arm64
+        - name: kube-apiserver
+          image: registry.k8s.io/kube-apiserver:v1.28.6
+          platforms:
+            - linux/amd64
+            - linux/arm64
+        - name: kube-controller-manager
+          image: registry.k8s.io/kube-controller-manager:v1.28.6
+          platforms:
+            - linux/amd64
+            - linux/arm64
+        - name: kube-scheduler
+          image: registry.k8s.io/kube-scheduler:v1.28.6
+          platforms:
+            - linux/amd64
+            - linux/arm64
     apiVersion: v2
     appVersion: edge-25.4.1
     created: "2025-05-09T15:19:20.198008468Z"
@@ -832,6 +887,29 @@ entries:
     - https://github.com/anza-labs/charts/releases/download/kube-storage-version-migrator-0.0.1/kube-storage-version-migrator-0.0.1.tgz
     version: 0.0.1
   lubelogger:
+  - annotations:
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.4.7
+    created: "2025-05-21T06:00:42.637679058Z"
+    description: 'LubeLogger is a web-based vehicle maintenance and fuel mileage tracker '
+    digest: 1a5840b4c2594b63d45a8c567090ef7223da1290ec940471fccdea73abc92c36
+    home: https://lubelogger.com
+    keywords:
+    - vechicle
+    - maintenance
+    - dashboard
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: lubelogger
+    sources:
+    - https://github.com/hargata/lubelog
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/lubelogger-0.9.4/lubelogger-0.9.4.tgz
+    version: 0.9.4
   - apiVersion: v2
     appVersion: v1.4.7
     created: "2025-05-19T09:21:18.604121072Z"
@@ -1502,6 +1580,32 @@ entries:
   pocket-id:
   - annotations:
       artifacthub.io/category: security
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v0.51.1
+    created: "2025-05-21T06:00:42.770390128Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: dfa842aa87ec6547398e78ba5ed6e9de36ecf17713c62acad041bc2acbf91433
+    home: https://pocket-id.org
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-0.3.1/pocket-id-0.3.1.tgz
+    version: 0.3.1
+  - annotations:
+      artifacthub.io/category: security
       artifacthub.io/description: pocket-id is a simple and easy-to-use OIDC provider
         that allows users to authenticate with their passkeys to your services.
       artifacthub.io/immutable: "true"
@@ -2104,4 +2208,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-20T20:19:11.455919101Z"
+generated: "2025-05-21T06:00:42.770816722Z"
