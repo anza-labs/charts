@@ -2,9 +2,9 @@ apiVersion: v2
 type: application
 name: kamaji
 description: |
-  _Kamaji_ is the Kubernetes Control Plane Manager.
+  Kamaji is the Kubernetes Control Plane Manager.
 home: https://kamaji.clastix.io
-version: 0.1.9
+version: 0.1.10
 appVersion: "edge-25.4.1"
 sources:
   - https://github.com/clastix/kamaji
@@ -17,7 +17,13 @@ dependencies:
     repository: https://clastix.github.io/charts
     version: ">=0.9.2"
     condition: kamaji-etcd.deploy
+keywords:
+  - kubernetes
+  - multi-tenancy
+  - managed-kubernetes
+  - virtual-cluster
 annotations:
+  artifacthub.io/immutable: "true"
   artifacthub.io/images: |
     - name: proxy-server
       image: registry.k8s.io/kas-network-proxy/proxy-server:v0.28.6
