@@ -4,12 +4,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.33.1
     created: "2025-05-18T11:09:10.671769396Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach Cluster API Control Plane Provider KinK manifests. '
     digest: 49585d3594dd2ce062d3e211f3e1eeee282ca7c4ca7e6bf3a713cbb4b938436f
@@ -26,12 +26,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.33.0
     created: "2025-05-10T14:22:50.677278339Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach Cluster API Control Plane Provider KinK manifests. '
     digest: 1ae792659085fa9e34d939f498f09d15218966d32759ae7ba907228e240e1465
@@ -48,12 +48,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.33.0
     created: "2025-05-09T15:19:20.049958748Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach Cluster API Control Plane Provider KinK manifests. '
     digest: a6af940a09fe0021e7d57b3b8a19a0b71230446b4ef3f28c023561694880fe16
@@ -70,12 +70,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.33.0
     created: "2025-04-24T14:33:07.712521475Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach Cluster API Control Plane Provider KinK manifests. '
     digest: cd3bbe0c8cf8b46333f2eed54c7814db6fae3c454d0d62d3ac279be4ab8f05d8
@@ -92,12 +92,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.33.0
     created: "2025-04-23T19:38:45.798733973Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach Cluster API Control Plane Provider KinK manifests. '
     digest: ff93abc76fd6516a94c022f1a133677d19eda3ecae32c7132ad8f1d106ab690e
@@ -114,12 +114,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.3
     created: "2025-04-01T09:34:35.319313067Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach Cluster API Control Plane Provider KinK manifests. '
     digest: 6e793077e267eeb334f9b8f81d3efa73f034291ea628f2bfc2bd048c6ac9d7ed
@@ -136,12 +136,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.3
     created: "2025-03-12T11:36:52.621582427Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach Cluster API Control Plane Provider KinK manifests. '
     digest: 7f2350372124955679c7afcb2fb00f2a41896fe768424f08e9004ecad76d3ad7
@@ -179,12 +179,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.2
     created: "2025-03-04T11:49:06.102566352Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach KinK Control-Plane provider manifests. '
     digest: 8fce9e71038ef15320a61bafaf361cb874f4c1fae228cd48a1788c8598fb705b
@@ -201,12 +201,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.0
     created: "2025-03-04T11:39:59.214111981Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach KinK Control-Plane provider manifests. '
     digest: a314610bd07ae2c376f6f8d9148ca9cb4e7925c1dcf6fc8ff48311b15aae3928
@@ -223,12 +223,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.0
     created: "2025-03-04T11:32:46.681578365Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach KinK Control-Plane provider manifests. '
     digest: 8ee05b8603e922f29c7715d464c0b1517c38ac2949cd402cc41faf691d71d6d5
@@ -245,12 +245,12 @@ entries:
   - apiVersion: v2
     appVersion: v1.32.0
     created: "2025-03-04T11:29:32.519335444Z"
-    deprecated: true
     dependencies:
     - condition: cert-manager.deploy
       name: cert-manager
       repository: https://charts.jetstack.io
       version: '>=v1.16.0'
+    deprecated: true
     description: '_hosted-control-plane_ is a PoC/testing ground for any improvements
       that might reach KinK Control-Plane provider manifests. '
     digest: ecbfb0fac1c3102ad23241997e12582e5b81a414a4e26491d17fe60a34b397b1
@@ -1598,6 +1598,32 @@ entries:
       artifacthub.io/immutable: "true"
     apiVersion: v2
     appVersion: v0.51.1
+    created: "2025-05-23T14:31:08.551151072Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: 7151aae4a686c2f84e3e0449149007e6315bc4f1d283d88e8e67a3be5ec2b920
+    home: https://pocket-id.org
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-0.4.0/pocket-id-0.4.0.tgz
+    version: 0.4.0
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v0.51.1
     created: "2025-05-21T06:00:42.770390128Z"
     description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
       users to authenticate with their passkeys to your services. '
@@ -2246,4 +2272,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-21T06:00:42.770816722Z"
+generated: "2025-05-23T14:31:08.551394657Z"
