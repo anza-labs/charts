@@ -17,6 +17,14 @@ keywords:
 annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
+  artifacthub.io/changes: |-
+    - kind: fixed
+      description: '**pocket-id:** existingClaim functionality and `PUBLIC_UI_CONFIG_DISABLED` value'
+      links:
+      - name: 'GitHub Issue #106'
+        url: https://github.com/anza-labs/charts/issues/106
+      - name: Commit dba6f57
+        url: https://github.com/anza-labs/charts/commit/dba6f5774dbf512f5ee8a5540b2f0530b0111eb7
 maintainers:
   - name: shanduur
     email: maturb@proton.me
