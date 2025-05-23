@@ -85,8 +85,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "kind.yaml$"
+      "managerFilePatterns": [
+        "/kind.yaml$/"
       ],
       "matchStrings": [
         "\\s+image:\\s(?<depName>.*?):(?<currentValue>\\S+)"
@@ -95,8 +95,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "values.yaml$"
+      "managerFilePatterns": [
+        "/values.yaml$/"
       ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+version:\\s(?<currentValue>\\S+)"
@@ -105,8 +105,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "^Makefile$"
+      "managerFilePatterns": [
+        "/^Makefile$/"
       ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s[A-Z_]+\\s\\?=\\s(?<currentValue>\\S+)"
