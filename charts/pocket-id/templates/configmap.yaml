@@ -71,8 +71,11 @@ data:
   {{ if not (quote .Values.config.publicUI.settings.email.loginNotificationEnabled | empty) }}
   EMAIL_LOGIN_NOTIFICATION_ENABLED: "{{ .Values.config.publicUI.settings.email.loginNotificationEnabled }}"
   {{ end }}
-  {{ if not (quote .Values.config.publicUI.settings.email.oneTimeAccessEnabled | empty) }}
-  EMAIL_ONE_TIME_ACCESS_ENABLED: "{{ .Values.config.publicUI.settings.email.oneTimeAccessEnabled }}"
+  {{ if not (quote .Values.config.publicUI.settings.email.oneTimeAccessAsAdminEnabled | empty) }}
+  EMAIL_ONE_TIME_ACCESS_AS_ADMIN_ENABLED: "{{ .Values.config.publicUI.settings.email.oneTimeAccessAsAdminEnabled }}"
+  {{ end }}
+  {{ if not (quote .Values.config.publicUI.settings.email.oneTimeAccessAsUnauthenticatedEnabled | empty) }}
+  EMAIL_ONE_TIME_ACCESS_AS_UNAUTHENTICATED_ENABLED: "{{ .Values.config.publicUI.settings.email.oneTimeAccessAsUnauthenticatedEnabled }}"
   {{ end }}
   {{ if not (quote .Values.config.publicUI.settings.ldap.enabled | empty) }}
   LDAP_ENABLED: "{{ .Values.config.publicUI.settings.ldap.enabled }}"

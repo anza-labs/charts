@@ -48,7 +48,8 @@ with their passkeys to your services.
 | config.publicUI.settings.app.emailsVerified | bool | `false` | Whether the user's email is pre-marked as verified for OIDC clients (typically used for testing) |
 | config.publicUI.settings.app.sessionDuration | int | `60` | Duration in minutes of a session before the user must sign in again |
 | config.publicUI.settings.email.loginNotificationEnabled | bool | `false` | Whether to send an email notification when a user logs in from a new device |
-| config.publicUI.settings.email.oneTimeAccessEnabled | bool | `false` | Whether to allow one-time access sign-ins via a link sent to the user's email    (note: this reduces security significantly, as anyone with email access can sign in) |
+| config.publicUI.settings.email.oneTimeAccessAsAdminEnabled | bool | `false` | Whether to allow admins to send one-time access sign-in links to the user's email |
+| config.publicUI.settings.email.oneTimeAccessAsUnauthenticatedEnabled | bool | `false` | Whether to allow unauthenticated users to request one-time access sign-in links sent to the user's email    (note: this reduces security significantly, as anyone with email access can sign in) |
 | config.publicUI.settings.ldap.attributes.group.adminGroup | string | `""` | LDAP attribute for the admin group (used to assign Admin privileges) |
 | config.publicUI.settings.ldap.attributes.group.member | string | `"member"` | LDAP attribute for querying group members |
 | config.publicUI.settings.ldap.attributes.group.name | string | `""` | LDAP attribute for the group's name |

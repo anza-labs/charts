@@ -180,9 +180,12 @@ config:
         # -- Whether to send an email notification when a user logs in from a new device
         loginNotificationEnabled: false
 
-        # -- Whether to allow one-time access sign-ins via a link sent to the user's email
+        # -- Whether to allow admins to send one-time access sign-in links to the user's email
+        oneTimeAccessAsAdminEnabled: false
+
+        # -- Whether to allow unauthenticated users to request one-time access sign-in links sent to the user's email
         #    (note: this reduces security significantly, as anyone with email access can sign in)
-        oneTimeAccessEnabled: false
+        oneTimeAccessAsUnauthenticatedEnabled: false
 
       ldap:
         # -- Whether to enable LDAP authentication

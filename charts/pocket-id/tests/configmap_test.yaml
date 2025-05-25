@@ -104,7 +104,8 @@ tests:
       config.publicUI.useDefaults: false
       config.publicUI.settings.email:
         loginNotificationEnabled: true
-        oneTimeAccessEnabled: false
+        oneTimeAccessAsAdminEnabled: false
+        oneTimeAccessAsUnauthenticatedEnabled: false
     asserts:
       - hasDocuments:
           count: 1
@@ -114,7 +115,8 @@ tests:
           path: data
           content:
             EMAIL_LOGIN_NOTIFICATION_ENABLED: "true"
-            EMAIL_ONE_TIME_ACCESS_ENABLED: "false"
+            EMAIL_ONE_TIME_ACCESS_AS_ADMIN_ENABLED: "false"
+            EMAIL_ONE_TIME_ACCESS_AS_UNAUTHENTICATED_ENABLED: "false"
 
   - it: Should create ConfigMap with publicUI values set (ldap)
     set:

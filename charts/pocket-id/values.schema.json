@@ -118,7 +118,10 @@
                     "loginNotificationEnabled": {
                       "type": "boolean"
                     },
-                    "oneTimeAccessEnabled": {
+                    "oneTimeAccessAsAdminEnabled": {
+                      "type": "boolean"
+                    },
+                    "oneTimeAccessAsUnauthenticatedEnabled": {
                       "type": "boolean"
                     }
                   },
