@@ -11,9 +11,6 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "pocket-id.labels" . | nindent 4 }}
-    {{- with .Values.podLabels }}
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
 data:
   TRUST_PROXY: "true"
   CADDY_DISABLED: "false"

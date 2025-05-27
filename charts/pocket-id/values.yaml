@@ -58,7 +58,7 @@ pocketID:
 
 backup:
   image:
-    # -- Registry and repository for the pocket-id image.
+    # -- Registry and repository for the litestream image.
     repository: docker.io/litestream/litestream
     # -- Tag for the image.
     tag: "0.3.13"
