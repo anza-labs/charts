@@ -17,6 +17,28 @@ keywords:
 annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
+  artifacthub.io/changes: |-
+    - kind: added
+      description: '**pocket-id:** prepare for v1 pocket-id release'
+      links:
+      - name: 'GitHub Issue #124'
+        url: https://github.com/anza-labs/charts/issues/124
+      - name: Commit b400d09
+        url: https://github.com/anza-labs/charts/commit/b400d09e66a4d8b07f988bd56f33494ee1fe8ece
+    - kind: fixed
+      description: '**pocket-id:** existingClaim functionality and `PUBLIC_UI_CONFIG_DISABLED` value'
+      links:
+      - name: 'GitHub Issue #106'
+        url: https://github.com/anza-labs/charts/issues/106
+      - name: Commit dba6f57
+        url: https://github.com/anza-labs/charts/commit/dba6f5774dbf512f5ee8a5540b2f0530b0111eb7
+    - kind: fixed
+      description: '**pocket-id:** one-time access email settings'
+      links:
+      - name: 'GitHub Issue #122'
+        url: https://github.com/anza-labs/charts/issues/122
+      - name: Commit fc5b0fc
+        url: https://github.com/anza-labs/charts/commit/fc5b0fc248cb0b7e6c5601ebfb93a7934d2870bf
 maintainers:
   - name: shanduur
     email: maturb@proton.me
