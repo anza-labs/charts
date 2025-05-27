@@ -40,3 +40,4 @@ spec:
             name: (join('-', [$namespace, 'pocket-id']))
           status:
             (readyReplicas == replicas): true
+            (availableReplicas == replicas): true
