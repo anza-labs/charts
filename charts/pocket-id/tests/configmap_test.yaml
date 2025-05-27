@@ -30,7 +30,7 @@ tests:
           content:
             DB_PROVIDER: sqlite
             GEOLITE_DB_URL: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"
-            PUBLIC_APP_URL: "https://pocket-id.example.local"
+            APP_URL: "https://pocket-id.example.local"
             TZ: "Etc/UTC"
 
   - it: Should create ConfigMap with overrides
@@ -46,13 +46,13 @@ tests:
           content:
             DB_PROVIDER: sqlite
             GEOLITE_DB_URL: "https://example.com/db.tar.gz"
-            PUBLIC_APP_URL: "https://example.com"
+            APP_URL: "https://example.com"
             TZ: "Europe/Berlin"
 
-  - it: Should create ConfigMap with publicUI values set (app)
+  - it: Should create ConfigMap with ui values set (app)
     set:
-      config.publicUI.useDefaults: false
-      config.publicUI.settings.app:
+      config.ui.useDefaults: false
+      config.ui.settings.app:
         appName: "MyApp"
         sessionDuration: 3600
         emailsVerified: true
@@ -72,10 +72,10 @@ tests:
             ALLOW_OWN_ACCOUNT_EDIT: "true"
             DISABLE_ANIMATIONS: "true"
 
-  - it: Should create ConfigMap with publicUI values set (smtp)
+  - it: Should create ConfigMap with ui values set (smtp)
     set:
-      config.publicUI.useDefaults: false
-      config.publicUI.settings.smtp:
+      config.ui.useDefaults: false
+      config.ui.settings.smtp:
         host: "smtp.example.com"
         port: "587"
         from: "noreply@example.com"
@@ -99,10 +99,10 @@ tests:
             SMTP_TLS: "starttls"
             SMTP_SKIP_CERT_VERIFY: "false"
 
-  - it: Should create ConfigMap with publicUI values set (email)
+  - it: Should create ConfigMap with ui values set (email)
     set:
-      config.publicUI.useDefaults: false
-      config.publicUI.settings.email:
+      config.ui.useDefaults: false
+      config.ui.settings.email:
         loginNotificationEnabled: true
         oneTimeAccessAsAdminEnabled: false
         oneTimeAccessAsUnauthenticatedEnabled: false
@@ -118,10 +118,10 @@ tests:
             EMAIL_ONE_TIME_ACCESS_AS_ADMIN_ENABLED: "false"
             EMAIL_ONE_TIME_ACCESS_AS_UNAUTHENTICATED_ENABLED: "false"
 
-  - it: Should create ConfigMap with publicUI values set (ldap)
+  - it: Should create ConfigMap with ui values set (ldap)
     set:
-      config.publicUI.useDefaults: false
-      config.publicUI.settings.ldap:
+      config.ui.useDefaults: false
+      config.ui.settings.ldap:
         enabled: true
         url: "ldap://example.com"
         bindDN: "cn=admin,dc=example,dc=com"

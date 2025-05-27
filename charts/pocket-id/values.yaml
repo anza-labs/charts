@@ -16,9 +16,9 @@ database:
   provider: "sqlite"
 
   # -- Connection string for the database.
-  #    - For sqlite: file:data/pocket-id.db?_journal_mode=WAL&_busy_timeout=2500&_txlock=immediate
+  #    - For sqlite: file:data/pocket-id.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate
   #    - For postgres: postgres://user:password@host:port/dbname
-  connectionString: "file:data/pocket-id.db?_journal_mode=WAL&_busy_timeout=2500&_txlock=immediate"
+  connectionString: "file:data/pocket-id.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate"
 
 updateStrategy:
   # -- The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "OnDelete".
@@ -133,7 +133,7 @@ config:
   # If not filled, uses full name.
   name: ""
 
-  publicUI:
+  ui:
     # -- Whether to enable default settings for the UI or allow customizations
     useDefaults: true
 

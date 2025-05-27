@@ -89,7 +89,7 @@
         "name": {
           "type": "string"
         },
-        "publicUI": {
+        "ui": {
           "properties": {
             "settings": {
               "properties": {

@@ -85,11 +85,8 @@ spec:
           image: "{{ .Values.pocketID.image.repository }}:{{ .Values.pocketID.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.pocketID.image.pullPolicy }}
           ports:
-            - name: http
-              containerPort: 10080
-              protocol: TCP
             - name: backend
-              containerPort: 8080
+              containerPort: 1411
               protocol: TCP
           livenessProbe:
             httpGet:
@@ -128,7 +125,7 @@ spec:
               mountPath: /mnt/config
           ports:
             - name: backup-metrics
-              containerPort: 8081
+              containerPort: 8080
               protocol: TCP
           envFrom:
             - secretRef:

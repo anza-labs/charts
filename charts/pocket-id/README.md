@@ -42,40 +42,40 @@ with their passkeys to your services.
 | backup.securityContext | object | `{}` |  |
 | config.create | bool | `true` | Specifies whether a config map should be created. |
 | config.name | string | `""` | Specifies name of a config map used to configure the pocket-id. If not filled, uses full name. |
-| config.publicUI.settings.app.allowOwnAccountEdit | bool | `true` | Whether users can edit their own account details |
-| config.publicUI.settings.app.appName | string | `"Pocket ID"` | The name of the application to be displayed in the UI |
-| config.publicUI.settings.app.disableAnimations | bool | `false` | Whether to disable animations in the Admin UI |
-| config.publicUI.settings.app.emailsVerified | bool | `false` | Whether the user's email is pre-marked as verified for OIDC clients (typically used for testing) |
-| config.publicUI.settings.app.sessionDuration | int | `60` | Duration in minutes of a session before the user must sign in again |
-| config.publicUI.settings.email.loginNotificationEnabled | bool | `false` | Whether to send an email notification when a user logs in from a new device |
-| config.publicUI.settings.email.oneTimeAccessAsAdminEnabled | bool | `false` | Whether to allow admins to send one-time access sign-in links to the user's email |
-| config.publicUI.settings.email.oneTimeAccessAsUnauthenticatedEnabled | bool | `false` | Whether to allow unauthenticated users to request one-time access sign-in links sent to the user's email    (note: this reduces security significantly, as anyone with email access can sign in) |
-| config.publicUI.settings.ldap.attributes.group.adminGroup | string | `""` | LDAP attribute for the admin group (used to assign Admin privileges) |
-| config.publicUI.settings.ldap.attributes.group.member | string | `"member"` | LDAP attribute for querying group members |
-| config.publicUI.settings.ldap.attributes.group.name | string | `""` | LDAP attribute for the group's name |
-| config.publicUI.settings.ldap.attributes.group.uniqueIdentifier | string | `""` | LDAP attribute for the unique identifier of the group |
-| config.publicUI.settings.ldap.attributes.user.email | string | `""` | LDAP attribute for the email address of the user |
-| config.publicUI.settings.ldap.attributes.user.firstName | string | `""` | LDAP attribute for the user's first name |
-| config.publicUI.settings.ldap.attributes.user.lastName | string | `""` | LDAP attribute for the user's last name |
-| config.publicUI.settings.ldap.attributes.user.profilePicture | string | `""` | LDAP attribute for the user's profile picture |
-| config.publicUI.settings.ldap.attributes.user.uniqueIdentifier | string | `""` | LDAP attribute for the unique identifier of the user |
-| config.publicUI.settings.ldap.attributes.user.username | string | `""` | LDAP attribute for the username of the user |
-| config.publicUI.settings.ldap.base | string | `""` | LDAP search base DN for queries |
-| config.publicUI.settings.ldap.bindDN | string | `""` | LDAP bind distinguished name (DN) |
-| config.publicUI.settings.ldap.bindPassword | string | `""` | LDAP bind password for authentication |
-| config.publicUI.settings.ldap.enabled | bool | `false` | Whether to enable LDAP authentication |
-| config.publicUI.settings.ldap.skipCertVerify | bool | `false` | Whether to skip LDAP certificate verification (useful for self-signed certificates) |
-| config.publicUI.settings.ldap.url | string | `""` | URL of the LDAP server |
-| config.publicUI.settings.ldap.userGroupSearchFilter | string | `"(objectClass=groupOfNames)"` | LDAP group search filter (default is typically fine for most setups) |
-| config.publicUI.settings.ldap.userSearchFilter | string | `"(objectClass=person)"` | LDAP user search filter (default is typically fine for most setups) |
-| config.publicUI.settings.smtp.from | string | `""` | Sender email address for outgoing emails |
-| config.publicUI.settings.smtp.host | string | `""` | SMTP server hostname used to send outgoing emails |
-| config.publicUI.settings.smtp.password | string | `""` | SMTP password for authentication |
-| config.publicUI.settings.smtp.port | string | `""` | SMTP server port |
-| config.publicUI.settings.smtp.skipCertVerify | bool | `false` | Whether to skip SMTP certificate verification (useful for self-signed certificates) |
-| config.publicUI.settings.smtp.tls | string | `"none"` | TLS option to use for SMTP. Options are 'none', 'starttls', or 'tls' |
-| config.publicUI.settings.smtp.user | string | `""` | SMTP username for authentication |
-| config.publicUI.useDefaults | bool | `true` | Whether to enable default settings for the UI or allow customizations |
+| config.ui.settings.app.allowOwnAccountEdit | bool | `true` | Whether users can edit their own account details |
+| config.ui.settings.app.appName | string | `"Pocket ID"` | The name of the application to be displayed in the UI |
+| config.ui.settings.app.disableAnimations | bool | `false` | Whether to disable animations in the Admin UI |
+| config.ui.settings.app.emailsVerified | bool | `false` | Whether the user's email is pre-marked as verified for OIDC clients (typically used for testing) |
+| config.ui.settings.app.sessionDuration | int | `60` | Duration in minutes of a session before the user must sign in again |
+| config.ui.settings.email.loginNotificationEnabled | bool | `false` | Whether to send an email notification when a user logs in from a new device |
+| config.ui.settings.email.oneTimeAccessAsAdminEnabled | bool | `false` | Whether to allow admins to send one-time access sign-in links to the user's email |
+| config.ui.settings.email.oneTimeAccessAsUnauthenticatedEnabled | bool | `false` | Whether to allow unauthenticated users to request one-time access sign-in links sent to the user's email    (note: this reduces security significantly, as anyone with email access can sign in) |
+| config.ui.settings.ldap.attributes.group.adminGroup | string | `""` | LDAP attribute for the admin group (used to assign Admin privileges) |
+| config.ui.settings.ldap.attributes.group.member | string | `"member"` | LDAP attribute for querying group members |
+| config.ui.settings.ldap.attributes.group.name | string | `""` | LDAP attribute for the group's name |
+| config.ui.settings.ldap.attributes.group.uniqueIdentifier | string | `""` | LDAP attribute for the unique identifier of the group |
+| config.ui.settings.ldap.attributes.user.email | string | `""` | LDAP attribute for the email address of the user |
+| config.ui.settings.ldap.attributes.user.firstName | string | `""` | LDAP attribute for the user's first name |
+| config.ui.settings.ldap.attributes.user.lastName | string | `""` | LDAP attribute for the user's last name |
+| config.ui.settings.ldap.attributes.user.profilePicture | string | `""` | LDAP attribute for the user's profile picture |
+| config.ui.settings.ldap.attributes.user.uniqueIdentifier | string | `""` | LDAP attribute for the unique identifier of the user |
+| config.ui.settings.ldap.attributes.user.username | string | `""` | LDAP attribute for the username of the user |
+| config.ui.settings.ldap.base | string | `""` | LDAP search base DN for queries |
+| config.ui.settings.ldap.bindDN | string | `""` | LDAP bind distinguished name (DN) |
+| config.ui.settings.ldap.bindPassword | string | `""` | LDAP bind password for authentication |
+| config.ui.settings.ldap.enabled | bool | `false` | Whether to enable LDAP authentication |
+| config.ui.settings.ldap.skipCertVerify | bool | `false` | Whether to skip LDAP certificate verification (useful for self-signed certificates) |
+| config.ui.settings.ldap.url | string | `""` | URL of the LDAP server |
+| config.ui.settings.ldap.userGroupSearchFilter | string | `"(objectClass=groupOfNames)"` | LDAP group search filter (default is typically fine for most setups) |
+| config.ui.settings.ldap.userSearchFilter | string | `"(objectClass=person)"` | LDAP user search filter (default is typically fine for most setups) |
+| config.ui.settings.smtp.from | string | `""` | Sender email address for outgoing emails |
+| config.ui.settings.smtp.host | string | `""` | SMTP server hostname used to send outgoing emails |
+| config.ui.settings.smtp.password | string | `""` | SMTP password for authentication |
+| config.ui.settings.smtp.port | string | `""` | SMTP server port |
+| config.ui.settings.smtp.skipCertVerify | bool | `false` | Whether to skip SMTP certificate verification (useful for self-signed certificates) |
+| config.ui.settings.smtp.tls | string | `"none"` | TLS option to use for SMTP. Options are 'none', 'starttls', or 'tls' |
+| config.ui.settings.smtp.user | string | `""` | SMTP username for authentication |
+| config.ui.useDefaults | bool | `true` | Whether to enable default settings for the UI or allow customizations |
 | database.connectionString | string | `"file:data/pocket-id.db?_journal_mode=WAL&_busy_timeout=2500&_txlock=immediate"` | Connection string for the database.    - For sqlite: file:data/pocket-id.db?_journal_mode=WAL&_busy_timeout=2500&_txlock=immediate    - For postgres: postgres://user:password@host:port/dbname |
 | database.provider | string | `"sqlite"` | Database provider to use. Options: "sqlite" or "postgres". |
 | fullnameOverride | string | `""` | Override for the full name. |
