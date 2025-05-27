@@ -125,7 +125,7 @@ spec:
               mountPath: /mnt/config
           ports:
             - name: backup-metrics
-              containerPort: 8080
+              containerPort: 8081
               protocol: TCP
           envFrom:
             - secretRef:

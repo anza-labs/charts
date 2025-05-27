@@ -8,7 +8,7 @@ metadata:
     {{- include "pocket-id.labels" . | nindent 4 }}
 data:
   litestream.yaml: |
-    addr: "0.0.0.0:8080"
+    addr: "0.0.0.0:8081"
     logging:
       level: {{ .Values.backup.logging.level }}
       type: {{ .Values.backup.logging.type }}

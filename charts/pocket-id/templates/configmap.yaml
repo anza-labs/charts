@@ -12,9 +12,9 @@ metadata:
   labels:
     {{- include "pocket-id.labels" . | nindent 4 }}
 data:
-  TRUST_PROXY: "true"
-  PORT: "1411"
   HOST: "0.0.0.0"
+  PORT: "1411"
+  TRUST_PROXY: "true"
   UPDATE_CHECK_DISABLED: "true"
   UPLOAD_PATH: "data/uploads"
   KEYS_PATH: "data/keys"
@@ -27,7 +27,7 @@ data:
   {{- if not .Values.config.ui.useDefaults }}
   {{ if not (quote .Values.config.ui.settings.app.appName | empty) }}
   APP_NAME: "{{ .Values.config.ui.settings.app.appName }}"
-  {{ end }}
+  {{ end }}a
   {{ if not (quote .Values.config.ui.settings.app.sessionDuration | empty) }}
   SESSION_DURATION: "{{ .Values.config.ui.settings.app.sessionDuration }}"
   {{ end }}
