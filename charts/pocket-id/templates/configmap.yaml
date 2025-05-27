@@ -27,7 +27,7 @@ data:
   {{- if not .Values.config.ui.useDefaults }}
   {{ if not (quote .Values.config.ui.settings.app.appName | empty) }}
   APP_NAME: "{{ .Values.config.ui.settings.app.appName }}"
-  {{ end }}a
+  {{ end }}
   {{ if not (quote .Values.config.ui.settings.app.sessionDuration | empty) }}
   SESSION_DURATION: "{{ .Values.config.ui.settings.app.sessionDuration }}"
   {{ end }}
