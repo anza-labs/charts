@@ -85,7 +85,7 @@ spec:
           image: "{{ .Values.pocketID.image.repository }}:{{ .Values.pocketID.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.pocketID.image.pullPolicy }}
           ports:
-            - name: backend
+            - name: http
               containerPort: 1411
               protocol: TCP
           livenessProbe:
