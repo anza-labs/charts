@@ -1595,6 +1595,54 @@ entries:
   pocket-id:
   - annotations:
       artifacthub.io/category: security
+      artifacthub.io/changes: |-
+        - kind: added
+          description: '**pocket-id:** prepare for v1 pocket-id release'
+          links:
+          - name: 'GitHub Issue #124'
+            url: https://github.com/anza-labs/charts/issues/124
+          - name: Commit b400d09
+            url: https://github.com/anza-labs/charts/commit/b400d09e66a4d8b07f988bd56f33494ee1fe8ece
+        - kind: fixed
+          description: '**pocket-id:** existingClaim functionality and `PUBLIC_UI_CONFIG_DISABLED` value'
+          links:
+          - name: 'GitHub Issue #106'
+            url: https://github.com/anza-labs/charts/issues/106
+          - name: Commit dba6f57
+            url: https://github.com/anza-labs/charts/commit/dba6f5774dbf512f5ee8a5540b2f0530b0111eb7
+        - kind: fixed
+          description: '**pocket-id:** one-time access email settings'
+          links:
+          - name: 'GitHub Issue #122'
+            url: https://github.com/anza-labs/charts/issues/122
+          - name: Commit fc5b0fc
+            url: https://github.com/anza-labs/charts/commit/fc5b0fc248cb0b7e6c5601ebfb93a7934d2870bf
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v0.51.1
+    created: "2025-05-27T19:16:59.927332626Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: a3e4215ff947fb3097d14349424d2284013f0ef9e83cdee51369cd1b76f1b678
+    home: https://pocket-id.org
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-1.0.0/pocket-id-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/category: security
       artifacthub.io/immutable: "true"
     apiVersion: v2
     appVersion: v0.51.1
@@ -2298,4 +2346,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-27T18:25:42.494807355Z"
+generated: "2025-05-27T19:16:59.927619486Z"
