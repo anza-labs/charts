@@ -1598,6 +1598,32 @@ entries:
       artifacthub.io/immutable: "true"
     apiVersion: v2
     appVersion: v0.51.1
+    created: "2025-05-27T18:25:42.494506435Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: 9419ebcd9f5d2e9a6c580419c9807a693bf7294cb16e926372df75926b5763fc
+    home: https://pocket-id.org
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-0.5.0/pocket-id-0.5.0.tgz
+    version: 0.5.0
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v0.51.1
     created: "2025-05-23T14:31:08.551151072Z"
     description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
       users to authenticate with their passkeys to your services. '
@@ -2272,4 +2298,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-23T14:31:08.551394657Z"
+generated: "2025-05-27T18:25:42.494807355Z"
