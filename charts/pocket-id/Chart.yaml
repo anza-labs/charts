@@ -18,13 +18,11 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: added
-      description: '**pocket-id:** add analytics control'
+    - kind: fixed
+      description: '**pocket-id:** invalid db path'
       links:
-      - name: 'GitHub Issue #126'
-        url: https://github.com/anza-labs/charts/issues/126
-      - name: Commit a413213
-        url: https://github.com/anza-labs/charts/commit/a413213399594498a9dc10c678b750b2e2a0d757
+      - name: Commit e79fa1d
+        url: https://github.com/anza-labs/charts/commit/e79fa1dfe5eb6b34a364f9352c7a331e5090da88
 maintainers:
   - name: shanduur
     email: maturb@proton.me
