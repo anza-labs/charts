@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/anza-labs/charts/compare/pocket-id-1.1.1...pocket-id-v1.1.2) (2025-05-28)
+
+
+### Bug Fixes
+
+* **pocket-id:** invalid db path ([e04f414](https://github.com/anza-labs/charts/commit/e04f414ede36566312b7c13bb8c026277cdad52e))
+
 ## [1.1.1](https://github.com/anza-labs/charts/compare/pocket-id-1.1.0...pocket-id-v1.1.1) (2025-05-28)
 
 
