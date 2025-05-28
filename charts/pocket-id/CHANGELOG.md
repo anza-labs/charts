@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/anza-labs/charts/compare/pocket-id-1.0.0...pocket-id-v1.1.0) (2025-05-28)
+
+
+### Features
+
+* **pocket-id:** add analytics control ([#126](https://github.com/anza-labs/charts/issues/126)) ([a413213](https://github.com/anza-labs/charts/commit/a413213399594498a9dc10c678b750b2e2a0d757))
+
 ## 1.0.0 (2025-05-27)
 
 
