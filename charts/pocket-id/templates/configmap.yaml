@@ -16,6 +16,7 @@ data:
   PORT: "1411"
   TRUST_PROXY: "true"
   UPDATE_CHECK_DISABLED: "true"
+  ANALYTICS_DISABLED: "{{ .Values.analyticsDisabled | default false }}"
   UPLOAD_PATH: "data/uploads"
   KEYS_PATH: "data/keys"
   GEOLITE_DB_PATH: "data/GeoLite2-City.mmdb"

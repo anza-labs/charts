@@ -28,6 +28,7 @@ tests:
       - isSubset:
           path: data
           content:
+            ANALYTICS_DISABLED: "false"
             DB_PROVIDER: sqlite
             GEOLITE_DB_URL: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"
             APP_URL: "https://pocket-id.example.local"
@@ -38,12 +39,14 @@ tests:
       ingress.host: example.com
       timeZone: Europe/Berlin
       geoliteDatabaseURL: https://example.com/db.tar.gz
+      analyticsDisabled: true
     asserts:
       - isKind:
           of: ConfigMap
       - isSubset:
           path: data
           content:
+            ANALYTICS_DISABLED: "true"
             DB_PROVIDER: sqlite
             GEOLITE_DB_URL: "https://example.com/db.tar.gz"
             APP_URL: "https://example.com"

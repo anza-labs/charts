@@ -8,6 +8,9 @@ geoliteDatabaseURL: "https://download.maxmind.com/app/geoip_download?edition_id=
 # Use a valid IANA time zone string (e.g., "Etc/UTC", "America/New_York").
 timeZone: "Etc/UTC"
 
+# -- Specifies if the server should send heartbeat to Pocket-ID for analytic purposes.
+analyticsDisabled: false
+
 # -- MaxMind license key used to download the GeoLite2 database. Leave blank to disable download.
 maxmindLicenseKey: ""
 
