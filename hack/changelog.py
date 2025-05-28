@@ -37,7 +37,7 @@ def parse_release_please_changelog(
     # Regex to find the latest version block, now matching '## 1.0.0 (YYYY-MM-DD)'
     # It captures the version, date, and content until the next version or end of file.
     version_block_match = re.search(
-        r"## (\d+\.\d+\.\d+) \((\d{4}-\d{2}-\d{2})\)\n(.*?)(?=\n## |\Z)",
+        r"## \[(\d+\.\d+\.\d+)\]\([^)]+\) \((\d{4}-\d{2}-\d{2})\)\n\n(.*?)(?=\n## |\Z)",
         content,
         re.DOTALL,
     )

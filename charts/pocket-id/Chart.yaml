@@ -5,8 +5,8 @@ description: |
   pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
   with their passkeys to your services.
 home: https://pocket-id.org
-version: 1.0.0
-appVersion: "v0.51.1"
+version: 1.1.0
+appVersion: "v1.1.0"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -19,26 +19,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: added
-      description: '**pocket-id:** prepare for v1 pocket-id release'
+      description: '**pocket-id:** add analytics control'
       links:
-      - name: 'GitHub Issue #124'
-        url: https://github.com/anza-labs/charts/issues/124
-      - name: Commit b400d09
-        url: https://github.com/anza-labs/charts/commit/b400d09e66a4d8b07f988bd56f33494ee1fe8ece
-    - kind: fixed
-      description: '**pocket-id:** existingClaim functionality and `PUBLIC_UI_CONFIG_DISABLED` value'
-      links:
-      - name: 'GitHub Issue #106'
-        url: https://github.com/anza-labs/charts/issues/106
-      - name: Commit dba6f57
-        url: https://github.com/anza-labs/charts/commit/dba6f5774dbf512f5ee8a5540b2f0530b0111eb7
-    - kind: fixed
-      description: '**pocket-id:** one-time access email settings'
-      links:
-      - name: 'GitHub Issue #122'
-        url: https://github.com/anza-labs/charts/issues/122
-      - name: Commit fc5b0fc
-        url: https://github.com/anza-labs/charts/commit/fc5b0fc248cb0b7e6c5601ebfb93a7934d2870bf
+      - name: 'GitHub Issue #126'
+        url: https://github.com/anza-labs/charts/issues/126
+      - name: Commit a413213
+        url: https://github.com/anza-labs/charts/commit/a413213399594498a9dc10c678b750b2e2a0d757
 maintainers:
   - name: shanduur
     email: maturb@proton.me
