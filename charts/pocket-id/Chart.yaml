@@ -18,11 +18,44 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
+    - kind: added
+      description: '**pocket-id:** add analytics control'
+      links:
+      - name: 'GitHub Issue #126'
+        url: https://github.com/anza-labs/charts/issues/126
+      - name: Commit a413213
+        url: https://github.com/anza-labs/charts/commit/a413213399594498a9dc10c678b750b2e2a0d757
+    - kind: added
+      description: '**pocket-id:** prepare for v1 pocket-id release'
+      links:
+      - name: 'GitHub Issue #124'
+        url: https://github.com/anza-labs/charts/issues/124
+      - name: Commit b400d09
+        url: https://github.com/anza-labs/charts/commit/b400d09e66a4d8b07f988bd56f33494ee1fe8ece
+    - kind: fixed
+      description: '**pocket-id:** existingClaim functionality and `PUBLIC_UI_CONFIG_DISABLED` value'
+      links:
+      - name: 'GitHub Issue #106'
+        url: https://github.com/anza-labs/charts/issues/106
+      - name: Commit dba6f57
+        url: https://github.com/anza-labs/charts/commit/dba6f5774dbf512f5ee8a5540b2f0530b0111eb7
     - kind: fixed
       description: '**pocket-id:** invalid db path'
       links:
       - name: Commit e04f414
         url: https://github.com/anza-labs/charts/commit/e04f414ede36566312b7c13bb8c026277cdad52e
+    - kind: fixed
+      description: '**pocket-id:** invalid db path'
+      links:
+      - name: Commit e79fa1d
+        url: https://github.com/anza-labs/charts/commit/e79fa1dfe5eb6b34a364f9352c7a331e5090da88
+    - kind: fixed
+      description: '**pocket-id:** one-time access email settings'
+      links:
+      - name: 'GitHub Issue #122'
+        url: https://github.com/anza-labs/charts/issues/122
+      - name: Commit fc5b0fc
+        url: https://github.com/anza-labs/charts/commit/fc5b0fc248cb0b7e6c5601ebfb93a7934d2870bf
 maintainers:
   - name: shanduur
     email: maturb@proton.me
