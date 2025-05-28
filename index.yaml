@@ -1621,6 +1621,38 @@ entries:
         - kind: fixed
           description: '**pocket-id:** invalid db path'
           links:
+          - name: Commit e04f414
+            url: https://github.com/anza-labs/charts/commit/e04f414ede36566312b7c13bb8c026277cdad52e
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.1.0
+    created: "2025-05-28T13:03:12.129453696Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: 2c61964b81420b1a2bd3d0045d2ef26ed04480d79e083b23c6840f43915e70f6
+    home: https://pocket-id.org
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-1.1.2/pocket-id-1.1.2.tgz
+    version: 1.1.2
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
+        - kind: fixed
+          description: '**pocket-id:** invalid db path'
+          links:
           - name: Commit e79fa1d
             url: https://github.com/anza-labs/charts/commit/e79fa1dfe5eb6b34a364f9352c7a331e5090da88
       artifacthub.io/immutable: "true"
@@ -2434,4 +2466,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-28T12:11:46.284768125Z"
+generated: "2025-05-28T13:03:12.129759546Z"
