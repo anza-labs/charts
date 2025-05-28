@@ -1,0 +1,138 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Ingress
+
+templates:
+  - ingress.yaml
+
+tests:
+  - it: Should not create Ingress
+    set:
+      ingress.enabled: false
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: Should render Ingress with default settings for Kubernetes >=1.19
+    capabilities:
+      majorVersion: 1
+      minorVersion: 19
+    set:
+      ingress.enabled: true
+      ingress.hosts:
+        - host: lubelogger.example.local
+          paths:
+            - path: /
+              pathType: Prefix
+      service.port: 8080
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: apiVersion
+          value: networking.k8s.io/v1
+      - equal:
+          path: spec.rules[0].host
+          value: "lubelogger.example.local"
+      - equal:
+          path: spec.rules[0].http.paths[0].path
+          value: "/"
+      - equal:
+          path: spec.rules[0].http.paths[0].pathType
+          value: Prefix
+      - equal:
+          path: spec.rules[0].http.paths[0].backend.service.port.number
+          value: 8080
+
+  - it: Should render ingressClassName if set and K8s >= 1.18
+    capabilities:
+      majorVersion: 1
+      minorVersion: 18
+    set:
+      ingress.enabled: true
+      ingress.className: nginx
+      ingress.host: id.example.local
+      ingress.paths:
+        - path: /
+      service.port: 80
+    asserts:
+      - equal:
+          path: spec.ingressClassName
+          value: nginx
+
+  - it: Should add legacy annotation for ingress.className on K8s < 1.18
+    capabilities:
+      majorVersion: 1
+      minorVersion: 17
+    set:
+      ingress.enabled: true
+      ingress.className: nginx
+      ingress.host: legacy.example.local
+      ingress.paths:
+        - path: /
+      service.port: 80
+    asserts:
+      - isKind:
+          of: Ingress
+      - isSubset:
+          path: metadata.annotations
+          content:
+            kubernetes.io/ingress.class: nginx
+
+  - it: Should use legacy apiVersion on Kubernetes 1.15
+    capabilities:
+      majorVersion: 1
+      minorVersion: 15
+    set:
+      ingress.enabled: true
+      ingress.host: legacy.example.com
+      ingress.paths:
+        - path: /
+      service.port: 80
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: apiVersion
+          value: networking.k8s.io/v1beta1
+
+  - it: Should use extensions/v1beta1 on Kubernetes <1.14
+    capabilities:
+      majorVersion: 1
+      minorVersion: 13
+    set:
+      ingress.enabled: true
+      ingress.host: legacy-ext.example.com
+      ingress.paths:
+        - path: /
+      service.port: 80
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: apiVersion
+          value: extensions/v1beta1
+
+  - it: Should render TLS section if defined
+    capabilities:
+      majorVersion: 1
+      minorVersion: 19
+    set:
+      ingress.enabled: true
+      ingress.host: tls.example.com
+      ingress.paths:
+        - path: /
+          pathType: Prefix
+      ingress.tls:
+        - secretName: tls-secret
+          hosts:
+            - tls.example.com
+      service.port: 443
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: spec.tls[0].hosts[0]
+          value: tls.example.com
+      - equal:
+          path: spec.tls[0].secretName
+          value: tls-secret
