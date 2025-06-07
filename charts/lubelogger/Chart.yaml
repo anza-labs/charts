@@ -4,7 +4,7 @@ name: lubelogger
 description: |
   LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 home: https://lubelogger.com
-version: 0.9.4
+version: 1.0.0
 appVersion: "v1.4.7"
 sources:
   - https://github.com/hargata/lubelog
