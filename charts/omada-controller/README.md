@@ -21,10 +21,8 @@ TP-Link Omada Controller in Kubernetes
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity settings for the pods. |
-| config.create | bool | `true` | Specifies whether a config map should be created. |
 | config.manageHttpPort | int | `8088` | Management portal HTTP port (valid range: 1024-65535) |
 | config.manageHttpsPort | int | `8043` | Management portal HTTPS port (valid range: 1024-65535) |
-| config.name | string | `""` | Specifies name of a config map used to configure the pocket-id. If not filled, uses full name. |
 | config.pgid | int | `508` | Group ID for the `omada` process |
 | config.pgroup | string | `"omada"` | Group name for the `omada` process |
 | config.portAdoptV1 | int | `29812` | Device adoption port for firmware compatible with Controller v4* (valid range: 1024-65535) |
@@ -51,13 +49,6 @@ TP-Link Omada Controller in Kubernetes
 | image.repository | string | `"docker.io/mbentley/omada-controller"` | Registry and repository for the omada-controller image. |
 | image.tag | string | `"v5.15.20.20"` | Tag for the image. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
-| ingress.annotations | object | `{}` | Annotations to add to the ingress. |
-| ingress.className | string | `""` | Ingress class name. |
-| ingress.enabled | bool | `false` | Specifies whether ingress should be enabled. |
-| ingress.host | string | `"omada-controller.example.local"` | Ingress host configuration. |
-| ingress.paths[0].path | string | `"/"` |  |
-| ingress.paths[0].pathType | string | `"ImplementationSpecific"` |  |
-| ingress.tls | list | `[]` | List of TLS configurations for the ingress. |
 | nameOverride | string | `""` | Override for the name. |
 | nodeSelector | object | `{}` | Node selector for the pods. |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` | Access mode for the PVC. |
@@ -71,7 +62,6 @@ TP-Link Omada Controller in Kubernetes
 | podSecurityContext | object | `{}` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
-| service.port | int | `80` | Service port. |
 | service.type | string | `"ClusterIP"` | Service type. |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account. |
 | serviceAccount.automount | bool | `true` | Automatically mount a ServiceAccount's API credentials. |

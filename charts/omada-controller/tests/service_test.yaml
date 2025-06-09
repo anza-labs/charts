@@ -5,37 +5,85 @@ templates:
   - service.yaml
 
 tests:
-  - it: Should create service with defaults
+  - it: Should create service with default ports and ClusterIP
     asserts:
       - isKind:
           of: Service
-      - contains:
-          path: spec.ports
-          content:
-            port: 80
-            targetPort: http
-            protocol: TCP
-            name: http
       - equal:
           path: spec.type
           value: ClusterIP
-
-  - it: Should create service with given port
-    set:
-      service.port: 8080
-    asserts:
-      - isKind:
-          of: Service
       - contains:
           path: spec.ports
           content:
-            port: 8080
-            targetPort: http
-            protocol: TCP
-            name: http
-      - equal:
-          path: spec.type
-          value: ClusterIP
+            name: manage-http
+            port: 8088
+            targetPort: manage-http
+      - contains:
+          path: spec.ports
+          content:
+            name: manage-https
+            port: 8043
+            targetPort: manage-https
+      - contains:
+          path: spec.ports
+          content:
+            name: portal-http
+            port: 8088
+            targetPort: portal-http
+      - contains:
+          path: spec.ports
+          content:
+            name: portal-https
+            port: 8843
+            targetPort: portal-https
+      - contains:
+          path: spec.ports
+          content:
+            name: adopt-v1
+            port: 29812
+            targetPort: adopt-v1
+      - contains:
+          path: spec.ports
+          content:
+            name: app-discovery
+            port: 27001
+            targetPort: app-discovery
+      - contains:
+          path: spec.ports
+          content:
+            name: discovery
+            port: 29810
+            targetPort: discovery
+      - contains:
+          path: spec.ports
+          content:
+            name: manager-v1
+            port: 29811
+            targetPort: manager-v1
+      - contains:
+          path: spec.ports
+          content:
+            name: manager-v2
+            port: 29814
+            targetPort: manager-v2
+      - contains:
+          path: spec.ports
+          content:
+            name: transfer-v2
+            port: 29815
+            targetPort: transfer-v2
+      - contains:
+          path: spec.ports
+          content:
+            name: rtty
+            port: 29816
+            targetPort: rtty
+      - contains:
+          path: spec.ports
+          content:
+            name: upgrade-v1
+            port: 29813
+            targetPort: upgrade-v1
 
   - it: Should create service with NodePort type
     set:
@@ -43,13 +91,6 @@ tests:
     asserts:
       - isKind:
           of: Service
-      - contains:
-          path: spec.ports
-          content:
-            port: 80
-            targetPort: http
-            protocol: TCP
-            name: http
       - equal:
           path: spec.type
           value: NodePort

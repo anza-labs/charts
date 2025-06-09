@@ -1,4 +1,3 @@
-{{- $svcPort := .Values.service.port | default 80 -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -9,9 +8,41 @@ metadata:
 spec:
   type: {{ .Values.service.type | default "ClusterIP" }}
   ports:
-    - port: {{ $svcPort }}
-      targetPort: http
-      protocol: TCP
-      name: http
+    - name: manage-http
+      port: {{ .Values.config.manageHttpPort }}
+      targetPort: manage-http
+    - name: manage-https
+      port: {{ .Values.config.manageHttpsPort }}
+      targetPort: manage-https
+    - name: portal-http
+      port: {{ .Values.config.portalHttpPort }}
+      targetPort: portal-http
+    - name: portal-https
+      port: {{ .Values.config.portalHttpsPort }}
+      targetPort: portal-https
+    - name: adopt-v1
+      port: {{ .Values.config.portAdoptV1 }}
+      targetPort: adopt-v1
+    - name: app-discovery
+      port: {{ .Values.config.portAppDiscovery }}
+      targetPort: app-discovery
+    - name: discovery
+      port: {{ .Values.config.portDiscovery }}
+      targetPort: discovery
+    - name: manager-v1
+      port: {{ .Values.config.portManagerV1 }}
+      targetPort: manager-v1
+    - name: manager-v2
+      port: {{ .Values.config.portManagerV2 }}
+      targetPort: manager-v2
+    - name: transfer-v2
+      port: {{ .Values.config.portTransferV2 }}
+      targetPort: transfer-v2
+    - name: rtty
+      port: {{ .Values.config.portRtty }}
+      targetPort: rtty
+    - name: upgrade-v1
+      port: {{ .Values.config.portUpgradeV1 }}
+      targetPort: upgrade-v1
   selector:
     {{- include "omada-controller.selectorLabels" . | nindent 4 }}

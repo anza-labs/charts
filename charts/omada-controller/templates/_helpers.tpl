@@ -59,13 +59,6 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Create config map name used for configuring omada-controller.
-*/}}
-{{- define "omada-controller.config" -}}
-    {{- default (printf "%s" (include "omada-controller.fullname" .)) .Values.config.name }}
-{{- end }}
-
-{{/*
 Create pvc name used for configuring the data persistence in app.
 */}}
 {{- define "omada-controller.pvcData" -}}

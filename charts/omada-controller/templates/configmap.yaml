@@ -1,8 +1,7 @@
-{{- if .Values.config.create -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "omada-controller.config" . }}
+  name: {{ include "omada-controller.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "omada-controller.labels" . | nindent 4 }}
@@ -35,4 +34,3 @@ data:
   OMADA_SMALL_FILES: "{{ .Values.config.smallFiles | ternary "true" "false" }}"
   OMADA_TLS_LEGACY_ENABLED: "{{ .Values.config.tlsLegacyEnabled | ternary "true" "false" }}"
   OMADA_TZ: "{{ .Values.config.timezone | default "Etc/UTC" }}"
-{{- end }}

@@ -52,23 +52,47 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
-              containerPort: 1411
-              protocol: TCP
+            - name: manage-http
+              containerPort: {{ .Values.config.manageHttpPort }}
+            - name: manage-https
+              containerPort: {{ .Values.config.manageHttpsPort }}
+            - name: portal-http
+              containerPort: {{ .Values.config.portalHttpPort }}
+            - name: portal-https
+              containerPort: {{ .Values.config.portalHttpsPort }}
+            - name: adopt-v1
+              containerPort: {{ .Values.config.portAdoptV1 }}
+            - name: app-discovery
+              containerPort: {{ .Values.config.portAppDiscovery }}
+            - name: discovery
+              containerPort: {{ .Values.config.portDiscovery }}
+            - name: manager-v1
+              containerPort: {{ .Values.config.portManagerV1 }}
+            - name: manager-v2
+              containerPort: {{ .Values.config.portManagerV2 }}
+            - name: transfer-v2
+              containerPort: {{ .Values.config.portTransferV2 }}
+            - name: rtty
+              containerPort: {{ .Values.config.portRtty }}
+            - name: upgrade-v1
+              containerPort: {{ .Values.config.portUpgradeV1 }}
           livenessProbe:
             httpGet:
-              path: /healthz
-              port: http
+              path: /
+              port: {{ .Values.config.manageHttpPort }}
+            initialDelaySeconds: 10
+            periodSeconds: 10
           readinessProbe:
-            initialDelaySeconds: 60
             httpGet:
-              path: /healthz
-              port: http
+              path: /
+              port: {{ .Values.config.manageHttpPort }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: {{ include "omada-controller.pvcData" . }}
-              mountPath: /app/backend/data
+              mountPath: /opt/tplink/EAPController/data
           envFrom:
             - configMapRef:
                 name: {{ include "omada-controller.config" . }}

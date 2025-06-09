@@ -1,10 +1,4 @@
 config:
-  # -- Specifies whether a config map should be created.
-  create: true
-  # -- Specifies name of a config map used to configure the pocket-id.
-  # If not filled, uses full name.
-  name: ""
-
   # -- Management portal HTTP port (valid range: 1024-65535)
   manageHttpPort: 8088
 
@@ -112,8 +106,6 @@ securityContext: {}
 service:
   # -- Service type.
   type: ClusterIP
-  # -- Service port.
-  port: 80
 
 # -- Secrets for pulling images.
 imagePullSecrets: []
@@ -147,26 +139,6 @@ persistence:
     size: 10Gi
     # -- Annotations applied to PVC.
     annotations: {}
-
-ingress:
-  # -- Specifies whether ingress should be enabled.
-  enabled: false
-  # -- Ingress class name.
-  className: ""
-  # -- Annotations to add to the ingress.
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  # -- Ingress host configuration.
-  host: omada-controller.example.local
-  paths:
-    - path: /
-      pathType: ImplementationSpecific
-  # -- List of TLS configurations for the ingress.
-  tls: []
-  #  - secretName: omada-controller-tls
-  #    hosts:
-  #      - omada-controller.example.local
 
 # -- Annotations to be added to the pods.
 podAnnotations: {}

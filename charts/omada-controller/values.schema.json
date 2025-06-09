@@ -8,17 +8,11 @@
     "config": {
       "type": "object",
       "properties": {
-        "create": {
-          "type": "boolean"
-        },
         "manageHttpPort": {
           "type": "integer"
         },
         "manageHttpsPort": {
           "type": "integer"
-        },
-        "name": {
-          "type": "string"
         },
         "pgid": {
           "type": "integer"
@@ -105,40 +99,6 @@
     "imagePullSecrets": {
       "type": "array"
     },
-    "ingress": {
-      "type": "object",
-      "properties": {
-        "annotations": {
-          "type": "object"
-        },
-        "className": {
-          "type": "string"
-        },
-        "enabled": {
-          "type": "boolean"
-        },
-        "host": {
-          "type": "string"
-        },
-        "paths": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "path": {
-                "type": "string"
-              },
-              "pathType": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "tls": {
-          "type": "array"
-        }
-      }
-    },
     "nameOverride": {
       "type": "string"
     },
@@ -191,9 +151,6 @@
     "service": {
       "type": "object",
       "properties": {
-        "port": {
-          "type": "integer"
-        },
         "type": {
           "type": "string"
         }

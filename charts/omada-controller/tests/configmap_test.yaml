@@ -5,16 +5,8 @@ templates:
   - configmap.yaml
 
 tests:
-  - it: Should not create ConfigMap
-    set:
-      config.create: false
-    asserts:
-      - hasDocuments:
-          count: 0
-
   - it: Should create ConfigMap with defaults
-    set:
-      config.create: true
+    set: {}
     asserts:
       - isKind:
           of: ConfigMap
@@ -47,7 +39,6 @@ tests:
 
   - it: Should create ConfigMap with overrides
     set:
-      config.create: true
       config.manageHttpPort: 9999
       config.manageHttpsPort: 9443
       config.portalHttpPort: 9998

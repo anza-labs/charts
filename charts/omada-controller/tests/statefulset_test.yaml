@@ -5,27 +5,6 @@ templates:
   - statefulset.yaml
 
 tests:
-  - it: Should fail for invalid replica count > 1 for SQLite
-    set:
-      replicaCount: 3
-      database.provider: sqlite
-    asserts:
-      - failedTemplate:
-          errorMessage: >-
-            Invalid configuration: .Values.replicaCount is 3 but must be 1
-            when .Values.database.provider is 'sqlite'.
-
-  - it: Should set replicaCount correctly
-    set:
-      replicaCount: 3
-      database.provider: postgres
-    asserts:
-      - isKind:
-          of: StatefulSet
-      - equal:
-          path: spec.replicas
-          value: 3
-
   - it: Should use emptyDir if persistence is disabled
     set:
       persistence:
@@ -55,7 +34,7 @@ tests:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: test-claim
-            mountPath: /app/backend/data
+            mountPath: /opt/tplink/EAPController/data
       - notExists:
           path: spec.volumeClaimTemplates
 
@@ -99,26 +78,67 @@ tests:
           path: spec.template.spec.containers[0].volumeMounts
           content:
             name: RELEASE-NAME-omada-controller-data
-            mountPath: /app/backend/data
+            mountPath: /opt/tplink/EAPController/data
 
-  - it: Should include config volume when backup is enabled
-    set:
-      backup:
-        enabled: true
+  - it: Should expose all ports as defined in config
     asserts:
       - contains:
-          path: spec.template.spec.volumes
+          path: spec.template.spec.containers[0].ports
           content:
-            name: config
-            configMap:
-              name: RELEASE-NAME-omada-controller-backup
-
-  - it: Should include initContainer when backup is enabled
-    set:
-      backup:
-        enabled: true
-    asserts:
+            name: manage-http
+            containerPort: 8088
       - contains:
-          path: spec.template.spec.initContainers
-          any: true
-          content: {}
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: manage-https
+            containerPort: 8043
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: portal-http
+            containerPort: 8088
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: portal-https
+            containerPort: 8843
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: adopt-v1
+            containerPort: 29812
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: app-discovery
+            containerPort: 27001
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: discovery
+            containerPort: 29810
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: manager-v1
+            containerPort: 29811
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: manager-v2
+            containerPort: 29814
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: transfer-v2
+            containerPort: 29815
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: rtty
+            containerPort: 29816
+      - contains:
+          path: spec.template.spec.containers[0].ports
+          content:
+            name: upgrade-v1
+            containerPort: 29813
