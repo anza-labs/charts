@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/test-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: omada-controller-persistence
+  labels:
+    chart: omada-controller
+
+spec:
+  concurrent: true
+  timeouts:
+    cleanup: 60s
+
+  bindings:
+    - name: arguments
+      value: >-
+        --set=persistence.data.enabled=true
+        --set=persistence.data.storageClass=standard
+        --set=persistence.data.size=100Mi
+
+  steps:
+    - name: Install chart
+      use:
+        template: ../_lib/helm-install.step.yaml
+        with:
+          bindings:
+            - name: arguments
+              value: ($arguments)
+            - name: namespace
+              value: ($namespace)
+
+    - name: Validate core installation
+      use:
+        template: ../_lib/validate-core-installation.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)

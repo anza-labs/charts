@@ -1,0 +1,106 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "omada-controller.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "omada-controller.labels" . | nindent 4 }}
+spec:
+  serviceName: {{ include "omada-controller.fullname" . }}
+  replicas: 1
+  {{- if .Values.updateStrategy }}
+  {{- with .Values.updateStrategy }}
+  updateStrategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "omada-controller.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "omada-controller.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "omada-controller.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+      {{- if (and .Values.persistence.data.enabled (not (eq .Values.persistence.data.existingClaim ""))) }}
+        - name: {{ include "omada-controller.pvcData" . }}
+          persistentVolumeClaim:
+            claimName: {{ include "omada-controller.pvcData" . }}
+      {{- else if not .Values.persistence.data.enabled }}
+        - name: {{ include "omada-controller.pvcData" . }}
+          emptyDir: {}
+      {{- end }}
+      containers:
+        - name: omada-controller
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 1411
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          readinessProbe:
+            initialDelaySeconds: 60
+            httpGet:
+              path: /healthz
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: {{ include "omada-controller.pvcData" . }}
+              mountPath: /app/backend/data
+          envFrom:
+            - configMapRef:
+                name: {{ include "omada-controller.config" . }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  {{- if (and .Values.persistence.data.enabled (eq .Values.persistence.data.existingClaim "")) }}
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ include "omada-controller.pvcData" . }}
+        labels:
+          {{- include "omada-controller.labels" . | nindent 10 }}
+        {{- if .Values.persistence.data.annotations }}
+        annotations:
+          {{- toYaml .Values.persistence.data.annotations | nindent 10 }}
+        {{- end }}
+      spec:
+        accessModes:
+          - {{ .Values.persistence.data.accessMode }}
+        resources:
+          requests:
+            storage: {{ .Values.persistence.data.size }}
+        {{- if .Values.persistence.data.storageClass }}
+        storageClassName: {{ .Values.persistence.data.storageClass }}
+        {{- end }}
+  {{- end }}

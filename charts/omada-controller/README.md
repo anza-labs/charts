@@ -1,0 +1,86 @@
+# omada-controller
+
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v5.15.20.20](https://img.shields.io/badge/AppVersion-v5.15.20.20-informational?style=flat)
+
+TP-Link Omada Controller in Kubernetes
+
+**Homepage:** <https://support.omadanetworks.com/product/omada-software-controller/>
+
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| shanduur | <maturb@proton.me> | <http://linkedin.com/in/urbanekmateusz> |
+
+## Source Code
+
+* <https://github.com/mbentley/docker-omada-controller>
+
+## Values
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` | Affinity settings for the pods. |
+| config.create | bool | `true` | Specifies whether a config map should be created. |
+| config.manageHttpPort | int | `8088` | Management portal HTTP port (valid range: 1024-65535) |
+| config.manageHttpsPort | int | `8043` | Management portal HTTPS port (valid range: 1024-65535) |
+| config.name | string | `""` | Specifies name of a config map used to configure the pocket-id. If not filled, uses full name. |
+| config.pgid | int | `508` | Group ID for the `omada` process |
+| config.pgroup | string | `"omada"` | Group name for the `omada` process |
+| config.portAdoptV1 | int | `29812` | Device adoption port for firmware compatible with Controller v4* (valid range: 1024-65535) |
+| config.portAppDiscovery | int | `27001` | Controller discovery port for Omada mobile app (valid range: 1024-65535) |
+| config.portDiscovery | int | `29810` | Omada device discovery port (valid range: 1024-65535) |
+| config.portManagerV1 | int | `29811` | Device management port for Controller v4* (valid range: 1024-65535) |
+| config.portManagerV2 | int | `29814` | Device management port for Controller v5* (valid range: 1024-65535) |
+| config.portRtty | int | `29816` | Remote terminal control port (valid range: 1024-65535) |
+| config.portTransferV2 | int | `29815` | Port for receiving device info and packet capture files (valid range: 1024-65535) |
+| config.portUpgradeV1 | int | `29813` | Firmware upgrade port for devices compatible with Controller v4* (valid range: 1024-65535) |
+| config.portalHttpPort | int | `8088` | User portal HTTP port (valid range: 1024-65535) |
+| config.portalHttpsPort | int | `8843` | User portal HTTPS port (valid range: 1024-65535) |
+| config.puid | int | `508` | User ID for the `omada` process |
+| config.pusername | string | `"omada"` | Username for the `omada` process |
+| config.rootless | bool | `false` | Enables rootless mode if set to `true` |
+| config.showMongoDbLogs | bool | `false` | Outputs MongoDB logs to STDOUT |
+| config.showServerLogs | bool | `true` | Outputs Omada Controller logs to STDOUT |
+| config.skipUserlandKernelCheck | bool | `false` | Skips kernel/userland compatibility checks for ARM architectures |
+| config.smallFiles | bool | `false` | Enables small file mode (only applicable to version 3.2) |
+| config.sslCertName | string | `"tls.crt"` | Name of the TLS certificate file mounted to `/cert` |
+| config.sslKeyName | string | `"tls.key"` | Name of the TLS key file mounted to `/cert` |
+| config.timezone | string | `"Etc/UTC"` | Time zone to be used by the container (e.g., Etc/UTC, Europe/Prague) |
+| config.tlsLegacyEnabled | bool | `false` | Enables support for legacy TLS 1.0 and 1.1 |
+| fullnameOverride | string | `""` | Override for the full name. |
+| image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
+| image.repository | string | `"docker.io/mbentley/omada-controller"` | Registry and repository for the omada-controller image. |
+| image.tag | string | `"v5.15.20.20"` | Tag for the image. |
+| imagePullSecrets | list | `[]` | Secrets for pulling images. |
+| ingress.annotations | object | `{}` | Annotations to add to the ingress. |
+| ingress.className | string | `""` | Ingress class name. |
+| ingress.enabled | bool | `false` | Specifies whether ingress should be enabled. |
+| ingress.host | string | `"omada-controller.example.local"` | Ingress host configuration. |
+| ingress.paths[0].path | string | `"/"` |  |
+| ingress.paths[0].pathType | string | `"ImplementationSpecific"` |  |
+| ingress.tls | list | `[]` | List of TLS configurations for the ingress. |
+| nameOverride | string | `""` | Override for the name. |
+| nodeSelector | object | `{}` | Node selector for the pods. |
+| persistence.data.accessMode | string | `"ReadWriteOnce"` | Access mode for the PVC. |
+| persistence.data.annotations | object | `{}` | Annotations applied to PVC. |
+| persistence.data.enabled | bool | `false` | Enable/disable PVC creation for data. |
+| persistence.data.existingClaim | string | `""` | Use an existing PVC if defined, otherwise create one. |
+| persistence.data.size | string | `"10Gi"` | Storage size for the PVC. |
+| persistence.data.storageClass | string | `""` | Specify the StorageClass (if required). |
+| podAnnotations | object | `{}` | Annotations to be added to the pods. |
+| podLabels | object | `{}` | Labels to be added to the pods. |
+| podSecurityContext | object | `{}` |  |
+| resources | object | `{}` |  |
+| securityContext | object | `{}` |  |
+| service.port | int | `80` | Service port. |
+| service.type | string | `"ClusterIP"` | Service type. |
+| serviceAccount.annotations | object | `{}` | Annotations to add to the service account. |
+| serviceAccount.automount | bool | `true` | Automatically mount a ServiceAccount's API credentials. |
+| serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
+| serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
+| tolerations | list | `[]` | Tolerations for the pods. |
+| updateStrategy.rollingUpdate.maxUnavailable | string | `"100%"` |  |
+| updateStrategy.rollingUpdate.partition | int | `0` |  |
+| updateStrategy.type | string | `"RollingUpdate"` | The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "OnDelete". |
+

@@ -1,0 +1,205 @@
+config:
+  # -- Specifies whether a config map should be created.
+  create: true
+  # -- Specifies name of a config map used to configure the pocket-id.
+  # If not filled, uses full name.
+  name: ""
+
+  # -- Management portal HTTP port (valid range: 1024-65535)
+  manageHttpPort: 8088
+
+  # -- Management portal HTTPS port (valid range: 1024-65535)
+  manageHttpsPort: 8043
+
+  # -- User portal HTTP port (valid range: 1024-65535)
+  portalHttpPort: 8088
+
+  # -- User portal HTTPS port (valid range: 1024-65535)
+  portalHttpsPort: 8843
+
+  # -- Device adoption port for firmware compatible with Controller v4* (valid range: 1024-65535)
+  portAdoptV1: 29812
+
+  # -- Controller discovery port for Omada mobile app (valid range: 1024-65535)
+  portAppDiscovery: 27001
+
+  # -- Omada device discovery port (valid range: 1024-65535)
+  portDiscovery: 29810
+
+  # -- Device management port for Controller v4* (valid range: 1024-65535)
+  portManagerV1: 29811
+
+  # -- Device management port for Controller v5* (valid range: 1024-65535)
+  portManagerV2: 29814
+
+  # -- Port for receiving device info and packet capture files (valid range: 1024-65535)
+  portTransferV2: 29815
+
+  # -- Remote terminal control port (valid range: 1024-65535)
+  portRtty: 29816
+
+  # -- Firmware upgrade port for devices compatible with Controller v4* (valid range: 1024-65535)
+  portUpgradeV1: 29813
+
+  # -- User ID for the `omada` process
+  puid: 508
+
+  # -- Group ID for the `omada` process
+  pgid: 508
+
+  # -- Username for the `omada` process
+  pusername: omada
+
+  # -- Group name for the `omada` process
+  pgroup: omada
+
+  # -- Enables rootless mode if set to `true`
+  rootless: false
+
+  # -- Outputs Omada Controller logs to STDOUT
+  showServerLogs: true
+
+  # -- Outputs MongoDB logs to STDOUT
+  showMongoDbLogs: false
+
+  # -- Skips kernel/userland compatibility checks for ARM architectures
+  skipUserlandKernelCheck: false
+
+  # -- Enables small file mode (only applicable to version 3.2)
+  smallFiles: false
+
+  # -- Name of the TLS certificate file mounted to `/cert`
+  sslCertName: tls.crt
+
+  # -- Name of the TLS key file mounted to `/cert`
+  sslKeyName: tls.key
+
+  # -- Enables support for legacy TLS 1.0 and 1.1
+  tlsLegacyEnabled: false
+
+  # -- Time zone to be used by the container (e.g., Etc/UTC, Europe/Prague)
+  timezone: Etc/UTC
+
+updateStrategy:
+  # -- The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "OnDelete".
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 100%
+    partition: 0
+
+image:
+  # -- Registry and repository for the omada-controller image.
+  repository: docker.io/mbentley/omada-controller
+  # -- Tag for the image.
+  tag: "v5.15.20.20"
+  # -- Image pull policy.
+  pullPolicy: IfNotPresent
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  # -- Service type.
+  type: ClusterIP
+  # -- Service port.
+  port: 80
+
+# -- Secrets for pulling images.
+imagePullSecrets: []
+# -- Override for the name.
+nameOverride: ""
+# -- Override for the full name.
+fullnameOverride: ""
+
+serviceAccount:
+  # -- Specifies whether a service account should be created.
+  create: true
+  # -- Automatically mount a ServiceAccount's API credentials.
+  automount: true
+  # -- Annotations to add to the service account.
+  annotations: {}
+  # -- The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template.
+  name: ""
+
+persistence:
+  data:
+    # -- Enable/disable PVC creation for data.
+    enabled: false
+    # -- Use an existing PVC if defined, otherwise create one.
+    existingClaim: ""
+    # -- Specify the StorageClass (if required).
+    storageClass: ""
+    # -- Access mode for the PVC.
+    accessMode: ReadWriteOnce
+    # -- Storage size for the PVC.
+    size: 10Gi
+    # -- Annotations applied to PVC.
+    annotations: {}
+
+ingress:
+  # -- Specifies whether ingress should be enabled.
+  enabled: false
+  # -- Ingress class name.
+  className: ""
+  # -- Annotations to add to the ingress.
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  # -- Ingress host configuration.
+  host: omada-controller.example.local
+  paths:
+    - path: /
+      pathType: ImplementationSpecific
+  # -- List of TLS configurations for the ingress.
+  tls: []
+  #  - secretName: omada-controller-tls
+  #    hosts:
+  #      - omada-controller.example.local
+
+# -- Annotations to be added to the pods.
+podAnnotations: {}
+# -- Labels to be added to the pods.
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+# -- Node selector for the pods.
+nodeSelector: {}
+
+# -- Tolerations for the pods.
+tolerations: []
+
+# -- Affinity settings for the pods.
+affinity: {}
+  # nodeAffinity:
+  #   requiredDuringSchedulingIgnoredDuringExecution:
+  #     nodeSelectorTerms:
+  #       - matchExpressions:
+  #         - key: kubernetes.io/arch
+  #           operator: In
+  #           values:
+  #             - amd64
+  #             - arm64
+  #         - key: kubernetes.io/os
+  #           operator: In
+  #           values:
+  #             - linux

@@ -14,46 +14,9 @@
   ],
   "packageRules": [
     {
-      "groupName": "kamaji dependencies",
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchFileNames": [
-        "charts/kamaji/**"
-      ]
-    },
-    {
-      "groupName": "lubelogger dependencies",
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchFileNames": [
-        "charts/lubelogger/**"
-      ]
-    },
-    {
-      "groupName": "pocket-id dependencies",
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchFileNames": [
-        "charts/pocket-id/**"
-      ]
-    },
-    {
       "automerge": false,
       "matchManagers": [
         "helm-values"
-      ],
-      "labels": [
-        "area/dependency",
-        "do-not-merge"
-      ]
-    },
-    {
-      "automerge": false,
-      "matchDatasources": [
-        "docker"
       ],
       "labels": [
         "area/dependency",

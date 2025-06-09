@@ -1,0 +1,102 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: ConfigMap
+
+templates:
+  - configmap.yaml
+
+tests:
+  - it: Should not create ConfigMap
+    set:
+      config.create: false
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: Should create ConfigMap with defaults
+    set:
+      config.create: true
+    asserts:
+      - isKind:
+          of: ConfigMap
+      - isSubset:
+          path: data
+          content:
+            OMADA_MANAGE_HTTP_PORT: "8088"
+            OMADA_MANAGE_HTTPS_PORT: "8043"
+            OMADA_PORTAL_HTTP_PORT: "8088"
+            OMADA_PORTAL_HTTPS_PORT: "8843"
+            OMADA_PORT_ADOPT_V1: "29812"
+            OMADA_PORT_APP_DISCOVERY: "27001"
+            OMADA_PORT_DISCOVERY: "29810"
+            OMADA_PORT_MANAGER_V1: "29811"
+            OMADA_PORT_MANAGER_V2: "29814"
+            OMADA_PORT_TRANSFER_V2: "29815"
+            OMADA_PORT_RTTY: "29816"
+            OMADA_PORT_UPGRADE_V1: "29813"
+            OMADA_PUID: "508"
+            OMADA_PGID: "508"
+            OMADA_PUSERNAME: "omada"
+            OMADA_PGROUP: "omada"
+            OMADA_ROOTLESS: "false"
+            OMADA_SHOW_SERVER_LOGS: "true"
+            OMADA_SHOW_MONGODB_LOGS: "false"
+            OMADA_SKIP_USERLAND_KERNEL_CHECK: "false"
+            OMADA_SMALL_FILES: "false"
+            OMADA_TLS_LEGACY_ENABLED: "false"
+            OMADA_TZ: "Etc/UTC"
+
+  - it: Should create ConfigMap with overrides
+    set:
+      config.create: true
+      config.manageHttpPort: 9999
+      config.manageHttpsPort: 9443
+      config.portalHttpPort: 9998
+      config.portalHttpsPort: 9442
+      config.portAdoptV1: 30000
+      config.portAppDiscovery: 30001
+      config.portDiscovery: 30002
+      config.portManagerV1: 30003
+      config.portManagerV2: 30004
+      config.portTransferV2: 30005
+      config.portRtty: 30006
+      config.portUpgradeV1: 30007
+      config.puid: 1001
+      config.pgid: 1002
+      config.pusername: customuser
+      config.pgroup: customgroup
+      config.rootless: true
+      config.showServerLogs: false
+      config.showMongoDbLogs: true
+      config.skipUserlandKernelCheck: true
+      config.smallFiles: true
+      config.tlsLegacyEnabled: true
+      config.timezone: Europe/Prague
+    asserts:
+      - isKind:
+          of: ConfigMap
+      - isSubset:
+          path: data
+          content:
+            OMADA_MANAGE_HTTP_PORT: "9999"
+            OMADA_MANAGE_HTTPS_PORT: "9443"
+            OMADA_PORTAL_HTTP_PORT: "9998"
+            OMADA_PORTAL_HTTPS_PORT: "9442"
+            OMADA_PORT_ADOPT_V1: "30000"
+            OMADA_PORT_APP_DISCOVERY: "30001"
+            OMADA_PORT_DISCOVERY: "30002"
+            OMADA_PORT_MANAGER_V1: "30003"
+            OMADA_PORT_MANAGER_V2: "30004"
+            OMADA_PORT_TRANSFER_V2: "30005"
+            OMADA_PORT_RTTY: "30006"
+            OMADA_PORT_UPGRADE_V1: "30007"
+            OMADA_PUID: "1001"
+            OMADA_PGID: "1002"
+            OMADA_PUSERNAME: "customuser"
+            OMADA_PGROUP: "customgroup"
+            OMADA_ROOTLESS: "true"
+            OMADA_SHOW_SERVER_LOGS: "false"
+            OMADA_SHOW_MONGODB_LOGS: "true"
+            OMADA_SKIP_USERLAND_KERNEL_CHECK: "true"
+            OMADA_SMALL_FILES: "true"
+            OMADA_TLS_LEGACY_ENABLED: "true"
+            OMADA_TZ: "Europe/Prague"
