@@ -16,72 +16,84 @@ tests:
           path: spec.ports
           content:
             name: manage-http
+            protocol: TCP
             port: 8088
             targetPort: manage-http
       - contains:
           path: spec.ports
           content:
             name: manage-https
+            protocol: TCP
             port: 8043
             targetPort: manage-https
       - contains:
           path: spec.ports
           content:
             name: portal-http
+            protocol: TCP
             port: 8088
             targetPort: portal-http
       - contains:
           path: spec.ports
           content:
             name: portal-https
+            protocol: TCP
             port: 8843
             targetPort: portal-https
       - contains:
           path: spec.ports
           content:
             name: adopt-v1
+            protocol: TCP
             port: 29812
             targetPort: adopt-v1
       - contains:
           path: spec.ports
           content:
             name: app-discovery
+            protocol: TCP
             port: 27001
             targetPort: app-discovery
       - contains:
           path: spec.ports
           content:
             name: discovery
+            protocol: TCP
             port: 29810
             targetPort: discovery
       - contains:
           path: spec.ports
           content:
             name: manager-v1
+            protocol: TCP
             port: 29811
             targetPort: manager-v1
       - contains:
           path: spec.ports
           content:
             name: manager-v2
+            protocol: TCP
             port: 29814
             targetPort: manager-v2
       - contains:
           path: spec.ports
           content:
             name: transfer-v2
+            protocol: TCP
             port: 29815
             targetPort: transfer-v2
       - contains:
           path: spec.ports
           content:
             name: rtty
+            protocol: TCP
             port: 29816
             targetPort: rtty
       - contains:
           path: spec.ports
           content:
             name: upgrade-v1
+            protocol: TCP
             port: 29813
             targetPort: upgrade-v1
 
