@@ -41,3 +41,7 @@ spec:
           status:
             (readyReplicas == replicas): true
             (availableReplicas == replicas): true
+  catch:
+    - podLogs:
+        namespace: ($namespace)
+        tail: -1
