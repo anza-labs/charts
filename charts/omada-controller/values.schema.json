@@ -77,12 +77,6 @@
         "smallFiles": {
           "type": "boolean"
         },
-        "sslCertName": {
-          "type": "string"
-        },
-        "sslKeyName": {
-          "type": "string"
-        },
         "timezone": {
           "type": "string"
         },

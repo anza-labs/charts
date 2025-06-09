@@ -44,8 +44,6 @@ TP-Link Omada Controller in Kubernetes
 | config.showServerLogs | bool | `true` | Outputs Omada Controller logs to STDOUT |
 | config.skipUserlandKernelCheck | bool | `false` | Skips kernel/userland compatibility checks for ARM architectures |
 | config.smallFiles | bool | `false` | Enables small file mode (only applicable to version 3.2) |
-| config.sslCertName | string | `"tls.crt"` | Name of the TLS certificate file mounted to `/cert` |
-| config.sslKeyName | string | `"tls.key"` | Name of the TLS key file mounted to `/cert` |
 | config.timezone | string | `"Etc/UTC"` | Time zone to be used by the container (e.g., Etc/UTC, Europe/Prague) |
 | config.tlsLegacyEnabled | bool | `false` | Enables support for legacy TLS 1.0 and 1.1 |
 | fullnameOverride | string | `""` | Override for the full name. |

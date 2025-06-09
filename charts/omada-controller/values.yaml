@@ -68,12 +68,6 @@ config:
   # -- Enables small file mode (only applicable to version 3.2)
   smallFiles: false
 
-  # -- Name of the TLS certificate file mounted to `/cert`
-  sslCertName: tls.crt
-
-  # -- Name of the TLS key file mounted to `/cert`
-  sslKeyName: tls.key
-
   # -- Enables support for legacy TLS 1.0 and 1.1
   tlsLegacyEnabled: false
 
