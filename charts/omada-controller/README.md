@@ -1,6 +1,6 @@
 # omada-controller
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v5.15.20.20](https://img.shields.io/badge/AppVersion-v5.15.20.20-informational?style=flat)
+![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 5.15.20.20](https://img.shields.io/badge/AppVersion-5.15.20.20-informational?style=flat)
 
 TP-Link Omada Controller in Kubernetes
 
@@ -21,33 +21,33 @@ TP-Link Omada Controller in Kubernetes
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity settings for the pods. |
+| config.adoptV1Port | int | `29812` | Device adoption port for firmware compatible with Controller v4* (valid range: 1024-65535) |
+| config.appDiscoveryPort | int | `27001` | Controller discovery port for Omada mobile app (valid range: 1024-65535) |
+| config.discoveryPort | int | `29810` | Omada device discovery port (valid range: 1024-65535) |
 | config.manageHttpPort | int | `8088` | Management portal HTTP port (valid range: 1024-65535) |
 | config.manageHttpsPort | int | `8043` | Management portal HTTPS port (valid range: 1024-65535) |
+| config.managerV1Port | int | `29811` | Device management port for Controller v4* (valid range: 1024-65535) |
+| config.managerV2Port | int | `29814` | Device management port for Controller v5* (valid range: 1024-65535) |
 | config.pgid | int | `508` | Group ID for the `omada` process |
 | config.pgroup | string | `"omada"` | Group name for the `omada` process |
-| config.portAdoptV1 | int | `29812` | Device adoption port for firmware compatible with Controller v4* (valid range: 1024-65535) |
-| config.portAppDiscovery | int | `27001` | Controller discovery port for Omada mobile app (valid range: 1024-65535) |
-| config.portDiscovery | int | `29810` | Omada device discovery port (valid range: 1024-65535) |
-| config.portManagerV1 | int | `29811` | Device management port for Controller v4* (valid range: 1024-65535) |
-| config.portManagerV2 | int | `29814` | Device management port for Controller v5* (valid range: 1024-65535) |
-| config.portRtty | int | `29816` | Remote terminal control port (valid range: 1024-65535) |
-| config.portTransferV2 | int | `29815` | Port for receiving device info and packet capture files (valid range: 1024-65535) |
-| config.portUpgradeV1 | int | `29813` | Firmware upgrade port for devices compatible with Controller v4* (valid range: 1024-65535) |
 | config.portalHttpPort | int | `8888` | User portal HTTP port (valid range: 1024-65535) |
 | config.portalHttpsPort | int | `8843` | User portal HTTPS port (valid range: 1024-65535) |
 | config.puid | int | `508` | User ID for the `omada` process |
 | config.pusername | string | `"omada"` | Username for the `omada` process |
 | config.rootless | bool | `false` | Enables rootless mode if set to `true` |
+| config.rttyPort | int | `29816` | Remote terminal control port (valid range: 1024-65535) |
 | config.showMongoDbLogs | bool | `false` | Outputs MongoDB logs to STDOUT |
 | config.showServerLogs | bool | `true` | Outputs Omada Controller logs to STDOUT |
 | config.skipUserlandKernelCheck | bool | `false` | Skips kernel/userland compatibility checks for ARM architectures |
 | config.smallFiles | bool | `false` | Enables small file mode (only applicable to version 3.2) |
 | config.timezone | string | `"Etc/UTC"` | Time zone to be used by the container (e.g., Etc/UTC, Europe/Prague) |
 | config.tlsLegacyEnabled | bool | `false` | Enables support for legacy TLS 1.0 and 1.1 |
+| config.transferV2Port | int | `29815` | Port for receiving device info and packet capture files (valid range: 1024-65535) |
+| config.upgradeV1Port | int | `29813` | Firmware upgrade port for devices compatible with Controller v4* (valid range: 1024-65535) |
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"docker.io/mbentley/omada-controller"` | Registry and repository for the omada-controller image. |
-| image.tag | string | `"v5.15.20.20"` | Tag for the image. |
+| image.tag | string | `"5.15.20.20"` | Tag for the image. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | nameOverride | string | `""` | Override for the name. |
 | nodeSelector | object | `{}` | Node selector for the pods. |

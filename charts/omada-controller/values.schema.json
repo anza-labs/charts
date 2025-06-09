@@ -8,10 +8,25 @@
     "config": {
       "type": "object",
       "properties": {
+        "adoptV1Port": {
+          "type": "integer"
+        },
+        "appDiscoveryPort": {
+          "type": "integer"
+        },
+        "discoveryPort": {
+          "type": "integer"
+        },
         "manageHttpPort": {
           "type": "integer"
         },
         "manageHttpsPort": {
+          "type": "integer"
+        },
+        "managerV1Port": {
+          "type": "integer"
+        },
+        "managerV2Port": {
           "type": "integer"
         },
         "pgid": {
@@ -19,30 +34,6 @@
         },
         "pgroup": {
           "type": "string"
-        },
-        "portAdoptV1": {
-          "type": "integer"
-        },
-        "portAppDiscovery": {
-          "type": "integer"
-        },
-        "portDiscovery": {
-          "type": "integer"
-        },
-        "portManagerV1": {
-          "type": "integer"
-        },
-        "portManagerV2": {
-          "type": "integer"
-        },
-        "portRtty": {
-          "type": "integer"
-        },
-        "portTransferV2": {
-          "type": "integer"
-        },
-        "portUpgradeV1": {
-          "type": "integer"
         },
         "portalHttpPort": {
           "type": "integer"
@@ -58,6 +49,9 @@
         },
         "rootless": {
           "type": "boolean"
+        },
+        "rttyPort": {
+          "type": "integer"
         },
         "showMongoDbLogs": {
           "type": "boolean"
@@ -76,6 +70,12 @@
         },
         "tlsLegacyEnabled": {
           "type": "boolean"
+        },
+        "transferV2Port": {
+          "type": "integer"
+        },
+        "upgradeV1Port": {
+          "type": "integer"
         }
       }
     },
