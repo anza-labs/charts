@@ -26,7 +26,7 @@ spec:
           metadata:
             name: (join('-', [$namespace, 'omada-controller']))
     - assert:
-        timeout: 120s
+        timeout: 240s
         resource:
           apiVersion: apps/v1
           kind: StatefulSet

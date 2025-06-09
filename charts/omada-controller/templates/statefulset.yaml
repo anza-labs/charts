@@ -80,14 +80,11 @@ spec:
             httpGet:
               path: /
               port: {{ .Values.config.manageHttpPort }}
-            initialDelaySeconds: 10
-            periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /
               port: {{ .Values.config.manageHttpPort }}
-            initialDelaySeconds: 5
-            periodSeconds: 5
+            initialDelaySeconds: 60
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
