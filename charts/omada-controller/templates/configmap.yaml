@@ -11,7 +11,7 @@ data:
 
   OMADA_MANAGE_HTTP_PORT: "{{ .Values.config.manageHttpPort | int | default 8088 }}"
   OMADA_MANAGE_HTTPS_PORT: "{{ .Values.config.manageHttpsPort | int | default 8043 }}"
-  OMADA_PORTAL_HTTP_PORT: "{{ .Values.config.portalHttpPort | int | default 8088 }}"
+  OMADA_PORTAL_HTTP_PORT: "{{ .Values.config.portalHttpPort | int | default 8888 }}"
   OMADA_PORTAL_HTTPS_PORT: "{{ .Values.config.portalHttpsPort | int | default 8843 }}"
   OMADA_PORT_ADOPT_V1: "{{ .Values.config.adoptV1Port | int | default 29812 }}"
   OMADA_PORT_APP_DISCOVERY: "{{ .Values.config.appDiscoveryPort | int | default 27001 }}"
