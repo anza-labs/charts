@@ -9,39 +9,51 @@ spec:
   type: {{ .Values.service.type | default "ClusterIP" }}
   ports:
     - name: manage-http
+      protocol: TCP
       port: {{ .Values.config.manageHttpPort }}
       targetPort: manage-http
     - name: manage-https
+      protocol: TCP
       port: {{ .Values.config.manageHttpsPort }}
       targetPort: manage-https
     - name: portal-http
+      protocol: TCP
       port: {{ .Values.config.portalHttpPort }}
       targetPort: portal-http
     - name: portal-https
+      protocol: TCP
       port: {{ .Values.config.portalHttpsPort }}
       targetPort: portal-https
     - name: adopt-v1
+      protocol: TCP
       port: {{ .Values.config.portAdoptV1 }}
       targetPort: adopt-v1
     - name: app-discovery
+      protocol: TCP
       port: {{ .Values.config.portAppDiscovery }}
       targetPort: app-discovery
     - name: discovery
+      protocol: TCP
       port: {{ .Values.config.portDiscovery }}
       targetPort: discovery
     - name: manager-v1
+      protocol: TCP
       port: {{ .Values.config.portManagerV1 }}
       targetPort: manager-v1
     - name: manager-v2
+      protocol: TCP
       port: {{ .Values.config.portManagerV2 }}
       targetPort: manager-v2
     - name: transfer-v2
+      protocol: TCP
       port: {{ .Values.config.portTransferV2 }}
       targetPort: transfer-v2
     - name: rtty
+      protocol: TCP
       port: {{ .Values.config.portRtty }}
       targetPort: rtty
     - name: upgrade-v1
+      protocol: TCP
       port: {{ .Values.config.portUpgradeV1 }}
       targetPort: upgrade-v1
   selector:
