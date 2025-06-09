@@ -42,6 +42,11 @@ spec:
             (readyReplicas == replicas): true
             (availableReplicas == replicas): true
   catch:
+    - describe:
+        apiVersion: apps/v1
+        kind: StatefulSet
+        name: (join('-', [$namespace, 'pocket-id']))
     - podLogs:
         namespace: ($namespace)
+        selector: app.kubernetes.io/name=pocket-id
         tail: -1

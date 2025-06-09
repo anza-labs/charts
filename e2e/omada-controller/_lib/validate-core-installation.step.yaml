@@ -36,6 +36,11 @@ spec:
             (readyReplicas == replicas): true
             (availableReplicas == replicas): true
   catch:
+    - describe:
+        apiVersion: apps/v1
+        kind: StatefulSet
+        name: (join('-', [$namespace, 'omada-controller']))
     - podLogs:
         namespace: ($namespace)
+        selector: app.kubernetes.io/name=omada-controller
         tail: -1
