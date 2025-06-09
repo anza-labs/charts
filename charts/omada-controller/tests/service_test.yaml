@@ -31,7 +31,7 @@ tests:
           content:
             name: portal-http
             protocol: TCP
-            port: 8088
+            port: 8888
             targetPort: portal-http
       - contains:
           path: spec.ports

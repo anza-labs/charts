@@ -6,7 +6,7 @@ config:
   manageHttpsPort: 8043
 
   # -- User portal HTTP port (valid range: 1024-65535)
-  portalHttpPort: 8088
+  portalHttpPort: 8888
 
   # -- User portal HTTPS port (valid range: 1024-65535)
   portalHttpsPort: 8843

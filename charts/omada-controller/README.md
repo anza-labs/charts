@@ -33,7 +33,7 @@ TP-Link Omada Controller in Kubernetes
 | config.portRtty | int | `29816` | Remote terminal control port (valid range: 1024-65535) |
 | config.portTransferV2 | int | `29815` | Port for receiving device info and packet capture files (valid range: 1024-65535) |
 | config.portUpgradeV1 | int | `29813` | Firmware upgrade port for devices compatible with Controller v4* (valid range: 1024-65535) |
-| config.portalHttpPort | int | `8088` | User portal HTTP port (valid range: 1024-65535) |
+| config.portalHttpPort | int | `8888` | User portal HTTP port (valid range: 1024-65535) |
 | config.portalHttpsPort | int | `8843` | User portal HTTPS port (valid range: 1024-65535) |
 | config.puid | int | `508` | User ID for the `omada` process |
 | config.pusername | string | `"omada"` | Username for the `omada` process |
