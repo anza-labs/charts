@@ -96,7 +96,7 @@ tests:
           path: spec.template.spec.containers[0].ports
           content:
             name: portal-http
-            containerPort: 8088
+            containerPort: 8888
       - contains:
           path: spec.template.spec.containers[0].ports
           content:

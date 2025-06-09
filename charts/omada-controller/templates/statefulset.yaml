@@ -61,21 +61,21 @@ spec:
             - name: portal-https
               containerPort: {{ .Values.config.portalHttpsPort }}
             - name: adopt-v1
-              containerPort: {{ .Values.config.portAdoptV1 }}
+              containerPort: {{ .Values.config.adoptV1Port }}
             - name: app-discovery
-              containerPort: {{ .Values.config.portAppDiscovery }}
+              containerPort: {{ .Values.config.appDiscoveryPort }}
             - name: discovery
-              containerPort: {{ .Values.config.portDiscovery }}
+              containerPort: {{ .Values.config.discoveryPort }}
             - name: manager-v1
-              containerPort: {{ .Values.config.portManagerV1 }}
+              containerPort: {{ .Values.config.managerV1Port }}
             - name: manager-v2
-              containerPort: {{ .Values.config.portManagerV2 }}
+              containerPort: {{ .Values.config.managerV2Port }}
             - name: transfer-v2
-              containerPort: {{ .Values.config.portTransferV2 }}
+              containerPort: {{ .Values.config.transferV2Port }}
             - name: rtty
-              containerPort: {{ .Values.config.portRtty }}
+              containerPort: {{ .Values.config.rttyPort }}
             - name: upgrade-v1
-              containerPort: {{ .Values.config.portUpgradeV1 }}
+              containerPort: {{ .Values.config.upgradeV1Port }}
           livenessProbe:
             httpGet:
               path: /

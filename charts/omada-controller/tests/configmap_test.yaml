@@ -15,7 +15,7 @@ tests:
           content:
             OMADA_MANAGE_HTTP_PORT: "8088"
             OMADA_MANAGE_HTTPS_PORT: "8043"
-            OMADA_PORTAL_HTTP_PORT: "8088"
+            OMADA_PORTAL_HTTP_PORT: "8888"
             OMADA_PORTAL_HTTPS_PORT: "8843"
             OMADA_PORT_ADOPT_V1: "29812"
             OMADA_PORT_APP_DISCOVERY: "27001"
@@ -43,14 +43,14 @@ tests:
       config.manageHttpsPort: 9443
       config.portalHttpPort: 9998
       config.portalHttpsPort: 9442
-      config.portAdoptV1: 30000
-      config.portAppDiscovery: 30001
-      config.portDiscovery: 30002
-      config.portManagerV1: 30003
-      config.portManagerV2: 30004
-      config.portTransferV2: 30005
-      config.portRtty: 30006
-      config.portUpgradeV1: 30007
+      config.adoptV1Port: 30000
+      config.appDiscoveryPort: 30001
+      config.discoveryPort: 30002
+      config.managerV1Port: 30003
+      config.managerV2Port: 30004
+      config.transferV2Port: 30005
+      config.rttyPort: 30006
+      config.upgradeV1Port: 30007
       config.puid: 1001
       config.pgid: 1002
       config.pusername: customuser

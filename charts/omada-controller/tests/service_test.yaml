@@ -5,6 +5,25 @@ templates:
   - service.yaml
 
 tests:
+  - it: Should fail if port is out of valid range
+    set:
+      config.manageHttpPort: 80
+    asserts:
+      - failedTemplate:
+          errorMessage:  >-
+            Invalid port value for config.manageHttpPort: 80 (must be between 1024 and
+            65535)
+
+  - it: Should fail if two ports are configured with the same value
+    set:
+      config.manageHttpPort: 8088
+      config.portalHttpPort: 8088
+    asserts:
+      - failedTemplate:
+          errorMessage:  >-
+            Duplicate port detected: 8088 (used in config.manageHttpPort and
+            config.portalHttpPort)
+
   - it: Should create service with default ports and ClusterIP
     asserts:
       - isKind:
@@ -106,3 +125,103 @@ tests:
       - equal:
           path: spec.type
           value: NodePort
+
+  - it: Should create service with overridden ports
+    set:
+      config.manageHttpPort: 18088
+      config.manageHttpsPort: 18043
+      config.portalHttpPort: 18888
+      config.portalHttpsPort: 18843
+      config.adoptV1Port: 19812
+      config.appDiscoveryPort: 19001
+      config.discoveryPort: 19810
+      config.managerV1Port: 19811
+      config.managerV2Port: 19814
+      config.transferV2Port: 19815
+      config.rttyPort: 19816
+      config.upgradeV1Port: 19813
+    asserts:
+      - contains:
+          path: spec.ports
+          content:
+            name: manage-http
+            protocol: TCP
+            port: 18088
+            targetPort: manage-http
+      - contains:
+          path: spec.ports
+          content:
+            name: manage-https
+            protocol: TCP
+            port: 18043
+            targetPort: manage-https
+      - contains:
+          path: spec.ports
+          content:
+            name: portal-http
+            protocol: TCP
+            port: 18888
+            targetPort: portal-http
+      - contains:
+          path: spec.ports
+          content:
+            name: portal-https
+            protocol: TCP
+            port: 18843
+            targetPort: portal-https
+      - contains:
+          path: spec.ports
+          content:
+            name: adopt-v1
+            protocol: TCP
+            port: 19812
+            targetPort: adopt-v1
+      - contains:
+          path: spec.ports
+          content:
+            name: app-discovery
+            protocol: TCP
+            port: 19001
+            targetPort: app-discovery
+      - contains:
+          path: spec.ports
+          content:
+            name: discovery
+            protocol: TCP
+            port: 19810
+            targetPort: discovery
+      - contains:
+          path: spec.ports
+          content:
+            name: manager-v1
+            protocol: TCP
+            port: 19811
+            targetPort: manager-v1
+      - contains:
+          path: spec.ports
+          content:
+            name: manager-v2
+            protocol: TCP
+            port: 19814
+            targetPort: manager-v2
+      - contains:
+          path: spec.ports
+          content:
+            name: transfer-v2
+            protocol: TCP
+            port: 19815
+            targetPort: transfer-v2
+      - contains:
+          path: spec.ports
+          content:
+            name: rtty
+            protocol: TCP
+            port: 19816
+            targetPort: rtty
+      - contains:
+          path: spec.ports
+          content:
+            name: upgrade-v1
+            protocol: TCP
+            port: 19813
+            targetPort: upgrade-v1

@@ -45,6 +45,7 @@ changed.txt
 
 # chart testing
 __snapshot__
+.debug
 
 # test reports
 chainsaw-report.xml

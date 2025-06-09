@@ -12,28 +12,28 @@ config:
   portalHttpsPort: 8843
 
   # -- Device adoption port for firmware compatible with Controller v4* (valid range: 1024-65535)
-  portAdoptV1: 29812
+  adoptV1Port: 29812
 
   # -- Controller discovery port for Omada mobile app (valid range: 1024-65535)
-  portAppDiscovery: 27001
+  appDiscoveryPort: 27001
 
   # -- Omada device discovery port (valid range: 1024-65535)
-  portDiscovery: 29810
+  discoveryPort: 29810
 
   # -- Device management port for Controller v4* (valid range: 1024-65535)
-  portManagerV1: 29811
+  managerV1Port: 29811
 
   # -- Device management port for Controller v5* (valid range: 1024-65535)
-  portManagerV2: 29814
+  managerV2Port: 29814
 
   # -- Port for receiving device info and packet capture files (valid range: 1024-65535)
-  portTransferV2: 29815
+  transferV2Port: 29815
 
   # -- Remote terminal control port (valid range: 1024-65535)
-  portRtty: 29816
+  rttyPort: 29816
 
   # -- Firmware upgrade port for devices compatible with Controller v4* (valid range: 1024-65535)
-  portUpgradeV1: 29813
+  upgradeV1Port: 29813
 
   # -- User ID for the `omada` process
   puid: 508
