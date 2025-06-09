@@ -45,6 +45,14 @@ jobs:
 
   e2e:
     runs-on: ubuntu-latest
+    concurrency:
+      group: >
+        ${{
+          github.event_name == 'pull_request'
+            && format('pr-{0}', github.event.pull_request.number)
+            || format('push-{0}', github.ref_name)
+        }}
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
