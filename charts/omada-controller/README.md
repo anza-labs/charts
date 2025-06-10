@@ -60,6 +60,9 @@ TP-Link Omada Controller in Kubernetes
 | podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | podLabels | object | `{}` | Labels to be added to the pods. |
 | podSecurityContext | object | `{}` |  |
+| probes.enabled | bool | `false` | Enable or disable Kubernetes liveness and readiness probes |
+| probes.livenessProbe | object | `{"httpGet":{"path":"/","port":8088}}` | Configuration for the Kubernetes liveness probe. This probe checks if the container is still running. If it fails, the container will be restarted. |
+| probes.readinessProbe | object | `{"httpGet":{"path":"/","port":8088},"initialDelaySeconds":60}` | Configuration for the Kubernetes readiness probe. This probe checks if the container is ready to serve traffic. If it fails, the pod will be removed from service endpoints. |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
 | service.type | string | `"ClusterIP"` | Service type. |

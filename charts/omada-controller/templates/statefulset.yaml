@@ -76,15 +76,12 @@ spec:
               containerPort: {{ .Values.config.rttyPort }}
             - name: upgrade-v1
               containerPort: {{ .Values.config.upgradeV1Port }}
+          {{- if .Values.probes.enabled }}
           livenessProbe:
-            httpGet:
-              path: /
-              port: {{ .Values.config.manageHttpPort }}
+            {{ toYaml .Values.probes.livenessProbe | nindent 12}}
           readinessProbe:
-            httpGet:
-              path: /
-              port: {{ .Values.config.manageHttpPort }}
-            initialDelaySeconds: 60
+            {{ toYaml .Values.probes.readinessProbe | nindent 12}}
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:

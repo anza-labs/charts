@@ -169,3 +169,24 @@ affinity: {}
   #           operator: In
   #           values:
   #             - linux
+
+probes:
+  # -- Enable or disable Kubernetes liveness and readiness probes
+  enabled: false
+
+  # -- Configuration for the Kubernetes liveness probe.
+  # This probe checks if the container is still running.
+  # If it fails, the container will be restarted.
+  livenessProbe:
+    httpGet:
+      path: /
+      port: 8088
+
+  # -- Configuration for the Kubernetes readiness probe.
+  # This probe checks if the container is ready to serve traffic.
+  # If it fails, the pod will be removed from service endpoints.
+  readinessProbe:
+    httpGet:
+      path: /
+      port: 8088
+    initialDelaySeconds: 60
