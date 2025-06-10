@@ -1614,6 +1614,30 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/meta-chart-0.1.0/meta-chart-0.1.0.tgz
     version: 0.1.0
+  omada-controller:
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: 5.15.20.20
+    created: "2025-06-10T05:50:28.998702884Z"
+    description: 'TP-Link Omada Controller in Kubernetes '
+    digest: c518bcd5be7e31e19177bd4c3be394d022f1d6744a854015cc9467f9881992c8
+    home: https://support.omadanetworks.com/product/omada-software-controller/
+    keywords:
+    - networking
+    - security
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: omada-controller
+    sources:
+    - https://github.com/mbentley/docker-omada-controller
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/omada-controller-0.1.0/omada-controller-0.1.0.tgz
+    version: 0.1.0
   pocket-id:
   - annotations:
       artifacthub.io/category: security
@@ -2466,4 +2490,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-05-28T13:03:12.129759546Z"
+generated: "2025-06-10T05:50:29.11659747Z"
