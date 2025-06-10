@@ -317,6 +317,62 @@ entries:
       artifacthub.io/immutable: "true"
     apiVersion: v2
     appVersion: edge-25.4.1
+    created: "2025-06-10T10:13:04.454770375Z"
+    dependencies:
+    - condition: kamaji-etcd.deploy
+      name: kamaji-etcd
+      repository: https://clastix.github.io/charts
+      version: '>=0.9.2'
+    deprecated: true
+    description: 'Kamaji is the Kubernetes Control Plane Manager. '
+    digest: 581e9b990452e35c93ba4dcb7d25d6043fac684d0c870d8af494c03f9f8fe361
+    home: https://kamaji.clastix.io
+    keywords:
+    - kubernetes
+    - multi-tenancy
+    - managed-kubernetes
+    - virtual-cluster
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: kamaji
+    sources:
+    - https://github.com/clastix/kamaji
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/kamaji-0.1.11/kamaji-0.1.11.tgz
+    version: 0.1.11
+  - annotations:
+      artifacthub.io/images: |
+        - name: proxy-server
+          image: registry.k8s.io/kas-network-proxy/proxy-server:v0.28.6
+          platforms:
+            - linux/amd64
+            - linux/arm64
+        - name: kamaji
+          image: docker.io/clastix/kamaji:edge-24.12.1
+          platforms:
+            - linux/amd64
+            - linux/arm64
+        - name: kube-apiserver
+          image: registry.k8s.io/kube-apiserver:v1.28.6
+          platforms:
+            - linux/amd64
+            - linux/arm64
+        - name: kube-controller-manager
+          image: registry.k8s.io/kube-controller-manager:v1.28.6
+          platforms:
+            - linux/amd64
+            - linux/arm64
+        - name: kube-scheduler
+          image: registry.k8s.io/kube-scheduler:v1.28.6
+          platforms:
+            - linux/amd64
+            - linux/arm64
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: edge-25.4.1
     created: "2025-05-21T06:00:42.498927475Z"
     dependencies:
     - condition: kamaji-etcd.deploy
@@ -2490,4 +2546,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-06-10T05:50:29.11659747Z"
+generated: "2025-06-10T10:13:05.061338771Z"
