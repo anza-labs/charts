@@ -17,9 +17,6 @@
     },
     "charts/pocket-id": {
       "release-type": "helm"
-    },
-    "charts/pocketbase": {
-      "release-type": "helm"
     }
   },
   "changelog-sections": [

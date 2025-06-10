@@ -93,7 +93,7 @@ spec:
               path: /healthz
               port: http
           readinessProbe:
-            initialDelaySeconds: 120
+            initialDelaySeconds: 60
             httpGet:
               path: /healthz
               port: http
