@@ -11,9 +11,22 @@ spec:
 
   bindings:
     - name: arguments
-      value: ''
+      value: >-
+        --set=secret.emailServer=mailcatcher
+        --set=secret.emailFrom=testuser@example.com
+        --set=secret.port=1025
+        --set=secret.username=testuser
+        --set=secret.password=testpassword
 
   steps:
+    - name: Install Mailcatcher
+      use:
+        template: ../../_lib/mailcatcher.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
     - name: Install chart
       use:
         template: ../_lib/helm-install.step.yaml

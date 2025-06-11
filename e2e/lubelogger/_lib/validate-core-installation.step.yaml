@@ -22,9 +22,9 @@ spec:
     - assert:
         resource:
           apiVersion: v1
-          kind: ConfigMap
+          kind: Secret
           metadata:
-            name: (join('-', [$namespace, 'lubelogger']))
+            name: (join('-', [$namespace, 'lubelogger-mail']))
     - assert:
         resource:
           apiVersion: v1

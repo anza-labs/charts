@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: create-mailcatcher-server
+spec:
+  try:
+    - apply:
+        resource:
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: mailcatcher
+          spec:
+            replicas: 1
+            selector:
+              matchLabels:
+                app: mailcatcher
+            template:
+              metadata:
+                labels:
+                  app: mailcatcher
+              spec:
+                containers:
+                  - name: mailcatcher
+                    image: sj26/mailcatcher:v0.10.0
+                    ports:
+                      - name: smtp
+                        containerPort: 1025
+                      - name: http
+                        containerPort: 1080
+
+    - apply:
+        resource:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: mailcatcher
+          spec:
+            type: ClusterIP
+            selector:
+              app: mailcatcher
+            ports:
+              - name: smtp
+                port: 1025
+                targetPort: smtp
+              - name: http
+                port: 1080
+                targetPort: http
+
+    - assert:
+        resource:
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: mailcatcher
+          status:
+            (readyReplicas == replicas): true
+            (availableReplicas == replicas): true
+
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: mailcatcher
