@@ -1,6 +1,6 @@
 # pocket-id
 
-![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.2.0](https://img.shields.io/badge/AppVersion-v1.2.0-informational?style=flat)
+![Version: 1.1.4](https://img.shields.io/badge/Version-1.1.4-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.3.1](https://img.shields.io/badge/AppVersion-v1.3.1-informational?style=flat)
 
 pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
 with their passkeys to your services.
@@ -100,7 +100,7 @@ with their passkeys to your services.
 | persistence.data.storageClass | string | `""` | Specify the StorageClass (if required). |
 | pocketID.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | pocketID.image.repository | string | `"ghcr.io/pocket-id/pocket-id"` | Registry and repository for the pocket-id image. |
-| pocketID.image.tag | string | `"v1.2.0"` | Tag for the image. |
+| pocketID.image.tag | string | `"v1.3.1"` | Tag for the image. |
 | pocketID.resources | object | `{}` |  |
 | pocketID.securityContext | object | `{}` |  |
 | podAnnotations | object | `{}` | Annotations to be added to the pods. |
