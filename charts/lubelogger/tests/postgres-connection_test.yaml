@@ -4,4 +4,114 @@ suite: Postgres Connection Secret
 templates:
   - postgres-connection.yaml
 
-tests: []
+tests:
+  - it: Should not create Secret when postgres.create is false
+    set:
+      postgres.create: false
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: Should fail when required field postgres.host is missing
+    set:
+      postgres:
+        create: true
+        host: null
+        port: 5432
+        user: testuser
+        password: testpass
+        database: testdb
+    asserts:
+      - failedTemplate:
+          errorMessage: ".Values.postgres.host is required."
+
+  - it: Should fail when required field postgres.port is missing
+    set:
+      postgres:
+        create: true
+        host: localhost
+        port: null
+        user: testuser
+        password: testpass
+        database: testdb
+    asserts:
+      - failedTemplate:
+          errorMessage: ".Values.postgres.port is required."
+
+  - it: Should fail when required field postgres.user is missing
+    set:
+      postgres:
+        create: true
+        host: localhost
+        port: 5432
+        user: null
+        password: testpass
+        database: testdb
+    asserts:
+      - failedTemplate:
+          errorMessage: ".Values.postgres.user is required."
+
+  - it: Should fail when required field postgres.password is missing
+    set:
+      postgres:
+        create: true
+        host: localhost
+        port: 5432
+        user: testuser
+        password: null
+        database: testdb
+    asserts:
+      - failedTemplate:
+          errorMessage: ".Values.postgres.password is required."
+
+  - it: Should fail when required field postgres.database is missing
+    set:
+      postgres:
+        create: true
+        host: localhost
+        port: 5432
+        user: testuser
+        password: testpass
+        database: null
+    asserts:
+      - failedTemplate:
+          errorMessage: ".Values.postgres.database is required."
+
+  - it: Should create Secret with valid postgres config
+    set:
+      postgres:
+        create: true
+        host: localhost
+        port: 5432
+        user: testuser
+        password: testpass
+        database: testdb
+    asserts:
+      - isKind:
+          of: Secret
+      - equal:
+          path: type
+          value: Opaque
+      - equal:
+          path: stringData.POSTGRES_CONNECTION
+          value: 'Host=localhost:5432;Username=testuser;Password=testpass;Database=testdb;'
+
+  - it: Should create Secret with custom key
+    set:
+      postgres:
+        create: true
+        keyRef: TEST_POSTGRES
+        host: localhost
+        port: 5432
+        user: testuser
+        password: testpass
+        database: testdb
+    asserts:
+      - isKind:
+          of: Secret
+      - equal:
+          path: type
+          value: Opaque
+      - equal:
+          path: stringData.TEST_POSTGRES
+          value: 'Host=localhost:5432;Username=testuser;Password=testpass;Database=testdb;'

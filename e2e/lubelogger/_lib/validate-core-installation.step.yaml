@@ -41,3 +41,12 @@ spec:
           status:
             (readyReplicas == replicas): true
             (availableReplicas == replicas): true
+  catch:
+    - describe:
+        apiVersion: apps/v1
+        kind: StatefulSet
+        name: (join('-', [$namespace, 'lubelogger']))
+    - podLogs:
+        namespace: ($namespace)
+        selector: app.kubernetes.io/name=lubelogger
+        tail: -1

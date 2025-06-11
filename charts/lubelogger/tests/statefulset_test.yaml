@@ -4,4 +4,123 @@ suite: StatefulSet
 templates:
   - statefulset.yaml
 
-tests: []
+tests:
+  - it: Should set replicaCount correctly when autoscaling is disabled
+    set:
+      replicaCount: 3
+      autoscaling:
+        enabled: false
+    asserts:
+      - isKind:
+          of: StatefulSet
+      - equal:
+          path: spec.replicas
+          value: 3
+
+  - it: Should not set replicaCount when autoscaling is enabled
+    set:
+      autoscaling:
+        enabled: true
+    asserts:
+      - notExists:
+          path: spec.replicas
+
+  - it: Should use emptyDir if persistence is disabled
+    set:
+      persistence:
+        data:
+          enabled: false
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: data
+            emptyDir: {}
+
+  - it: Should use existing PVC if specified
+    set:
+      persistence:
+        data:
+          enabled: true
+          existingClaim: test-claim
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: data
+            persistentVolumeClaim:
+              claimName: test-claim
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: data
+            mountPath: /App/data
+      - notExists:
+          path: spec.volumeClaimTemplates
+
+  - it: Should create volumeClaimTemplates if enabled and no existing claim is set
+    set:
+      persistence:
+        data:
+          enabled: true
+          existingClaim: ""
+          size: 1Gi
+          accessMode: ReadWriteOnce
+          storageClass: standard
+    asserts:
+      - equal:
+          path: spec.volumeClaimTemplates[0].metadata.name
+          value: RELEASE-NAME-lubelogger-data
+      - isSubset:
+          path: spec.volumeClaimTemplates[0].spec
+          content:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+            storageClassName: standard
+
+  - it: Should not render volumeClaimTemplates when persistence is disabled
+    set:
+      persistence:
+        data:
+          enabled: false
+    asserts:
+      - notExists:
+          path: spec.volumeClaimTemplates
+
+  - it: Should mount data volume to main container
+    set:
+      persistence:
+        data:
+          enabled: true
+          existingClaim: ""
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: RELEASE-NAME-lubelogger-data
+            mountPath: /App/data
+
+  - it: Should add initContainer when config.translations is set
+    set:
+      config:
+        translations:
+          - https://example.com/translation.json
+      curl:
+        image:
+          repository: curlimages/curl
+          tag: latest
+          pullPolicy: IfNotPresent
+      persistence:
+        data:
+          enabled: true
+          existingClaim: ""
+    asserts:
+      - contains:
+          path: spec.template.spec.initContainers
+          any: true
+          content:
+            name: init-translations
+            image: curlimages/curl:latest
