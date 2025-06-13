@@ -4,7 +4,7 @@ name: omada-controller
 description: |
   TP-Link Omada Controller in Kubernetes
 home: https://support.omadanetworks.com/product/omada-software-controller/
-version: 0.1.0
+version: 1.0.0
 appVersion: "5.15.20.20"
 sources:
   - https://github.com/mbentley/docker-omada-controller
@@ -14,6 +14,14 @@ keywords:
 annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
+  artifacthub.io/changes: |-
+    - kind: added
+      description: '**omada-controller:** add omada controller chart'
+      links:
+      - name: 'GitHub Issue #141'
+        url: https://github.com/anza-labs/charts/issues/141
+      - name: Commit 40f6e8c
+        url: https://github.com/anza-labs/charts/commit/40f6e8cdfb35dca969e656897d3a7879fe8fa0b8
 maintainers:
   - name: shanduur
     email: maturb@proton.me
