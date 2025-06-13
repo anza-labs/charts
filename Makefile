@@ -186,7 +186,7 @@ HELM_VALUES_SCHEMA_JSON_VERSION ?= v2.0.0
 KIND_VERSION ?= v0.29.0
 
 # renovate: datasource=github-tags depName=stackrox/kube-linter
-KUBE_LINTER_VERSION ?= v0.7.2
+KUBE_LINTER_VERSION ?= v0.7.3
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes
 KUBECTL_VERSION ?= v1.33.1
