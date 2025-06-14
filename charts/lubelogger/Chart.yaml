@@ -4,7 +4,7 @@ name: lubelogger
 description: |
   LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 home: https://lubelogger.com
-version: 1.0.0
+version: 2.0.0
 appVersion: "v1.4.7"
 sources:
   - https://github.com/hargata/lubelog
@@ -46,6 +46,13 @@ annotations:
         url: https://github.com/anza-labs/charts/issues/97
       - name: Commit c7e1a53
         url: https://github.com/anza-labs/charts/commit/c7e1a533500971baea26ba5cafd63eabc6ee8fd7
+    - kind: changed
+      description: '**main:** release lubelogger 1.0.0'
+      links:
+      - name: 'GitHub Issue #109'
+        url: https://github.com/anza-labs/charts/issues/109
+      - name: Commit 06de45e
+        url: https://github.com/anza-labs/charts/commit/06de45ed768b76644bf768d1e29e12bba2cabddb
     - kind: changed
       description: '**multi:** generated new value schemas'
       links:
