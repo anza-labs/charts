@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/anza-labs/charts/compare/lubelogger-1.0.0...lubelogger-v1.0.1) (2025-06-16)
+
+
+### Miscellaneous Chores
+
+* **deps:** update docker.io/curlimages/curl docker tag to v8.14.1 ([#150](https://github.com/anza-labs/charts/issues/150)) ([b49dc1f](https://github.com/anza-labs/charts/commit/b49dc1f4093a8dd70f27c8ceec78a5af8ff6dee0))
+
 ## 1.0.0 (2025-06-11)
 
 
