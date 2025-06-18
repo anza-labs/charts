@@ -79,7 +79,7 @@ image:
   # -- Registry and repository for the omada-controller image.
   repository: docker.io/mbentley/omada-controller
   # -- Tag for the image.
-  tag: "5.15.20.20"
+  tag: "5.15.24.17"
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
