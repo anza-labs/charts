@@ -18,13 +18,13 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.3.1'
+    - kind: fixed
+      description: '**pocket-id:** mount paths'
       links:
-      - name: 'GitHub Issue #143'
-        url: https://github.com/anza-labs/charts/issues/143
-      - name: Commit 67b8b82
-        url: https://github.com/anza-labs/charts/commit/67b8b82eee5de1708c8f492aa747b0a3a1f060ea
+      - name: 'GitHub Issue #153'
+        url: https://github.com/anza-labs/charts/issues/153
+      - name: Commit 79e71b2
+        url: https://github.com/anza-labs/charts/commit/79e71b2a419d82db5569e2385e08305b6206f8aa
 maintainers:
   - name: shanduur
     email: maturb@proton.me
