@@ -982,6 +982,37 @@ entries:
   lubelogger:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: changed
+          description: '**deps:** update docker.io/curlimages/curl docker tag to v8.14.1'
+          links:
+          - name: 'GitHub Issue #150'
+            url: https://github.com/anza-labs/charts/issues/150
+          - name: Commit b49dc1f
+            url: https://github.com/anza-labs/charts/commit/b49dc1f4093a8dd70f27c8ceec78a5af8ff6dee0
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.4.7
+    created: "2025-06-18T04:47:04.07078612Z"
+    description: 'LubeLogger is a web-based vehicle maintenance and fuel mileage tracker '
+    digest: 8a370433378c91ac891109b38be0ed7bd7e5729525b45fd4e5b2d4a56bec1b28
+    home: https://lubelogger.com
+    keywords:
+    - vechicle
+    - maintenance
+    - dashboard
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: lubelogger
+    sources:
+    - https://github.com/hargata/lubelog
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/lubelogger-1.0.1/lubelogger-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: added
           description: migrate to singe volume
           links:
@@ -2696,4 +2727,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-06-11T14:20:50.668987241Z"
+generated: "2025-06-18T04:47:04.07122073Z"
