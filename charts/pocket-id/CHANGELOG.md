@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/anza-labs/charts/compare/pocket-id-1.1.4...pocket-id-v1.1.5) (2025-06-18)
+
+
+### Bug Fixes
+
+* **pocket-id:** mount paths ([#153](https://github.com/anza-labs/charts/issues/153)) ([79e71b2](https://github.com/anza-labs/charts/commit/79e71b2a419d82db5569e2385e08305b6206f8aa))
+
 ## [1.1.4](https://github.com/anza-labs/charts/compare/pocket-id-1.1.3...pocket-id-v1.1.4) (2025-06-11)
 
 
