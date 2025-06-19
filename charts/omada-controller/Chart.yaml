@@ -4,7 +4,7 @@ name: omada-controller
 description: |
   TP-Link Omada Controller in Kubernetes
 home: https://support.omadanetworks.com/product/omada-software-controller/
-version: 0.3.0
+version: 1.0.0
 appVersion: "5.15.24.17"
 sources:
   - https://github.com/mbentley/docker-omada-controller
@@ -14,6 +14,36 @@ keywords:
 annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
+  artifacthub.io/changes: |-
+    - kind: added
+      description: '**omada-controller:** add omada controller chart'
+      links:
+      - name: 'GitHub Issue #141'
+        url: https://github.com/anza-labs/charts/issues/141
+      - name: Commit 40f6e8c
+        url: https://github.com/anza-labs/charts/commit/40f6e8cdfb35dca969e656897d3a7879fe8fa0b8
+    - kind: added
+      description: '**omada-controller:** only change service ports, not the pod'
+      links:
+      - name: Commit cfb38e4
+        url: https://github.com/anza-labs/charts/commit/cfb38e4cf4135d1022fbf500e1bd1a68030b0f2a
+    - kind: fixed
+      description: '**omada-controller:** variables and ports'
+      links:
+      - name: Commit aa324d1
+        url: https://github.com/anza-labs/charts/commit/aa324d1c40f4a443fc0cbf7cd72f14835ff30ac0
+    - kind: changed
+      description: '**deps:** update docker.io/mbentley/omada-controller docker tag to v5.15.24.17'
+      links:
+      - name: 'GitHub Issue #156'
+        url: https://github.com/anza-labs/charts/issues/156
+      - name: Commit 02b9637
+        url: https://github.com/anza-labs/charts/commit/02b9637d653cd88faf9497357dbd4eb234cf5036
+    - kind: changed
+      description: '**omada-controller:** adjust tests for the service'
+      links:
+      - name: Commit b63762d
+        url: https://github.com/anza-labs/charts/commit/b63762d76624517984e1966f173627cdfaa59700
 maintainers:
   - name: shanduur
     email: maturb@proton.me

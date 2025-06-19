@@ -1,6 +1,6 @@
 # omada-controller
 
-![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 5.15.24.17](https://img.shields.io/badge/AppVersion-5.15.24.17-informational?style=flat)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 5.15.24.17](https://img.shields.io/badge/AppVersion-5.15.24.17-informational?style=flat)
 
 TP-Link Omada Controller in Kubernetes
 

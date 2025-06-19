@@ -12,7 +12,7 @@ This repository contains the following Helm charts:
 |------|---------|-------------|--------------|
 | [lubelogger](charts/lubelogger) | `1.0.1` | `v1.4.7` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
 | [meta-chart](charts/meta-chart) | `0.1.2` | `meta` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/meta-chart) |
-| [omada-controller](charts/omada-controller) | `0.3.0` | `5.15.24.17` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/omada-controller) |
+| [omada-controller](charts/omada-controller) | `1.0.0` | `5.15.24.17` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/omada-controller) |
 | [pocket-id](charts/pocket-id) | `1.1.5` | `v1.3.1` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/pocket-id) |
 
 ### Deprecated Charts
