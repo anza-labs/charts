@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/anza-labs/charts/compare/pocket-id-1.1.5...pocket-id-v1.2.0) (2025-06-23)
+
+
+### Features
+
+* **pocket-id:** add local-ipv6 configuration ([#162](https://github.com/anza-labs/charts/issues/162)) ([a6ad7b6](https://github.com/anza-labs/charts/commit/a6ad7b6c902cfd3f79d03e601795bec6ac0b4bc5))
+* **pocket-id:** add otel configuration ([#163](https://github.com/anza-labs/charts/issues/163)) ([6ae1358](https://github.com/anza-labs/charts/commit/6ae1358b3b0c52e323043aa69d7dac8127fe9d86))
+
+
+### Miscellaneous Chores
+
+* **deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.4.1 ([#161](https://github.com/anza-labs/charts/issues/161)) ([c5efac7](https://github.com/anza-labs/charts/commit/c5efac76469e315263357c34e387722eff3b214e))
+
 ## [1.1.5](https://github.com/anza-labs/charts/compare/pocket-id-1.1.4...pocket-id-v1.1.5) (2025-06-18)
 
 
