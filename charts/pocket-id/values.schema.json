@@ -99,6 +99,20 @@
         "name": {
           "type": "string"
         },
+        "telemetry": {
+          "type": "object",
+          "properties": {
+            "metricsEnabled": {
+              "type": "boolean"
+            },
+            "otel": {
+              "type": "object"
+            },
+            "tracingEnabled": {
+              "type": "boolean"
+            }
+          }
+        },
         "ui": {
           "type": "object",
           "properties": {
@@ -390,6 +404,9 @@
     "service": {
       "type": "object",
       "properties": {
+        "annotations": {
+          "type": "object"
+        },
         "port": {
           "type": "integer"
         },

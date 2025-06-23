@@ -44,6 +44,9 @@ with their passkeys to your services.
 | config.audit.localIPv6Ranges | string | `""` | User configured local IPv6 ranges for the audit log. |
 | config.create | bool | `true` | Specifies whether a config map should be created. |
 | config.name | string | `""` | Specifies name of a config map used to configure the pocket-id. If not filled, uses full name. |
+| config.telemetry.metricsEnabled | bool | `false` | Enables OpenTelemetry metrics. |
+| config.telemetry.otel | object | `{}` | OpenTelemetry SDK environment variables. https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/ |
+| config.telemetry.tracingEnabled | bool | `false` | Enables OpenTelemetry tracing. |
 | config.ui.settings.app.allowOwnAccountEdit | bool | `true` | Whether users can edit their own account details |
 | config.ui.settings.app.appName | string | `"Pocket ID"` | The name of the application to be displayed in the UI |
 | config.ui.settings.app.disableAnimations | bool | `false` | Whether to disable animations in the Admin UI |
@@ -110,6 +113,7 @@ with their passkeys to your services.
 | replicaCount | int | `1` | Number of replicas for the stateful set. |
 | secret.create | bool | `true` | Specifies whether a secret should be created. |
 | secret.name | string | `""` | Specifies name of a secret used to configure the pocket-id. If not filled, uses full name. |
+| service.annotations | object | `{}` | Annotations to add to the service. |
 | service.port | int | `80` | Service port. |
 | service.type | string | `"ClusterIP"` | Service type. |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account. |

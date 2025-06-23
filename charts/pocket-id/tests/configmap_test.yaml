@@ -14,6 +14,17 @@ tests:
             Invalid database provider: mysql. .Values.database.provider must be
             'sqlite' or 'postgres'.
 
+  - it: Should fail for invalid prefix env vars in otel configuration.
+    set:
+      config.telemetry:
+        otel:
+          TEST: value
+    asserts:
+      - failedTemplate:
+          errorMessage: >-
+            .Values.config.telemetry.otel config key 'TEST'
+            must start with 'OTEL_'.
+
   - it: Should not create ConfigMap
     set:
       config.create: false
@@ -33,6 +44,8 @@ tests:
             GEOLITE_DB_URL: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"
             APP_URL: "https://pocket-id.example.local"
             TZ: "Etc/UTC"
+            TRACING_ENABLED: "false"
+            METRICS_ENABLED: "false"
 
   - it: Should create ConfigMap with overrides
     set:
@@ -186,3 +199,22 @@ tests:
           path: data
           content:
             LOCAL_IPV6_RANGES: "2001:0db8:abcd:000::/56,2001:0db8:abcd:001::/56"
+
+  - it: Should create ConfigMap with OTel configuration
+    set:
+      config.telemetry:
+        tracingEnabled: true
+        metricsEnabled: true
+        otel:
+          OTEL_METRICS_EXPORTER: prometheus
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: ConfigMap
+      - isSubset:
+          path: data
+          content:
+            TRACING_ENABLED: "true"
+            METRICS_ENABLED: "true"
+            OTEL_METRICS_EXPORTER: "prometheus"

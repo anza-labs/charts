@@ -136,6 +136,17 @@ config:
   # If not filled, uses full name.
   name: ""
 
+  telemetry:
+    # -- Enables OpenTelemetry tracing.
+    tracingEnabled: false
+    # -- Enables OpenTelemetry metrics.
+    metricsEnabled: false
+
+    # -- OpenTelemetry SDK environment variables.
+    # https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/
+    otel: {}
+      # OTEL_METRICS_EXPORTER: prometheus
+
   audit:
     # -- User configured local IPv6 ranges for the audit log.
     localIPv6Ranges: ""
@@ -271,6 +282,8 @@ service:
   type: ClusterIP
   # -- Service port.
   port: 80
+  # -- Annotations to add to the service.
+  annotations: {}
 
 serviceAccount:
   # -- Specifies whether a service account should be created.

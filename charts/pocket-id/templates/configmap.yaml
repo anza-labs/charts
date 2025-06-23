@@ -4,6 +4,11 @@
 {{- if not (or (eq $provider "sqlite") (eq $provider "postgres")) }}
   {{- fail (printf "Invalid database provider: %s. .Values.database.provider must be 'sqlite' or 'postgres'." $provider) }}
 {{- end }}
+{{- range $key, $value := .Values.config.telemetry.otel }}
+  {{- if not (hasPrefix "OTEL_" $key) }}
+    {{- fail (printf ".Values.config.telemetry.otel config key '%s' must start with 'OTEL_'." $key) }}
+  {{- end }}
+{{- end }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -28,6 +33,11 @@ data:
   {{ if not (quote .Values.config.audit.localIPv6Ranges | empty) }}
   LOCAL_IPV6_RANGES: "{{ .Values.config.audit.localIPv6Ranges }}"
   {{ end }}
+  TRACING_ENABLED: "{{ .Values.config.telemetry.tracingEnabled | default false }}"
+  METRICS_ENABLED: "{{ .Values.config.telemetry.metricsEnabled | default false }}"
+  {{- range $key, $value := .Values.config.telemetry.otel }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
   {{- if not .Values.config.ui.useDefaults }}
   {{ if not (quote .Values.config.ui.settings.app.appName | empty) }}
   APP_NAME: "{{ .Values.config.ui.settings.app.appName }}"
