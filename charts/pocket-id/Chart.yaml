@@ -5,7 +5,7 @@ description: |
   pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
   with their passkeys to your services.
 home: https://pocket-id.org
-version: 1.1.5
+version: 1.2.0
 appVersion: "v1.4.1"
 sources:
   - https://github.com/pocket-id/pocket-id
@@ -18,13 +18,27 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: fixed
-      description: '**pocket-id:** mount paths'
+    - kind: added
+      description: '**pocket-id:** add local-ipv6 configuration'
       links:
-      - name: 'GitHub Issue #153'
-        url: https://github.com/anza-labs/charts/issues/153
-      - name: Commit 79e71b2
-        url: https://github.com/anza-labs/charts/commit/79e71b2a419d82db5569e2385e08305b6206f8aa
+      - name: 'GitHub Issue #162'
+        url: https://github.com/anza-labs/charts/issues/162
+      - name: Commit a6ad7b6
+        url: https://github.com/anza-labs/charts/commit/a6ad7b6c902cfd3f79d03e601795bec6ac0b4bc5
+    - kind: added
+      description: '**pocket-id:** add otel configuration'
+      links:
+      - name: 'GitHub Issue #163'
+        url: https://github.com/anza-labs/charts/issues/163
+      - name: Commit 6ae1358
+        url: https://github.com/anza-labs/charts/commit/6ae1358b3b0c52e323043aa69d7dac8127fe9d86
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.4.1'
+      links:
+      - name: 'GitHub Issue #161'
+        url: https://github.com/anza-labs/charts/issues/161
+      - name: Commit c5efac7
+        url: https://github.com/anza-labs/charts/commit/c5efac76469e315263357c34e387722eff3b214e
 maintainers:
   - name: shanduur
     email: maturb@proton.me
