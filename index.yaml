@@ -1784,6 +1784,30 @@ entries:
       artifacthub.io/immutable: "true"
     apiVersion: v2
     appVersion: 5.15.24.17
+    created: "2025-06-25T22:04:48.444211781Z"
+    deprecated: true
+    description: 'TP-Link Omada Controller in Kubernetes '
+    digest: db95317264d8ff1c355c7a08d09f4c60bfcecf13d13b465394c45f3ec67baef1
+    home: https://support.omadanetworks.com/product/omada-software-controller/
+    keywords:
+    - networking
+    - security
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: omada-controller
+    sources:
+    - https://github.com/mbentley/docker-omada-controller
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/omada-controller-0.3.1/omada-controller-0.3.1.tgz
+    version: 0.3.1
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: 5.15.24.17
     created: "2025-06-19T07:04:49.079461607Z"
     description: 'TP-Link Omada Controller in Kubernetes '
     digest: ab2a82fd2095a5b0af07b9489dc6a3fa5e1faedc30eed6e653e0e20a57ace5e0
@@ -2887,4 +2911,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-06-25T21:41:14.58951896Z"
+generated: "2025-06-25T22:04:48.444492658Z"
