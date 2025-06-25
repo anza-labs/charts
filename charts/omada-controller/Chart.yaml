@@ -1,0 +1,21 @@
+apiVersion: v2
+deprecated: true # Mark as deprecated, no longer maintaining
+type: application
+name: omada-controller
+description: |
+  TP-Link Omada Controller in Kubernetes
+home: https://support.omadanetworks.com/product/omada-software-controller/
+version: 1.0.0
+appVersion: "5.15.24.17"
+sources:
+  - https://github.com/mbentley/docker-omada-controller
+keywords:
+  - networking
+  - security
+annotations:
+  artifacthub.io/category: security
+  artifacthub.io/immutable: "true"
+maintainers:
+  - name: shanduur
+    email: maturb@proton.me
+    url: http://linkedin.com/in/urbanekmateusz
