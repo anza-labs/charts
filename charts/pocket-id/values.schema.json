@@ -279,6 +279,9 @@
     "geoliteDatabaseURL": {
       "type": "string"
     },
+    "host": {
+      "type": "string"
+    },
     "imagePullSecrets": {
       "type": "array"
     },

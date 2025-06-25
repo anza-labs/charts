@@ -12,6 +12,44 @@ tests:
       - hasDocuments:
           count: 0
 
+  - it: Should render Ingress with non-default settings for Kubernetes >=1.19
+    capabilities:
+      majorVersion: 1
+      minorVersion: 19
+    set:
+      ingress:
+        enabled: true
+        host: pocket-id
+        paths:
+          - path: /
+            pathType: Prefix
+        tls:
+          - hosts:
+              - pocket-id
+            secretName: test
+      service.port: 8080
+    asserts:
+      - isKind:
+          of: Ingress
+      - equal:
+          path: apiVersion
+          value: networking.k8s.io/v1
+      - equal:
+          path: spec.rules[0].host
+          value: "pocket-id"
+      - equal:
+          path: spec.rules[0].http.paths[0].path
+          value: "/"
+      - equal:
+          path: spec.rules[0].http.paths[0].pathType
+          value: Prefix
+      - equal:
+          path: spec.rules[0].http.paths[0].backend.service.port.number
+          value: 8080
+      - equal:
+          path: spec.tls[0].secretName
+          value: test
+
   - it: Should render Ingress with default settings for Kubernetes >=1.19
     capabilities:
       majorVersion: 1
@@ -41,6 +79,8 @@ tests:
       - equal:
           path: spec.rules[0].http.paths[0].backend.service.port.number
           value: 8080
+      - notExists:
+          path: spec.tls[0].secretName
 
   - it: Should render ingressClassName if set and K8s >= 1.18
     capabilities:

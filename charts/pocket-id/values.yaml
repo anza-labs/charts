@@ -14,6 +14,9 @@ analyticsDisabled: false
 # -- MaxMind license key used to download the GeoLite2 database. Leave blank to disable download.
 maxmindLicenseKey: ""
 
+# -- Host where you will access the app.
+host: ""
+
 database:
   # -- Database provider to use. Options: "sqlite" or "postgres".
   provider: "sqlite"

@@ -1,5 +1,5 @@
 {{- if .Values.config.create -}}
-{{- $host := default "localhost" .Values.ingress.host }}
+{{- $host := coalesce .Values.host .Values.ingress.host "localhost" }}
 {{- $provider := default "sqlite" .Values.database.provider }}
 {{- if not (or (eq $provider "sqlite") (eq $provider "postgres")) }}
   {{- fail (printf "Invalid database provider: %s. .Values.database.provider must be 'sqlite' or 'postgres'." $provider) }}

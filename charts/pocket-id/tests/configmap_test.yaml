@@ -65,6 +65,25 @@ tests:
             APP_URL: "https://example.com"
             TZ: "Europe/Berlin"
 
+  - it: Should create ConfigMap with overrided host
+    set:
+      host: pocket-id.example.com
+      ingress.host: pocket-id
+      timeZone: Europe/Berlin
+      geoliteDatabaseURL: https://example.com/db.tar.gz
+      analyticsDisabled: true
+    asserts:
+      - isKind:
+          of: ConfigMap
+      - isSubset:
+          path: data
+          content:
+            ANALYTICS_DISABLED: "true"
+            DB_PROVIDER: sqlite
+            GEOLITE_DB_URL: "https://example.com/db.tar.gz"
+            APP_URL: "https://pocket-id.example.com"
+            TZ: "Europe/Berlin"
+
   - it: Should create ConfigMap with ui values set (app)
     set:
       config.ui.useDefaults: false
