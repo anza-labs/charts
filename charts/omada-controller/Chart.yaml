@@ -1,10 +1,11 @@
 apiVersion: v2
+deprecated: true # Mark as deprecated, no longer maintaining
 type: application
 name: omada-controller
 description: |
   TP-Link Omada Controller in Kubernetes
 home: https://support.omadanetworks.com/product/omada-software-controller/
-version: 0.3.0
+version: 0.3.1
 appVersion: "5.15.24.17"
 sources:
   - https://github.com/mbentley/docker-omada-controller
