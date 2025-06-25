@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/anza-labs/charts/compare/pocket-id-1.2.0...pocket-id-v1.3.0) (2025-06-25)
+
+
+### Features
+
+* **pocket-id:** allow host overriding ([bd1eb35](https://github.com/anza-labs/charts/commit/bd1eb35840bef3980752c870420c4c58807af518))
+
 ## [1.2.0](https://github.com/anza-labs/charts/compare/pocket-id-1.1.5...pocket-id-v1.2.0) (2025-06-23)
 
 
