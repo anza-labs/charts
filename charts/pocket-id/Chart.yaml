@@ -19,26 +19,10 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: added
-      description: '**pocket-id:** add local-ipv6 configuration'
+      description: '**pocket-id:** allow host overriding'
       links:
-      - name: 'GitHub Issue #162'
-        url: https://github.com/anza-labs/charts/issues/162
-      - name: Commit a6ad7b6
-        url: https://github.com/anza-labs/charts/commit/a6ad7b6c902cfd3f79d03e601795bec6ac0b4bc5
-    - kind: added
-      description: '**pocket-id:** add otel configuration'
-      links:
-      - name: 'GitHub Issue #163'
-        url: https://github.com/anza-labs/charts/issues/163
-      - name: Commit 6ae1358
-        url: https://github.com/anza-labs/charts/commit/6ae1358b3b0c52e323043aa69d7dac8127fe9d86
-    - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.4.1'
-      links:
-      - name: 'GitHub Issue #161'
-        url: https://github.com/anza-labs/charts/issues/161
-      - name: Commit c5efac7
-        url: https://github.com/anza-labs/charts/commit/c5efac76469e315263357c34e387722eff3b214e
+      - name: Commit bd1eb35
+        url: https://github.com/anza-labs/charts/commit/bd1eb35840bef3980752c870420c4c58807af518
 maintainers:
   - name: shanduur
     email: maturb@proton.me
