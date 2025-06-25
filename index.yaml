@@ -1853,6 +1853,38 @@ entries:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
         - kind: added
+          description: '**pocket-id:** allow host overriding'
+          links:
+          - name: Commit bd1eb35
+            url: https://github.com/anza-labs/charts/commit/bd1eb35840bef3980752c870420c4c58807af518
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.4.1
+    created: "2025-06-25T21:41:14.589279739Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: c5380509b9eedebfd74241cebeac39b3137a1b061a2ffe4c87c091db09c22e8a
+    home: https://pocket-id.org
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-1.3.0/pocket-id-1.3.0.tgz
+    version: 1.3.0
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
+        - kind: added
           description: '**pocket-id:** add local-ipv6 configuration'
           links:
           - name: 'GitHub Issue #162'
@@ -2855,4 +2887,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-06-23T19:01:01.793905879Z"
+generated: "2025-06-25T21:41:14.58951896Z"
