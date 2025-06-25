@@ -20,9 +20,9 @@ The following charts are deprecated and should not be used for new deployments:
 
 | Name | Version | App Version | Artifact Hub |
 |------|---------|-------------|--------------|
-| [omada-controller](deprecated/omada-controller) | `0.3.1` | `5.15.24.17` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=red)](https://artifacthub.io/packages/helm/anza-labs/omada-controller) |
 | [hosted-control-plane](deprecated/hosted-control-plane) | `0.3.0` | `v1.33.1` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=red)](https://artifacthub.io/packages/helm/anza-labs/hosted-control-plane) |
 | [kamaji](deprecated/kamaji) | `0.1.11` | `edge-25.4.1` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=red)](https://artifacthub.io/packages/helm/anza-labs/kamaji) |
 | [kube-storage-version-migrator](deprecated/kube-storage-version-migrator) | `0.1.1` | `v0.0.5` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=red)](https://artifacthub.io/packages/helm/anza-labs/kube-storage-version-migrator) |
+| [omada-controller](deprecated/omada-controller) | `0.3.1` | `5.15.24.17` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=red)](https://artifacthub.io/packages/helm/anza-labs/omada-controller) |
 | [podvm](deprecated/podvm) | `0.0.0-alpha.10` | `v1.12.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=red)](https://artifacthub.io/packages/helm/anza-labs/podvm) |
 | [scribe](deprecated/scribe) | `0.3.7` | `v0.3.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=red)](https://artifacthub.io/packages/helm/anza-labs/scribe) |
