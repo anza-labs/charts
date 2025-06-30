@@ -9,9 +9,6 @@
     "charts/lubelogger": {
       "release-type": "helm"
     },
-    "charts/omada-controller": {
-      "release-type": "helm"
-    },
     "charts/pocket-id": {
       "release-type": "helm"
     }
