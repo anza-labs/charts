@@ -18,13 +18,13 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.5.0'
+    - kind: added
+      description: '**pocket-id:** allow postgresql as connection string protocol'
       links:
-      - name: 'GitHub Issue #166'
-        url: https://github.com/anza-labs/charts/issues/166
-      - name: Commit 5fc4a31
-        url: https://github.com/anza-labs/charts/commit/5fc4a31d0468dd8ca41bcbb069e5444e942e945a
+      - name: 'GitHub Issue #168'
+        url: https://github.com/anza-labs/charts/issues/168
+      - name: Commit 75c494f
+        url: https://github.com/anza-labs/charts/commit/75c494f80fcb224423862a4c8d1af5dae291b873
 maintainers:
   - name: shanduur
     email: maturb@proton.me
