@@ -23,7 +23,7 @@ database:
 
   # -- Connection string for the database.
   #    - For sqlite: file:data/pocket-id.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate
-  #    - For postgres: postgres(ql)://user:password@host:port/dbname
+  #    - For postgres: postgres:// or postgresql://user:password@host:port/dbname
   connectionString: "file:data/pocket-id.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate"
 
 updateStrategy:
