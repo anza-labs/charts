@@ -1,6 +1,6 @@
 # pocket-id
 
-![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.5.0](https://img.shields.io/badge/AppVersion-v1.5.0-informational?style=flat)
+![Version: 1.4.0](https://img.shields.io/badge/Version-1.4.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.5.0](https://img.shields.io/badge/AppVersion-v1.5.0-informational?style=flat)
 
 pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
 with their passkeys to your services.
@@ -81,7 +81,7 @@ with their passkeys to your services.
 | config.ui.settings.smtp.tls | string | `"none"` | TLS option to use for SMTP. Options are 'none', 'starttls', or 'tls' |
 | config.ui.settings.smtp.user | string | `""` | SMTP username for authentication |
 | config.ui.useDefaults | bool | `true` | Whether to enable default settings for the UI or allow customizations |
-| database.connectionString | string | `"file:data/pocket-id.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate"` | Connection string for the database.    - For sqlite: file:data/pocket-id.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate    - For postgres: postgres://user:password@host:port/dbname |
+| database.connectionString | string | `"file:data/pocket-id.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate"` | Connection string for the database.    - For sqlite: file:data/pocket-id.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate    - For postgres: postgres:// or postgresql://user:password@host:port/dbname |
 | database.provider | string | `"sqlite"` | Database provider to use. Options: "sqlite" or "postgres". |
 | fullnameOverride | string | `""` | Override for the full name. |
 | geoliteDatabaseURL | string | `"https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"` | URL template to download the MaxMind GeoLite2-City database. `%s` will be replaced with the license key. |
