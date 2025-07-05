@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/anza-labs/charts/compare/pocket-id-1.3.1...pocket-id-v1.4.0) (2025-07-05)
+
+
+### Features
+
+* **pocket-id:** allow postgresql as connection string protocol ([#168](https://github.com/anza-labs/charts/issues/168)) ([75c494f](https://github.com/anza-labs/charts/commit/75c494f80fcb224423862a4c8d1af5dae291b873))
+
 ## [1.3.1](https://github.com/anza-labs/charts/compare/pocket-id-1.3.0...pocket-id-v1.3.1) (2025-06-30)
 
 
