@@ -5,7 +5,7 @@ description: |
   LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 home: https://lubelogger.com
 version: 1.0.2
-appVersion: "v1.4.7"
+appVersion: "v1.4.8"
 sources:
   - https://github.com/hargata/lubelog
 keywords:
@@ -16,12 +16,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update docker.io/curlimages/curl docker tag to v8.14.1'
+      description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.4.8'
       links:
-      - name: 'GitHub Issue #150'
-        url: https://github.com/anza-labs/charts/issues/150
-      - name: Commit b49dc1f
-        url: https://github.com/anza-labs/charts/commit/b49dc1f4093a8dd70f27c8ceec78a5af8ff6dee0
+      - name: 'GitHub Issue #167'
+        url: https://github.com/anza-labs/charts/issues/167
+      - name: Commit f388251
+        url: https://github.com/anza-labs/charts/commit/f388251ff80ce93c09669951d47e8faccb55e32e
 maintainers:
   - name: shanduur
     email: maturb@proton.me
