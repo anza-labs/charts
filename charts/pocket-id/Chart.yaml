@@ -6,7 +6,7 @@ description: |
   with their passkeys to your services.
 home: https://pocket-id.org
 version: 1.4.1
-appVersion: "v1.5.0"
+appVersion: "v1.6.1"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -18,13 +18,13 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: added
-      description: '**pocket-id:** allow postgresql as connection string protocol'
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.6.1'
       links:
-      - name: 'GitHub Issue #168'
-        url: https://github.com/anza-labs/charts/issues/168
-      - name: Commit 75c494f
-        url: https://github.com/anza-labs/charts/commit/75c494f80fcb224423862a4c8d1af5dae291b873
+      - name: 'GitHub Issue #170'
+        url: https://github.com/anza-labs/charts/issues/170
+      - name: Commit 08c323f
+        url: https://github.com/anza-labs/charts/commit/08c323fd3edf553162c1412efa5fb08762dc6aec
 maintainers:
   - name: shanduur
     email: maturb@proton.me
