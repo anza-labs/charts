@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/anza-labs/charts/compare/pocket-id-1.4.0...pocket-id-v1.4.1) (2025-07-09)
+
+
+### Miscellaneous Chores
+
+* **deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.6.1 ([#170](https://github.com/anza-labs/charts/issues/170)) ([08c323f](https://github.com/anza-labs/charts/commit/08c323fd3edf553162c1412efa5fb08762dc6aec))
+
 ## [1.4.0](https://github.com/anza-labs/charts/compare/pocket-id-1.3.1...pocket-id-v1.4.0) (2025-07-05)
 
 
