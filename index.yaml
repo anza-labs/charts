@@ -983,6 +983,37 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.4.9'
+          links:
+          - name: 'GitHub Issue #172'
+            url: https://github.com/anza-labs/charts/issues/172
+          - name: Commit 85efabe
+            url: https://github.com/anza-labs/charts/commit/85efabec6be8d8e2d0022025953b2a26d280decd
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.4.9
+    created: "2025-07-09T20:56:32.296023522Z"
+    description: 'LubeLogger is a web-based vehicle maintenance and fuel mileage tracker '
+    digest: 90a81fb4a597145cb58144c450efc1a50dd353d7b697bb987898234401631fd8
+    home: https://lubelogger.com
+    keywords:
+    - vechicle
+    - maintenance
+    - dashboard
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: lubelogger
+    sources:
+    - https://github.com/hargata/lubelog
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/lubelogger-1.0.3/lubelogger-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.4.8'
           links:
           - name: 'GitHub Issue #167'
@@ -3044,4 +3075,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-07-09T20:44:30.904556571Z"
+generated: "2025-07-09T20:56:32.296788576Z"
