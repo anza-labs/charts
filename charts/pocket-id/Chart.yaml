@@ -5,7 +5,7 @@ description: |
   pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
   with their passkeys to your services.
 home: https://pocket-id.org
-version: 1.4.1
+version: 2.0.0
 appVersion: "v1.6.1"
 sources:
   - https://github.com/pocket-id/pocket-id
@@ -18,6 +18,133 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
+    - kind: added
+      description: '**pocket-id:** add analytics control'
+      links:
+      - name: 'GitHub Issue #126'
+        url: https://github.com/anza-labs/charts/issues/126
+      - name: Commit a413213
+        url: https://github.com/anza-labs/charts/commit/a413213399594498a9dc10c678b750b2e2a0d757
+    - kind: added
+      description: '**pocket-id:** add local-ipv6 configuration'
+      links:
+      - name: 'GitHub Issue #162'
+        url: https://github.com/anza-labs/charts/issues/162
+      - name: Commit a6ad7b6
+        url: https://github.com/anza-labs/charts/commit/a6ad7b6c902cfd3f79d03e601795bec6ac0b4bc5
+    - kind: added
+      description: '**pocket-id:** add otel configuration'
+      links:
+      - name: 'GitHub Issue #163'
+        url: https://github.com/anza-labs/charts/issues/163
+      - name: Commit 6ae1358
+        url: https://github.com/anza-labs/charts/commit/6ae1358b3b0c52e323043aa69d7dac8127fe9d86
+    - kind: added
+      description: '**pocket-id:** allow host overriding'
+      links:
+      - name: Commit bd1eb35
+        url: https://github.com/anza-labs/charts/commit/bd1eb35840bef3980752c870420c4c58807af518
+    - kind: added
+      description: '**pocket-id:** allow postgresql as connection string protocol'
+      links:
+      - name: 'GitHub Issue #168'
+        url: https://github.com/anza-labs/charts/issues/168
+      - name: Commit 75c494f
+        url: https://github.com/anza-labs/charts/commit/75c494f80fcb224423862a4c8d1af5dae291b873
+    - kind: added
+      description: '**pocket-id:** prepare for v1 pocket-id release'
+      links:
+      - name: 'GitHub Issue #124'
+        url: https://github.com/anza-labs/charts/issues/124
+      - name: Commit b400d09
+        url: https://github.com/anza-labs/charts/commit/b400d09e66a4d8b07f988bd56f33494ee1fe8ece
+    - kind: fixed
+      description: '**pocket-id:** existingClaim functionality and `PUBLIC_UI_CONFIG_DISABLED` value'
+      links:
+      - name: 'GitHub Issue #106'
+        url: https://github.com/anza-labs/charts/issues/106
+      - name: Commit dba6f57
+        url: https://github.com/anza-labs/charts/commit/dba6f5774dbf512f5ee8a5540b2f0530b0111eb7
+    - kind: fixed
+      description: '**pocket-id:** invalid db path'
+      links:
+      - name: Commit e04f414
+        url: https://github.com/anza-labs/charts/commit/e04f414ede36566312b7c13bb8c026277cdad52e
+    - kind: fixed
+      description: '**pocket-id:** invalid db path'
+      links:
+      - name: Commit e79fa1d
+        url: https://github.com/anza-labs/charts/commit/e79fa1dfe5eb6b34a364f9352c7a331e5090da88
+    - kind: fixed
+      description: '**pocket-id:** mount paths'
+      links:
+      - name: 'GitHub Issue #153'
+        url: https://github.com/anza-labs/charts/issues/153
+      - name: Commit 79e71b2
+        url: https://github.com/anza-labs/charts/commit/79e71b2a419d82db5569e2385e08305b6206f8aa
+    - kind: fixed
+      description: '**pocket-id:** one-time access email settings'
+      links:
+      - name: 'GitHub Issue #122'
+        url: https://github.com/anza-labs/charts/issues/122
+      - name: Commit fc5b0fc
+        url: https://github.com/anza-labs/charts/commit/fc5b0fc248cb0b7e6c5601ebfb93a7934d2870bf
+    - kind: changed
+      description: add metadata
+      links:
+      - name: 'GitHub Issue #113'
+        url: https://github.com/anza-labs/charts/issues/113
+      - name: Commit 2146f51
+        url: https://github.com/anza-labs/charts/commit/2146f512988e61e7e06863fcea6cb98ec2e125e2
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v0.53.0'
+      links:
+      - name: 'GitHub Issue #97'
+        url: https://github.com/anza-labs/charts/issues/97
+      - name: Commit c7e1a53
+        url: https://github.com/anza-labs/charts/commit/c7e1a533500971baea26ba5cafd63eabc6ee8fd7
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1'
+      links:
+      - name: 'GitHub Issue #120'
+        url: https://github.com/anza-labs/charts/issues/120
+      - name: Commit 3ba7021
+        url: https://github.com/anza-labs/charts/commit/3ba7021c3f483b62ed70073175a68882933ab191
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.1.0'
+      links:
+      - name: 'GitHub Issue #127'
+        url: https://github.com/anza-labs/charts/issues/127
+      - name: Commit b7c0f5d
+        url: https://github.com/anza-labs/charts/commit/b7c0f5dc67ed3231133eba04746545dbc7d41356
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.2.0'
+      links:
+      - name: 'GitHub Issue #135'
+        url: https://github.com/anza-labs/charts/issues/135
+      - name: Commit 195b28f
+        url: https://github.com/anza-labs/charts/commit/195b28f891faf8bd925aedb9c102b62a457de543
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.3.1'
+      links:
+      - name: 'GitHub Issue #143'
+        url: https://github.com/anza-labs/charts/issues/143
+      - name: Commit 67b8b82
+        url: https://github.com/anza-labs/charts/commit/67b8b82eee5de1708c8f492aa747b0a3a1f060ea
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.4.1'
+      links:
+      - name: 'GitHub Issue #161'
+        url: https://github.com/anza-labs/charts/issues/161
+      - name: Commit c5efac7
+        url: https://github.com/anza-labs/charts/commit/c5efac76469e315263357c34e387722eff3b214e
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.5.0'
+      links:
+      - name: 'GitHub Issue #166'
+        url: https://github.com/anza-labs/charts/issues/166
+      - name: Commit 5fc4a31
+        url: https://github.com/anza-labs/charts/commit/5fc4a31d0468dd8ca41bcbb069e5444e942e945a
     - kind: changed
       description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.6.1'
       links:
@@ -25,6 +152,131 @@ annotations:
         url: https://github.com/anza-labs/charts/issues/170
       - name: Commit 08c323f
         url: https://github.com/anza-labs/charts/commit/08c323fd3edf553162c1412efa5fb08762dc6aec
+    - kind: changed
+      description: '**main:** release pocket-id 1.0.0'
+      links:
+      - name: 'GitHub Issue #110'
+        url: https://github.com/anza-labs/charts/issues/110
+      - name: Commit d3ef273
+        url: https://github.com/anza-labs/charts/commit/d3ef2734cbaaa4e2b63ed7cb646ace4d3e9ba361
+    - kind: changed
+      description: '**main:** release pocket-id 1.1.0'
+      links:
+      - name: 'GitHub Issue #128'
+        url: https://github.com/anza-labs/charts/issues/128
+      - name: Commit e69df86
+        url: https://github.com/anza-labs/charts/commit/e69df861d5a6fb7a4f15d4d95843fbb9fa52831c
+    - kind: changed
+      description: '**main:** release pocket-id 1.1.1'
+      links:
+      - name: 'GitHub Issue #129'
+        url: https://github.com/anza-labs/charts/issues/129
+      - name: Commit 61c07b1
+        url: https://github.com/anza-labs/charts/commit/61c07b1b75ac2c09946093f4f6e27f05c75c034a
+    - kind: changed
+      description: '**main:** release pocket-id 1.1.2'
+      links:
+      - name: 'GitHub Issue #130'
+        url: https://github.com/anza-labs/charts/issues/130
+      - name: Commit 70ae708
+        url: https://github.com/anza-labs/charts/commit/70ae708619455b73edfc651397988525210d2d68
+    - kind: changed
+      description: '**main:** release pocket-id 1.1.3'
+      links:
+      - name: 'GitHub Issue #131'
+        url: https://github.com/anza-labs/charts/issues/131
+      - name: Commit 02a1319
+        url: https://github.com/anza-labs/charts/commit/02a13191ce6dd812af199cd634d4c70a92a3b85b
+    - kind: changed
+      description: '**main:** release pocket-id 1.1.4'
+      links:
+      - name: 'GitHub Issue #146'
+        url: https://github.com/anza-labs/charts/issues/146
+      - name: Commit 03c1598
+        url: https://github.com/anza-labs/charts/commit/03c1598d5590292d73f5e6b81c5559f674778040
+    - kind: changed
+      description: '**main:** release pocket-id 1.1.5'
+      links:
+      - name: 'GitHub Issue #147'
+        url: https://github.com/anza-labs/charts/issues/147
+      - name: Commit 37db8bb
+        url: https://github.com/anza-labs/charts/commit/37db8bbc5a8006120e53cf83036242de0eb2d1ab
+    - kind: changed
+      description: '**main:** release pocket-id 1.2.0'
+      links:
+      - name: 'GitHub Issue #155'
+        url: https://github.com/anza-labs/charts/issues/155
+      - name: Commit bfccfc5
+        url: https://github.com/anza-labs/charts/commit/bfccfc58b5423c87797dde917d3279a086830d84
+    - kind: changed
+      description: '**main:** release pocket-id 1.3.0'
+      links:
+      - name: 'GitHub Issue #164'
+        url: https://github.com/anza-labs/charts/issues/164
+      - name: Commit 8f22ca1
+        url: https://github.com/anza-labs/charts/commit/8f22ca1f66c1ab53e0b4e15ec22d721fbd29586e
+    - kind: changed
+      description: '**main:** release pocket-id 1.3.1'
+      links:
+      - name: 'GitHub Issue #165'
+        url: https://github.com/anza-labs/charts/issues/165
+      - name: Commit ddf8028
+        url: https://github.com/anza-labs/charts/commit/ddf802845454b63eb46187c68644a8f5d6063d72
+    - kind: changed
+      description: '**main:** release pocket-id 1.4.0'
+      links:
+      - name: 'GitHub Issue #169'
+        url: https://github.com/anza-labs/charts/issues/169
+      - name: Commit 1d7c7d2
+        url: https://github.com/anza-labs/charts/commit/1d7c7d2f0b18a0b283d900b74ba72543fa8e2912
+    - kind: changed
+      description: '**main:** release pocket-id 1.4.1'
+      links:
+      - name: 'GitHub Issue #173'
+        url: https://github.com/anza-labs/charts/issues/173
+      - name: Commit fbb87bb
+        url: https://github.com/anza-labs/charts/commit/fbb87bb4ae666492aa1d5311cb5858c36f1fc504
+    - kind: changed
+      description: '**multi:** generated new value schemas'
+      links:
+      - name: Commit 5f4642a
+        url: https://github.com/anza-labs/charts/commit/5f4642a315a0785f5ce34d72f9680fb02a387204
+    - kind: changed
+      description: '**pocket-id:** prepare new pocket-id release'
+      links:
+      - name: 'GitHub Issue #123'
+        url: https://github.com/anza-labs/charts/issues/123
+      - name: Commit 276edf6
+        url: https://github.com/anza-labs/charts/commit/276edf667c252143086e3b1eacd7f8e2eab27ebc
+    - kind: changed
+      description: describe contributing process
+      links:
+      - name: Commit da07b56
+        url: https://github.com/anza-labs/charts/commit/da07b561abfeb2d3531181610b22d7f42b3c0557
+    - kind: changed
+      description: '**pocket-id:** add e2e tests to pocket-id'
+      links:
+      - name: 'GitHub Issue #115'
+        url: https://github.com/anza-labs/charts/issues/115
+      - name: Commit 8890485
+        url: https://github.com/anza-labs/charts/commit/8890485279ae660fd823b818c37255c612fcbf3b
+    - kind: changed
+      description: '**pocket-id:** added helm unittest for pocket-id'
+      links:
+      - name: 'GitHub Issue #111'
+        url: https://github.com/anza-labs/charts/issues/111
+      - name: Commit 8a4cd1d
+        url: https://github.com/anza-labs/charts/commit/8a4cd1d9ea6420e1f7c18e938994aef7256ff949
+    - kind: changed
+      description: '**pocket-id:** secret unit tests'
+      links:
+      - name: Commit c11a6ba
+        url: https://github.com/anza-labs/charts/commit/c11a6ba852a62163ea06810cb000d58d913f4ccd
+    - kind: changed
+      description: move to manual change detection
+      links:
+      - name: Commit 788d8d2
+        url: https://github.com/anza-labs/charts/commit/788d8d231cb1d069d68f829259bebe9693c47c3d
 maintainers:
   - name: shanduur
     email: maturb@proton.me
