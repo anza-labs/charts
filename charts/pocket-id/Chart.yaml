@@ -6,7 +6,7 @@ description: |
   with their passkeys to your services.
 home: https://pocket-id.org
 version: 1.4.2
-appVersion: "v1.6.1"
+appVersion: "v1.6.2"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -19,12 +19,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.6.1'
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.6.2'
       links:
-      - name: 'GitHub Issue #170'
-        url: https://github.com/anza-labs/charts/issues/170
-      - name: Commit 08c323f
-        url: https://github.com/anza-labs/charts/commit/08c323fd3edf553162c1412efa5fb08762dc6aec
+      - name: 'GitHub Issue #177'
+        url: https://github.com/anza-labs/charts/issues/177
+      - name: Commit ccd4088
+        url: https://github.com/anza-labs/charts/commit/ccd40887a2c81139de12a05e165016315c37ec74
 maintainers:
   - name: shanduur
     email: maturb@proton.me
