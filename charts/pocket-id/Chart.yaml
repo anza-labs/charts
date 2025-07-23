@@ -5,7 +5,7 @@ description: |
   pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
   with their passkeys to your services.
 home: https://pocket-id.org
-version: 1.4.2
+version: 1.4.3
 appVersion: "v1.6.2"
 sources:
   - https://github.com/pocket-id/pocket-id
