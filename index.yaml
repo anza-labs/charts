@@ -1970,6 +1970,40 @@ entries:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.6.4'
+          links:
+          - name: 'GitHub Issue #184'
+            url: https://github.com/anza-labs/charts/issues/184
+          - name: Commit b8f688b
+            url: https://github.com/anza-labs/charts/commit/b8f688bfaded17fb4382e514ef2832123b922167
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.6.4
+    created: "2025-07-23T19:15:34.84444765Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: f9d87e587951400c57f54acce70c209aafd11b133129e7e100ccb5c0a05af17a
+    home: https://pocket-id.org
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-1.4.3/pocket-id-1.4.3.tgz
+    version: 1.4.3
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.6.2'
           links:
           - name: 'GitHub Issue #177'
@@ -3140,4 +3174,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-07-21T20:42:54.885575404Z"
+generated: "2025-07-23T19:15:34.844841937Z"
