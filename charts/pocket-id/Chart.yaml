@@ -5,8 +5,8 @@ description: |
   pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
   with their passkeys to your services.
 home: https://pocket-id.org
-version: 1.4.2
-appVersion: "v1.6.2"
+version: 1.4.3
+appVersion: "v1.6.4"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -19,12 +19,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.6.2'
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.6.4'
       links:
-      - name: 'GitHub Issue #177'
-        url: https://github.com/anza-labs/charts/issues/177
-      - name: Commit ccd4088
-        url: https://github.com/anza-labs/charts/commit/ccd40887a2c81139de12a05e165016315c37ec74
+      - name: 'GitHub Issue #184'
+        url: https://github.com/anza-labs/charts/issues/184
+      - name: Commit b8f688b
+        url: https://github.com/anza-labs/charts/commit/b8f688bfaded17fb4382e514ef2832123b922167
 maintainers:
   - name: shanduur
     email: maturb@proton.me
