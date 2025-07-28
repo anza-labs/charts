@@ -15,13 +15,13 @@ keywords:
 annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: changed
-      description: '**deps:** update docker.io/curlimages/curl docker tag to v8.15.0'
+    - kind: added
+      description: '**templates:** add more probe configurations'
       links:
-      - name: 'GitHub Issue #183'
-        url: https://github.com/anza-labs/charts/issues/183
-      - name: Commit dd24331
-        url: https://github.com/anza-labs/charts/commit/dd2433197dce864c827b91f708f3b69add485798
+      - name: 'GitHub Issue #189'
+        url: https://github.com/anza-labs/charts/issues/189
+      - name: Commit 17da6ca
+        url: https://github.com/anza-labs/charts/commit/17da6ca71c1a754fdb15d3db40da5a856a5ca93e
 maintainers:
   - name: shanduur
     email: maturb@proton.me
