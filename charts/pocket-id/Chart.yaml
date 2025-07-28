@@ -5,7 +5,8 @@ description: |
   pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
   with their passkeys to your services.
 home: https://pocket-id.org
-icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
+icon: 
+  https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
 version: 1.5.0
 appVersion: "v1.6.4"
 sources:
