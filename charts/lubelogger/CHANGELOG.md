@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/anza-labs/charts/compare/lubelogger-1.0.4...lubelogger-v1.1.0) (2025-07-28)
+
+
+### Features
+
+* **templates:** add more probe configurations ([#189](https://github.com/anza-labs/charts/issues/189)) ([17da6ca](https://github.com/anza-labs/charts/commit/17da6ca71c1a754fdb15d3db40da5a856a5ca93e))
+
 ## [1.0.4](https://github.com/anza-labs/charts/compare/lubelogger-1.0.3...lubelogger-v1.0.4) (2025-07-18)
 
 
