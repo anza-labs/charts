@@ -7,7 +7,7 @@ description: |
 home: https://pocket-id.org
 icon: 
   https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
-version: 1.5.0
+version: 1.5.1
 appVersion: "v1.6.4"
 sources:
   - https://github.com/pocket-id/pocket-id
@@ -20,13 +20,16 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: added
-      description: '**templates:** add more probe configurations'
+    - kind: fixed
+      description: icons formatting
       links:
-      - name: 'GitHub Issue #189'
-        url: https://github.com/anza-labs/charts/issues/189
-      - name: Commit 17da6ca
-        url: https://github.com/anza-labs/charts/commit/17da6ca71c1a754fdb15d3db40da5a856a5ca93e
+      - name: Commit f6d11b2
+        url: https://github.com/anza-labs/charts/commit/f6d11b2f5c4258f8f5d5fb458bfb2a79f7b15e39
+    - kind: changed
+      description: add logo to charts
+      links:
+      - name: Commit b6225a5
+        url: https://github.com/anza-labs/charts/commit/b6225a5bad1be9f597fe5cd22553505af9ad0b18
 maintainers:
   - name: shanduur
     email: maturb@proton.me
