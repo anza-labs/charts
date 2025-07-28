@@ -293,6 +293,24 @@ service:
   # -- Annotations to add to the service.
   annotations: {}
 
+livenessProbe:
+  # -- Liveness probe configuration.
+  httpGet:
+    path: /healthz
+    port: http
+
+readinessProbe:
+  # -- Readiness probe configuration.
+  httpGet:
+    path: /healthz
+    port: http
+
+startupProbe:
+  # -- Startup probe configuration.
+  httpGet:
+    path: /healthz
+    port: http
+
 serviceAccount:
   # -- Specifies whether a service account should be created.
   create: true

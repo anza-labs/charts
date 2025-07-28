@@ -436,6 +436,22 @@
         }
       }
     },
+    "startupProbe": {
+      "type": "object",
+      "properties": {
+        "httpGet": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "port": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "tolerations": {
       "type": "array"
     },

@@ -89,14 +89,11 @@ spec:
               containerPort: 1411
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /healthz
-              port: http
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
-            initialDelaySeconds: 60
-            httpGet:
-              path: /healthz
-              port: http
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          startupProbe:
+            {{- toYaml .Values.startupProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.pocketID.resources | nindent 12 }}
           volumeMounts:

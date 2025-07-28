@@ -120,6 +120,7 @@ LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 | serviceAccount.automount | bool | `true` | Automatically mount a ServiceAccount's API credentials. |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
+| startupProbe.httpGet | object | `{"path":"/","port":"http"}` | Startup probe configuration. |
 | tolerations | list | `[]` | Tolerations for the pods. |
 | updateStrategy.rollingUpdate.maxUnavailable | string | `"100%"` |  |
 | updateStrategy.rollingUpdate.partition | int | `0` |  |
