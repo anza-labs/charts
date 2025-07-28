@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/anza-labs/charts/compare/pocket-id-1.4.3...pocket-id-v1.5.0) (2025-07-28)
+
+
+### Features
+
+* **templates:** add more probe configurations ([#189](https://github.com/anza-labs/charts/issues/189)) ([17da6ca](https://github.com/anza-labs/charts/commit/17da6ca71c1a754fdb15d3db40da5a856a5ca93e))
+
 ## [1.4.3](https://github.com/anza-labs/charts/compare/pocket-id-1.4.2...pocket-id-v1.4.3) (2025-07-23)
 
 
