@@ -6,6 +6,9 @@
   "skip-github-release": true,
   "always-update": true,
   "packages": {
+    "charts/glauth": {
+      "release-type": "helm"
+    },
     "charts/lubelogger": {
       "release-type": "helm"
     },
