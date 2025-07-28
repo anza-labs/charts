@@ -94,6 +94,7 @@ with their passkeys to your services.
 | ingress.paths[0].path | string | `"/"` |  |
 | ingress.paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` | List of TLS configurations for the ingress. |
+| livenessProbe.httpGet | object | `{"path":"/healthz","port":"http"}` | Liveness probe configuration. |
 | maxmindLicenseKey | string | `""` | MaxMind license key used to download the GeoLite2 database. Leave blank to disable download. |
 | nameOverride | string | `""` | Override for the name. |
 | nodeSelector | object | `{}` | Node selector for the pods. |
@@ -111,6 +112,7 @@ with their passkeys to your services.
 | podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | podLabels | object | `{}` | Labels to be added to the pods. |
 | podSecurityContext | object | `{}` |  |
+| readinessProbe.httpGet | object | `{"path":"/healthz","port":"http"}` | Readiness probe configuration. |
 | replicaCount | int | `1` | Number of replicas for the stateful set. |
 | secret.create | bool | `true` | Specifies whether a secret should be created. |
 | secret.name | string | `""` | Specifies name of a secret used to configure the pocket-id. If not filled, uses full name. |
@@ -121,6 +123,7 @@ with their passkeys to your services.
 | serviceAccount.automount | bool | `true` | Automatically mount a ServiceAccount's API credentials. |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
+| startupProbe.httpGet | object | `{"path":"/healthz","port":"http"}` | Startup probe configuration. |
 | timeZone | string | `"Etc/UTC"` | Specifies the time zone to be used by the application. Use a valid IANA time zone string (e.g., "Etc/UTC", "America/New_York"). |
 | tolerations | list | `[]` | Tolerations for the pods. |
 | updateStrategy.rollingUpdate.maxUnavailable | string | `"100%"` |  |

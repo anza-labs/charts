@@ -277,6 +277,12 @@ readinessProbe:
     path: /
     port: http
 
+startupProbe:
+  # -- Startup probe configuration.
+  httpGet:
+    path: /
+    port: http
+
 autoscaling:
   # -- Specifies whether autoscaling is enabled.
   enabled: false
