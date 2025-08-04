@@ -982,6 +982,41 @@ entries:
   lubelogger:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: fixed
+          description: icons formatting
+          links:
+          - name: Commit f6d11b2
+            url: https://github.com/anza-labs/charts/commit/f6d11b2f5c4258f8f5d5fb458bfb2a79f7b15e39
+        - kind: changed
+          description: add logo to charts
+          links:
+          - name: Commit b6225a5
+            url: https://github.com/anza-labs/charts/commit/b6225a5bad1be9f597fe5cd22553505af9ad0b18
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.4.9
+    created: "2025-08-04T17:14:06.080297635Z"
+    description: 'LubeLogger is a web-based vehicle maintenance and fuel mileage tracker '
+    digest: 7d21c7c91b3fda7bc3df0b9c1e8ff021e4d5880de21bdb380a3e440b29227b03
+    home: https://lubelogger.com
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/lubelogger/icon.png
+    keywords:
+    - vechicle
+    - maintenance
+    - dashboard
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: lubelogger
+    sources:
+    - https://github.com/hargata/lubelog
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/lubelogger-1.1.1/lubelogger-1.1.1.tgz
+    version: 1.1.1
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: added
           description: '**templates:** add more probe configurations'
           links:
@@ -3239,4 +3274,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-07-28T06:11:38.654350779Z"
+generated: "2025-08-04T17:14:06.212769917Z"
