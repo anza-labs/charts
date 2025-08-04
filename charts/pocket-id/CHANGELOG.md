@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.1](https://github.com/anza-labs/charts/compare/pocket-id-1.5.0...pocket-id-v1.5.1) (2025-08-04)
+
+
+### Bug Fixes
+
+* icons formatting ([f6d11b2](https://github.com/anza-labs/charts/commit/f6d11b2f5c4258f8f5d5fb458bfb2a79f7b15e39))
+
+
+### Miscellaneous Chores
+
+* add logo to charts ([b6225a5](https://github.com/anza-labs/charts/commit/b6225a5bad1be9f597fe5cd22553505af9ad0b18))
+* **main:** release lubelogger 1.1.1 ([#191](https://github.com/anza-labs/charts/issues/191)) ([3e72dcc](https://github.com/anza-labs/charts/commit/3e72dccb23a4b1da9011d5c6eed5909f582834f6))
+
 ## [1.5.0](https://github.com/anza-labs/charts/compare/pocket-id-1.4.3...pocket-id-v1.5.0) (2025-07-28)
 
 
