@@ -59,13 +59,6 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Create config map name used for configuring glauth.
-*/}}
-{{- define "glauth.config" -}}
-    {{- default (printf "%s" (include "glauth.fullname" .)) .Values.secret.name }}
-{{- end }}
-
-{{/*
 Create secret name used for configuring glauth.
 */}}
 {{- define "glauth.secret" -}}

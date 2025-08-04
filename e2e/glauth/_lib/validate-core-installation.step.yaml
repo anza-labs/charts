@@ -24,7 +24,7 @@ spec:
           apiVersion: v1
           kind: Secret
           metadata:
-            name: (join('-', [$namespace, 'glauth-mail']))
+            name: (join('-', [$namespace, 'glauth']))
     - assert:
         resource:
           apiVersion: v1

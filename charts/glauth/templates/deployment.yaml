@@ -58,8 +58,6 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ include "glauth.secret" . }}
-            - configMapRef:
-                name: {{ include "glauth.config" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -22,13 +22,13 @@ spec:
     {{- if .Values.secret.value.ldap.enabled }}
     - name: ldap
       port: {{ index ( splitList ":" .Values.secret.value.ldap.listen ) 1 }}
-      targetPort: api
+      targetPort: ldap
       protocol: TCP
     {{- end }}
     {{- if .Values.secret.value.ldaps.enabled }}
     - name: ldaps
       port: {{ index ( splitList ":" .Values.secret.value.ldaps.listen ) 1 }}
-      targetPort: api
+      targetPort: ldaps
       protocol: TCP
     {{- end }}
   selector:
