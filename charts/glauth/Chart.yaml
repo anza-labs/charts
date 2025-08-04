@@ -1,0 +1,22 @@
+apiVersion: v2
+type: application
+name: glauth
+description: |
+  glauth is a lightweight LDAP server for development, home use, or CI.
+home: https://glauth.github.io
+icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/glauth/icon.png
+version: 0.1.0
+appVersion: "v2.4.0"
+sources:
+  - https://github.com/glauth/glauth
+keywords:
+  - idp
+  - ldap
+  - sso
+annotations:
+  artifacthub.io/category: security
+  artifacthub.io/immutable: "true"
+maintainers:
+  - name: shanduur
+    email: maturb@proton.me
+    url: http://linkedin.com/in/urbanekmateusz

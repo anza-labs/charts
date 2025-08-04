@@ -1,0 +1,72 @@
+{{- $replicaCount := int (.Values.replicaCount | default 1) }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "glauth.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "glauth.labels" . | nindent 4 }}
+spec:
+  serviceName: {{ include "glauth.fullname" . }}
+  replicas: {{ $replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "glauth.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "glauth.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "glauth.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: glauth
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            {{- if .Values.secret.value.api.enabled }}
+            - name: api
+              containerPort: {{ index ( splitList ":" .Values.secret.value.api.listen ) 1 }}
+              protocol: TCP
+            {{- end }}
+            {{- if .Values.secret.value.ldap.enabled }}
+            - name: ldap
+              containerPort: {{ index ( splitList ":" .Values.secret.value.ldap.listen ) 1 }}
+              protocol: TCP
+            {{- end }}
+            {{- if .Values.secret.value.ldaps.enabled }}
+            - name: ldaps
+              containerPort: {{ index ( splitList ":" .Values.secret.value.ldaps.listen ) 1 }}
+              protocol: TCP
+            {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - secretRef:
+                name: {{ include "glauth.secret" . }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

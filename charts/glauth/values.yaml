@@ -1,0 +1,157 @@
+# -- Number of replicas for the deployment.
+replicaCount: 1
+
+image:
+  # -- Registry and repository for the glauth image.
+  # If you want extra functionality, set repository to `ghcr.io/glauth/glauth-plugins`.
+  repository: ghcr.io/glauth/glauth
+  # -- Tag for the image.
+  tag: "v2.4.0"
+  # -- Image pull policy.
+  pullPolicy: IfNotPresent
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+secret:
+  # -- Specifies whether a secret should be created.
+  create: true
+  # -- Specifies name of a secret used to configure the glauth.
+  # If not filled, uses full name.
+  name: ""
+
+  value:
+    debug: false
+    syslog: null # @schema type:[boolean, null]
+    watchconfig: null # @schema type:[boolean, null]
+
+    yubikeyclientid: null # @schema type:[string, null]
+    yubikeysecret: null # @schema type:[string, null]
+
+    ldap:
+      enabled: true
+      listen: 0.0.0.0:3893
+
+    ldaps:
+      enabled: false
+      listen: 0.0.0.0:3894
+      cert: null # @schema type:[string, null]
+      key: null # @schema type:[string, null]
+
+    backend:
+      datastore: config
+      basedm: dc=glauth,dc=com
+      nameformat: null # @schema type:[string, null]
+      groupformat: null # @schema type:[string, null]
+      sshkeyattr: null # @schema type:[string, null]
+
+    api:
+      enabled: true
+      tls: false
+      listen: 0.0.0.0:5555
+      cert: null # @schema type:[string, null]
+      key: null # @schema type:[string, null]
+
+    behaviors:
+      IgnoreCapabilities: false
+      LimitFailedBinds: true
+      NumberOfFailedBinds: 3
+      PeriodOfFailedBinds: 10
+      BlockFailedBindsFor: 60
+      PruneSourceTableEvery: 600
+      PruneSourcesOlderThan: 600
+
+    users: null # @schema type:[array, null]
+
+    groups: null # @schema type:[array, null]
+
+# -- Secrets for pulling images.
+imagePullSecrets: []
+# -- Override for the name.
+nameOverride: ""
+# -- Override for the full name.
+fullnameOverride: ""
+
+service:
+  # -- Service type.
+  type: ClusterIP
+  # -- Annotations to add to the service.
+  annotations: {}
+
+serviceAccount:
+  # -- Specifies whether a service account should be created.
+  create: true
+  # -- Automatically mount a ServiceAccount's API credentials.
+  automount: true
+  # -- Annotations to add to the service account.
+  annotations: {}
+  # -- The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template.
+  name: ""
+
+ingress:
+  # -- Specifies whether ingress should be enabled.
+  enabled: false
+  # -- Ingress class name.
+  className: ""
+  # -- Annotations to add to the ingress.
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  # -- Ingress host configuration.
+  host: glauth.example.local
+  paths:
+    - path: /
+      pathType: ImplementationSpecific
+  # -- List of TLS configurations for the ingress.
+  tls: []
+  #  - secretName: glauth-tls
+  #    hosts:
+  #      - glauth.example.local
+
+# -- Annotations to be added to the pods.
+podAnnotations: {}
+# -- Labels to be added to the pods.
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+# -- Node selector for the pods.
+nodeSelector: {}
+
+# -- Tolerations for the pods.
+tolerations: []
+
+# -- Affinity settings for the pods.
+affinity: {}
+  # nodeAffinity:
+  #   requiredDuringSchedulingIgnoredDuringExecution:
+  #     nodeSelectorTerms:
+  #       - matchExpressions:
+  #         - key: kubernetes.io/arch
+  #           operator: In
+  #           values:
+  #             - amd64
+  #             - arm64
+  #         - key: kubernetes.io/os
+  #           operator: In
+  #           values:
+  #             - linux

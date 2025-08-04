@@ -1,0 +1,288 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "affinity": {
+      "type": "object"
+    },
+    "fullnameOverride": {
+      "type": "string"
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "pullPolicy": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      }
+    },
+    "imagePullSecrets": {
+      "type": "array"
+    },
+    "ingress": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object"
+        },
+        "className": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "host": {
+          "type": "string"
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "pathType": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "tls": {
+          "type": "array"
+        }
+      }
+    },
+    "nameOverride": {
+      "type": "string"
+    },
+    "nodeSelector": {
+      "type": "object"
+    },
+    "podAnnotations": {
+      "type": "object"
+    },
+    "podLabels": {
+      "type": "object"
+    },
+    "podSecurityContext": {
+      "type": "object"
+    },
+    "replicaCount": {
+      "type": "integer"
+    },
+    "resources": {
+      "type": "object"
+    },
+    "secret": {
+      "type": "object",
+      "properties": {
+        "create": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "api": {
+              "type": "object",
+              "properties": {
+                "cert": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "enabled": {
+                  "type": "boolean"
+                },
+                "key": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "listen": {
+                  "type": "string"
+                },
+                "tls": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "backend": {
+              "type": "object",
+              "properties": {
+                "basedm": {
+                  "type": "string"
+                },
+                "datastore": {
+                  "type": "string"
+                },
+                "groupformat": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "nameformat": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "sshkeyattr": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "behaviors": {
+              "type": "object",
+              "properties": {
+                "BlockFailedBindsFor": {
+                  "type": "integer"
+                },
+                "IgnoreCapabilities": {
+                  "type": "boolean"
+                },
+                "LimitFailedBinds": {
+                  "type": "boolean"
+                },
+                "NumberOfFailedBinds": {
+                  "type": "integer"
+                },
+                "PeriodOfFailedBinds": {
+                  "type": "integer"
+                },
+                "PruneSourceTableEvery": {
+                  "type": "integer"
+                },
+                "PruneSourcesOlderThan": {
+                  "type": "integer"
+                }
+              }
+            },
+            "debug": {
+              "type": "boolean"
+            },
+            "groups": {
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "ldap": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "listen": {
+                  "type": "string"
+                }
+              }
+            },
+            "ldaps": {
+              "type": "object",
+              "properties": {
+                "cert": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "enabled": {
+                  "type": "boolean"
+                },
+                "key": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "listen": {
+                  "type": "string"
+                }
+              }
+            },
+            "syslog": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "users": {
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "watchconfig": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "yubikeyclientid": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "yubikeysecret": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "securityContext": {
+      "type": "object"
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "serviceAccount": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object"
+        },
+        "automount": {
+          "type": "boolean"
+        },
+        "create": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "tolerations": {
+      "type": "array"
+    }
+  }
+}

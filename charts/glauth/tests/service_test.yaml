@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Service
+
+templates:
+  - service.yaml
+
+tests:
+  - it: Should create service with defaults
+    asserts:
+      - isKind:
+          of: Service
+      - contains:
+          path: spec.ports
+          content:
+            name: api
+            port: 5555
+            protocol: TCP
+            targetPort: api
+      - contains:
+          path: spec.ports
+          content:
+            name: ldap
+            port: 3893
+            protocol: TCP
+            targetPort: ldap
+      - equal:
+          path: spec.type
+          value: ClusterIP
+
+  - it: Should create service with given port
+    set:
+      secret.value.api.listen: 0.0.0.0:2047
+      secret.value.ldap.listen: 0.0.0.0:2048
+    asserts:
+      - isKind:
+          of: Service
+      - contains:
+          path: spec.ports
+          content:
+            name: api
+            port: 2047
+            protocol: TCP
+            targetPort: api
+      - contains:
+          path: spec.ports
+          content:
+            name: ldap
+            port: 2048
+            protocol: TCP
+            targetPort: ldap
+      - equal:
+          path: spec.type
+          value: ClusterIP
+
+  - it: Should create service with NodePort type
+    set:
+      service.type: NodePort
+    asserts:
+      - isKind:
+          of: Service
+      - contains:
+          path: spec.ports
+          content:
+            name: api
+            port: 5555
+            protocol: TCP
+            targetPort: api
+      - contains:
+          path: spec.ports
+          content:
+            name: ldap
+            port: 3893
+            protocol: TCP
+            targetPort: ldap
+      - equal:
+          path: spec.type
+          value: NodePort
