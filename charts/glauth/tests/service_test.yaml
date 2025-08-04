@@ -12,27 +12,42 @@ tests:
       - contains:
           path: spec.ports
           content:
-            port: 80
-            targetPort: http
+            name: api
+            port: 5555
             protocol: TCP
-            name: http
+            targetPort: api
+      - contains:
+          path: spec.ports
+          content:
+            name: ldap
+            port: 3893
+            protocol: TCP
+            targetPort: ldap
       - equal:
           path: spec.type
           value: ClusterIP
 
   - it: Should create service with given port
     set:
-      service.port: 8080
+      secret.value.api.listen: 0.0.0.0:2047
+      secret.value.ldap.listen: 0.0.0.0:2048
     asserts:
       - isKind:
           of: Service
       - contains:
           path: spec.ports
           content:
-            port: 8080
-            targetPort: http
+            name: api
+            port: 2047
             protocol: TCP
-            name: http
+            targetPort: api
+      - contains:
+          path: spec.ports
+          content:
+            name: ldap
+            port: 2048
+            protocol: TCP
+            targetPort: ldap
       - equal:
           path: spec.type
           value: ClusterIP
@@ -46,10 +61,17 @@ tests:
       - contains:
           path: spec.ports
           content:
-            port: 80
-            targetPort: http
+            name: api
+            port: 5555
             protocol: TCP
-            name: http
+            targetPort: api
+      - contains:
+          path: spec.ports
+          content:
+            name: ldap
+            port: 3893
+            protocol: TCP
+            targetPort: ldap
       - equal:
           path: spec.type
           value: NodePort
