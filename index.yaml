@@ -1,5 +1,32 @@
 apiVersion: v1
 entries:
+  glauth:
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v2.4.0
+    created: "2025-08-04T18:16:31.002706013Z"
+    description: 'glauth is a lightweight LDAP server for development, home use, or
+      CI. '
+    digest: 01670d2c4dd35f710f0e72ec19e515c672869297c979488da72aa4c12494e8e8
+    home: https://glauth.github.io
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/glauth/icon.png
+    keywords:
+    - idp
+    - ldap
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: glauth
+    sources:
+    - https://github.com/glauth/glauth
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/glauth-0.1.0/glauth-0.1.0.tgz
+    version: 0.1.0
   hosted-control-plane:
   - apiVersion: v2
     appVersion: v1.33.1
@@ -3319,4 +3346,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-08-04T17:19:29.048240968Z"
+generated: "2025-08-04T18:16:31.201398339Z"
