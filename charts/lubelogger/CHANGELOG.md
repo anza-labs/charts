@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/anza-labs/charts/compare/lubelogger-1.1.1...lubelogger-v1.2.0) (2025-08-04)
+
+
+### Features
+
+* **glauth:** add glauth chart ([#196](https://github.com/anza-labs/charts/issues/196)) ([55ea41c](https://github.com/anza-labs/charts/commit/55ea41ce4c79aa93734b67b9c3e4594cc9f23866))
+
 ## [1.1.1](https://github.com/anza-labs/charts/compare/lubelogger-1.1.0...lubelogger-v1.1.1) (2025-08-04)
 
 
