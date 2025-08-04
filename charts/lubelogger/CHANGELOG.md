@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.1](https://github.com/anza-labs/charts/compare/lubelogger-1.1.0...lubelogger-v1.1.1) (2025-08-04)
+
+
+### Bug Fixes
+
+* icons formatting ([f6d11b2](https://github.com/anza-labs/charts/commit/f6d11b2f5c4258f8f5d5fb458bfb2a79f7b15e39))
+
+
+### Miscellaneous Chores
+
+* add logo to charts ([b6225a5](https://github.com/anza-labs/charts/commit/b6225a5bad1be9f597fe5cd22553505af9ad0b18))
+
 ## [1.1.0](https://github.com/anza-labs/charts/compare/lubelogger-1.0.4...lubelogger-v1.1.0) (2025-07-28)
 
 

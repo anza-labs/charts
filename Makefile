@@ -105,6 +105,7 @@ backfill-all-changelogs:
 .PHONY: _backfill-changelog
 _backfill-changelog:
 	./hack/changelog.py --chart-dir ${CHART}
+	cd ${CHART} && $(YQ) '.' './Chart.yaml' -i
 
 .PHONY: backfill-all-app-versions
 backfill-all-app-versions: yq
