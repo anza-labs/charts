@@ -2035,6 +2035,51 @@ entries:
   - annotations:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
+        - kind: fixed
+          description: icons formatting
+          links:
+          - name: Commit f6d11b2
+            url: https://github.com/anza-labs/charts/commit/f6d11b2f5c4258f8f5d5fb458bfb2a79f7b15e39
+        - kind: changed
+          description: add logo to charts
+          links:
+          - name: Commit b6225a5
+            url: https://github.com/anza-labs/charts/commit/b6225a5bad1be9f597fe5cd22553505af9ad0b18
+        - kind: changed
+          description: '**main:** release lubelogger 1.1.1'
+          links:
+          - name: 'GitHub Issue #191'
+            url: https://github.com/anza-labs/charts/issues/191
+          - name: Commit 3e72dcc
+            url: https://github.com/anza-labs/charts/commit/3e72dccb23a4b1da9011d5c6eed5909f582834f6
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.6.4
+    created: "2025-08-04T17:19:29.047863762Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: 256dc3d0e2975051927d8266507cd987483590439362a09cd19fc842dd571519
+    home: https://pocket-id.org
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-1.5.1/pocket-id-1.5.1.tgz
+    version: 1.5.1
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
         - kind: added
           description: '**templates:** add more probe configurations'
           links:
@@ -3274,4 +3319,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-08-04T17:14:06.212769917Z"
+generated: "2025-08-04T17:19:29.048240968Z"
