@@ -16,16 +16,13 @@ keywords:
 annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: fixed
-      description: icons formatting
+    - kind: added
+      description: '**glauth:** add glauth chart'
       links:
-      - name: Commit f6d11b2
-        url: https://github.com/anza-labs/charts/commit/f6d11b2f5c4258f8f5d5fb458bfb2a79f7b15e39
-    - kind: changed
-      description: add logo to charts
-      links:
-      - name: Commit b6225a5
-        url: https://github.com/anza-labs/charts/commit/b6225a5bad1be9f597fe5cd22553505af9ad0b18
+      - name: 'GitHub Issue #196'
+        url: https://github.com/anza-labs/charts/issues/196
+      - name: Commit 55ea41c
+        url: https://github.com/anza-labs/charts/commit/55ea41ce4c79aa93734b67b9c3e4594cc9f23866
 maintainers:
   - name: shanduur
     email: maturb@proton.me
