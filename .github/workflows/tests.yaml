@@ -11,7 +11,7 @@ jobs:
   chart-testing:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - uses: azure/setup-helm@v4
@@ -32,7 +32,7 @@ jobs:
   unittest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: |
           make test
       - uses: mikepenz/action-junit-report@v5
@@ -55,7 +55,7 @@ jobs:
         }}
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-go@v5
         with:
           go-version-file: ./go.mod
