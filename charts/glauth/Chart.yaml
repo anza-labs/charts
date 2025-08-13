@@ -16,6 +16,14 @@ keywords:
 annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
+  artifacthub.io/changes: |-
+    - kind: added
+      description: '**glauth:** add glauth chart'
+      links:
+      - name: 'GitHub Issue #196'
+        url: https://github.com/anza-labs/charts/issues/196
+      - name: Commit 55ea41c
+        url: https://github.com/anza-labs/charts/commit/55ea41ce4c79aa93734b67b9c3e4594cc9f23866
 maintainers:
   - name: shanduur
     email: maturb@proton.me
