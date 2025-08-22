@@ -166,7 +166,7 @@ $(LOCALBIN):
 
 ## Tool Versions
 # renovate: datasource=github-tags depName=kyverno/chainsaw
-CHAINSAW_VERSION ?= v0.2.12
+CHAINSAW_VERSION ?= v0.2.13
 
 # renovate: datasource=docker depName=registry.k8s.io/cloud-provider-kind/cloud-controller-manager
 CLOUD_PROVIDER_KIND_VERSION ?= v0.7.0
