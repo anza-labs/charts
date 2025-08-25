@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/anza-labs/charts/compare/lubelogger-1.2.0...lubelogger-v1.2.1) (2025-08-25)
+
+
+### Bug Fixes
+
+* **lubelogger:** downgrade image to v1.4.9 ([f0eeb0b](https://github.com/anza-labs/charts/commit/f0eeb0b7005db8e6e65a060378369783150ec54a))
+* **lubelogger:** manually upgrade image to 1.5.0 ([ccd2b94](https://github.com/anza-labs/charts/commit/ccd2b94613d971fb1fbc3132b93f90f20cd1bf3f))
+
 ## [1.2.0](https://github.com/anza-labs/charts/compare/lubelogger-1.1.1...lubelogger-v1.2.0) (2025-08-04)
 
 
