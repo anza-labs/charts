@@ -7,7 +7,7 @@ description: |
 home: https://pocket-id.org
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
 version: 1.5.4
-appVersion: "v1.9.0"
+appVersion: "v1.9.1"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -20,19 +20,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.8.1'
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.9.1'
       links:
-      - name: 'GitHub Issue #210'
-        url: https://github.com/anza-labs/charts/issues/210
-      - name: Commit 3aa648f
-        url: https://github.com/anza-labs/charts/commit/3aa648f93f6a01a9c7d27118c1a7477a19ace719
-    - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.9.0'
-      links:
-      - name: 'GitHub Issue #211'
-        url: https://github.com/anza-labs/charts/issues/211
-      - name: Commit 95f4de0
-        url: https://github.com/anza-labs/charts/commit/95f4de0605f590c04361048f1d10dd2edb85d57b
+      - name: 'GitHub Issue #212'
+        url: https://github.com/anza-labs/charts/issues/212
+      - name: Commit 0256288
+        url: https://github.com/anza-labs/charts/commit/02562887f3b732d48678c2deef7ba39d66efa460
 maintainers:
   - name: shanduur
     email: maturb@proton.me
