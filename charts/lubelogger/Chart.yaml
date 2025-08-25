@@ -6,7 +6,7 @@ description: |
 home: https://lubelogger.com
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/lubelogger/icon.png
 version: 1.2.1
-appVersion: "v1.4.9"
+appVersion: "v1.5.0"
 sources:
   - https://github.com/hargata/lubelog
 keywords:
@@ -16,13 +16,16 @@ keywords:
 annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: added
-      description: '**glauth:** add glauth chart'
+    - kind: fixed
+      description: '**lubelogger:** downgrade image to v1.4.9'
       links:
-      - name: 'GitHub Issue #196'
-        url: https://github.com/anza-labs/charts/issues/196
-      - name: Commit 55ea41c
-        url: https://github.com/anza-labs/charts/commit/55ea41ce4c79aa93734b67b9c3e4594cc9f23866
+      - name: Commit f0eeb0b
+        url: https://github.com/anza-labs/charts/commit/f0eeb0b7005db8e6e65a060378369783150ec54a
+    - kind: fixed
+      description: '**lubelogger:** manually upgrade image to 1.5.0'
+      links:
+      - name: Commit ccd2b94
+        url: https://github.com/anza-labs/charts/commit/ccd2b94613d971fb1fbc3132b93f90f20cd1bf3f
 maintainers:
   - name: shanduur
     email: maturb@proton.me
