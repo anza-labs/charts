@@ -59,10 +59,10 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Create secret name used for configuring Registry storage.
+Create secret name used for configuring Registry auth.
 */}}
-{{- define "registry.storageSecret" -}}
-    {{- default (printf "%s-storage" (include "registry.fullname" .)) .Values.secrets.storage.name }}
+{{- define "registry.authSecret" -}}
+    {{- default (printf "%s-auth" (include "registry.fullname" .)) .Values.secrets.auth.name }}
 {{- end }}
 
 {{/*
@@ -70,6 +70,13 @@ Create secret name used for configuring Registry http.
 */}}
 {{- define "registry.httpSecret" -}}
     {{- default (printf "%s-http" (include "registry.fullname" .)) .Values.secrets.http.name }}
+{{- end }}
+
+{{/*
+Create secret name used for configuring Registry storage.
+*/}}
+{{- define "registry.storageSecret" -}}
+    {{- default (printf "%s-storage" (include "registry.fullname" .)) .Values.secrets.storage.name }}
 {{- end }}
 
 {{/*

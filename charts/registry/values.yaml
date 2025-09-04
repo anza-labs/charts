@@ -39,6 +39,25 @@ configs:
       OTEL_TRACES_EXPORTER: none
 
 secrets:
+  auth:
+    # -- Specifies whether a secret should be created.
+    create: false
+    # -- Specifies name of a secret used to configure the registry.
+    # If not filled, uses full name.
+    name: ""
+
+    htpasswd:
+      # -- Directly specify the htpasswd content for basic authentication.
+      value: ""
+      # user:password
+      # value: |
+      #   user:$2y$10$UM5e4gZelnphX340OD3dQuj1Oj79Sep4oUYnmB/HBhNPJiifCK1yW
+      # -- Reference an existing Kubernetes secret and key for htpasswd.
+      valueFrom:
+        secret: ""
+        key: htpasswd
+        optional: true
+
   http:
     # -- Specifies whether a secret should be created.
     create: true

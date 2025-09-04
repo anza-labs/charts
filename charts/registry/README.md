@@ -1,6 +1,6 @@
 # registry
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat)
 
 The Registry is a stateless, highly scalable server side application that
 stores and lets you distribute container images and other content.
@@ -51,6 +51,10 @@ stores and lets you distribute container images and other content.
 | readinessProbe.httpGet | object | `{"path":"/v2/","port":"http"}` | Readiness probe configuration. |
 | replicaCount | int | `1` | Number of replicas for the deployment. |
 | resources | object | `{}` |  |
+| secrets.auth.create | bool | `false` | Specifies whether a secret should be created. |
+| secrets.auth.htpasswd.value | string | `""` | Directly specify the htpasswd content for basic authentication. |
+| secrets.auth.htpasswd.valueFrom | object | `{"key":"htpasswd","optional":true,"secret":""}` | Reference an existing Kubernetes secret and key for htpasswd. |
+| secrets.auth.name | string | `""` | Specifies name of a secret used to configure the registry. If not filled, uses full name. |
 | secrets.http.create | bool | `true` | Specifies whether a secret should be created. |
 | secrets.http.name | string | `""` | Specifies name of a secret used to configure the registry. If not filled, uses full name. |
 | secrets.http.value | string | `"12b7a9c9-3c30-4cea-b868-f9942ab82d9a"` | Value of the shared HTTP secret. |

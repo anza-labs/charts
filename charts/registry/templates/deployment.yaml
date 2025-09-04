@@ -101,16 +101,29 @@ spec:
                   name: {{ default (include "registry.storageSecret" .) .Values.secrets.storage.v4Auth.valueFrom.secretName }}
                   key: {{ .Values.secrets.storage.v4Auth.valueFrom.key }}
                   optional: {{ .Values.secrets.storage.v4Auth.valueFrom.optional }}
+            - name: REGISTRY_AUTH_HTPASSWD_REALM
+              value: basic
+            - name: REGISTRY_AUTH_HTPASSWD_PATH
+              value: /usr/local/apache/.htpasswd
           envFrom:
             - secretRef:
                 name: {{ include "registry.httpSecret" . }}
           volumeMounts:
             - name: config
               mountPath: /etc/distribution
+            - name: htpasswd
+              mountPath: /usr/local/apache
       volumes:
         - name: config
           configMap:
             name: {{ include "registry.config" . }}
+        - name: htpasswd
+          secret:
+            secretName: {{ include "registry.authSecret" . }}
+            optional: {{ .Values.secrets.auth.htpasswd.valueFrom.optional }}
+            items:
+              - key: {{ .Values.secrets.auth.htpasswd.valueFrom.key }}
+                path: ".htpasswd"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

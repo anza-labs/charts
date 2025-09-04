@@ -178,6 +178,39 @@
     "secrets": {
       "type": "object",
       "properties": {
+        "auth": {
+          "type": "object",
+          "properties": {
+            "create": {
+              "type": "boolean"
+            },
+            "htpasswd": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "valueFrom": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    },
+                    "secret": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
         "http": {
           "type": "object",
           "properties": {
