@@ -45,7 +45,7 @@ jobs:
         run: |
           ./hack/autogen.sh "${{ github.event.pull_request.title }}" "${{ github.event.pull_request.number }}" "${GITHUB_ENV}"
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version-file: ./go.mod
 
