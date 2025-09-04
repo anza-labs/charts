@@ -1,0 +1,125 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "registry.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "registry.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "registry.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "registry.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "registry.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 5000
+              protocol: TCP
+            - name: debug
+              containerPort: 5001
+              protocol: TCP
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          startupProbe:
+            {{- toYaml .Values.startupProbe | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: REGISTRY_STORAGE_S3_ACCESSKEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ default (include "registry.storageSecret" .) .Values.secrets.storage.accessKey.valueFrom.secretName }}
+                  key: {{ .Values.secrets.storage.accessKey.valueFrom.key }}
+                  optional: {{ .Values.secrets.storage.accessKey.valueFrom.optional }}
+            - name: REGISTRY_STORAGE_S3_SECRETKEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ default (include "registry.storageSecret" .) .Values.secrets.storage.secretKey.valueFrom.secretName }}
+                  key: {{ .Values.secrets.storage.secretKey.valueFrom.key }}
+                  optional: {{ .Values.secrets.storage.secretKey.valueFrom.optional }}
+            - name: REGISTRY_STORAGE_S3_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: {{ default (include "registry.storageSecret" .) .Values.secrets.storage.region.valueFrom.secretName }}
+                  key: {{ .Values.secrets.storage.region.valueFrom.key }}
+                  optional: {{ .Values.secrets.storage.region.valueFrom.optional }}
+            - name: REGISTRY_STORAGE_S3_REGIONENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ default (include "registry.storageSecret" .) .Values.secrets.storage.endpoint.valueFrom.secretName }}
+                  key: {{ .Values.secrets.storage.endpoint.valueFrom.key }}
+                  optional: {{ .Values.secrets.storage.endpoint.valueFrom.optional }}
+            - name: REGISTRY_STORAGE_S3_FORCEPATHSTYLE
+              valueFrom:
+                secretKeyRef:
+                  name: {{ default (include "registry.storageSecret" .) .Values.secrets.storage.forcePathStyle.valueFrom.secretName }}
+                  key: {{ .Values.secrets.storage.forcePathStyle.valueFrom.key }}
+                  optional: {{ .Values.secrets.storage.forcePathStyle.valueFrom.optional }}
+            - name: REGISTRY_STORAGE_S3_BUCKET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ default (include "registry.storageSecret" .) .Values.secrets.storage.bucket.valueFrom.secretName }}
+                  key: {{ .Values.secrets.storage.bucket.valueFrom.key }}
+                  optional: {{ .Values.secrets.storage.bucket.valueFrom.optional }}
+            - name: REGISTRY_STORAGE_S3_SECURE
+              valueFrom:
+                secretKeyRef:
+                  name: {{ default (include "registry.storageSecret" .) .Values.secrets.storage.secure.valueFrom.secretName }}
+                  key: {{ .Values.secrets.storage.secure.valueFrom.key }}
+                  optional: {{ .Values.secrets.storage.secure.valueFrom.optional }}
+            - name: REGISTRY_STORAGE_S3_V4AUTH
+              valueFrom:
+                secretKeyRef:
+                  name: {{ default (include "registry.storageSecret" .) .Values.secrets.storage.v4Auth.valueFrom.secretName }}
+                  key: {{ .Values.secrets.storage.v4Auth.valueFrom.key }}
+                  optional: {{ .Values.secrets.storage.v4Auth.valueFrom.optional }}
+          envFrom:
+            - secretRef:
+                name: {{ include "registry.httpSecret" . }}
+          volumeMounts:
+            - name: config
+              mountPath: /etc/distribution
+      volumes:
+        - name: config
+          configMap:
+            name: {{ include "registry.config" . }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

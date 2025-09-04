@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: validate-core-installation
+  labels:
+    chart: registry
+spec:
+  try:
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: ServiceAccount
+          metadata:
+            name: (join('-', [$namespace, 'registry']))
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: Secret
+          metadata:
+            name: (join('-', [$namespace, 'registry-http']))
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: Secret
+          metadata:
+            name: (join('-', [$namespace, 'registry-storage']))
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: ConfigMap
+          metadata:
+            name: (join('-', [$namespace, 'registry']))
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: ConfigMap
+          metadata:
+            name: (join('-', [$namespace, 'registry-telemetry']))
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: (join('-', [$namespace, 'registry']))
+    - assert:
+        timeout: 120s
+        resource:
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: (join('-', [$namespace, 'registry']))
+          status:
+            (readyReplicas == replicas): true
+            (availableReplicas == replicas): true
+  catch:
+    - describe:
+        apiVersion: apps/v1
+        kind: Deployment
+        name: (join('-', [$namespace, 'registry']))
+    - podLogs:
+        namespace: ($namespace)
+        selector: app.kubernetes.io/name=registry
+        tail: -1

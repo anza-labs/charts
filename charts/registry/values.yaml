@@ -1,0 +1,248 @@
+# Default values for registry.
+
+# -- Number of replicas for the deployment.
+replicaCount: 1
+
+image:
+  # -- Registry and repository for the registry image.
+  repository: docker.io/library/registry
+  # -- Tag for the image.
+  tag: "3.0.0"
+  # -- Image pull policy.
+  pullPolicy: IfNotPresent
+
+# -- Secrets for pulling images.
+imagePullSecrets: []
+# -- Override for the name.
+nameOverride: ""
+# -- Override for the full name.
+fullnameOverride: ""
+
+configs:
+  registry:
+    # -- Specifies whether a config map should be created.
+    create: true
+    # -- Specifies name of a config map used to configure the registry.
+    # If not filled, uses full name.
+    name: ""
+
+  telemetry:
+    # -- Specifies whether a config map should be created.
+    create: true
+    # -- Specifies name of a config map used to configure the registry.
+    # If not filled, uses full name.
+    name: ""
+
+    # -- OpenTelemetry SDK environment variables.
+    # https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/
+    otel:
+      OTEL_TRACES_EXPORTER: none
+
+secrets:
+  http:
+    # -- Specifies whether a secret should be created.
+    create: true
+    # -- Specifies name of a secret used to configure the registry.
+    # If not filled, uses full name.
+    name: ""
+
+    # -- Value of the shared HTTP secret.
+    value: 12b7a9c9-3c30-4cea-b868-f9942ab82d9a
+
+  storage:
+    # -- Specifies whether a secret should be created.
+      # If false, you must provide an existing Secret via .name or .[*].valueFrom.
+    create: true
+    # -- Specifies name of a secret used to configure the registry.
+    # If not filled, uses full name.
+    name: ""
+
+    bucket:
+      # -- S3 bucket name where registry data will be stored.
+      value: ""
+      # -- Reference to an existing Secret containing the bucket name.
+      valueFrom:
+        secretName: ""
+        key: bucket
+        optional: false
+
+    accessKey:
+      # -- Access key for the S3-compatible storage backend.
+      value: ""
+      # -- Reference to an existing Secret containing the access key.
+      valueFrom:
+        secretName: ""
+        key: awsaccesskey
+        optional: false
+
+    secretKey: 
+      # -- Secret key for the S3-compatible storage backend.
+      value: ""
+      # -- Reference to an existing Secret containing the secret key.
+      valueFrom:
+        secretName: ""
+        key: awssecretkey
+        optional: false
+
+    endpoint:
+      # -- Endpoint for the S3-compatible storage backend (e.g. https://s3.amazonaws.com).
+      value: ""
+      # -- Reference to an existing Secret containing the endpoint.
+      valueFrom:
+        secretName: ""
+        key: endpoint
+        optional: false
+
+    region:
+      # -- AWS region or equivalent region for the storage backend.
+      value: ""
+      # -- Reference to an existing Secret containing the region.
+      valueFrom:
+        secretName: ""
+        key: region
+        optional: false
+
+    forcePathStyle:
+      # -- Whether to force path-style URLs (true = path-style, false = virtual-hosted-style).
+      value: true
+      # -- Reference to an existing Secret containing this value.
+      valueFrom:
+        secretName: ""
+        key: forcePathStyle
+        optional: true
+
+    secure:
+      # -- Whether to use secure (HTTPS) connections to the storage backend.
+      value: true
+      # -- Reference to an existing Secret containing this value.
+      valueFrom:
+        secretName: ""
+        key: secure
+        optional: true
+
+    v4Auth:
+      # -- Whether to enforce AWS Signature V4 authentication.
+      value: true
+      # -- Reference to an existing Secret containing this value.
+      valueFrom:
+        secretName: ""
+        key: v4Auth
+        optional: true
+
+serviceAccount:
+  # -- Specifies whether a service account should be created.
+  create: true
+  # -- Automatically mount a ServiceAccount's API credentials.
+  automount: true
+  # -- Annotations to add to the service account.
+  annotations: {}
+  # -- The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template.
+  name: ""
+
+# -- Annotations to be added to the pods.
+podAnnotations: {}
+# -- Labels to be added to the pods.
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  # -- Service type.
+  type: ClusterIP
+  # -- Service port.
+  port: 5000
+
+ingress:
+  # -- Specifies whether ingress should be enabled.
+  enabled: false
+  # -- Ingress class name.
+  className: ""
+  # -- Annotations to add to the ingress.
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  # -- List of ingress hosts.
+  hosts:
+    - host: registry.example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  # -- List of TLS configurations for the ingress.
+  tls: []
+  #  - secretName: registry-tls
+  #    hosts:
+  #      - registry.example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+livenessProbe:
+  # -- Liveness probe configuration.
+  httpGet:
+    path: /v2/
+    port: http
+
+readinessProbe:
+  # -- Readiness probe configuration.
+  httpGet:
+    path: /v2/
+    port: http
+
+startupProbe:
+  # -- Startup probe configuration.
+  httpGet:
+    path: /v2/
+    port: http
+
+autoscaling:
+  # -- Specifies whether autoscaling is enabled.
+  enabled: false
+  # -- Minimum number of replicas for autoscaling.
+  minReplicas: 1
+  # -- Maximum number of replicas for autoscaling.
+  maxReplicas: 3
+  # -- Target CPU utilization percentage for autoscaling.
+  targetCPUUtilizationPercentage: 80
+  # -- Target memory utilization percentage for autoscaling.
+  targetMemoryUtilizationPercentage: 80
+
+# -- Node selector for the pods.
+nodeSelector: {}
+
+# -- Tolerations for the pods.
+tolerations: []
+
+# -- Affinity settings for the pods.
+affinity: {}
+  # nodeAffinity:
+  #   requiredDuringSchedulingIgnoredDuringExecution:
+  #     nodeSelectorTerms:
+  #       - matchExpressions:
+  #         - key: kubernetes.io/arch
+  #           operator: In
+  #           values:
+  #             - amd64
+  #             - arm64
+  #         - key: kubernetes.io/os
+  #           operator: In
+  #           values:
+  #             - linux

@@ -1,0 +1,24 @@
+apiVersion: v2
+type: application
+name: registry
+description: |-
+  The Registry is a stateless, highly scalable server side application that
+  stores and lets you distribute container images and other content.
+home: https://distribution.github.io/distribution/
+icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/registry/icon.png
+version: 0.1.0
+appVersion: "3.0.0"
+sources:
+  - https://github.com/distribution/distribution
+keywords:
+  - oci-registry
+  - docker
+  - registry
+  - distribution
+annotations:
+  artifacthub.io/immutable: "true"
+  artifacthub.io/changes: ""
+maintainers:
+  - name: shanduur
+    email: maturb@proton.me
+    url: http://linkedin.com/in/urbanekmateusz

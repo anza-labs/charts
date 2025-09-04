@@ -1,0 +1,435 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "affinity": {
+      "type": "object"
+    },
+    "autoscaling": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "maxReplicas": {
+          "type": "integer"
+        },
+        "minReplicas": {
+          "type": "integer"
+        },
+        "targetCPUUtilizationPercentage": {
+          "type": "integer"
+        },
+        "targetMemoryUtilizationPercentage": {
+          "type": "integer"
+        }
+      }
+    },
+    "configs": {
+      "type": "object",
+      "properties": {
+        "registry": {
+          "type": "object",
+          "properties": {
+            "create": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "telemetry": {
+          "type": "object",
+          "properties": {
+            "create": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "otel": {
+              "type": "object",
+              "properties": {
+                "OTEL_TRACES_EXPORTER": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "fullnameOverride": {
+      "type": "string"
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "pullPolicy": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      }
+    },
+    "imagePullSecrets": {
+      "type": "array"
+    },
+    "ingress": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object"
+        },
+        "className": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "hosts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "host": {
+                "type": "string"
+              },
+              "paths": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "type": "string"
+                    },
+                    "pathType": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tls": {
+          "type": "array"
+        }
+      }
+    },
+    "livenessProbe": {
+      "type": "object",
+      "properties": {
+        "httpGet": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "port": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "nameOverride": {
+      "type": "string"
+    },
+    "nodeSelector": {
+      "type": "object"
+    },
+    "podAnnotations": {
+      "type": "object"
+    },
+    "podLabels": {
+      "type": "object"
+    },
+    "podSecurityContext": {
+      "type": "object"
+    },
+    "readinessProbe": {
+      "type": "object",
+      "properties": {
+        "httpGet": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "port": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "replicaCount": {
+      "type": "integer"
+    },
+    "resources": {
+      "type": "object"
+    },
+    "secrets": {
+      "type": "object",
+      "properties": {
+        "http": {
+          "type": "object",
+          "properties": {
+            "create": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        "storage": {
+          "type": "object",
+          "properties": {
+            "accessKey": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "valueFrom": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    },
+                    "secretName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "bucket": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "valueFrom": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    },
+                    "secretName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "create": {
+              "type": "boolean"
+            },
+            "endpoint": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "valueFrom": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    },
+                    "secretName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "forcePathStyle": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                },
+                "valueFrom": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    },
+                    "secretName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "name": {
+              "type": "string"
+            },
+            "region": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "valueFrom": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    },
+                    "secretName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "secretKey": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "valueFrom": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    },
+                    "secretName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "secure": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                },
+                "valueFrom": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    },
+                    "secretName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "v4Auth": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                },
+                "valueFrom": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string"
+                    },
+                    "optional": {
+                      "type": "boolean"
+                    },
+                    "secretName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "securityContext": {
+      "type": "object"
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "serviceAccount": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "object"
+        },
+        "automount": {
+          "type": "boolean"
+        },
+        "create": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "startupProbe": {
+      "type": "object",
+      "properties": {
+        "httpGet": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "port": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "tolerations": {
+      "type": "array"
+    }
+  }
+}
