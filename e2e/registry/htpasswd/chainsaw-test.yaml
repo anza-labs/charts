@@ -19,7 +19,7 @@ spec:
         --set=secrets.storage.region.value=test
         --set=secrets.storage.secure.value=false
         --set=secrets.auth.create=true
-        --set=secrets.auth.htpasswd.value='user:$2y$10$UM5e4gZelnphX340OD3dQuj1Oj79Sep4oUYnmB/HBhNPJiifCK1yW'
+        --set=secrets.auth.htpasswd.value=user:$2y$10$3ZwL3ofEcgJYqpOjors2CO6UHKUX9TFB/g2/pE4IDCLKxex1Q5MTa
 
   steps:
     - name: Install S3Mock
@@ -47,3 +47,31 @@ spec:
           bindings:
             - name: namespace
               value: ($namespace)
+
+    - name: Run push test
+      use:
+        template: ../_lib/test-push.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+            - name: INSECURE
+              value: 'true'
+            - name: REGISTRY_USER
+              value: user
+            - name: REGISTRY_PASSWORD
+              value: Passw0rd1+
+
+    - name: Run pull test
+      use:
+        template: ../_lib/test-pull.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+            - name: INSECURE
+              value: 'true'
+            - name: REGISTRY_USER
+              value: user
+            - name: REGISTRY_PASSWORD
+              value: Passw0rd1+

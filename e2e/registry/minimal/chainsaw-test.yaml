@@ -45,3 +45,31 @@ spec:
           bindings:
             - name: namespace
               value: ($namespace)
+
+    - name: Run push test
+      use:
+        template: ../_lib/test-push.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+            - name: INSECURE
+              value: 'true'
+            - name: REGISTRY_USER
+              value: ''
+            - name: REGISTRY_PASSWORD
+              value: ''
+
+    - name: Run pull test
+      use:
+        template: ../_lib/test-pull.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+            - name: INSECURE
+              value: 'true'
+            - name: REGISTRY_USER
+              value: ''
+            - name: REGISTRY_PASSWORD
+              value: ''

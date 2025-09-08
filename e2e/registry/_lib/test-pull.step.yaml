@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: test-pull
+  labels:
+    chart: registry
+spec:
+  try:
+    - apply:
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-pull
+            labels:
+              charts.anza-labs.dev/test: registry-pull
+          spec:
+            template:
+              metadata:
+                labels:
+                  charts.anza-labs.dev/test: registry-pull
+              spec:
+                restartPolicy: OnFailure
+                containers:
+                  - name: crane
+                    image: gcr.io/go-containerregistry/crane:debug
+                    imagePullPolicy: IfNotPresent
+                    command: ["/busybox/sh", "-c"]
+                    args:
+                      - |
+                        #!/busybox/sh
+
+                        set -eux
+
+                        if [[ ! -z "${REGISTRY_USER}" ]]; then
+                          crane auth login \
+                            -u "${REGISTRY_USER}" \
+                            -p "${REGISTRY_PASSWORD}" \
+                            --insecure=${INSECURE} \
+                            "${NAMESPACE}-registry.${NAMESPACE}:5000"
+                        fi
+
+                        crane \
+                          copy \
+                          --insecure=${INSECURE} \
+                          docker.io/library/busybox:uclibc \
+                          "${NAMESPACE}-registry.${NAMESPACE}:5000/pull/busybox:uclibc"
+
+                        crane \
+                          pull \
+                          --insecure=${INSECURE} \
+                          "${NAMESPACE}-registry.${NAMESPACE}:5000/pull/busybox:uclibc" \
+                          /tmp/busybox.uclibc.tar
+                    env:
+                      - name: NAMESPACE
+                        value: ($namespace)
+                      - name: INSECURE
+                        value: ($INSECURE)
+                      - name: REGISTRY_USER
+                        value: ($REGISTRY_USER)
+                      - name: REGISTRY_PASSWORD
+                        value: ($REGISTRY_PASSWORD)
+    - assert:
+        timeout: 120s
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-pull
+          status:
+            succeeded: 1
+  catch:
+    - describe:
+        apiVersion: batch/v1
+        kind: Job
+        name: test-pull
+    - podLogs:
+        namespace: ($namespace)
+        selector: charts.anza-labs.dev/test=registry-pull
+        tail: -1

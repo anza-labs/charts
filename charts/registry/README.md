@@ -1,6 +1,6 @@
 # registry
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat)
+![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat)
 
 The Registry is a stateless, highly scalable server side application that
 stores and lets you distribute container images and other content.
