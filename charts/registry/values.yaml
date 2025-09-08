@@ -11,6 +11,15 @@ image:
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
+busybox:
+  image:
+    # -- Registry and repository for the image.
+    repository: docker.io/library/busybox
+    # -- Tag for the image.
+    tag: "1.37-musl"
+    # -- Image pull policy.
+    pullPolicy: IfNotPresent
+
 # -- Secrets for pulling images.
 imagePullSecrets: []
 # -- Override for the name.
@@ -217,20 +226,20 @@ resources: {}
 livenessProbe:
   # -- Liveness probe configuration.
   httpGet:
-    path: /v2/
-    port: http
+    path: /debug/health
+    port: debug
 
 readinessProbe:
   # -- Readiness probe configuration.
   httpGet:
-    path: /v2/
-    port: http
+    path: /debug/health
+    port: debug
 
 startupProbe:
   # -- Startup probe configuration.
   httpGet:
-    path: /v2/
-    port: http
+    path: /debug/health
+    port: debug
 
 autoscaling:
   # -- Specifies whether autoscaling is enabled.

@@ -31,6 +31,26 @@ spec:
       serviceAccountName: {{ include "registry.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if (or .Values.secrets.auth.htpasswd.value .Values.secrets.auth.htpasswd.valueFrom.secret) }}
+      initContainers:
+        - name: config-prep
+          image: "{{ .Values.busybox.image.repository }}:{{ .Values.busybox.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.busybox.image.pullPolicy }}
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              #!/bin/sh
+
+              set -eu
+
+              echo "[INFO] Copying files from /htpasswd-ro to /htpasswd-rw..."
+              cp -v /htpasswd-ro/.[!.]* /htpasswd-rw/
+          volumeMounts:
+            - name: htpasswd-rw
+              mountPath: /htpasswd-rw
+            - name: htpasswd-ro
+              mountPath: /htpasswd-ro
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -101,23 +121,27 @@ spec:
                   name: {{ default (include "registry.storageSecret" .) .Values.secrets.storage.v4Auth.valueFrom.secretName }}
                   key: {{ .Values.secrets.storage.v4Auth.valueFrom.key }}
                   optional: {{ .Values.secrets.storage.v4Auth.valueFrom.optional }}
+            {{- if (or .Values.secrets.auth.htpasswd.value .Values.secrets.auth.htpasswd.valueFrom.secret) }}
             - name: REGISTRY_AUTH_HTPASSWD_REALM
               value: basic
             - name: REGISTRY_AUTH_HTPASSWD_PATH
               value: /usr/local/apache/.htpasswd
+            {{- end }}
           envFrom:
             - secretRef:
                 name: {{ include "registry.httpSecret" . }}
           volumeMounts:
             - name: config
               mountPath: /etc/distribution
-            - name: htpasswd
+            - name: htpasswd-rw
               mountPath: /usr/local/apache
       volumes:
         - name: config
           configMap:
             name: {{ include "registry.config" . }}
-        - name: htpasswd
+        - name: htpasswd-rw
+          emptyDir: {}
+        - name: htpasswd-ro
           secret:
             secretName: {{ include "registry.authSecret" . }}
             optional: {{ .Values.secrets.auth.htpasswd.valueFrom.optional }}
