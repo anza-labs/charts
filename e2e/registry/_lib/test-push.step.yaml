@@ -44,14 +44,14 @@ spec:
                         crane \
                           pull \
                           --insecure=${INSECURE} \
-                          docker.io/library/busybox:uclibc \
-                          /tmp/busybox.uclibc.tar
+                          ghcr.io/anza-labs/library/distroless/static:latest \
+                          /tmp/test.tar
 
                         crane \
                           push \
                           --insecure=${INSECURE} \
-                          /tmp/busybox.uclibc.tar \
-                          "${NAMESPACE}-registry.${NAMESPACE}:5000/push/busybox:uclibc"
+                          /tmp/test.tar \
+                          "${NAMESPACE}-registry.${NAMESPACE}:5000/push/test:latest"
                     env:
                       - name: NAMESPACE
                         value: ($namespace)
