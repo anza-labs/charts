@@ -3320,6 +3320,33 @@ entries:
       artifacthub.io/immutable: "true"
     apiVersion: v2
     appVersion: 3.0.0
+    created: "2025-09-10T05:16:22.226478914Z"
+    description: The Registry is a stateless, highly scalable server side application
+      that stores and lets you distribute container images and other content.
+    digest: 78c78a3e4f83e03e5f5ce88b96265e593f87820bf153becc8aa3b623ff5c8307
+    home: https://distribution.github.io/distribution/
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/registry/icon.png
+    keywords:
+    - oci-registry
+    - docker
+    - registry
+    - distribution
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: registry
+    sources:
+    - https://github.com/distribution/distribution
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/registry-0.3.0/registry-0.3.0.tgz
+    version: 0.3.0
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: 3.0.0
     created: "2025-09-08T19:10:50.89516492Z"
     description: The Registry is a stateless, highly scalable server side application
       that stores and lets you distribute container images and other content.
@@ -3669,4 +3696,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/scribe-0.1.0/scribe-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-08T19:10:50.895514702Z"
+generated: "2025-09-10T05:16:22.226723533Z"
