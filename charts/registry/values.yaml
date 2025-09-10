@@ -11,15 +11,6 @@ image:
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
-busybox:
-  image:
-    # -- Registry and repository for the image.
-    repository: docker.io/library/busybox
-    # -- Tag for the image.
-    tag: "1.37-musl"
-    # -- Image pull policy.
-    pullPolicy: IfNotPresent
-
 # -- Secrets for pulling images.
 imagePullSecrets: []
 # -- Override for the name.

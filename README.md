@@ -14,7 +14,7 @@ This repository contains the following Helm charts:
 | [lubelogger](charts/lubelogger) | `1.2.1` | `v1.5.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
 | [meta-chart](charts/meta-chart) | `0.1.2` | `meta` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/meta-chart) |
 | [pocket-id](charts/pocket-id) | `1.5.5` | `v1.10.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/pocket-id) |
-| [registry](charts/registry) | `0.2.2` | `3.0.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/registry) |
+| [registry](charts/registry) | `0.3.0` | `3.0.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/registry) |
 
 ### Deprecated Charts
 
