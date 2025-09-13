@@ -1,0 +1,162 @@
+# Default values for pyoci.
+
+# -- Number of replicas for the deployment.
+replicaCount: 1
+
+image:
+  # -- pyoci and repository for the pyoci image.
+  repository: ghcr.io/allexveldman/pyoci
+  # -- Tag for the image.
+  tag: "0.1.28"
+  # -- Image pull policy.
+  pullPolicy: IfNotPresent
+
+# -- Secrets for pulling images.
+imagePullSecrets: []
+# -- Override for the name.
+nameOverride: ""
+# -- Override for the full name.
+fullnameOverride: ""
+
+config:
+  # -- Log filter, defaults to info.
+  logLevel: info
+  # -- Host PyOCI on a subpath, for example: PYOCI_PATH="/acme-corp".
+  subPath: "/"
+  # -- Limit the maximum accepted body size in bytes when publishing packages, defaults to 50MB.
+  maxBody: 50000000 # 50 MB
+  # -- Limit how many versions (in reverse alphabetical order) to fetch filenames for when listing a package.
+  # By default PyOCI will only include the last 100 versions.
+  # To not limit the versions, set this value to 0.
+  maxVersions: 10
+
+telemetry:
+  # -- Specifies whether a secret should be created.
+  create: false
+  # -- Specifies name of a config map used to configure the pyoci.
+  # If not filled, uses full name.
+  name: ""
+
+  # --  If set, forward logs, traces, and metrics to this OTLP collector endpoint every 30s.
+  otlpEndpoint: ""
+  # -- Full Authorization header value to use when sending OTLP requests.
+  otlpAuth: ""
+  # -- deployment.environment attribute added to OTLP resources.
+  deploymentEnvironment: ""
+
+serviceAccount:
+  # -- Specifies whether a service account should be created.
+  create: true
+  # -- Automatically mount a ServiceAccount's API credentials.
+  automount: true
+  # -- Annotations to add to the service account.
+  annotations: {}
+  # -- The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template.
+  name: ""
+
+# -- Annotations to be added to the pods.
+podAnnotations: {}
+# -- Labels to be added to the pods.
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  # -- Service type.
+  type: ClusterIP
+  # -- Service port.
+  port: 8080
+
+ingress:
+  # -- Specifies whether ingress should be enabled.
+  enabled: false
+  # -- Ingress class name.
+  className: ""
+  # -- Annotations to add to the ingress.
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  # -- List of ingress hosts.
+  hosts:
+    - host: pyoci.example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  # -- List of TLS configurations for the ingress.
+  tls: []
+  #  - secretName: pyoci-tls
+  #    hosts:
+  #      - pyoci.example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+livenessProbe:
+  # -- Liveness probe configuration.
+  httpGet:
+    path: /debug/health
+    port: debug
+
+readinessProbe:
+  # -- Readiness probe configuration.
+  httpGet:
+    path: /debug/health
+    port: debug
+
+startupProbe:
+  # -- Startup probe configuration.
+  httpGet:
+    path: /debug/health
+    port: debug
+
+autoscaling:
+  # -- Specifies whether autoscaling is enabled.
+  enabled: false
+  # -- Minimum number of replicas for autoscaling.
+  minReplicas: 1
+  # -- Maximum number of replicas for autoscaling.
+  maxReplicas: 3
+  # -- Target CPU utilization percentage for autoscaling.
+  targetCPUUtilizationPercentage: 80
+  # -- Target memory utilization percentage for autoscaling.
+  targetMemoryUtilizationPercentage: 80
+
+# -- Node selector for the pods.
+nodeSelector: {}
+
+# -- Tolerations for the pods.
+tolerations: []
+
+# -- Affinity settings for the pods.
+affinity: {}
+  # nodeAffinity:
+  #   requiredDuringSchedulingIgnoredDuringExecution:
+  #     nodeSelectorTerms:
+  #       - matchExpressions:
+  #         - key: kubernetes.io/arch
+  #           operator: In
+  #           values:
+  #             - amd64
+  #         - key: kubernetes.io/os
+  #           operator: In
+  #           values:
+  #             - linux

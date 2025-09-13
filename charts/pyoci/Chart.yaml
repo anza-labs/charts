@@ -1,0 +1,22 @@
+apiVersion: v2
+type: application
+name: pyoci
+description: |-
+  Publish and install private python packages using OCI/docker registries.
+home: pyoci.com
+icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
+version: 0.1.0
+appVersion: "0.1.28"
+sources:
+  - https://github.com/AllexVeldman/pyoci
+keywords:
+  - oci-registry
+  - docker
+  - pyoci
+annotations:
+  artifacthub.io/immutable: "true"
+  artifacthub.io/changes: ""
+maintainers:
+  - name: shanduur
+    email: maturb@proton.me
+    url: http://linkedin.com/in/urbanekmateusz

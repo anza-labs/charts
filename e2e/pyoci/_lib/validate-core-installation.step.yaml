@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: validate-core-installation
+  labels:
+    chart: pyoci
+spec:
+  try:
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: ServiceAccount
+          metadata:
+            name: (join('-', [$namespace, 'pyoci']))
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: Secret
+          metadata:
+            name: (join('-', [$namespace, 'pyoci-telemetry']))
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: (join('-', [$namespace, 'pyoci']))
+    - assert:
+        timeout: 120s
+        resource:
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: (join('-', [$namespace, 'pyoci']))
+          status:
+            (readyReplicas == replicas): true
+            (availableReplicas == replicas): true
+  catch:
+    - describe:
+        apiVersion: apps/v1
+        kind: Deployment
+        name: (join('-', [$namespace, 'pyoci']))
+    - podLogs:
+        namespace: ($namespace)
+        selector: app.kubernetes.io/name=pyoci
+        tail: -1

@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Deployment
+
+templates:
+  - deployment.yaml
+
+tests:
+  - it: Should set replicaCount correctly when autoscaling is disabled
+    set:
+      replicaCount: 3
+      autoscaling:
+        enabled: false
+    asserts:
+      - isKind:
+          of: Deployment
+      - equal:
+          path: spec.replicas
+          value: 3
+
+  - it: Should not set replicaCount when autoscaling is enabled
+    set:
+      autoscaling:
+        enabled: true
+    asserts:
+      - notExists:
+          path: spec.replicas
