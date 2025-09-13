@@ -51,6 +51,7 @@ spec:
               value: "{{ .Values.config.logLevel }}"
             - name: PYOCI_PATH
               value: "{{ .Values.config.subPath }}"
+              optional: true
             - name: PYOCI_MAX_BODY
               value: "{{ .Values.config.maxBody | int }}"
             - name: PYOCI_MAX_VERSIONS

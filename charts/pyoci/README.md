@@ -29,7 +29,7 @@ Publish and install private python packages using OCI/docker registries.
 | config.logLevel | string | `"info"` | Log filter, defaults to info. |
 | config.maxBody | int | `50000000` | Limit the maximum accepted body size in bytes when publishing packages, defaults to 50MB. |
 | config.maxVersions | int | `10` | Limit how many versions (in reverse alphabetical order) to fetch filenames for when listing a package. By default PyOCI will only include the last 100 versions. To not limit the versions, set this value to 0. |
-| config.subPath | string | `"/"` | Host PyOCI on a subpath, for example: PYOCI_PATH="/acme-corp". |
+| config.subPath | string | `""` | Host PyOCI on a subpath, for example: PYOCI_PATH="/acme-corp". |
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"ghcr.io/allexveldman/pyoci"` | pyoci and repository for the pyoci image. |

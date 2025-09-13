@@ -22,7 +22,7 @@ config:
   # -- Log filter, defaults to info.
   logLevel: info
   # -- Host PyOCI on a subpath, for example: PYOCI_PATH="/acme-corp".
-  subPath: "/"
+  subPath: ""
   # -- Limit the maximum accepted body size in bytes when publishing packages, defaults to 50MB.
   maxBody: 50000000 # 50 MB
   # -- Limit how many versions (in reverse alphabetical order) to fetch filenames for when listing a package.
