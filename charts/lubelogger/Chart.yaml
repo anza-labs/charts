@@ -6,7 +6,7 @@ description: |
 home: https://lubelogger.com
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/lubelogger/icon.png
 version: 1.2.2
-appVersion: "v1.5.0"
+appVersion: "v1.5.1"
 sources:
   - https://github.com/hargata/lubelog
 keywords:
@@ -16,16 +16,13 @@ keywords:
 annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: fixed
-      description: '**lubelogger:** downgrade image to v1.4.9'
+    - kind: changed
+      description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.5.1'
       links:
-      - name: Commit f0eeb0b
-        url: https://github.com/anza-labs/charts/commit/f0eeb0b7005db8e6e65a060378369783150ec54a
-    - kind: fixed
-      description: '**lubelogger:** manually upgrade image to 1.5.0'
-      links:
-      - name: Commit ccd2b94
-        url: https://github.com/anza-labs/charts/commit/ccd2b94613d971fb1fbc3132b93f90f20cd1bf3f
+      - name: 'GitHub Issue #230'
+        url: https://github.com/anza-labs/charts/issues/230
+      - name: Commit bcec9f1
+        url: https://github.com/anza-labs/charts/commit/bcec9f1a088cf60c79d80385d5f0f32d79df3372
 maintainers:
   - name: shanduur
     email: maturb@proton.me
