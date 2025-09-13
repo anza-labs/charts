@@ -40,13 +40,11 @@ Publish and install private python packages using OCI/docker registries.
 | ingress.enabled | bool | `false` | Specifies whether ingress should be enabled. |
 | ingress.hosts | list | `[{"host":"pyoci.example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}]` | List of ingress hosts. |
 | ingress.tls | list | `[]` | List of TLS configurations for the ingress. |
-| livenessProbe.httpGet | object | `{"path":"/debug/health","port":"debug"}` | Liveness probe configuration. |
 | nameOverride | string | `""` | Override for the name. |
 | nodeSelector | object | `{}` | Node selector for the pods. |
 | podAnnotations | object | `{}` | Annotations to be added to the pods. |
 | podLabels | object | `{}` | Labels to be added to the pods. |
 | podSecurityContext | object | `{}` |  |
-| readinessProbe.httpGet | object | `{"path":"/debug/health","port":"debug"}` | Readiness probe configuration. |
 | replicaCount | int | `1` | Number of replicas for the deployment. |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
@@ -56,7 +54,6 @@ Publish and install private python packages using OCI/docker registries.
 | serviceAccount.automount | bool | `true` | Automatically mount a ServiceAccount's API credentials. |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
-| startupProbe.httpGet | object | `{"path":"/debug/health","port":"debug"}` | Startup probe configuration. |
 | telemetry.create | bool | `false` | Specifies whether a secret should be created. |
 | telemetry.deploymentEnvironment | string | `""` | deployment.environment attribute added to OTLP resources. |
 | telemetry.name | string | `""` | Specifies name of a config map used to configure the pyoci. If not filled, uses full name. |

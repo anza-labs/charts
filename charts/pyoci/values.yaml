@@ -110,24 +110,6 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-livenessProbe:
-  # -- Liveness probe configuration.
-  httpGet:
-    path: /debug/health
-    port: debug
-
-readinessProbe:
-  # -- Readiness probe configuration.
-  httpGet:
-    path: /debug/health
-    port: debug
-
-startupProbe:
-  # -- Startup probe configuration.
-  httpGet:
-    path: /debug/health
-    port: debug
-
 autoscaling:
   # -- Specifies whether autoscaling is enabled.
   enabled: false
