@@ -66,6 +66,7 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ include "pyoci.telemetryConfig" . }}
+                optional: true
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

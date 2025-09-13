@@ -16,12 +16,6 @@ spec:
     - assert:
         resource:
           apiVersion: v1
-          kind: Secret
-          metadata:
-            name: (join('-', [$namespace, 'pyoci-telemetry']))
-    - assert:
-        resource:
-          apiVersion: v1
           kind: Service
           metadata:
             name: (join('-', [$namespace, 'pyoci']))
