@@ -57,7 +57,7 @@ secret:
 
     backend:
       datastore: config
-      basedm: dc=glauth,dc=com
+      baseDN: dc=glauth,dc=com
       nameformat: null # @schema type:[string, null]
       groupformat: null # @schema type:[string, null]
       sshkeyattr: null # @schema type:[string, null]

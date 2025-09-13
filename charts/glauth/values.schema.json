@@ -121,7 +121,7 @@
             "backend": {
               "type": "object",
               "properties": {
-                "basedm": {
+                "baseDN": {
                   "type": "string"
                 },
                 "datastore": {

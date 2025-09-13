@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/test-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: glauth-config
+  labels:
+    chart: glauth
+
+spec:
+  concurrent: true
+
+  bindings:
+    - name: arguments
+      value: |
+        --set-json=secret.value.users=[{"name":"serviceuser","mail":"serviceuser@example.com","uidnumber":5003,"primarygroup":5502,"passsha256":"652c7dc687d98c9889304ed2e408c74b611e86a40caa51c4b43f1dd5913c5cd0"}]
+        --set-json=secret.value.groups=[{"name":"svcaccts","gidnumber":5502}]
+
+  steps:
+    - name: Install chart
+      use:
+        template: ../_lib/helm-install.step.yaml
+        with:
+          bindings:
+            - name: arguments
+              value: ($arguments)
+            - name: namespace
+              value: ($namespace)
+
+    - name: Validate core installation
+      use:
+        template: ../_lib/validate-core-installation.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
+    - name: Run ldap test
+      use:
+        template: ../_lib/test-ldap.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+            - name: BINDDN
+              value: cn=serviceuser,ou=svcaccts,dc=glauth,dc=com
+            - name: BASEDN
+              value: dc=glauth,dc=com
+            - name: PASSWD
+              value: mysecret
+            - name: FILTER
+              value: cn=hackers

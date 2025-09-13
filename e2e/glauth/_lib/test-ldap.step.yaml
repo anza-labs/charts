@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: test-ldap
+  labels:
+    chart: registry
+spec:
+  try:
+    - apply:
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-ldap
+            labels:
+              charts.anza-labs.dev/test: registry-ldap
+          spec:
+            template:
+              metadata:
+                labels:
+                  charts.anza-labs.dev/test: registry-ldap
+              spec:
+                restartPolicy: OnFailure
+                containers:
+                  - name: crane
+                    image: ghcr.io/anza-labs/library/ldap-tools:latest
+                    imagePullPolicy: IfNotPresent
+                    command: ["/bin/sh", "-c"]
+                    args:
+                      - |
+                        #!/bin/sh
+
+                        set -eux
+
+                        ldapsearch \
+                          -LLL \
+                          -H "ldap://${NAMESPACE}-glauth.${NAMESPACE}:3893" \
+                          -D "${BINDDN}" \
+                          -w "${PASSWD}" \
+                          -x \
+                          -b "${BASEDN}" \
+                          "${FILTER}"
+                    env:
+                      - name: NAMESPACE
+                        value: ($namespace)
+                      - name: BINDDN
+                        value: ($BINDDN)
+                      - name: BASEDN
+                        value: ($BASEDN)
+                      - name: PASSWD
+                        value: ($PASSWD)
+                      - name: FILTER
+                        value: ($FILTER)
+    - assert:
+        timeout: 120s
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-ldap
+          status:
+            succeeded: 1
+  catch:
+    - describe:
+        apiVersion: batch/v1
+        kind: Job
+        name: test-ldap
+    - podLogs:
+        namespace: ($namespace)
+        selector: charts.anza-labs.dev/test=registry-ldap
+        tail: -1
