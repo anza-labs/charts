@@ -2109,6 +2109,32 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/pocket-id-0.1.0/pocket-id-0.1.0.tgz
     version: 0.1.0
+  pyoci:
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: 0.1.28
+    created: "2025-09-13T19:05:45.271805587Z"
+    description: Publish and install private python packages using OCI/docker registries.
+    digest: 0669e8a3e219f8e6a0701515cba354c94a60b1fd3f3514facfb193c5d17eac33
+    home: pyoci.com
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
+    keywords:
+    - oci-registry
+    - docker
+    - pyoci
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pyoci
+    sources:
+    - https://github.com/AllexVeldman/pyoci
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pyoci-0.1.0/pyoci-0.1.0.tgz
+    version: 0.1.0
   registry:
   - annotations:
       artifacthub.io/changes: ""
@@ -2245,4 +2271,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-13T11:45:27.686409139Z"
+generated: "2025-09-13T19:05:45.462495845Z"
