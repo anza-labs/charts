@@ -5,7 +5,7 @@ description: |-
   Publish and install private python packages using OCI/docker registries.
 home: pyoci.com
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
-version: 0.1.0
+version: 0.1.1
 appVersion: "0.1.28"
 sources:
   - https://github.com/AllexVeldman/pyoci

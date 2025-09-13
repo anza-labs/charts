@@ -58,11 +58,11 @@ spec:
             - name: RUST_LOG
               value: "{{ .Values.config.logLevel }}"
             - name: PYOCI_PATH
-              value: "{{ .Values.config.pyociPath }}"
+              value: "{{ .Values.config.subPath }}"
             - name: PYOCI_MAX_BODY
-              value: "{{ .Values.config.pyociMaxBody }}"
+              value: "{{ .Values.config.maxBody }}"
             - name: PYOCI_MAX_VERSIONS
-              value: "{{ .Values.config.pyociMaxVersions }}"
+              value: "{{ .Values.config.maxVersions }}"
           envFrom:
             - secretRef:
                 name: {{ include "pyoci.telemetryConfig" . }}
