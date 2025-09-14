@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/anza-labs/charts/compare/lubelogger-1.2.2...lubelogger-v1.3.0) (2025-09-14)
+
+
+### Features
+
+* add pyoci chart ([4facd07](https://github.com/anza-labs/charts/commit/4facd07faee26a3de1378cf2028d60952d2126cc))
+
+
+### Miscellaneous Chores
+
+* **deps:** update docker.io/curlimages/curl docker tag to v8.16.0 ([#235](https://github.com/anza-labs/charts/issues/235)) ([7352d6d](https://github.com/anza-labs/charts/commit/7352d6d3ee80377be5f5521a8031197bfb981a46))
+
 ## [1.2.2](https://github.com/anza-labs/charts/compare/lubelogger-1.2.1...lubelogger-v1.2.2) (2025-09-13)
 
 
