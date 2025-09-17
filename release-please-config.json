@@ -15,6 +15,9 @@
     "charts/pocket-id": {
       "release-type": "helm"
     },
+    "charts/pyoci": {
+      "release-type": "helm"
+    },
     "charts/registry": {
       "release-type": "helm"
     }
