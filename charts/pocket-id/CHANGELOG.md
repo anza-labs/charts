@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/anza-labs/charts/compare/pocket-id-1.5.6...pocket-id-v1.6.0) (2025-09-29)
+
+
+### Features
+
+* bump pyoci ([8a3203e](https://github.com/anza-labs/charts/commit/8a3203eb4218baac0f8e03511d587a8facdf6293))
+
 ## [1.5.6](https://github.com/anza-labs/charts/compare/pocket-id-1.5.5...pocket-id-v1.5.6) (2025-09-19)
 
 
