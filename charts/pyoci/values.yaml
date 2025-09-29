@@ -7,7 +7,7 @@ image:
   # -- pyoci and repository for the pyoci image.
   repository: ghcr.io/allexveldman/pyoci
   # -- Tag for the image.
-  tag: "v0.1.29"
+  tag: "0.1.30"
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
