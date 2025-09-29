@@ -3,10 +3,10 @@ type: application
 name: pyoci
 description: |-
   Publish and install private python packages using OCI/docker registries.
-home: pyoci.com
+home: https://pyoci.com
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
-version: 0.2.0
-appVersion: "0.1.28"
+version: "0.2.1"
+appVersion: "0.1.30"
 sources:
   - https://github.com/AllexVeldman/pyoci
 keywords:

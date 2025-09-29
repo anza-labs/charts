@@ -39,10 +39,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 5000
-              protocol: TCP
-            - name: debug
-              containerPort: 5001
+              containerPort: 8080
               protocol: TCP
           env:
             - name: PORT
@@ -51,7 +48,6 @@ spec:
               value: "{{ .Values.config.logLevel }}"
             - name: PYOCI_PATH
               value: "{{ .Values.config.subPath }}"
-              optional: true
             - name: PYOCI_MAX_BODY
               value: "{{ .Values.config.maxBody | int }}"
             - name: PYOCI_MAX_VERSIONS

@@ -34,20 +34,20 @@ spec:
                         set -eux
 
                         if [[ ! -z "${REGISTRY_USER}" ]]; then
-                          crane auth login \
+                          crane --verbose auth login \
                             -u "${REGISTRY_USER}" \
                             -p "${REGISTRY_PASSWORD}" \
                             --insecure=${INSECURE} \
                             "${NAMESPACE}-registry.${NAMESPACE}:5000"
                         fi
 
-                        crane \
+                        crane --verbose \
                           copy \
                           --insecure=${INSECURE} \
                           ghcr.io/anza-labs/library/distroless/static:latest \
                           "${NAMESPACE}-registry.${NAMESPACE}:5000/pull/test:latest"
 
-                        crane \
+                        crane --verbose \
                           pull \
                           --insecure=${INSECURE} \
                           "${NAMESPACE}-registry.${NAMESPACE}:5000/pull/test:latest" \

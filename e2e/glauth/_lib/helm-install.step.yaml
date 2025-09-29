@@ -21,7 +21,7 @@ spec:
           - name: ARGV
             value: ($arguments)
         content: |
-          helm install "${NAME}" "${CHART}" \
+          helm install "${NAME}-glauth" "${CHART}" \
             --namespace "${NAMESPACE}" \
             --create-namespace \
             ${ARGV}
