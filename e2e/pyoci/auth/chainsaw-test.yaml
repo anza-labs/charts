@@ -2,7 +2,7 @@
 apiVersion: chainsaw.kyverno.io/v1alpha1
 kind: Test
 metadata:
-  name: pyoci-minimal
+  name: pyoci-auth
   labels:
     chart: pyoci
 
@@ -36,6 +36,8 @@ spec:
                 --set=secrets.storage.bucket.value=test
                 --set=secrets.storage.region.value=test
                 --set=secrets.storage.secure.value=false
+                --set=secrets.auth.create=true
+                --set=secrets.auth.htpasswd.value=user:$2y$10$3ZwL3ofEcgJYqpOjors2CO6UHKUX9TFB/g2/pE4IDCLKxex1Q5MTa
             - name: namespace
               value: ($namespace)
 
@@ -57,14 +59,6 @@ spec:
             - name: namespace
               value: ($namespace)
 
-    - name: Validate core installation
-      use:
-        template: ../_lib/validate-core-installation.step.yaml
-        with:
-          bindings:
-            - name: namespace
-              value: ($namespace)
-
     - name: Run test
       use:
         template: ../_lib/test.step.yaml
@@ -75,6 +69,6 @@ spec:
             - name: INSECURE
               value: 'true'
             - name: PYOCI_USER
-              value: ''
+              value: user
             - name: PYOCI_PASSWORD
-              value: ''
+              value: Passw0rd1+
