@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/anza-labs/charts/compare/lubelogger-1.3.0...lubelogger-v1.3.1) (2025-09-29)
+
+
+### Miscellaneous Chores
+
+* **deps:** update ghcr.io/hargata/lubelogger docker tag to v1.5.2 ([#240](https://github.com/anza-labs/charts/issues/240)) ([23f32e7](https://github.com/anza-labs/charts/commit/23f32e75907fc2c1e6c40c91e9918e64a39dc77e))
+
 ## [1.3.0](https://github.com/anza-labs/charts/compare/lubelogger-1.2.2...lubelogger-v1.3.0) (2025-09-14)
 
 

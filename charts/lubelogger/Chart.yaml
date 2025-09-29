@@ -5,7 +5,7 @@ description: |
   LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 home: https://lubelogger.com
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/lubelogger/icon.png
-version: 1.3.0
+version: 1.3.1
 appVersion: "v1.5.1"
 sources:
   - https://github.com/hargata/lubelog
