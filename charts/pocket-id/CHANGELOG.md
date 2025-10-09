@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.0](https://github.com/anza-labs/charts/compare/pocket-id-1.5.6...pocket-id-v1.6.0) (2025-10-09)
+
+
+### Features
+
+* bump pyoci ([8a3203e](https://github.com/anza-labs/charts/commit/8a3203eb4218baac0f8e03511d587a8facdf6293))
+
+
+### Miscellaneous Chores
+
+* **deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.13.1 ([#249](https://github.com/anza-labs/charts/issues/249)) ([2d850e8](https://github.com/anza-labs/charts/commit/2d850e828d006777a9c020b20afbee75458212e2))
+
 ## [1.5.6](https://github.com/anza-labs/charts/compare/pocket-id-1.5.5...pocket-id-v1.5.6) (2025-09-19)
 
 

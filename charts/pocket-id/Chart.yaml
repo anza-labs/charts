@@ -6,8 +6,8 @@ description: |
   with their passkeys to your services.
 home: https://pocket-id.org
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
-version: 1.5.6
-appVersion: "v1.11.2"
+version: 1.6.0
+appVersion: "v1.13.1"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -19,13 +19,18 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.11.1'
+    - kind: added
+      description: bump pyoci
       links:
-      - name: 'GitHub Issue #239'
-        url: https://github.com/anza-labs/charts/issues/239
-      - name: Commit a2a2135
-        url: https://github.com/anza-labs/charts/commit/a2a2135b65aa1dd18b593542f718428fc03e3930
+      - name: Commit 8a3203e
+        url: https://github.com/anza-labs/charts/commit/8a3203eb4218baac0f8e03511d587a8facdf6293
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.13.1'
+      links:
+      - name: 'GitHub Issue #249'
+        url: https://github.com/anza-labs/charts/issues/249
+      - name: Commit 2d850e8
+        url: https://github.com/anza-labs/charts/commit/2d850e828d006777a9c020b20afbee75458212e2
 maintainers:
   - name: shanduur
     email: maturb@proton.me
