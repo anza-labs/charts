@@ -1183,6 +1183,46 @@ entries:
   - annotations:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
+        - kind: added
+          description: bump pyoci
+          links:
+          - name: Commit 8a3203e
+            url: https://github.com/anza-labs/charts/commit/8a3203eb4218baac0f8e03511d587a8facdf6293
+        - kind: changed
+          description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.13.1'
+          links:
+          - name: 'GitHub Issue #249'
+            url: https://github.com/anza-labs/charts/issues/249
+          - name: Commit 2d850e8
+            url: https://github.com/anza-labs/charts/commit/2d850e828d006777a9c020b20afbee75458212e2
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.13.1
+    created: "2025-10-09T18:49:21.712586403Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: f02504867ccf713d02dd642f3a23a061208c00988bfb20f24c9697fb0eef219d
+    home: https://pocket-id.org
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-1.6.0/pocket-id-1.6.0.tgz
+    version: 1.6.0
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
         - kind: changed
           description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.11.1'
           links:
@@ -2450,4 +2490,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-29T21:26:05.693462866Z"
+generated: "2025-10-09T18:49:21.712870502Z"
