@@ -38,7 +38,7 @@ pocketID:
     # -- Registry and repository for the pocket-id image.
     repository: ghcr.io/pocket-id/pocket-id
     # -- Tag for the image.
-    tag: "v1.11.2"
+    tag: "v1.13.1"
     # -- Image pull policy.
     pullPolicy: IfNotPresent
 
