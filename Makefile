@@ -169,7 +169,7 @@ $(LOCALBIN):
 CHAINSAW_VERSION ?= v0.2.13
 
 # renovate: datasource=docker depName=registry.k8s.io/cloud-provider-kind/cloud-controller-manager
-CLOUD_PROVIDER_KIND_VERSION ?= v0.7.0
+CLOUD_PROVIDER_KIND_VERSION ?= v0.8.0
 
 # renovate: datasource=github-tags depName=tilt-dev/ctlptl
 CTLPTL_VERSION ?= v0.8.43
