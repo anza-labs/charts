@@ -19,18 +19,13 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: added
-      description: bump pyoci
-      links:
-      - name: Commit 8a3203e
-        url: https://github.com/anza-labs/charts/commit/8a3203eb4218baac0f8e03511d587a8facdf6293
     - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.13.1'
+      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.2'
       links:
-      - name: 'GitHub Issue #249'
-        url: https://github.com/anza-labs/charts/issues/249
-      - name: Commit 2d850e8
-        url: https://github.com/anza-labs/charts/commit/2d850e828d006777a9c020b20afbee75458212e2
+      - name: 'GitHub Issue #248'
+        url: https://github.com/anza-labs/charts/issues/248
+      - name: Commit cbc9255
+        url: https://github.com/anza-labs/charts/commit/cbc9255bd1492d62666509a4320534779bde1225
 maintainers:
   - name: shanduur
     email: maturb@proton.me
