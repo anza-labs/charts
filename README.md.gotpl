@@ -25,10 +25,10 @@ This repository contains the following Helm charts:
 
 The following charts are deprecated and should not be used for new deployments:
 
-| Name | Version | App Version | Artifact Hub |
-|------|---------|-------------|--------------|
+| Name | Version | App Version |
+|------|---------|-------------|
 {{- range . }}
 {{- if .Deprecated }}
-| [{{ .Name }}](deprecated/{{ .Name }}) | `{{ .Version }}` | `{{ .AppVersion }}` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color={{ $deprecated }})](https://artifacthub.io/packages/helm/anza-labs/{{ .Name }}) |
+| [{{ .Name }}](deprecated/{{ .Name }}) | `{{ .Version }}` |
 {{- end }}
 {{- end }}
