@@ -11,7 +11,7 @@ This repository contains the following Helm charts:
 | Name | Version | App Version | Artifact Hub |
 |------|---------|-------------|--------------|
 | [glauth](charts/glauth) | `0.2.0` | `v2.4.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/glauth) |
-| [lubelogger](charts/lubelogger) | `1.3.1` | `v1.5.2` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
+| [lubelogger](charts/lubelogger) | `1.3.2` | `v1.5.3` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
 | [meta-chart](charts/meta-chart) | `0.1.2` | `meta` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/meta-chart) |
 | [pocket-id](charts/pocket-id) | `1.6.1` | `v1.13.1` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/pocket-id) |
 | [pyoci](charts/pyoci) | `0.2.1` | `0.1.30` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/pyoci) |
