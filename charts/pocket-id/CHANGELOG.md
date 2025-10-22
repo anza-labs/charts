@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/anza-labs/charts/compare/pocket-id-1.6.1...pocket-id-v1.7.0) (2025-10-22)
+
+
+### Features
+
+* **pocket-id:** set only selector labels on volumes ([#257](https://github.com/anza-labs/charts/issues/257)) ([734a8e0](https://github.com/anza-labs/charts/commit/734a8e08905772670014a816c46e887ed152a68c))
+
 ## [1.6.1](https://github.com/anza-labs/charts/compare/pocket-id-1.6.0...pocket-id-v1.6.1) (2025-10-16)
 
 
