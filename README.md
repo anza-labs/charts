@@ -23,9 +23,9 @@ The following charts are deprecated and should not be used for new deployments:
 
 | Name | Version | App Version |
 |------|---------|-------------|
-| [hosted-control-plane](deprecated/hosted-control-plane) | `0.3.0` |
-| [kamaji](deprecated/kamaji) | `0.1.11` |
-| [kube-storage-version-migrator](deprecated/kube-storage-version-migrator) | `0.1.1` |
-| [omada-controller](deprecated/omada-controller) | `0.3.1` |
-| [podvm](deprecated/podvm) | `0.0.0-alpha.10` |
-| [scribe](deprecated/scribe) | `0.3.7` |
+| [hosted-control-plane](deprecated/hosted-control-plane) | `0.3.0` | `v1.33.1` |
+| [kamaji](deprecated/kamaji) | `0.1.11` | `edge-25.4.1` |
+| [kube-storage-version-migrator](deprecated/kube-storage-version-migrator) | `0.1.1` | `v0.0.5` |
+| [omada-controller](deprecated/omada-controller) | `0.3.1` | `5.15.24.17` |
+| [podvm](deprecated/podvm) | `0.0.0-alpha.10` | `v1.12.0` |
+| [scribe](deprecated/scribe) | `0.3.7` | `v0.3.0` |
