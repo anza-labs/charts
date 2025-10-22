@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/anza-labs/charts/compare/lubelogger-1.3.2...lubelogger-v1.4.0) (2025-10-22)
+
+
+### Features
+
+* **lubelogger:** set only selector labels on volumes ([#258](https://github.com/anza-labs/charts/issues/258)) ([2ad8a8c](https://github.com/anza-labs/charts/commit/2ad8a8c8d9484ac2f191779c1a27707b58883797))
+
 ## [1.3.2](https://github.com/anza-labs/charts/compare/lubelogger-1.3.1...lubelogger-v1.3.2) (2025-10-22)
 
 
