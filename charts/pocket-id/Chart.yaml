@@ -19,13 +19,13 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: changed
-      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.2'
+    - kind: added
+      description: '**pocket-id:** set only selector labels on volumes'
       links:
-      - name: 'GitHub Issue #248'
-        url: https://github.com/anza-labs/charts/issues/248
-      - name: Commit cbc9255
-        url: https://github.com/anza-labs/charts/commit/cbc9255bd1492d62666509a4320534779bde1225
+      - name: 'GitHub Issue #257'
+        url: https://github.com/anza-labs/charts/issues/257
+      - name: Commit 734a8e0
+        url: https://github.com/anza-labs/charts/commit/734a8e08905772670014a816c46e887ed152a68c
 maintainers:
   - name: shanduur
     email: maturb@proton.me
