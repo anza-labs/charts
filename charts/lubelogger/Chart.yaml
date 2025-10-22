@@ -16,13 +16,13 @@ keywords:
 annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: changed
-      description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.5.3'
+    - kind: added
+      description: '**lubelogger:** set only selector labels on volumes'
       links:
-      - name: 'GitHub Issue #253'
-        url: https://github.com/anza-labs/charts/issues/253
-      - name: Commit 988071e
-        url: https://github.com/anza-labs/charts/commit/988071e2ebcaf63839676f42a2d7cec07a59b8d7
+      - name: 'GitHub Issue #258'
+        url: https://github.com/anza-labs/charts/issues/258
+      - name: Commit 2ad8a8c
+        url: https://github.com/anza-labs/charts/commit/2ad8a8c8d9484ac2f191779c1a27707b58883797
 maintainers:
   - name: shanduur
     email: maturb@proton.me
