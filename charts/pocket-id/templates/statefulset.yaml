@@ -145,7 +145,7 @@ spec:
     - metadata:
         name: {{ include "pocket-id.pvcData" . }}
         labels:
-          {{- include "pocket-id.labels" . | nindent 10 }}
+          {{- include "pocket-id.selectorLabels" . | nindent 10 }}
         {{- if .Values.persistence.data.annotations }}
         annotations:
           {{- toYaml .Values.persistence.data.annotations | nindent 10 }}
