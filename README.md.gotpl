@@ -29,6 +29,6 @@ The following charts are deprecated and should not be used for new deployments:
 |------|---------|-------------|
 {{- range . }}
 {{- if .Deprecated }}
-| [{{ .Name }}](deprecated/{{ .Name }}) | `{{ .Version }}` |
+| [{{ .Name }}](deprecated/{{ .Name }}) | `{{ .Version }}` | `{{ .AppVersion }}` |
 {{- end }}
 {{- end }}

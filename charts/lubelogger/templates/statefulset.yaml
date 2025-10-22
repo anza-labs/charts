@@ -177,7 +177,7 @@ spec:
     - metadata:
         name: {{ include "lubelog.pvcData" . }}
         labels:
-          {{- include "lubelog.labels" . | nindent 10 }}
+          {{- include "lubelog.selectorLabels" . | nindent 10 }}
         annotations:
           helm.sh/resource-policy: "keep"
         {{- if .Values.persistence.data.annotations }}
