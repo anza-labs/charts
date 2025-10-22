@@ -34,8 +34,70 @@
             "create": {
               "type": "boolean"
             },
+            "kind": {
+              "type": "string"
+            },
+            "log": {
+              "type": "object",
+              "properties": {
+                "formatter": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "string"
+                }
+              }
+            },
             "name": {
               "type": "string"
+            },
+            "notifications": {
+              "type": "object",
+              "properties": {
+                "endpoints": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "backoff": {
+                        "type": "string"
+                      },
+                      "disabled": {
+                        "type": "boolean"
+                      },
+                      "headers": {
+                        "type": "object"
+                      },
+                      "ignore": {
+                        "type": "object",
+                        "properties": {
+                          "actions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "mediatypes": {
+                            "type": "array"
+                          }
+                        }
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "threshold": {
+                        "type": "integer"
+                      },
+                      "timeout": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         },
@@ -44,6 +106,9 @@
           "properties": {
             "create": {
               "type": "boolean"
+            },
+            "kind": {
+              "type": "string"
             },
             "name": {
               "type": "string"

@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Config (ConfigMap/Secret)
+
+templates:
+  - config.yaml
+
+tests:
+  - it: Should create ConfigMap with OTel configuration
+    set:
+      configs.telemetry:
+        otel:
+          OTEL_METRICS_EXPORTER: prometheus
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: 0
+        isKind:
+          of: ConfigMap
+      - documentIndex: 1
+        isKind:
+          of: ConfigMap
+      - documentIndex: 0
+        isSubset:
+          path: data
+          content:
+            OTEL_METRICS_EXPORTER: "prometheus"
+
+  - it: Should create ConfigMap with OTel configuration
+    set:
+      configs.telemetry:
+        kind: Secret
+        otel:
+          OTEL_METRICS_EXPORTER: prometheus
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: 0
+        isKind:
+          of: Secret
+      - documentIndex: 1
+        isKind:
+          of: ConfigMap
+      - documentIndex: 0
+        isSubset:
+          path: stringData
+          content:
+            OTEL_METRICS_EXPORTER: "prometheus"
+
+  - it: Should create ConfigMap with OTel configuration
+    set:
+      configs:
+        telemetry:
+          kind: Secret
+          otel:
+            OTEL_METRICS_EXPORTER: prometheus
+        registry:
+          kind: Secret
+    asserts:
+      - hasDocuments:
+          count: 2
+      - documentIndex: 0
+        isKind:
+          of: Secret
+      - documentIndex: 1
+        isKind:
+          of: Secret

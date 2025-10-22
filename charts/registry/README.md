@@ -1,6 +1,6 @@
 # registry
 
-![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat)
+![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat)
 
 The Registry is a stateless, highly scalable server side application that
 stores and lets you distribute container images and other content.
@@ -28,8 +28,21 @@ stores and lets you distribute container images and other content.
 | autoscaling.targetCPUUtilizationPercentage | int | `80` | Target CPU utilization percentage for autoscaling. |
 | autoscaling.targetMemoryUtilizationPercentage | int | `80` | Target memory utilization percentage for autoscaling. |
 | configs.registry.create | bool | `true` | Specifies whether a config map should be created. |
+| configs.registry.kind | string | `"ConfigMap"` | Specifies the type of config to create. Supported types: configmap, secret |
+| configs.registry.log.formatter | string | `"text"` | Log formatter. Valid values are: text, json, logstash. |
+| configs.registry.log.level | string | `"info"` | Logging level. Valid values are: debug, info, warn, error. |
 | configs.registry.name | string | `""` | Specifies name of a config map used to configure the registry. If not filled, uses full name. |
+| configs.registry.notifications.endpoints[0].backoff | string | `"1s"` | How long the system backs off before retrying after a failure. A positive integer and an optional suffix indicating the unit of time, which may be ns, us, ms, s, m, or h. If you omit the unit of time, ns is used. (Required) |
+| configs.registry.notifications.endpoints[0].disabled | bool | `true` | If true, notifications are disabled for the service. |
+| configs.registry.notifications.endpoints[0].headers | object | `{}` | A list of static headers to add to each request. Each header’s name is a key beneath headers, and each value is a list of payloads for that header name. Values must always be lists. |
+| configs.registry.notifications.endpoints[0].ignore.actions | list | `["pull"]` | A list of actions to ignore.  Events with these actions are not published to the endpoint. |
+| configs.registry.notifications.endpoints[0].ignore.mediatypes | list | `[]` | A list of target media types to ignore. Events with these target media types are not published to the endpoint. |
+| configs.registry.notifications.endpoints[0].name | string | `"example"` | A human-readable name for the service. (Required) |
+| configs.registry.notifications.endpoints[0].threshold | int | `10` | An integer specifying how long to wait before backing off a failure. (Required) |
+| configs.registry.notifications.endpoints[0].timeout | string | `"1s"` | A value for the HTTP timeout. A positive integer and an optional suffix indicating the unit of time, which may be ns, us, ms, s, m, or h. If you omit the unit of time, ns is used. (Required) |
+| configs.registry.notifications.endpoints[0].url | string | `"https://my.listener.com/event"` | The URL to which events should be published. (Required) |
 | configs.telemetry.create | bool | `true` | Specifies whether a config map should be created. |
+| configs.telemetry.kind | string | `"ConfigMap"` | Specifies the type of config to create. Supported types: configmap, secret |
 | configs.telemetry.name | string | `""` | Specifies name of a config map used to configure the registry. If not filled, uses full name. |
 | configs.telemetry.otel | object | `{"OTEL_TRACES_EXPORTER":"none"}` | OpenTelemetry SDK environment variables. https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/ |
 | fullnameOverride | string | `""` | Override for the full name. |

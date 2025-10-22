@@ -1,0 +1,111 @@
+{{- if .Values.configs.telemetry.create }}
+---
+{{- range $key, $value := .Values.configs.telemetry.otel }}
+  {{- if not (hasPrefix "OTEL_" $key) }}
+    {{- fail (printf ".Values.configs.telemetry.otel config key '%s' must start with 'OTEL_'." $key) }}
+  {{- end }}
+{{- end }}
+{{- $kind := .Values.configs.telemetry.kind }}
+apiVersion: v1
+kind: {{ $kind }}
+metadata:
+  name: {{ include "registry.telemetryConfig" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "registry.labels" . | nindent 4 }}
+{{- if (eq $kind "ConfigMap") }}
+data:
+{{- else }}
+stringData:
+{{- end }}
+  {{- range $key, $value := .Values.configs.telemetry.otel }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
+{{- end }}
+{{- if .Values.configs.registry.create }}
+{{- $kind := .Values.configs.registry.kind }}
+---
+apiVersion: v1
+kind: {{ $kind }}
+metadata:
+  name: {{ include "registry.config" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "registry.labels" . | nindent 4 }}
+{{- if (eq $kind "ConfigMap") }}
+data:
+{{- else }}
+stringData:
+{{- end }}
+  config.yml: |
+    version: 0.1
+    health:
+      storagedriver:
+        enabled: true
+        interval: 10s
+        threshold: 3
+    http:
+      addr: 0.0.0.0:5000
+      debug:
+        addr: 0.0.0.0:5001
+        prometheus:
+          enabled: true
+          path: /metrics
+      headers:
+        X-Content-Type-Options:
+          - nosniff
+    log:
+      level: {{ .Values.conifgs.registry.log.level | default "info" }}
+      formatter: {{ .Values.conifgs.registry.log.level | default "text" }}
+      accesslog:
+        disabled: false
+    notifications:
+      events:
+        includereferences: true
+      endpoints:
+      {{- range $i, $ep := .Values.configs.registry.notifications.endpoints }}
+        - name: {{ $ep.name }}
+          disabled: {{ $ep.disabled | ternary "true" "false" }}
+          url: {{ $ep.url }}
+          headers:
+          {{- range $header, $values := $ep.headers }}
+            {{ $header }}:
+              {{- if (lt (len $values) 1) }}
+                {{- fail (printf ".Values.configs.registry.notifications.endpoints[%d].headers[\"%s\"] needs at least 1 value" $i $header) }}
+              {{- end }}
+              {{- range $j, $value := $values }}
+              - {{- $value | required (printf ".Values.configs.registry.notifications.endpoints[%d].headers[\"%s\"][%d] cannot be empty" $i $header $j) }}
+              {{- end }}
+          {{- end }}
+          threshold: {{ $ep.threshold | default "10" }}
+          timeout: {{ $ep.timeout | default "1s" }}
+          backoff: {{ $ep.backoff | default "1s" }}
+          {{- if $ep.ignore }}
+          ignore:
+            {{- if $ep.ignore.mediatypes }}
+            mediatypes:
+              {{- range $j, $mt := $ep.ignore.mediatypes }}
+              - {{ $mt | required (printf ".Values.configs.registry.notifications.endpoints[%d].ignore.mediatypes[%d] is required" $i $j) }}
+              {{- end }}
+            {{- end }}
+            {{- if $ep.ignore.actions }}
+            actions:
+              {{- range $j, $action := $ep.ignore.actions }}
+              - {{ $action | required ".Values.configs.registry.notifications.endpoints[$i].ignore.actions[$j] is required" }}
+              {{- end }}
+            {{- end }}
+          {{- end }}
+      {{- end }}
+    storage:
+      cache:
+        blobdescriptor: inmemory
+      delete:
+        enabled: false
+      maintenance:
+        uploadpurging:
+          enabled: false
+      tag:
+        concurrencylimit: 8
+      s3:
+        rootdirectory: "/registry"
+{{- end }}
