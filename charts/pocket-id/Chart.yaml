@@ -6,7 +6,7 @@ description: |
   with their passkeys to your services.
 home: https://pocket-id.org
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
-version: 1.7.0
+version: 1.7.1
 appVersion: "v1.13.1"
 sources:
   - https://github.com/pocket-id/pocket-id
