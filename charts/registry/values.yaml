@@ -26,12 +26,66 @@ configs:
     # If not filled, uses full name.
     name: ""
 
+    # -- Specifies the type of config to create.
+    # Supported types: configmap, secret
+    kind: ConfigMap
+
+    log:
+      # -- Logging level. Valid values are: debug, info, warn, error.
+      level: info
+      # -- Log formatter. Valid values are: text, json, logstash.
+      formatter: text
+
+    notifications:
+      endpoints:
+        - # -- A human-readable name for the service. (Required)
+          name: "example"
+
+          # -- If true, notifications are disabled for the service.
+          disabled: true
+
+          # -- The URL to which events should be published. (Required)
+          url: https://my.listener.com/event
+
+          # -- A list of static headers to add to each request.
+          # Each header’s name is a key beneath headers, and each value is a list of payloads for that header name.
+          # Values must always be lists.
+          headers: {}
+
+          # -- An integer specifying how long to wait before backing off a failure. (Required)
+          threshold: 10
+
+          # -- A value for the HTTP timeout.
+          # A positive integer and an optional suffix indicating the unit of time, which may be ns, us, ms, s, m, or h.
+          # If you omit the unit of time, ns is used. (Required)
+          timeout: 1s
+
+          # -- How long the system backs off before retrying after a failure.
+          # A positive integer and an optional suffix indicating the unit of time, which may be ns, us, ms, s, m, or h.
+          # If you omit the unit of time, ns is used. (Required)
+          backoff: 1s
+
+          ignore:
+            # -- A list of target media types to ignore.
+            # Events with these target media types are not published to the endpoint.
+            mediatypes: []
+              # - application/octet-stream
+
+            # -- A list of actions to ignore. 
+            # Events with these actions are not published to the endpoint.
+            actions:
+              - pull
+
   telemetry:
     # -- Specifies whether a config map should be created.
     create: true
     # -- Specifies name of a config map used to configure the registry.
     # If not filled, uses full name.
     name: ""
+
+    # -- Specifies the type of config to create.
+    # Supported types: configmap, secret
+    kind: ConfigMap
 
     # -- OpenTelemetry SDK environment variables.
     # https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/
