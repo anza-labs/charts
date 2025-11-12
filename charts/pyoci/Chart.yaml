@@ -85,6 +85,13 @@ annotations:
       - name: Commit a79a164
         url: https://github.com/anza-labs/charts/commit/a79a164b5ca27d32bb9fd7dd8ddc291c1c7141c9
     - kind: changed
+      description: '**main:** release pyoci 1.0.0'
+      links:
+      - name: 'GitHub Issue #238'
+        url: https://github.com/anza-labs/charts/issues/238
+      - name: Commit 72e9f2a
+        url: https://github.com/anza-labs/charts/commit/72e9f2aef22647d5cf686ff70747b364343af78b
+    - kind: changed
       description: '**pyoci:** add e2e for pyoci'
       links:
       - name: 'GitHub Issue #247'
