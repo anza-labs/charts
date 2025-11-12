@@ -11,17 +11,10 @@ spec:
 
   bindings:
     - name: arguments
-      value: ''
+      value: |
+        --set=config.logLevel=debug
 
   steps:
-    - name: Install S3Mock
-      use:
-        template: ../../_lib/s3mock.step.yaml
-        with:
-          bindings:
-            - name: namespace
-              value: ($namespace)
-
     - name: Install chart
       use:
         template: ../_lib/helm-install.step.yaml
@@ -39,3 +32,23 @@ spec:
           bindings:
             - name: namespace
               value: ($namespace)
+
+    - name: Validate core installation
+      use:
+        template: ../_lib/validate-core-installation.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
+    - name: Run test
+      use:
+        template: ../_lib/test.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+            - name: PYOCI_USER
+              value: ''
+            - name: PYOCI_PASSWORD
+              value: ''
