@@ -2505,6 +2505,106 @@ entries:
     version: 0.1.0
   pyoci:
   - annotations:
+      artifacthub.io/changes: |-
+        - kind: added
+          description: add pyoci chart
+          links:
+          - name: Commit 4facd07
+            url: https://github.com/anza-labs/charts/commit/4facd07faee26a3de1378cf2028d60952d2126cc
+        - kind: added
+          description: bump pyoci
+          links:
+          - name: Commit 8a3203e
+            url: https://github.com/anza-labs/charts/commit/8a3203eb4218baac0f8e03511d587a8facdf6293
+        - kind: added
+          description: release fixes
+          links:
+          - name: Commit 7258170
+            url: https://github.com/anza-labs/charts/commit/72581704aac0abcc75bac20370ec266caf86618b
+        - kind: fixed
+          description: drop probes
+          links:
+          - name: Commit a0bb14b
+            url: https://github.com/anza-labs/charts/commit/a0bb14b070b3be2590178017b74b20efe418e5a2
+        - kind: fixed
+          description: force maxBody as int
+          links:
+          - name: Commit 13100c5
+            url: https://github.com/anza-labs/charts/commit/13100c5ef3aa3f8b8e473ebc1aa28fae31271b6d
+        - kind: fixed
+          description: proper values in config
+          links:
+          - name: Commit 81005bd
+            url: https://github.com/anza-labs/charts/commit/81005bd4e39c8471be586da78d402c6e5d53e644
+        - kind: fixed
+          description: root path as / is invalid
+          links:
+          - name: Commit 5b32913
+            url: https://github.com/anza-labs/charts/commit/5b32913be056b3e7a16ef98717e0e415bb45f333
+        - kind: fixed
+          description: set telemetry as optional
+          links:
+          - name: Commit bb6d837
+            url: https://github.com/anza-labs/charts/commit/bb6d837200ac4e26c039677759a3f8fa5a0c2ee5
+        - kind: changed
+          description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.29'
+          links:
+          - name: 'GitHub Issue #237'
+            url: https://github.com/anza-labs/charts/issues/237
+          - name: Commit 562486d
+            url: https://github.com/anza-labs/charts/commit/562486d957623fa875b2b0c26ac5eed7ae93491c
+        - kind: changed
+          description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.30'
+          links:
+          - name: 'GitHub Issue #243'
+            url: https://github.com/anza-labs/charts/issues/243
+          - name: Commit 6bb98fc
+            url: https://github.com/anza-labs/charts/commit/6bb98fc1505373afff1b51351ae856496df3db09
+        - kind: changed
+          description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.31'
+          links:
+          - name: 'GitHub Issue #264'
+            url: https://github.com/anza-labs/charts/issues/264
+          - name: Commit a430c3f
+            url: https://github.com/anza-labs/charts/commit/a430c3fa7ee90e17be3e430fda000bc302f55767
+        - kind: changed
+          description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.32'
+          links:
+          - name: 'GitHub Issue #269'
+            url: https://github.com/anza-labs/charts/issues/269
+          - name: Commit a79a164
+            url: https://github.com/anza-labs/charts/commit/a79a164b5ca27d32bb9fd7dd8ddc291c1c7141c9
+        - kind: changed
+          description: '**pyoci:** add e2e for pyoci'
+          links:
+          - name: 'GitHub Issue #247'
+            url: https://github.com/anza-labs/charts/issues/247
+          - name: Commit 304ed90
+            url: https://github.com/anza-labs/charts/commit/304ed90f20f29367fde2005b13e5aa7ce24a850d
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: 0.1.32
+    created: "2025-11-12T19:11:30.899580518Z"
+    description: Publish and install private python packages using OCI/docker registries.
+    digest: 1e33a010463a9f3a00e831b09cd18eb67ba5e1d0964b1d878dc92d1016549d6f
+    home: https://pyoci.com
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
+    keywords:
+    - oci-registry
+    - docker
+    - pyoci
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pyoci
+    sources:
+    - https://github.com/AllexVeldman/pyoci
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pyoci-1.0.0/pyoci-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
       artifacthub.io/changes: ""
       artifacthub.io/immutable: "true"
     apiVersion: v2
@@ -2740,4 +2840,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2025-11-12T18:51:08.142805234Z"
+generated: "2025-11-12T19:11:30.899831221Z"
