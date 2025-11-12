@@ -4,7 +4,7 @@ kind: StepTemplate
 metadata:
   name: test-ldap
   labels:
-    chart: registry
+    chart: glauth
 spec:
   try:
     - apply:
@@ -14,12 +14,12 @@ spec:
           metadata:
             name: test-ldap
             labels:
-              charts.anza-labs.dev/test: registry-ldap
+              charts.anza-labs.dev/test: glauth-ldap
           spec:
             template:
               metadata:
                 labels:
-                  charts.anza-labs.dev/test: registry-ldap
+                  charts.anza-labs.dev/test: glauth-ldap
               spec:
                 restartPolicy: OnFailure
                 containers:
@@ -33,14 +33,13 @@ spec:
 
                         set -eux
 
-                        ldapsearch \
-                          -LLL \
-                          -H "ldap://${NAMESPACE}-glauth.${NAMESPACE}:3893" \
-                          -D "${BINDDN}" \
-                          -w "${PASSWD}" \
-                          -x \
-                          -b "${BASEDN}" \
-                          "${FILTER}"
+                        export LDAP_URI="ldap://${NAMESPACE}-glauth.${NAMESPACE}:3893"
+
+                        ldapsearch -LLL -H "${LDAP_URI}" -D "${BINDDN}" -w "${PASSWD}" -x -b "${BASEDN}" "${FILTER}"
+
+                        ldapsearch -LLL -H "${LDAP_URI}" -D "${BINDDN}" -w "${PASSWD}" -x -b "" -s base "+"
+
+                        ldapsearch -LLL -H "${LDAP_URI}" -D "${BINDDN}" -w "${PASSWD}" -x -b "${BINDDN}" dn
                     env:
                       - name: NAMESPACE
                         value: ($namespace)
@@ -68,5 +67,5 @@ spec:
         name: test-ldap
     - podLogs:
         namespace: ($namespace)
-        selector: charts.anza-labs.dev/test=registry-ldap
+        selector: charts.anza-labs.dev/test=glauth-ldap
         tail: -1
