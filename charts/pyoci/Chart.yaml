@@ -6,7 +6,7 @@ description: |-
 home: https://pyoci.com
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
 version: "0.2.1"
-appVersion: "0.1.30"
+appVersion: "0.1.32"
 sources:
   - https://github.com/AllexVeldman/pyoci
 keywords:

@@ -1,0 +1,183 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: test
+  labels:
+    chart: pyoci
+spec:
+  try:
+    - apply:
+        resource:
+          apiVersion: v1
+          kind: ConfigMap
+          metadata:
+            name: project-template
+            labels:
+              charts.anza-labs.dev/test: pyoci-install
+          data:
+            pyproject.toml: |
+              [tool.poetry]
+                name = "demo"
+                version = "0.1.0"
+                description = "Minimal demo library with add function"
+                authors = ["Your Name <you@example.com>"]
+
+              [tool.poetry.dependencies]
+                python = "^3.11"
+
+              [tool.poetry.group.dev.dependencies]
+                pytest = "^7.0"
+
+              [build-system]
+                requires = ["poetry-core"]
+                build-backend = "poetry.core.masonry.api"
+
+            poetry.toml.tpl: |
+              [repositories.pyoci]
+                url = "$INDEX_URL"
+
+            README.md: |
+              # Demo
+
+              This is a minimal Poetry project template with a simple add function.
+
+            prepare.sh: |
+              #!/usr/bin/env bash
+
+              set -eux
+
+              mkdir -p src/demo
+              cat > src/demo/__init__.py <<EOF
+              # Init for demo package
+              EOF
+
+              cat > src/demo/main.py <<EOF
+              def add(a: int, b: int) -> int:
+                  """Return the sum of two numbers."""
+                  return a + b
+              EOF
+
+              mkdir -p tests
+              cat > tests/__init__.py <<EOF
+              # Init for tests
+              EOF
+
+              cat > tests/test_main.py <<EOF
+              from demo.main import add
+
+              def test_add():
+                  assert add(2, 3) == 5
+                  assert add(-1, 1) == 0
+              EOF
+
+    - assert:
+        timeout: 120s
+        resource:
+          apiVersion: v1
+          kind: ConfigMap
+          metadata:
+            name: project-template
+
+    - apply:
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test
+            labels:
+              charts.anza-labs.dev/test: pyoci-test
+          spec:
+            template:
+              metadata:
+                labels:
+                  charts.anza-labs.dev/test: pyoci-test
+              spec:
+                restartPolicy: OnFailure
+                containers:
+                  - name: crane
+                    image: docker.io/library/python:3.13
+                    imagePullPolicy: IfNotPresent
+                    command: ["/bin/bash", "-c"]
+                    args:
+                      - |
+                        #!/bin/bash
+
+                        set -eux
+
+                        export REGISTRY="ttl.sh"
+
+                        curl -vfsSL "https://${REGISTRY}" || true
+
+                        pip install poetry
+                        apt-get update && apt-get install -y gettext uuid-runtime
+
+                        export REPO="$(uuidgen)"
+                        export PYOCI="${NAMESPACE}-pyoci.${NAMESPACE}:8080"
+                        export INDEX_URL="http://${PYOCI}/${REGISTRY}/${REPO}/"
+
+                        mkdir -p /mnt/project
+                        cp -rL /mnt/template/* /mnt/project/
+                        cd /mnt/project
+
+                        ls -al
+
+                        envsubst < poetry.toml.tpl > poetry.toml
+
+                        chmod +x ./prepare.sh
+                        bash ./prepare.sh
+
+                        if [[ -n "${PYOCI_USER:-}" && -n "${PYOCI_PASSWORD:-}" ]]; then
+                          poetry config http-basic.pyoci "${PYOCI_USER}" "${PYOCI_PASSWORD}"
+                        fi
+
+                        poetry build
+                        poetry publish --repository pyoci -vv
+
+                        poetry install --no-root -vv
+                    env:
+                      - name: DEBIAN_FRONTEND
+                        value: noninteractive
+                      - name: POETRY_NO_INTERACTION
+                        value: '1'
+                      - name: POETRY_VIRTUALENVS_IN_PROJECT
+                        value: '1'
+                      - name: POETRY_VIRTUALENVS_CREATE
+                        value: '1'
+                      - name: POETRY_CACHE_DIR
+                        value: /tmp/poetry_cache
+                      - name: NAMESPACE
+                        value: ($namespace)
+                      - name: PYOCI_USER
+                        value: ($PYOCI_USER)
+                      - name: PYOCI_PASSWORD
+                        value: ($PYOCI_PASSWORD)
+                    volumeMounts:
+                      - name: project-template
+                        mountPath: /mnt/template
+                volumes:
+                  - name: project-template
+                    configMap:
+                      name: project-template
+    - assert:
+        timeout: 120s
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test
+          status:
+            succeeded: 1
+  catch:
+    - describe:
+        apiVersion: v1
+        kind: ConfigMap
+        name: project-template
+    - describe:
+        apiVersion: batch/v1
+        kind: Job
+        name: test
+    - podLogs:
+        namespace: ($namespace)
+        selector: charts.anza-labs.dev/test=pyoci-test
+        tail: -1
