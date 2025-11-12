@@ -56,6 +56,45 @@ entries:
   lubelogger:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: changed
+          description: '**deps:** update docker.io/curlimages/curl docker tag to v8.17.0'
+          links:
+          - name: 'GitHub Issue #270'
+            url: https://github.com/anza-labs/charts/issues/270
+          - name: Commit 5acd128
+            url: https://github.com/anza-labs/charts/commit/5acd1280cce57cf6a1b21d39395fdd17e909f404
+        - kind: changed
+          description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.5.4'
+          links:
+          - name: 'GitHub Issue #273'
+            url: https://github.com/anza-labs/charts/issues/273
+          - name: Commit 85a8a22
+            url: https://github.com/anza-labs/charts/commit/85a8a223d74d76aed76ab9be91d6d1a5b3e4b511
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.5.4
+    created: "2025-11-12T18:41:35.682854126Z"
+    description: 'LubeLogger is a web-based vehicle maintenance and fuel mileage tracker '
+    digest: f41411dc8dfd9718eb1c05bd9240b57c4f9ce17db045e6883b276fa494652d7b
+    home: https://lubelogger.com
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/lubelogger/icon.png
+    keywords:
+    - vechicle
+    - maintenance
+    - dashboard
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: lubelogger
+    sources:
+    - https://github.com/hargata/lubelog
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/lubelogger-1.4.1/lubelogger-1.4.1.tgz
+    version: 1.4.1
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: added
           description: '**lubelogger:** set only selector labels on volumes'
           links:
@@ -2666,4 +2705,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2025-10-30T07:11:54.592445198Z"
+generated: "2025-11-12T18:41:36.001694909Z"
