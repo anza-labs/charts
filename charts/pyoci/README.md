@@ -1,6 +1,6 @@
 # pyoci
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 0.1.32](https://img.shields.io/badge/AppVersion-0.1.32-informational?style=flat)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 0.1.32](https://img.shields.io/badge/AppVersion-0.1.32-informational?style=flat)
 
 Publish and install private python packages using OCI/docker registries.
 
