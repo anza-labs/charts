@@ -6,26 +6,11 @@
 
 This repository contains the following Helm charts:
 
-### Active Charts
-
-| Name | Version | App Version | Artifact Hub |
-|------|---------|-------------|--------------|
-| [glauth](charts/glauth) | `0.2.0` | `v2.4.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/glauth) |
-| [lubelogger](charts/lubelogger) | `1.4.0` | `v1.5.3` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
-| [meta-chart](charts/meta-chart) | `0.1.2` | `meta` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/meta-chart) |
-| [pocket-id](charts/pocket-id) | `1.7.1` | `v1.14.2` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/pocket-id) |
-| [pyoci](charts/pyoci) | `0.2.1` | `0.1.30` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/pyoci) |
-| [registry](charts/registry) | `0.3.0` | `3.0.0` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/registry) |
-
-### Deprecated Charts
-
-The following charts are deprecated and should not be used for new deployments:
-
-| Name | Version | App Version |
-|------|---------|-------------|
-| [hosted-control-plane](deprecated/hosted-control-plane) | `0.3.0` | `v1.33.1` |
-| [kamaji](deprecated/kamaji) | `0.1.11` | `edge-25.4.1` |
-| [kube-storage-version-migrator](deprecated/kube-storage-version-migrator) | `0.1.1` | `v0.0.5` |
-| [omada-controller](deprecated/omada-controller) | `0.3.1` | `5.15.24.17` |
-| [podvm](deprecated/podvm) | `0.0.0-alpha.10` | `v1.12.0` |
-| [scribe](deprecated/scribe) | `0.3.7` | `v0.3.0` |
+| Name | Artifact Hub |
+|------|--------------|
+| [glauth](charts/glauth) | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/glauth) |
+| [lubelogger](charts/lubelogger) | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/lubelogger) |
+| [meta-chart](charts/meta-chart) | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/meta-chart) |
+| [pocket-id](charts/pocket-id) | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/pocket-id) |
+| [pyoci](charts/pyoci) | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/pyoci) |
+| [registry](charts/registry) | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color=blue)](https://artifacthub.io/packages/helm/anza-labs/registry) |

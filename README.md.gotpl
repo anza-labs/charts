@@ -10,25 +10,11 @@ This repository contains the following Helm charts:
 {{ $stable := "blue" -}}
 {{ $deprecated := "red" -}}
 
-### Active Charts
-
-| Name | Version | App Version | Artifact Hub |
-|------|---------|-------------|--------------|
+| Name | Artifact Hub |
+|------|--------------|
 {{- range . }}
 {{- if not .Deprecated }}
 {{- $pre := (.Version | regexMatch "^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-zA-Z0-9.]+)$") }}
-| [{{ .Name }}](charts/{{ .Name }}) | `{{ .Version }}` | `{{ .AppVersion }}` | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color={{ if $pre }}{{ $prerelease }}{{ else }}{{ $stable }}{{ end }})](https://artifacthub.io/packages/helm/anza-labs/{{ .Name }}) |
-{{- end }}
-{{- end }}
-
-### Deprecated Charts
-
-The following charts are deprecated and should not be used for new deployments:
-
-| Name | Version | App Version |
-|------|---------|-------------|
-{{- range . }}
-{{- if .Deprecated }}
-| [{{ .Name }}](deprecated/{{ .Name }}) | `{{ .Version }}` | `{{ .AppVersion }}` |
+| [{{ .Name }}](charts/{{ .Name }}) | [![Artifact Hub](https://img.shields.io/static/v1?logo=ArtifactHub&label=ArtifactHub&message=View&color={{ if $pre }}{{ $prerelease }}{{ else }}{{ $stable }}{{ end }})](https://artifacthub.io/packages/helm/anza-labs/{{ .Name }}) |
 {{- end }}
 {{- end }}
