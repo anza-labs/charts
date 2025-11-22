@@ -5,7 +5,7 @@ description: |
   glauth is a lightweight LDAP server for development, home use, or CI.
 home: https://glauth.github.io
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/glauth/icon.png
-version: 0.2.0
+version: 1.0.0
 appVersion: "v2.4.0"
 sources:
   - https://github.com/glauth/glauth
@@ -16,6 +16,19 @@ keywords:
 annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
+  artifacthub.io/changes: |-
+    - kind: added
+      description: '**glauth:** add glauth chart'
+      links:
+      - name: 'GitHub Issue #196'
+        url: https://github.com/anza-labs/charts/issues/196
+      - name: Commit 55ea41c
+        url: https://github.com/anza-labs/charts/commit/55ea41ce4c79aa93734b67b9c3e4594cc9f23866
+    - kind: changed
+      description: add new simple ldap test
+      links:
+      - name: Commit e3f0b6d
+        url: https://github.com/anza-labs/charts/commit/e3f0b6d7c8e26d346e60634c33b47112caee4540
 maintainers:
   - name: shanduur
     email: maturb@proton.me
