@@ -6,7 +6,7 @@ description: |-
   stores and lets you distribute container images and other content.
 home: https://distribution.github.io/distribution/
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/registry/icon.png
-version: 0.3.0
+version: 1.0.0
 appVersion: "3.0.0"
 sources:
   - https://github.com/distribution/distribution
@@ -17,7 +17,42 @@ keywords:
   - distribution
 annotations:
   artifacthub.io/immutable: "true"
-  artifacthub.io/changes: ""
+  artifacthub.io/changes: |-
+    - kind: added
+      description: add htpasswd auth
+      links:
+      - name: Commit da621e7
+        url: https://github.com/anza-labs/charts/commit/da621e7b3b9b8eda1ca5e805b6e8836f814d26ed
+    - kind: added
+      description: add pyoci chart
+      links:
+      - name: Commit 4facd07
+        url: https://github.com/anza-labs/charts/commit/4facd07faee26a3de1378cf2028d60952d2126cc
+    - kind: added
+      description: add registry chart
+      links:
+      - name: Commit b8d1366
+        url: https://github.com/anza-labs/charts/commit/b8d13660ed61c55aed561b4e647232a553693ad1
+    - kind: fixed
+      description: failing e2e with htpasswd
+      links:
+      - name: Commit d364a6c
+        url: https://github.com/anza-labs/charts/commit/d364a6cd8dbf94a79f8b699e60415e65f41f3496
+    - kind: fixed
+      description: '**registry:** set htpasswd as RO always'
+      links:
+      - name: Commit 9cc50f8
+        url: https://github.com/anza-labs/charts/commit/9cc50f8e7559736065e56bc5d8451fa512320d22
+    - kind: changed
+      description: add push n pull tests
+      links:
+      - name: Commit f2bc0dd
+        url: https://github.com/anza-labs/charts/commit/f2bc0dd56abaed423a797155be749f7f7efd8951
+    - kind: changed
+      description: fix secret unittests
+      links:
+      - name: Commit 0816670
+        url: https://github.com/anza-labs/charts/commit/08166701cfeee84d5591f7eb77d06eb20ce4b93d
 maintainers:
   - name: shanduur
     email: maturb@proton.me
