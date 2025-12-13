@@ -175,7 +175,7 @@ CLOUD_PROVIDER_KIND_VERSION ?= v0.10.0
 CTLPTL_VERSION ?= v0.8.43
 
 # renovate: datasource=github-tags depName=helm/helm
-HELM_VERSION ?= v3.19.3
+HELM_VERSION ?= v3.19.4
 
 # renovate: datasource=github-tags depName=norwoodj/helm-docs
 HELM_DOCS_VERSION ?= v1.14.2
