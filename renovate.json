@@ -1,12 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "automerge": true,
-  "extends": [
-    "config:recommended"
-  ],
-  "labels": [
-    "area/dependency"
-  ],
+  "extends": ["config:recommended"],
+  "labels": ["area/dependency"],
   "ignorePaths": [
     "**/node_modules/**",
     "**/bower_components/**",
@@ -15,52 +11,31 @@
   "packageRules": [
     {
       "automerge": false,
-      "matchManagers": [
-        "helm-values"
-      ],
-      "labels": [
-        "area/dependency",
-        "do-not-merge"
-      ]
+      "matchManagers": ["helm-values"],
+      "labels": ["area/dependency", "do-not-merge"]
     },
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackageNames": [
-        "docker.io/clastix/kamaji"
-      ],
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["docker.io/clastix/kamaji"],
       "versioning": "regex:^edge-(?<major>\\d{2})\\.(?<minor>\\d{1,2})\\.(?<patch>\\d{1,2})$"
     }
   ],
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
     "enabled": true,
-    "labels": [
-      "area/dependency",
-      "kind/security"
-    ]
+    "labels": ["area/dependency", "kind/security"]
   },
-  "postUpdateOptions": [
-    "gomodTidy",
-    "gomodUpdateImportPaths"
-  ],
+  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/kind.yaml$/"
-      ],
-      "matchStrings": [
-        "\\s+image:\\s(?<depName>.*?):(?<currentValue>\\S+)"
-      ],
+      "managerFilePatterns": ["/kind.yaml$/"],
+      "matchStrings": ["\\s+image:\\s(?<depName>.*?):(?<currentValue>\\S+)"],
       "datasourceTemplate": "docker"
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/values.yaml$/"
-      ],
+      "managerFilePatterns": ["/values.yaml$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+version:\\s(?<currentValue>\\S+)"
       ],
@@ -68,13 +43,18 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^Makefile$/"
-      ],
+      "managerFilePatterns": ["/^Makefile$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s[A-Z_]+\\s\\?=\\s(?<currentValue>\\S+)"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^go.mod$/"],
+      "matchStrings": ["\\sgo (?<currentValue>.+?)\\s"],
+      "depNameTemplate": "golang",
+      "datasourceTemplate": "docker"
     }
   ]
 }
