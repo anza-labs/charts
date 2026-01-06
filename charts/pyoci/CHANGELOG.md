@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/anza-labs/charts/compare/pyoci-1.0.0...pyoci-v1.0.1) (2026-01-06)
+
+
+### Miscellaneous Chores
+
+* **deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.34 ([#285](https://github.com/anza-labs/charts/issues/285)) ([0c7c1dc](https://github.com/anza-labs/charts/commit/0c7c1dcace72ff53a7f7905ca3309a2cbfba4571))
+* **deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.35 ([#298](https://github.com/anza-labs/charts/issues/298)) ([5bf3b91](https://github.com/anza-labs/charts/commit/5bf3b91f87586af4375a26254355114fa0fd4bdd))
+
 ## 1.0.0 (2025-11-12)
 
 
