@@ -175,7 +175,7 @@ CLOUD_PROVIDER_KIND_VERSION ?= v0.10.0
 CTLPTL_VERSION ?= v0.8.44
 
 # renovate: datasource=github-tags depName=helm/helm
-HELM_VERSION ?= v3.19.4
+HELM_VERSION ?= v4.0.4
 
 # renovate: datasource=github-tags depName=norwoodj/helm-docs
 HELM_DOCS_VERSION ?= v1.14.2
@@ -239,8 +239,8 @@ $(HELM_DOCS)-$(HELM_DOCS_VERSION): $(LOCALBIN)
 
 .PHONY: helm-unittest
 helm-unittest: helm
-	-$(HELM) plugin install https://github.com/helm-unittest/helm-unittest.git
-	-$(HELM) plugin update unittest
+	-$(HELM) plugin uninstall unittest
+	-$(HELM) plugin install https://github.com/helm-unittest/helm-unittest.git --verify=false
 
 .PHONY: helm-values-schema-json
 helm-values-schema-json: $(HELM_VALUES_SCHEMA_JSON)-$(HELM_VALUES_SCHEMA_JSON_VERSION) ## Download helm-values-schema-json locally if necessary.
