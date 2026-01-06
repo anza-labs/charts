@@ -1,6 +1,6 @@
 # pyoci
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 0.1.32](https://img.shields.io/badge/AppVersion-0.1.32-informational?style=flat)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 0.1.35](https://img.shields.io/badge/AppVersion-0.1.35-informational?style=flat)
 
 Publish and install private python packages using OCI/docker registries.
 
@@ -33,7 +33,7 @@ Publish and install private python packages using OCI/docker registries.
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"ghcr.io/allexveldman/pyoci"` | pyoci and repository for the pyoci image. |
-| image.tag | string | `"0.1.32"` | Tag for the image. |
+| image.tag | string | `"0.1.35"` | Tag for the image. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | ingress.annotations | object | `{}` | Annotations to add to the ingress. |
 | ingress.className | string | `""` | Ingress class name. |
