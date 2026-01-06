@@ -239,8 +239,8 @@ $(HELM_DOCS)-$(HELM_DOCS_VERSION): $(LOCALBIN)
 
 .PHONY: helm-unittest
 helm-unittest: helm
-	-$(HELM) plugin uninstall unittest
 	-$(HELM) plugin install https://github.com/helm-unittest/helm-unittest.git --verify=false
+	-$(HELM) plugin update unittest
 
 .PHONY: helm-values-schema-json
 helm-values-schema-json: $(HELM_VALUES_SCHEMA_JSON)-$(HELM_VALUES_SCHEMA_JSON_VERSION) ## Download helm-values-schema-json locally if necessary.
