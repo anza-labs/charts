@@ -1287,6 +1287,48 @@ entries:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.5'
+          links:
+          - name: 'GitHub Issue #293'
+            url: https://github.com/anza-labs/charts/issues/293
+          - name: Commit b3f4b51
+            url: https://github.com/anza-labs/charts/commit/b3f4b510de822e41dcd9886fab206fb5442fc45b
+        - kind: changed
+          description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.16.0'
+          links:
+          - name: 'GitHub Issue #287'
+            url: https://github.com/anza-labs/charts/issues/287
+          - name: Commit 3b4d260
+            url: https://github.com/anza-labs/charts/commit/3b4d260cff4da2e7ee57f18fbe00c315a00ca884
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.16.0
+    created: "2026-01-06T12:44:36.32270583Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: 1c69338737f36ee1a5064d8862e58ca866bae9c53749acac7a336aba050da9db
+    home: https://pocket-id.org
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-1.7.3/pocket-id-1.7.3.tgz
+    version: 1.7.3
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v1.15.0'
           links:
           - name: 'GitHub Issue #272'
@@ -2879,4 +2921,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-06T12:36:03.662205977Z"
+generated: "2026-01-06T12:44:36.322996272Z"
