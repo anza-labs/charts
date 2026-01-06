@@ -1,6 +1,6 @@
 # pocket-id
 
-![Version: 1.7.2](https://img.shields.io/badge/Version-1.7.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.15.0](https://img.shields.io/badge/AppVersion-v1.15.0-informational?style=flat)
+![Version: 1.7.3](https://img.shields.io/badge/Version-1.7.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.16.0](https://img.shields.io/badge/AppVersion-v1.16.0-informational?style=flat)
 
 pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
 with their passkeys to your services.
@@ -27,7 +27,7 @@ with their passkeys to your services.
 | backup.checkpointInterval | string | `"1m"` | Interval between checkpoints in Go duration format. If empty, default is used. |
 | backup.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | backup.image.repository | string | `"docker.io/litestream/litestream"` | Registry and repository for the litestream image. |
-| backup.image.tag | string | `"0.5.2"` | Tag for the image. |
+| backup.image.tag | string | `"0.5.5"` | Tag for the image. |
 | backup.logging.level | string | `"INFO"` | Logging level. Options: DEBUG, INFO, WARNING, ERROR |
 | backup.logging.stderr | bool | `false` | Whether to log to stderr (default is stdout) |
 | backup.logging.type | string | `"text"` | Logging format. Options: text or json |
@@ -106,7 +106,7 @@ with their passkeys to your services.
 | persistence.data.storageClass | string | `""` | Specify the StorageClass (if required). |
 | pocketID.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | pocketID.image.repository | string | `"ghcr.io/pocket-id/pocket-id"` | Registry and repository for the pocket-id image. |
-| pocketID.image.tag | string | `"v1.15.0"` | Tag for the image. |
+| pocketID.image.tag | string | `"v1.16.0"` | Tag for the image. |
 | pocketID.resources | object | `{}` |  |
 | pocketID.securityContext | object | `{}` |  |
 | podAnnotations | object | `{}` | Annotations to be added to the pods. |
