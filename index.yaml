@@ -2506,6 +2506,45 @@ entries:
   pyoci:
   - annotations:
       artifacthub.io/changes: |-
+        - kind: changed
+          description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.34'
+          links:
+          - name: 'GitHub Issue #285'
+            url: https://github.com/anza-labs/charts/issues/285
+          - name: Commit 0c7c1dc
+            url: https://github.com/anza-labs/charts/commit/0c7c1dcace72ff53a7f7905ca3309a2cbfba4571
+        - kind: changed
+          description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.35'
+          links:
+          - name: 'GitHub Issue #298'
+            url: https://github.com/anza-labs/charts/issues/298
+          - name: Commit 5bf3b91
+            url: https://github.com/anza-labs/charts/commit/5bf3b91f87586af4375a26254355114fa0fd4bdd
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: 0.1.35
+    created: "2026-01-06T12:36:03.662063432Z"
+    description: Publish and install private python packages using OCI/docker registries.
+    digest: 779d22be7f9e8aca8130f651ed4205dde99f8dd418dd4a3432750ac6ac1d3a01
+    home: https://pyoci.com
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
+    keywords:
+    - oci-registry
+    - docker
+    - pyoci
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pyoci
+    sources:
+    - https://github.com/AllexVeldman/pyoci
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pyoci-1.0.1/pyoci-1.0.1.tgz
+    version: 1.0.1
+  - annotations:
+      artifacthub.io/changes: |-
         - kind: added
           description: add pyoci chart
           links:
@@ -2840,4 +2879,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2025-11-12T19:11:30.899831221Z"
+generated: "2026-01-06T12:36:03.662205977Z"
