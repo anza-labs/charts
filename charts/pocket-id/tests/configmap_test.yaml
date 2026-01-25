@@ -25,6 +25,15 @@ tests:
             .Values.config.telemetry.otel config key 'TEST'
             must start with 'OTEL_'.
 
+  - it: Should fail for invalid file backend
+    set:
+      fileBackend.backend: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: >-
+            Invalid file backend: invalid. .Values.fileBackend.backend must be
+            'filesystem', 's3', or 'database'.
+
   - it: Should not create ConfigMap
     set:
       config.create: false
@@ -260,9 +269,10 @@ tests:
     set:
       fileBackend:
         backend: "s3"
-        s3Bucket: "my-bucket"
-        s3Region: "us-west-2"
-        s3Endpoint: "https://s3.example.com"
+        s3:
+          bucket: "my-bucket"
+          region: "us-west-2"
+          endpoint: "https://s3.example.com"
     asserts:
       - hasDocuments:
           count: 1

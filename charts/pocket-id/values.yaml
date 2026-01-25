@@ -41,16 +41,17 @@ coreConfig:
 fileBackend:
   # -- File storage backend to use. Options: "filesystem" (default), "s3", "database".
   backend: "filesystem"
-  # -- S3 bucket name (required when backend is "s3").
-  s3Bucket: ""
-  # -- S3 region (required when backend is "s3").
-  s3Region: ""
-  # -- S3 endpoint URL (optional, for S3-compatible services).
-  s3Endpoint: ""
-  # -- S3 access key ID (required when backend is "s3"). (Sensitive)
-  s3AccessKeyId: ""
-  # -- S3 secret access key (required when backend is "s3"). (Sensitive)
-  s3SecretAccessKey: ""
+  s3:
+    # -- S3 bucket name (required when backend is "s3").
+    bucket: ""
+    # -- S3 region (required when backend is "s3").
+    region: ""
+    # -- S3 endpoint URL (optional, for S3-compatible services).
+    endpoint: ""
+    # -- S3 access key ID (required when backend is "s3"). (Sensitive)
+    accessKeyId: ""
+    # -- S3 secret access key (required when backend is "s3"). (Sensitive)
+    secretAccessKey: ""
 
 updateStrategy:
   # -- The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "OnDelete".

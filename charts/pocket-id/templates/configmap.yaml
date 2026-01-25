@@ -4,6 +4,10 @@
 {{- if not (or (eq $provider "sqlite") (eq $provider "postgres")) }}
   {{- fail (printf "Invalid database provider: %s. .Values.database.provider must be 'sqlite' or 'postgres'." $provider) }}
 {{- end }}
+{{- $backend := default "filesystem" .Values.fileBackend.backend }}
+{{- if not (or (eq $backend "filesystem") (eq $backend "s3") (eq $backend "database")) }}
+  {{- fail (printf "Invalid file backend: %s. .Values.fileBackend.backend must be 'filesystem', 's3', or 'database'." $backend) }}
+{{- end }}
 {{- range $key, $value := .Values.config.telemetry.otel }}
   {{- if not (hasPrefix "OTEL_" $key) }}
     {{- fail (printf ".Values.config.telemetry.otel config key '%s' must start with 'OTEL_'." $key) }}
@@ -34,17 +38,15 @@ data:
   AUDIT_LOG_RETENTION_DAYS: "{{ .Values.coreConfig.auditLogRetentionDays }}"
   {{- end }}
   DISABLE_RATE_LIMITING: "{{ .Values.coreConfig.disableRateLimiting | default false }}"
-  {{- if .Values.fileBackend.backend }}
-  FILE_BACKEND: "{{ .Values.fileBackend.backend }}"
+  FILE_BACKEND: "{{ $backend }}"
+  {{- if and (eq $backend "s3") .Values.fileBackend.s3.bucket }}
+  S3_BUCKET: "{{ .Values.fileBackend.s3.bucket }}"
   {{- end }}
-  {{- if and (eq .Values.fileBackend.backend "s3") .Values.fileBackend.s3Bucket }}
-  S3_BUCKET: "{{ .Values.fileBackend.s3Bucket }}"
+  {{- if and (eq $backend "s3") .Values.fileBackend.s3.region }}
+  S3_REGION: "{{ .Values.fileBackend.s3.region }}"
   {{- end }}
-  {{- if and (eq .Values.fileBackend.backend "s3") .Values.fileBackend.s3Region }}
-  S3_REGION: "{{ .Values.fileBackend.s3Region }}"
-  {{- end }}
-  {{- if and (eq .Values.fileBackend.backend "s3") .Values.fileBackend.s3Endpoint }}
-  S3_ENDPOINT: "{{ .Values.fileBackend.s3Endpoint }}"
+  {{- if and (eq $backend "s3") .Values.fileBackend.s3.endpoint }}
+  S3_ENDPOINT: "{{ .Values.fileBackend.s3.endpoint }}"
   {{- end }}
   DB_PROVIDER: "{{ $provider }}"
   TZ: "{{ .Values.timeZone }}"
