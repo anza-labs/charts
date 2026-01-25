@@ -28,8 +28,8 @@ tests:
 
   - it: Should use emptyDir if persistence is disabled
     set:
-      persistence:
-        data:
+      fileBackend:
+        filesystem:
           enabled: false
     asserts:
       - contains:
@@ -40,8 +40,8 @@ tests:
 
   - it: Should use existing PVC if specified
     set:
-      persistence:
-        data:
+      fileBackend:
+        filesystem:
           enabled: true
           existingClaim: test-claim
     asserts:
@@ -61,8 +61,8 @@ tests:
 
   - it: Should create volumeClaimTemplates if enabled and no existing claim is set
     set:
-      persistence:
-        data:
+      fileBackend:
+        filesystem:
           enabled: true
           existingClaim: ""
           size: 1Gi
@@ -86,8 +86,8 @@ tests:
 
   - it: Should not render volumeClaimTemplates when disabled
     set:
-      persistence:
-        data:
+      fileBackend:
+        filesystem:
           enabled: false
     asserts:
       - notExists:

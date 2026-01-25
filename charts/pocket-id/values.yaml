@@ -35,12 +35,25 @@ coreConfig:
   staticApiKey: ""
   # -- Whether to disable rate limiting.
   disableRateLimiting: false
-  # -- Encryption key for sensitive data. Leave empty to auto-generate. (Sensitive)
+  # -- Encryption key for sensitive data (required, must be at least 16 characters). Generate with: openssl rand -base64 32
   encryptionKey: ""
 
 fileBackend:
   # -- File storage backend to use. Options: "filesystem" (default), "s3", "database".
   backend: "filesystem"
+  filesystem:
+    # -- Enable/disable PVC creation for filesystem storage.
+    enabled: false
+    # -- Use an existing PVC if defined, otherwise create one.
+    existingClaim: ""
+    # -- Specify the StorageClass (if required).
+    storageClass: ""
+    # -- Access mode for the PVC.
+    accessMode: ReadWriteOnce
+    # -- Storage size for the PVC.
+    size: 10Gi
+    # -- Annotations applied to PVC.
+    annotations: {}
   s3:
     # -- S3 bucket name (required when backend is "s3").
     bucket: ""
@@ -369,21 +382,6 @@ serviceAccount:
   # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template.
   name: ""
-
-persistence:
-  data:
-    # -- Enable/disable PVC creation for data.
-    enabled: false
-    # -- Use an existing PVC if defined, otherwise create one.
-    existingClaim: ""
-    # -- Specify the StorageClass (if required).
-    storageClass: ""
-    # -- Access mode for the PVC.
-    accessMode: ReadWriteOnce
-    # -- Storage size for the PVC.
-    size: 10Gi
-    # -- Annotations applied to PVC.
-    annotations: {}
 
 ingress:
   # -- Specifies whether ingress should be enabled.
