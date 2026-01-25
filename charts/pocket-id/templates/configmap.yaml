@@ -27,7 +27,6 @@ data:
   UPDATE_CHECK_DISABLED: "true"
   ANALYTICS_DISABLED: "{{ .Values.analyticsDisabled | default false }}"
   UPLOAD_PATH: "data/uploads"
-  KEYS_PATH: "data/keys"
   GEOLITE_DB_PATH: "data/GeoLite2-City.mmdb"
   UI_CONFIG_DISABLED: "{{ not .Values.config.ui.useDefaults }}"
   APP_URL: "https://{{ $host }}"
@@ -48,7 +47,6 @@ data:
   {{- if and (eq $backend "s3") .Values.fileBackend.s3.endpoint }}
   S3_ENDPOINT: "{{ .Values.fileBackend.s3.endpoint }}"
   {{- end }}
-  DB_PROVIDER: "{{ $provider }}"
   TZ: "{{ .Values.timeZone }}"
   GEOLITE_DB_URL: "{{ .Values.geoliteDatabaseURL }}"
   {{- if not (quote .Values.config.audit.localIPv6Ranges | empty) }}
@@ -178,7 +176,7 @@ data:
   LDAP_ATTRIBUTE_GROUP_NAME: "{{ .Values.config.ui.settings.ldap.attributes.group.name }}"
   {{- end }}
   {{- if not (quote .Values.config.ui.settings.ldap.attributes.group.adminGroup | empty) }}
-  LDAP_ATTRIBUTE_ADMIN_GROUP: "{{ .Values.config.ui.settings.ldap.attributes.group.adminGroup }}"
+  LDAP_ADMIN_GROUP_NAME: "{{ .Values.config.ui.settings.ldap.attributes.group.adminGroup }}"
   {{- end }}
   {{- end }}
 {{- end }}

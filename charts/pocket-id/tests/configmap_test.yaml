@@ -49,7 +49,6 @@ tests:
           path: data
           content:
             ANALYTICS_DISABLED: "false"
-            DB_PROVIDER: sqlite
             GEOLITE_DB_URL: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"
             APP_URL: "https://pocket-id.example.local"
             TZ: "Etc/UTC"
@@ -69,7 +68,6 @@ tests:
           path: data
           content:
             ANALYTICS_DISABLED: "true"
-            DB_PROVIDER: sqlite
             GEOLITE_DB_URL: "https://example.com/db.tar.gz"
             APP_URL: "https://example.com"
             TZ: "Europe/Berlin"
@@ -88,7 +86,6 @@ tests:
           path: data
           content:
             ANALYTICS_DISABLED: "true"
-            DB_PROVIDER: sqlite
             GEOLITE_DB_URL: "https://example.com/db.tar.gz"
             APP_URL: "https://pocket-id.example.com"
             TZ: "Europe/Berlin"
@@ -212,7 +209,7 @@ tests:
             LDAP_ATTRIBUTE_GROUP_MEMBER: "member"
             LDAP_ATTRIBUTE_GROUP_UNIQUE_IDENTIFIER: "gid"
             LDAP_ATTRIBUTE_GROUP_NAME: "cn"
-            LDAP_ATTRIBUTE_ADMIN_GROUP: "admins"
+            LDAP_ADMIN_GROUP_NAME: "admins"
 
   - it: Should create ConfigMap with audit values set
     set:
