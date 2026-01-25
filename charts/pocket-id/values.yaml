@@ -35,7 +35,8 @@ coreConfig:
   staticApiKey: ""
   # -- Whether to disable rate limiting.
   disableRateLimiting: false
-  # -- Encryption key for sensitive data (required, must be at least 16 characters). Generate with: openssl rand -base64 32
+  # -- Encryption key for sensitive data (REQUIRED, must be at least 16 characters). Generate with: openssl rand -base64 32
+  # Chart will fail to install if not provided.
   encryptionKey: ""
 
 fileBackend:
