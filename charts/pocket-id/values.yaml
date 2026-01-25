@@ -26,6 +26,32 @@ database:
   #    - For postgres: postgres:// or postgresql://user:password@host:port/dbname
   connectionString: "file:data/pocket-id.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate"
 
+coreConfig:
+  # -- Internal application URL (used for internal redirects and callbacks).
+  internalAppUrl: ""
+  # -- Number of days to retain audit logs. Leave empty to use default.
+  auditLogRetentionDays: ""
+  # -- Static API key for authentication. Leave empty to disable. (Sensitive)
+  staticApiKey: ""
+  # -- Whether to disable rate limiting.
+  disableRateLimiting: false
+  # -- Encryption key for sensitive data. Leave empty to auto-generate. (Sensitive)
+  encryptionKey: ""
+
+fileBackend:
+  # -- File storage backend to use. Options: "filesystem" (default), "s3", "database".
+  backend: "filesystem"
+  # -- S3 bucket name (required when backend is "s3").
+  s3Bucket: ""
+  # -- S3 region (required when backend is "s3").
+  s3Region: ""
+  # -- S3 endpoint URL (optional, for S3-compatible services).
+  s3Endpoint: ""
+  # -- S3 access key ID (required when backend is "s3"). (Sensitive)
+  s3AccessKeyId: ""
+  # -- S3 secret access key (required when backend is "s3"). (Sensitive)
+  s3SecretAccessKey: ""
+
 updateStrategy:
   # -- The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "OnDelete".
   type: RollingUpdate
@@ -180,6 +206,21 @@ config:
         # -- Whether to disable animations in the Admin UI
         disableAnimations: false
 
+        # -- Custom home page URL to redirect users after login. Leave empty to use default.
+        homePageUrl: ""
+
+        # -- Accent color for the UI (hex color code, e.g., "#FF5733"). Leave empty to use default.
+        accentColor: ""
+
+        # -- Whether to allow new user signups.
+        allowUserSignups: false
+
+        # -- Default custom claims for new signups (JSON string).
+        signupDefaultCustomClaims: ""
+
+        # -- Default user group IDs for new signups (comma-separated list of IDs).
+        signupDefaultUserGroupIds: ""
+
       smtp:
         # -- SMTP server hostname used to send outgoing emails
         host: ""
@@ -212,6 +253,12 @@ config:
         # -- Whether to allow unauthenticated users to request one-time access sign-in links sent to the user's email
         #    (note: this reduces security significantly, as anyone with email access can sign in)
         oneTimeAccessAsUnauthenticatedEnabled: false
+
+        # -- Whether to enable email verification for new users (requires v2.2.0+).
+        emailVerificationEnabled: false
+
+        # -- Whether to enable API key expiration notifications via email.
+        emailApiKeyExpirationEnabled: false
 
       ldap:
         # -- Whether to enable LDAP authentication
@@ -389,3 +436,16 @@ affinity:
   #           operator: In
   #           values:
   #             - linux
+
+# -- Extra environment variables to be added to the pocket-id container.
+# This allows injecting any custom environment variable not explicitly supported by the chart.
+# Example:
+# extraEnv:
+#   - name: CUSTOM_VAR
+#     value: "custom-value"
+#   - name: SECRET_VAR
+#     valueFrom:
+#       secretKeyRef:
+#         name: my-secret
+#         key: secret-key
+extraEnv: []
