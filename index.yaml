@@ -57,6 +57,45 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update docker.io/curlimages/curl docker tag to v8.18.0'
+          links:
+          - name: 'GitHub Issue #314'
+            url: https://github.com/anza-labs/charts/issues/314
+          - name: Commit 6a018b1
+            url: https://github.com/anza-labs/charts/commit/6a018b18a379964815a8ffc228670e920fbfc0e3
+        - kind: changed
+          description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.5.7'
+          links:
+          - name: 'GitHub Issue #317'
+            url: https://github.com/anza-labs/charts/issues/317
+          - name: Commit acf2b11
+            url: https://github.com/anza-labs/charts/commit/acf2b11fabdbab0f619438bf87f2d0cce07d8336
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.5.7
+    created: "2026-01-26T07:55:06.698306129Z"
+    description: 'LubeLogger is a web-based vehicle maintenance and fuel mileage tracker '
+    digest: aaf60b606db3cd6b35797c7f89871795eb4aade6f305090ceb599b30284397fe
+    home: https://lubelogger.com
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/lubelogger/icon.png
+    keywords:
+    - vechicle
+    - maintenance
+    - dashboard
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: lubelogger
+    sources:
+    - https://github.com/hargata/lubelog
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/lubelogger-1.4.2/lubelogger-1.4.2.tgz
+    version: 1.4.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update docker.io/curlimages/curl docker tag to v8.17.0'
           links:
           - name: 'GitHub Issue #270'
@@ -2921,4 +2960,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-06T12:44:36.322996272Z"
+generated: "2026-01-26T07:55:06.993080182Z"
