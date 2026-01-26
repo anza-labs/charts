@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.4](https://github.com/anza-labs/charts/compare/pocket-id-1.7.3...pocket-id-v1.7.4) (2026-01-26)
+
+
+### Miscellaneous Chores
+
+* **deps:** update docker.io/litestream/litestream docker tag to v0.5.6 ([#315](https://github.com/anza-labs/charts/issues/315)) ([92c5ba0](https://github.com/anza-labs/charts/commit/92c5ba09a700cff6a160a9c5523e5f7c0c5bdde1))
+
 ## [1.7.3](https://github.com/anza-labs/charts/compare/pocket-id-1.7.2...pocket-id-v1.7.3) (2026-01-06)
 
 
