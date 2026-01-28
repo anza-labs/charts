@@ -25,6 +25,15 @@ tests:
             .Values.config.telemetry.otel config key 'TEST'
             must start with 'OTEL_'.
 
+  - it: Should fail for invalid file backend
+    set:
+      fileBackend.backend: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: >-
+            Invalid file backend: invalid. .Values.fileBackend.backend must be
+            'filesystem', 's3', or 'database'.
+
   - it: Should not create ConfigMap
     set:
       config.create: false
@@ -40,7 +49,6 @@ tests:
           path: data
           content:
             ANALYTICS_DISABLED: "false"
-            DB_PROVIDER: sqlite
             GEOLITE_DB_URL: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"
             APP_URL: "https://pocket-id.example.local"
             TZ: "Etc/UTC"
@@ -60,7 +68,6 @@ tests:
           path: data
           content:
             ANALYTICS_DISABLED: "true"
-            DB_PROVIDER: sqlite
             GEOLITE_DB_URL: "https://example.com/db.tar.gz"
             APP_URL: "https://example.com"
             TZ: "Europe/Berlin"
@@ -79,7 +86,6 @@ tests:
           path: data
           content:
             ANALYTICS_DISABLED: "true"
-            DB_PROVIDER: sqlite
             GEOLITE_DB_URL: "https://example.com/db.tar.gz"
             APP_URL: "https://pocket-id.example.com"
             TZ: "Europe/Berlin"
@@ -203,7 +209,7 @@ tests:
             LDAP_ATTRIBUTE_GROUP_MEMBER: "member"
             LDAP_ATTRIBUTE_GROUP_UNIQUE_IDENTIFIER: "gid"
             LDAP_ATTRIBUTE_GROUP_NAME: "cn"
-            LDAP_ATTRIBUTE_ADMIN_GROUP: "admins"
+            LDAP_ADMIN_GROUP_NAME: "admins"
 
   - it: Should create ConfigMap with audit values set
     set:
@@ -237,3 +243,68 @@ tests:
             TRACING_ENABLED: "true"
             METRICS_ENABLED: "true"
             OTEL_METRICS_EXPORTER: "prometheus"
+
+  - it: Should create ConfigMap with core config settings
+    set:
+      coreConfig:
+        internalAppUrl: "https://internal.example.com"
+        auditLogRetentionDays: "90"
+        disableRateLimiting: true
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: ConfigMap
+      - isSubset:
+          path: data
+          content:
+            INTERNAL_APP_URL: "https://internal.example.com"
+            AUDIT_LOG_RETENTION_DAYS: "90"
+            DISABLE_RATE_LIMITING: "true"
+
+  - it: Should create ConfigMap with S3 file backend settings
+    set:
+      fileBackend:
+        backend: "s3"
+        s3:
+          bucket: "my-bucket"
+          region: "us-west-2"
+          endpoint: "https://s3.example.com"
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: ConfigMap
+      - isSubset:
+          path: data
+          content:
+            FILE_BACKEND: "s3"
+            S3_BUCKET: "my-bucket"
+            S3_REGION: "us-west-2"
+            S3_ENDPOINT: "https://s3.example.com"
+
+  - it: Should create ConfigMap with additional UI/Email settings
+    set:
+      config.ui.useDefaults: false
+      config.ui.settings.app:
+        homePageUrl: "https://home.example.com"
+        accentColor: "#FF5733"
+        allowUserSignups: true
+        signupDefaultUserGroupIds: "1,2,3"
+      config.ui.settings.email:
+        emailVerificationEnabled: true
+        emailApiKeyExpirationEnabled: true
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: ConfigMap
+      - isSubset:
+          path: data
+          content:
+            HOME_PAGE_URL: "https://home.example.com"
+            ACCENT_COLOR: "#FF5733"
+            ALLOW_USER_SIGNUPS: "true"
+            SIGNUP_DEFAULT_USER_GROUP_IDS: "1,2,3"
+            EMAIL_VERIFICATION_ENABLED: "true"
+            EMAIL_API_KEY_EXPIRATION_ENABLED: "true"

@@ -47,11 +47,11 @@ spec:
           configMap:
             name: {{ include "pocket-id.backupConfig" . }}
       {{- end }}
-      {{- if (and .Values.persistence.data.enabled (not (eq .Values.persistence.data.existingClaim ""))) }}
+      {{- if (and .Values.fileBackend.filesystem.enabled (not (eq .Values.fileBackend.filesystem.existingClaim ""))) }}
         - name: {{ include "pocket-id.pvcData" . }}
           persistentVolumeClaim:
             claimName: {{ include "pocket-id.pvcData" . }}
-      {{- else if not .Values.persistence.data.enabled }}
+      {{- else if not .Values.fileBackend.filesystem.enabled }}
         - name: {{ include "pocket-id.pvcData" . }}
           emptyDir: {}
       {{- end }}
@@ -104,6 +104,10 @@ spec:
                 name: {{ include "pocket-id.secret" . }}
             - configMapRef:
                 name: {{ include "pocket-id.config" . }}
+          {{- with .Values.extraEnv }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
         {{- if .Values.backup.enabled }}
         - name: replication
           securityContext:
@@ -140,23 +144,23 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-  {{- if (and .Values.persistence.data.enabled (eq .Values.persistence.data.existingClaim "")) }}
+  {{- if (and .Values.fileBackend.filesystem.enabled (eq .Values.fileBackend.filesystem.existingClaim "")) }}
   volumeClaimTemplates:
     - metadata:
         name: {{ include "pocket-id.pvcData" . }}
         labels:
           {{- include "pocket-id.selectorLabels" . | nindent 10 }}
-        {{- if .Values.persistence.data.annotations }}
+        {{- if .Values.fileBackend.filesystem.annotations }}
         annotations:
-          {{- toYaml .Values.persistence.data.annotations | nindent 10 }}
+          {{- toYaml .Values.fileBackend.filesystem.annotations | nindent 10 }}
         {{- end }}
       spec:
         accessModes:
-          - {{ .Values.persistence.data.accessMode }}
+          - {{ .Values.fileBackend.filesystem.accessMode }}
         resources:
           requests:
-            storage: {{ .Values.persistence.data.size }}
-        {{- if .Values.persistence.data.storageClass }}
-        storageClassName: {{ .Values.persistence.data.storageClass }}
+            storage: {{ .Values.fileBackend.filesystem.size }}
+        {{- if .Values.fileBackend.filesystem.storageClass }}
+        storageClassName: {{ .Values.fileBackend.filesystem.storageClass }}
         {{- end }}
   {{- end }}
