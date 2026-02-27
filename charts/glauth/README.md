@@ -1,6 +1,6 @@
 # glauth
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.4.0](https://img.shields.io/badge/AppVersion-v2.4.0-informational?style=flat)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.4.0](https://img.shields.io/badge/AppVersion-v2.4.0-informational?style=flat)
 
 glauth is a lightweight LDAP server for development, home use, or CI.
 
