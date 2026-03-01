@@ -26,6 +26,47 @@ database:
   #    - For postgres: postgres:// or postgresql://user:password@host:port/dbname
   connectionString: "file:data/pocket-id.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate"
 
+coreConfig:
+  # -- Internal application URL (used for internal redirects and callbacks).
+  internalAppUrl: ""
+  # -- Number of days to retain audit logs. Leave empty to use default.
+  auditLogRetentionDays: ""
+  # -- Static API key for authentication. Leave empty to disable. (Sensitive)
+  staticApiKey: ""
+  # -- Whether to disable rate limiting.
+  disableRateLimiting: false
+  # -- Encryption key for sensitive data (REQUIRED, must be at least 16 characters). Generate with: openssl rand -base64 32
+  # Chart will fail to install if not provided.
+  encryptionKey: ""
+
+fileBackend:
+  # -- File storage backend to use. Options: "filesystem" (default), "s3", "database".
+  backend: "filesystem"
+  filesystem:
+    # -- Enable/disable PVC creation for filesystem storage.
+    enabled: false
+    # -- Use an existing PVC if defined, otherwise create one.
+    existingClaim: ""
+    # -- Specify the StorageClass (if required).
+    storageClass: ""
+    # -- Access mode for the PVC.
+    accessMode: ReadWriteOnce
+    # -- Storage size for the PVC.
+    size: 10Gi
+    # -- Annotations applied to PVC.
+    annotations: {}
+  s3:
+    # -- S3 bucket name (required when backend is "s3").
+    bucket: ""
+    # -- S3 region (required when backend is "s3").
+    region: ""
+    # -- S3 endpoint URL (optional, for S3-compatible services).
+    endpoint: ""
+    # -- S3 access key ID (required when backend is "s3"). (Sensitive)
+    accessKeyId: ""
+    # -- S3 secret access key (required when backend is "s3"). (Sensitive)
+    secretAccessKey: ""
+
 updateStrategy:
   # -- The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "OnDelete".
   type: RollingUpdate
@@ -180,6 +221,21 @@ config:
         # -- Whether to disable animations in the Admin UI
         disableAnimations: false
 
+        # -- Custom home page URL to redirect users after login. Leave empty to use default.
+        homePageUrl: ""
+
+        # -- Accent color for the UI (hex color code, e.g., "#FF5733"). Leave empty to use default.
+        accentColor: ""
+
+        # -- Whether to allow new user signups.
+        allowUserSignups: false
+
+        # -- Default custom claims for new signups (JSON string).
+        signupDefaultCustomClaims: ""
+
+        # -- Default user group IDs for new signups (comma-separated list of IDs).
+        signupDefaultUserGroupIds: ""
+
       smtp:
         # -- SMTP server hostname used to send outgoing emails
         host: ""
@@ -212,6 +268,12 @@ config:
         # -- Whether to allow unauthenticated users to request one-time access sign-in links sent to the user's email
         #    (note: this reduces security significantly, as anyone with email access can sign in)
         oneTimeAccessAsUnauthenticatedEnabled: false
+
+        # -- Whether to enable email verification for new users (requires v2.2.0+).
+        emailVerificationEnabled: false
+
+        # -- Whether to enable API key expiration notifications via email.
+        emailApiKeyExpirationEnabled: false
 
       ldap:
         # -- Whether to enable LDAP authentication
@@ -322,21 +384,6 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template.
   name: ""
 
-persistence:
-  data:
-    # -- Enable/disable PVC creation for data.
-    enabled: false
-    # -- Use an existing PVC if defined, otherwise create one.
-    existingClaim: ""
-    # -- Specify the StorageClass (if required).
-    storageClass: ""
-    # -- Access mode for the PVC.
-    accessMode: ReadWriteOnce
-    # -- Storage size for the PVC.
-    size: 10Gi
-    # -- Annotations applied to PVC.
-    annotations: {}
-
 ingress:
   # -- Specifies whether ingress should be enabled.
   enabled: false
@@ -389,3 +436,16 @@ affinity:
   #           operator: In
   #           values:
   #             - linux
+
+# -- Extra environment variables to be added to the pocket-id container.
+# This allows injecting any custom environment variable not explicitly supported by the chart.
+# Example:
+# extraEnv:
+#   - name: CUSTOM_VAR
+#     value: "custom-value"
+#   - name: SECRET_VAR
+#     valueFrom:
+#       secretKeyRef:
+#         name: my-secret
+#         key: secret-key
+extraEnv: []
