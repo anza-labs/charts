@@ -28,8 +28,8 @@ tests:
 
   - it: Should use emptyDir if persistence is disabled
     set:
-      persistence:
-        data:
+      fileBackend:
+        filesystem:
           enabled: false
     asserts:
       - contains:
@@ -40,8 +40,8 @@ tests:
 
   - it: Should use existing PVC if specified
     set:
-      persistence:
-        data:
+      fileBackend:
+        filesystem:
           enabled: true
           existingClaim: test-claim
     asserts:
@@ -61,8 +61,8 @@ tests:
 
   - it: Should create volumeClaimTemplates if enabled and no existing claim is set
     set:
-      persistence:
-        data:
+      fileBackend:
+        filesystem:
           enabled: true
           existingClaim: ""
           size: 1Gi
@@ -86,8 +86,8 @@ tests:
 
   - it: Should not render volumeClaimTemplates when disabled
     set:
-      persistence:
-        data:
+      fileBackend:
+        filesystem:
           enabled: false
     asserts:
       - notExists:
@@ -122,3 +122,35 @@ tests:
           path: spec.template.spec.initContainers
           any: true
           content: {}
+
+  - it: Should include extraEnv when provided
+    set:
+      extraEnv:
+        - name: CUSTOM_VAR
+          value: "custom-value"
+        - name: SECRET_VAR
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: secret-key
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: CUSTOM_VAR
+            value: "custom-value"
+      - contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: SECRET_VAR
+            valueFrom:
+              secretKeyRef:
+                name: my-secret
+                key: secret-key
+
+  - it: Should not include env section when extraEnv is empty
+    set:
+      extraEnv: []
+    asserts:
+      - notExists:
+          path: spec.template.spec.containers[0].env
