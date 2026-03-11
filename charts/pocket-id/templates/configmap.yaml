@@ -1,9 +1,5 @@
 {{- if .Values.config.create -}}
 {{- $host := coalesce .Values.host .Values.ingress.host "localhost" }}
-{{- $provider := default "sqlite" .Values.database.provider }}
-{{- if not (or (eq $provider "sqlite") (eq $provider "postgres")) }}
-  {{- fail (printf "Invalid database provider: %s. .Values.database.provider must be 'sqlite' or 'postgres'." $provider) }}
-{{- end }}
 {{- range $key, $value := .Values.config.telemetry.otel }}
   {{- if not (hasPrefix "OTEL_" $key) }}
     {{- fail (printf ".Values.config.telemetry.otel config key '%s' must start with 'OTEL_'." $key) }}
@@ -20,16 +16,32 @@ data:
   HOST: "0.0.0.0"
   PORT: "1411"
   TRUST_PROXY: "true"
-  UPDATE_CHECK_DISABLED: "true"
+  VERSION_CHECK_DISABLED: "true"
   ANALYTICS_DISABLED: "{{ .Values.analyticsDisabled | default false }}"
-  UPLOAD_PATH: "data/uploads"
-  KEYS_PATH: "data/keys"
   GEOLITE_DB_PATH: "data/GeoLite2-City.mmdb"
   UI_CONFIG_DISABLED: "{{ not .Values.config.ui.useDefaults }}"
   APP_URL: "https://{{ $host }}"
-  DB_PROVIDER: "{{ $provider }}"
   TZ: "{{ .Values.timeZone }}"
   GEOLITE_DB_URL: "{{ .Values.geoliteDatabaseURL }}"
+  LOG_LEVEL: "{{ .Values.config.core.logLevel | default "info" }}"
+  LOG_JSON: "{{ .Values.config.core.logJson | default false }}"
+  {{ if not (quote .Values.config.core.internalAppUrl | empty) }}
+  INTERNAL_APP_URL: "{{ .Values.config.core.internalAppUrl }}"
+  {{ end }}
+  AUDIT_LOG_RETENTION_DAYS: "{{ .Values.config.core.auditLogRetentionDays | default 90 }}"
+  DISABLE_RATE_LIMITING: "{{ .Values.config.core.disableRateLimiting | default false }}"
+  FILE_BACKEND: "{{ .Values.fileBackend.type | default "filesystem" }}"
+  {{- if eq (.Values.fileBackend.type | default "filesystem") "filesystem" }}
+  UPLOAD_PATH: "{{ .Values.fileBackend.uploadPath | default "data/uploads" }}"
+  {{- end }}
+  {{- if eq .Values.fileBackend.type "s3" }}
+  UPLOAD_PATH: "{{ .Values.fileBackend.uploadPath | default "data/uploads" }}"
+  S3_BUCKET: "{{ .Values.fileBackend.s3.bucket | required ".Values.fileBackend.s3.bucket is required." }}"
+  S3_REGION: "{{ .Values.fileBackend.s3.region }}"
+  S3_ENDPOINT: "{{ .Values.fileBackend.s3.endpoint | required ".Values.fileBackend.s3.endpoint is required." }}"
+  S3_FORCE_PATH_STYLE: "{{ .Values.fileBackend.s3.forcePathStyle | default false }}"
+  S3_DISABLE_DEFAULT_INTEGRITY_CHECKS: "{{ .Values.fileBackend.s3.disableDefaultIntegrityChecks | default false }}"
+  {{- end }}
   {{ if not (quote .Values.config.audit.localIPv6Ranges | empty) }}
   LOCAL_IPV6_RANGES: "{{ .Values.config.audit.localIPv6Ranges }}"
   {{ end }}
@@ -53,6 +65,17 @@ data:
   {{ end }}
   {{ if not (quote .Values.config.ui.settings.app.disableAnimations | empty) }}
   DISABLE_ANIMATIONS: "{{ .Values.config.ui.settings.app.disableAnimations }}"
+  {{ end }}
+  {{ if not (quote .Values.config.ui.settings.app.homePageUrl | empty) }}
+  HOME_PAGE_URL: "{{ .Values.config.ui.settings.app.homePageUrl }}"
+  {{ end }}
+  {{ if not (quote .Values.config.ui.settings.app.allowUserSignups | empty) }}
+  ALLOW_USER_SIGNUPS: "{{ .Values.config.ui.settings.app.allowUserSignups }}"
+  {{ end }}
+  SIGNUP_DEFAULT_CUSTOM_CLAIMS: {{ .Values.config.ui.settings.app.signupDefaultCustomClaims | toJson | quote }}
+  SIGNUP_DEFAULT_USER_GROUP_IDS: {{ .Values.config.ui.settings.app.signupDefaultUserGroupIds | toJson | quote }}
+  {{ if not (quote .Values.config.ui.settings.app.accentColor | empty) }}
+  ACCENT_COLOR: "{{ .Values.config.ui.settings.app.accentColor }}"
   {{ end }}
   {{ if not (quote .Values.config.ui.settings.smtp.host | empty) }}
   SMTP_HOST: "{{ .Values.config.ui.settings.smtp.host }}"
@@ -84,6 +107,12 @@ data:
   {{ if not (quote .Values.config.ui.settings.email.oneTimeAccessAsUnauthenticatedEnabled | empty) }}
   EMAIL_ONE_TIME_ACCESS_AS_UNAUTHENTICATED_ENABLED: "{{ .Values.config.ui.settings.email.oneTimeAccessAsUnauthenticatedEnabled }}"
   {{ end }}
+  {{ if not (quote .Values.config.ui.settings.email.apiKeyExpirationEnabled | empty) }}
+  EMAIL_API_KEY_EXPIRATION_ENABLED: "{{ .Values.config.ui.settings.email.apiKeyExpirationEnabled }}"
+  {{ end }}
+  {{ if not (quote .Values.config.ui.settings.email.verificationEnabled | empty) }}
+  EMAIL_VERIFICATION_ENABLED: "{{ .Values.config.ui.settings.email.verificationEnabled }}"
+  {{ end }}
   {{ if not (quote .Values.config.ui.settings.ldap.enabled | empty) }}
   LDAP_ENABLED: "{{ .Values.config.ui.settings.ldap.enabled }}"
   {{ end }}
@@ -107,6 +136,9 @@ data:
   {{ end }}
   {{ if not (quote .Values.config.ui.settings.ldap.skipCertVerify | empty) }}
   LDAP_SKIP_CERT_VERIFY: "{{ .Values.config.ui.settings.ldap.skipCertVerify }}"
+  {{ end }}
+  {{ if not (quote .Values.config.ui.settings.ldap.softDeleteUsers | empty) }}
+  LDAP_SOFT_DELETE_USERS: "{{ .Values.config.ui.settings.ldap.softDeleteUsers }}"
   {{ end }}
   {{ if not (quote .Values.config.ui.settings.ldap.attributes.user.uniqueIdentifier | empty) }}
   LDAP_ATTRIBUTE_USER_UNIQUE_IDENTIFIER: "{{ .Values.config.ui.settings.ldap.attributes.user.uniqueIdentifier }}"

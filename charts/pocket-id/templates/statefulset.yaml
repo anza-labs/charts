@@ -1,8 +1,3 @@
-{{- $provider := .Values.database.provider | default "sqlite" }}
-{{- $replicaCount := int (.Values.replicaCount | default 1) }}
-{{- if and (eq $provider "sqlite") (gt $replicaCount 1) }}
-  {{- fail (printf "Invalid configuration: .Values.replicaCount is %d but must be 1 when .Values.database.provider is 'sqlite'." $replicaCount) }}
-{{- end }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -12,7 +7,7 @@ metadata:
     {{- include "pocket-id.labels" . | nindent 4 }}
 spec:
   serviceName: {{ include "pocket-id.fullname" . }}
-  replicas: {{ $replicaCount }}
+  replicas: 1
   {{- if .Values.updateStrategy }}
   {{- with .Values.updateStrategy }}
   updateStrategy:

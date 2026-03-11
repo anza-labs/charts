@@ -24,4 +24,5 @@ spec:
           helm install "${NAME}-pocket-id" "${CHART}" \
             --namespace "${NAMESPACE}" \
             --create-namespace \
+            --set=encryptionKey=test-encryption-key-for-e2e \
             ${ARGV}

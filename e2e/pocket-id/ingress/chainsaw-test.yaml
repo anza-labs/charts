@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/test-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: pocket-id-ingress
+  labels:
+    chart: pocket-id
+
+spec:
+  concurrent: true
+  timeouts:
+    cleanup: 60s
+
+  bindings:
+    - name: arguments
+      value: >-
+        --set=ingress.enabled=true
+        --set=ingress.host=pocket-id.local
+
+  steps:
+    - name: Install chart
+      use:
+        template: ../_lib/helm-install.step.yaml
+        with:
+          bindings:
+            - name: arguments
+              value: ($arguments)
+            - name: namespace
+              value: ($namespace)
+
+    - name: Validate core installation
+      use:
+        template: ../_lib/validate-core-installation.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
+    - name: Validate Ingress
+      try:
+        - assert:
+            resource:
+              apiVersion: networking.k8s.io/v1
+              kind: Ingress
+              metadata:
+                name: (join('-', [$namespace, 'pocket-id']))
+              spec:
+                rules:
+                  - host: pocket-id.local
+              status:
+                loadBalancer:
+                  ingress:
+                    - {}
+                    - {}
