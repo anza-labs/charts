@@ -6,7 +6,7 @@ description: |
 home: https://lubelogger.com
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/lubelogger/icon.png
 version: 1.4.3
-appVersion: "v1.5.7"
+appVersion: "v1.6.1"
 sources:
   - https://github.com/hargata/lubelog
 keywords:
@@ -17,19 +17,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update docker.io/curlimages/curl docker tag to v8.18.0'
+      description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.6.1'
       links:
-      - name: 'GitHub Issue #314'
-        url: https://github.com/anza-labs/charts/issues/314
-      - name: Commit 6a018b1
-        url: https://github.com/anza-labs/charts/commit/6a018b18a379964815a8ffc228670e920fbfc0e3
-    - kind: changed
-      description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.5.7'
-      links:
-      - name: 'GitHub Issue #317'
-        url: https://github.com/anza-labs/charts/issues/317
-      - name: Commit acf2b11
-        url: https://github.com/anza-labs/charts/commit/acf2b11fabdbab0f619438bf87f2d0cce07d8336
+      - name: 'GitHub Issue #341'
+        url: https://github.com/anza-labs/charts/issues/341
+      - name: Commit f7d40ea
+        url: https://github.com/anza-labs/charts/commit/f7d40eac9019d3d1cfb9100ff6ffdfb27f5dfcba
 maintainers:
   - name: shanduur
     email: maturb@proton.me
