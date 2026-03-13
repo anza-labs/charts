@@ -90,5 +90,5 @@ Create backup secret name used for configuring Litestream.
 Create pvc name used for configuring the data persistence in app.
 */}}
 {{- define "pocket-id.pvcData" -}}
-    {{- default ( printf "%s-data" (include "pocket-id.fullname" .)) .Values.persistence.data.existingClaim }}
+    {{- default ( printf "%s-data" (include "pocket-id.fullname" .)) .Values.fileBackend.filesystem.existingClaim }}
 {{- end }}
