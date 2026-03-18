@@ -1,3 +1,7 @@
+# NOTE: v2.x.x of the chart migrates all configuration to the v2.x.x Pocket-ID application.
+# Upgrade from chart v1.x.x to v2.x.x was never tested, so we recommend a fresh install of the chart with v2.x.x of the application.
+# If you want to attempt an upgrade, make sure to backup your data and configuration before proceeding.
+
 # -- URL template to download the MaxMind GeoLite2-City database. `%s` will be replaced with the license key.
 geoliteDatabaseURL: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"
 
