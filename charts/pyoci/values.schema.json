@@ -178,6 +178,25 @@
     },
     "tolerations": {
       "type": "array"
+    },
+    "updateStrategy": {
+      "type": "object",
+      "properties": {
+        "rollingUpdate": {
+          "type": "object",
+          "properties": {
+            "maxUnavailable": {
+              "type": "string"
+            },
+            "partition": {
+              "type": "integer"
+            }
+          }
+        },
+        "type": {
+          "type": "string"
+        }
+      }
     }
   }
 }

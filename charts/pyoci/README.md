@@ -60,4 +60,7 @@ Publish and install private python packages using OCI/docker registries.
 | telemetry.otlpAuth | string | `""` | Full Authorization header value to use when sending OTLP requests. |
 | telemetry.otlpEndpoint | string | `""` | If set, forward logs, traces, and metrics to this OTLP collector endpoint every 30s. |
 | tolerations | list | `[]` | Tolerations for the pods. |
+| updateStrategy.rollingUpdate.maxUnavailable | string | `"100%"` |  |
+| updateStrategy.rollingUpdate.partition | int | `0` |  |
+| updateStrategy.type | string | `"RollingUpdate"` | The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "Recreate". |
 
