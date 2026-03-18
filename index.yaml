@@ -2732,6 +2732,38 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.37'
+          links:
+          - name: 'GitHub Issue #337'
+            url: https://github.com/anza-labs/charts/issues/337
+          - name: Commit c8fc974
+            url: https://github.com/anza-labs/charts/commit/c8fc9748f6318e34c5ef494537cd7872d8fa0043
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v0.1.37
+    created: "2026-03-18T20:16:11.791190594Z"
+    description: Publish and install private python packages using OCI/docker registries.
+    digest: 3e5be934c1096faf663456f154c00cba66642c21b2d0176999edbaa6e56d0323
+    home: https://pyoci.com
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
+    keywords:
+    - oci-registry
+    - docker
+    - pyoci
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pyoci
+    sources:
+    - https://github.com/AllexVeldman/pyoci
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pyoci-1.0.2/pyoci-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.34'
           links:
           - name: 'GitHub Issue #285'
@@ -3104,4 +3136,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-18T20:10:36.974488261Z"
+generated: "2026-03-18T20:16:11.791451702Z"
