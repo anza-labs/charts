@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/anza-labs/charts/compare/pyoci-1.0.3...pyoci-v1.1.0) (2026-03-18)
+
+
+### Features
+
+* add updateStrategy to multiple charts ([87ce31e](https://github.com/anza-labs/charts/commit/87ce31ef82f1553bf8bd74a1e9c294a56a0172dd))
+
+
+### Miscellaneous Chores
+
+* generate docs and schemas ([f2ad0de](https://github.com/anza-labs/charts/commit/f2ad0de519f6932484fd55ff647011942c4ac092))
+
 ## [1.0.3](https://github.com/anza-labs/charts/compare/pyoci-1.0.2...pyoci-v1.0.3) (2026-03-18)
 
 
