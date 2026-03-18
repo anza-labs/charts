@@ -1364,6 +1364,46 @@ entries:
   - annotations:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
+        - kind: added
+          description: add note to PocketID chart about v2 migration
+          links:
+          - name: Commit 50f0a90
+            url: https://github.com/anza-labs/charts/commit/50f0a903e0be81479cfa5f830a07d2869548f1c8
+        - kind: added
+          description: '**pocket-id:** implement basic v2 chart'
+          links:
+          - name: 'GitHub Issue #350'
+            url: https://github.com/anza-labs/charts/issues/350
+          - name: Commit bb34d3f
+            url: https://github.com/anza-labs/charts/commit/bb34d3f7eccbe50917fbf4cf80b3f02fa4a8882e
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v2.4.0
+    created: "2026-03-18T21:41:47.74082019Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: 24093e200563275fbce827827e33742d6f3766d5d1204f6933c9575ce47a1c4b
+    home: https://pocket-id.org
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-2.0.0/pocket-id-2.0.0.tgz
+    version: 2.0.0
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
         - kind: changed
           description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.9'
           links:
@@ -3168,4 +3208,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-18T20:33:27.940460482Z"
+generated: "2026-03-18T21:41:47.741326788Z"
