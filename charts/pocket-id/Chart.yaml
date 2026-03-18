@@ -19,13 +19,18 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: changed
-      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.9'
+    - kind: added
+      description: add note to PocketID chart about v2 migration
       links:
-      - name: 'GitHub Issue #338'
-        url: https://github.com/anza-labs/charts/issues/338
-      - name: Commit 1b0152d
-        url: https://github.com/anza-labs/charts/commit/1b0152d87a7f6b9a4ce2414fbbedc745cb5416eb
+      - name: Commit 50f0a90
+        url: https://github.com/anza-labs/charts/commit/50f0a903e0be81479cfa5f830a07d2869548f1c8
+    - kind: added
+      description: '**pocket-id:** implement basic v2 chart'
+      links:
+      - name: 'GitHub Issue #350'
+        url: https://github.com/anza-labs/charts/issues/350
+      - name: Commit bb34d3f
+        url: https://github.com/anza-labs/charts/commit/bb34d3f7eccbe50917fbf4cf80b3f02fa4a8882e
 maintainers:
   - name: shanduur
     email: maturb@proton.me
