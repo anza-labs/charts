@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/anza-labs/charts/compare/pocket-id-1.7.6...pocket-id-v2.0.0) (2026-03-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* add note to PocketID chart about v2 migration
+
+### Features
+
+* add note to PocketID chart about v2 migration ([50f0a90](https://github.com/anza-labs/charts/commit/50f0a903e0be81479cfa5f830a07d2869548f1c8))
+* **pocket-id:** implement basic v2 chart ([#350](https://github.com/anza-labs/charts/issues/350)) ([bb34d3f](https://github.com/anza-labs/charts/commit/bb34d3f7eccbe50917fbf4cf80b3f02fa4a8882e))
+
 ## [1.7.6](https://github.com/anza-labs/charts/compare/pocket-id-1.7.5...pocket-id-v1.7.6) (2026-02-24)
 
 
