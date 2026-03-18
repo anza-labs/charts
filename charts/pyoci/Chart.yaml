@@ -16,13 +16,16 @@ keywords:
 annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: changed
-      description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.38'
+    - kind: added
+      description: add updateStrategy to multiple charts
       links:
-      - name: 'GitHub Issue #345'
-        url: https://github.com/anza-labs/charts/issues/345
-      - name: Commit 9ca3038
-        url: https://github.com/anza-labs/charts/commit/9ca30388fbe5c9e4f41f02708ef7871b0444ad68
+      - name: Commit 87ce31e
+        url: https://github.com/anza-labs/charts/commit/87ce31ef82f1553bf8bd74a1e9c294a56a0172dd
+    - kind: changed
+      description: generate docs and schemas
+      links:
+      - name: Commit f2ad0de
+        url: https://github.com/anza-labs/charts/commit/f2ad0de519f6932484fd55ff647011942c4ac092
 maintainers:
   - name: shanduur
     email: maturb@proton.me
