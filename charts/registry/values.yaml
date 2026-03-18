@@ -3,6 +3,13 @@
 # -- Number of replicas for the deployment.
 replicaCount: 1
 
+updateStrategy:
+  # -- The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "Recreate".
+  type: RollingUpdate
+  rollingUpdate:
+    maxUnavailable: 100%
+    partition: 0
+
 image:
   # -- Registry and repository for the registry image.
   repository: docker.io/library/registry
