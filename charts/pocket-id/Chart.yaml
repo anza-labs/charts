@@ -7,7 +7,7 @@ description: |
 home: https://pocket-id.org
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
 version: 1.7.6
-appVersion: "v1.16.0"
+appVersion: "v2.4.0"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:

@@ -17,6 +17,9 @@
         "checkpointInterval": {
           "type": "string"
         },
+        "enabled": {
+          "type": "boolean"
+        },
         "image": {
           "type": "object",
           "properties": {
@@ -93,6 +96,26 @@
             }
           }
         },
+        "core": {
+          "type": "object",
+          "properties": {
+            "auditLogRetentionDays": {
+              "type": "integer"
+            },
+            "disableRateLimiting": {
+              "type": "boolean"
+            },
+            "internalAppUrl": {
+              "type": "string"
+            },
+            "logJson": {
+              "type": "boolean"
+            },
+            "logLevel": {
+              "type": "string"
+            }
+          }
+        },
         "create": {
           "type": "boolean"
         },
@@ -122,8 +145,14 @@
                 "app": {
                   "type": "object",
                   "properties": {
+                    "accentColor": {
+                      "type": "string"
+                    },
                     "allowOwnAccountEdit": {
                       "type": "boolean"
+                    },
+                    "allowUserSignups": {
+                      "type": "string"
                     },
                     "appName": {
                       "type": "string"
@@ -134,14 +163,26 @@
                     "emailsVerified": {
                       "type": "boolean"
                     },
+                    "homePageUrl": {
+                      "type": "string"
+                    },
                     "sessionDuration": {
                       "type": "integer"
+                    },
+                    "signupDefaultCustomClaims": {
+                      "type": "array"
+                    },
+                    "signupDefaultUserGroupIds": {
+                      "type": "array"
                     }
                   }
                 },
                 "email": {
                   "type": "object",
                   "properties": {
+                    "apiKeyExpirationEnabled": {
+                      "type": "boolean"
+                    },
                     "loginNotificationEnabled": {
                       "type": "boolean"
                     },
@@ -149,6 +190,9 @@
                       "type": "boolean"
                     },
                     "oneTimeAccessAsUnauthenticatedEnabled": {
+                      "type": "boolean"
+                    },
+                    "verificationEnabled": {
                       "type": "boolean"
                     }
                   }
@@ -216,6 +260,9 @@
                     "skipCertVerify": {
                       "type": "boolean"
                     },
+                    "softDeleteUsers": {
+                      "type": "boolean"
+                    },
                     "url": {
                       "type": "string"
                     },
@@ -267,8 +314,45 @@
       "properties": {
         "connectionString": {
           "type": "string"
+        }
+      }
+    },
+    "encryptionKey": {
+      "type": "string"
+    },
+    "fileBackend": {
+      "type": "object",
+      "properties": {
+        "s3": {
+          "type": "object",
+          "properties": {
+            "accessKeyId": {
+              "type": "string"
+            },
+            "bucket": {
+              "type": "string"
+            },
+            "disableDefaultIntegrityChecks": {
+              "type": "boolean"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "forcePathStyle": {
+              "type": "boolean"
+            },
+            "region": {
+              "type": "string"
+            },
+            "secretAccessKey": {
+              "type": "string"
+            }
+          }
         },
-        "provider": {
+        "type": {
+          "type": "string"
+        },
+        "uploadPath": {
           "type": "string"
         }
       }
@@ -422,9 +506,6 @@
         }
       }
     },
-    "replicaCount": {
-      "type": "integer"
-    },
     "secret": {
       "type": "object",
       "properties": {
@@ -482,6 +563,9 @@
           }
         }
       }
+    },
+    "staticApiKey": {
+      "type": "string"
     },
     "timeZone": {
       "type": "string"

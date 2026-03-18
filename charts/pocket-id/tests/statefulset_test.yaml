@@ -5,27 +5,6 @@ templates:
   - statefulset.yaml
 
 tests:
-  - it: Should fail for invalid replica count > 1 for SQLite
-    set:
-      replicaCount: 3
-      database.provider: sqlite
-    asserts:
-      - failedTemplate:
-          errorMessage: >-
-            Invalid configuration: .Values.replicaCount is 3 but must be 1
-            when .Values.database.provider is 'sqlite'.
-
-  - it: Should set replicaCount correctly
-    set:
-      replicaCount: 3
-      database.provider: postgres
-    asserts:
-      - isKind:
-          of: StatefulSet
-      - equal:
-          path: spec.replicas
-          value: 3
-
   - it: Should use emptyDir if persistence is disabled
     set:
       persistence:
