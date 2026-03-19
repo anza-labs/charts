@@ -60,6 +60,9 @@
         }
       }
     },
+    "deploymentStrategy": {
+      "type": "object"
+    },
     "fullnameOverride": {
       "type": "string"
     },
@@ -463,25 +466,6 @@
     },
     "tolerations": {
       "type": "array"
-    },
-    "deploymentStrategy": {
-      "type": "object",
-      "properties": {
-        "rollingUpdate": {
-          "type": "object",
-          "properties": {
-            "maxUnavailable": {
-              "type": "string"
-            },
-            "partition": {
-              "type": "integer"
-            }
-          }
-        },
-        "type": {
-          "type": "string"
-        }
-      }
     }
   }
 }

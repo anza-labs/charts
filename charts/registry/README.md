@@ -1,6 +1,6 @@
 # registry
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat)
 
 The Registry is a stateless, highly scalable server side application that
 stores and lets you distribute container images and other content.
@@ -32,6 +32,7 @@ stores and lets you distribute container images and other content.
 | configs.telemetry.create | bool | `true` | Specifies whether a config map should be created. |
 | configs.telemetry.name | string | `""` | Specifies name of a config map used to configure the registry. If not filled, uses full name. |
 | configs.telemetry.otel | object | `{"OTEL_TRACES_EXPORTER":"none"}` | OpenTelemetry SDK environment variables. https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/ |
+| deploymentStrategy | object | `{}` |  |
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"docker.io/library/registry"` | Registry and repository for the registry image. |
@@ -85,5 +86,4 @@ stores and lets you distribute container images and other content.
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
 | startupProbe.httpGet | object | `{"path":"/debug/health","port":"debug"}` | Startup probe configuration. |
 | tolerations | list | `[]` | Tolerations for the pods. |
-| deploymentStrategy | object | `{}` | The deployment strategy to use to replace existing pods with new ones. |
 
