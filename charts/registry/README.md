@@ -85,7 +85,5 @@ stores and lets you distribute container images and other content.
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
 | startupProbe.httpGet | object | `{"path":"/debug/health","port":"debug"}` | Startup probe configuration. |
 | tolerations | list | `[]` | Tolerations for the pods. |
-| updateStrategy.rollingUpdate.maxUnavailable | string | `"100%"` |  |
-| updateStrategy.rollingUpdate.partition | int | `0` |  |
-| updateStrategy.type | string | `"RollingUpdate"` | The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "Recreate". |
+| deploymentStrategy | object | `{}` | The deployment strategy to use to replace existing pods with new ones. |
 

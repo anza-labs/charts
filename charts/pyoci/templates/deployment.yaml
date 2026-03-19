@@ -12,8 +12,8 @@ spec:
   selector:
     matchLabels:
       {{- include "pyoci.selectorLabels" . | nindent 6 }}
-  {{- with .Values.updateStrategy }}
-  updateStrategy:
+  {{- with .Values.deploymentStrategy }}
+  strategy:
     {{- toYaml . | nindent 4 }}
   {{- end }}
   template:
