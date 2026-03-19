@@ -5,7 +5,7 @@ description: |-
   Publish and install private python packages using OCI/docker registries.
 home: https://pyoci.com
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
-version: "1.1.0"
+version: "1.1.1"
 appVersion: "v0.1.38"
 sources:
   - https://github.com/AllexVeldman/pyoci
@@ -16,16 +16,18 @@ keywords:
 annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: added
-      description: add updateStrategy to multiple charts
+    - kind: fixed
+      description: '**main:** use `strategy` instead of `updateStrategy` in deployments'
       links:
-      - name: Commit 87ce31e
-        url: https://github.com/anza-labs/charts/commit/87ce31ef82f1553bf8bd74a1e9c294a56a0172dd
-    - kind: changed
-      description: generate docs and schemas
+      - name: 'GitHub Issue #356'
+        url: https://github.com/anza-labs/charts/issues/356
+      - name: Commit e9ac474
+        url: https://github.com/anza-labs/charts/commit/e9ac4747a3e0f6bc9b5b62a73da0df7c2bf5b6a7
+    - kind: fixed
+      description: regenerated schemas
       links:
-      - name: Commit f2ad0de
-        url: https://github.com/anza-labs/charts/commit/f2ad0de519f6932484fd55ff647011942c4ac092
+      - name: Commit b498930
+        url: https://github.com/anza-labs/charts/commit/b498930092e60a0ef47bcb6ff10f225fd3be4b4f
 maintainers:
   - name: shanduur
     email: maturb@proton.me
