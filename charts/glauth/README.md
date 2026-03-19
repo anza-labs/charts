@@ -21,6 +21,7 @@ glauth is a lightweight LDAP server for development, home use, or CI.
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity settings for the pods. |
+| deploymentStrategy | object | `{}` |  |
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"ghcr.io/glauth/glauth"` | Registry and repository for the glauth image. If you want extra functionality, set repository to `ghcr.io/glauth/glauth-plugins`. |
@@ -80,5 +81,4 @@ glauth is a lightweight LDAP server for development, home use, or CI.
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
 | tolerations | list | `[]` | Tolerations for the pods. |
-| deploymentStrategy | object | `{}` | The deployment strategy to use to replace existing pods with new ones. |
 

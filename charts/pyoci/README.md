@@ -30,6 +30,7 @@ Publish and install private python packages using OCI/docker registries.
 | config.maxBody | int | `50000000` | Limit the maximum accepted body size in bytes when publishing packages, defaults to 50MB. |
 | config.maxVersions | int | `10` | Limit how many versions (in reverse alphabetical order) to fetch filenames for when listing a package. By default PyOCI will only include the last 100 versions. To not limit the versions, set this value to 0. |
 | config.subPath | string | `""` | Host PyOCI on a subpath, for example: PYOCI_PATH="/acme-corp". |
+| deploymentStrategy | object | `{}` |  |
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"ghcr.io/allexveldman/pyoci"` | pyoci and repository for the pyoci image. |
@@ -60,5 +61,4 @@ Publish and install private python packages using OCI/docker registries.
 | telemetry.otlpAuth | string | `""` | Full Authorization header value to use when sending OTLP requests. |
 | telemetry.otlpEndpoint | string | `""` | If set, forward logs, traces, and metrics to this OTLP collector endpoint every 30s. |
 | tolerations | list | `[]` | Tolerations for the pods. |
-| deploymentStrategy | object | `{}` | The deployment strategy to use to replace existing pods with new ones. |
 
