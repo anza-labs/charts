@@ -80,7 +80,5 @@ glauth is a lightweight LDAP server for development, home use, or CI.
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
 | tolerations | list | `[]` | Tolerations for the pods. |
-| updateStrategy.rollingUpdate.maxUnavailable | string | `"100%"` |  |
-| updateStrategy.rollingUpdate.partition | int | `0` |  |
-| updateStrategy.type | string | `"RollingUpdate"` | The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "Recreate". |
+| deploymentStrategy | object | `{}` | The deployment strategy to use to replace existing pods with new ones. |
 

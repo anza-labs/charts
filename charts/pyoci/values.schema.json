@@ -179,7 +179,7 @@
     "tolerations": {
       "type": "array"
     },
-    "updateStrategy": {
+    "deploymentStrategy": {
       "type": "object",
       "properties": {
         "rollingUpdate": {
