@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/anza-labs/charts/compare/registry-1.0.0...registry-v1.0.1) (2026-03-19)
+
+
+### Bug Fixes
+
+* **main:** use `strategy` instead of `updateStrategy` in deployments ([#356](https://github.com/anza-labs/charts/issues/356)) ([e9ac474](https://github.com/anza-labs/charts/commit/e9ac4747a3e0f6bc9b5b62a73da0df7c2bf5b6a7))
+
 ## 1.0.0 (2026-03-18)
 
 
