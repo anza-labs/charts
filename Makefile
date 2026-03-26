@@ -193,7 +193,7 @@ KUBE_LINTER_VERSION ?= v0.8.3
 KUBECTL_VERSION ?= v1.35.3
 
 # renovate: datasource=github-tags depName=mikefarah/yq
-YQ_VERSION ?= v4.52.4
+YQ_VERSION ?= v4.52.5
 
 ## Tool Binaries
 CHAINSAW                ?= $(LOCALBIN)/chainsaw-$(CHAINSAW_VERSION)
