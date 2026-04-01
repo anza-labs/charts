@@ -172,7 +172,7 @@ CHAINSAW_VERSION ?= v0.2.14
 CLOUD_PROVIDER_KIND_VERSION ?= v0.10.0
 
 # renovate: datasource=github-tags depName=tilt-dev/ctlptl
-CTLPTL_VERSION ?= v0.9.0
+CTLPTL_VERSION ?= v0.9.1
 
 # renovate: datasource=github-tags depName=helm/helm
 HELM_VERSION ?= v4.1.3
