@@ -245,7 +245,7 @@ backup:
     # -- Registry and repository for the litestream image.
     repository: docker.io/litestream/litestream
     # -- Tag for the image.
-    tag: "0.5.9"
+    tag: "0.5.10"
     # -- Image pull policy.
     pullPolicy: IfNotPresent
 
