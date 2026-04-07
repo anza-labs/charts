@@ -7,7 +7,7 @@ description: |
 home: https://pocket-id.org
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
 version: 2.0.1
-appVersion: "v2.4.0"
+appVersion: "v2.5.0"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -19,18 +19,13 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: added
-      description: add note to PocketID chart about v2 migration
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.5.0'
       links:
-      - name: Commit 50f0a90
-        url: https://github.com/anza-labs/charts/commit/50f0a903e0be81479cfa5f830a07d2869548f1c8
-    - kind: added
-      description: '**pocket-id:** implement basic v2 chart'
-      links:
-      - name: 'GitHub Issue #350'
-        url: https://github.com/anza-labs/charts/issues/350
-      - name: Commit bb34d3f
-        url: https://github.com/anza-labs/charts/commit/bb34d3f7eccbe50917fbf4cf80b3f02fa4a8882e
+      - name: 'GitHub Issue #363'
+        url: https://github.com/anza-labs/charts/issues/363
+      - name: Commit 240c284
+        url: https://github.com/anza-labs/charts/commit/240c284d4f4526d4441a124fe1c44be66ed2fa1d
 maintainers:
   - name: shanduur
     email: maturb@proton.me
