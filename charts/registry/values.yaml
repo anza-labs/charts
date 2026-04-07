@@ -9,7 +9,7 @@ image:
   # -- Registry and repository for the registry image.
   repository: docker.io/library/registry
   # -- Tag for the image.
-  tag: "3.0.0"
+  tag: "3.1.0"
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
