@@ -6,7 +6,7 @@ description: |
   with their passkeys to your services.
 home: https://pocket-id.org
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
-version: 2.0.1
+version: 2.0.2
 appVersion: "v2.5.0"
 sources:
   - https://github.com/pocket-id/pocket-id
@@ -20,12 +20,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.5.0'
+      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.10'
       links:
-      - name: 'GitHub Issue #363'
-        url: https://github.com/anza-labs/charts/issues/363
-      - name: Commit 240c284
-        url: https://github.com/anza-labs/charts/commit/240c284d4f4526d4441a124fe1c44be66ed2fa1d
+      - name: 'GitHub Issue #358'
+        url: https://github.com/anza-labs/charts/issues/358
+      - name: Commit c0880b9
+        url: https://github.com/anza-labs/charts/commit/c0880b9ecc734a0d81830e9dce2b1b7a03b3174a
 maintainers:
   - name: shanduur
     email: maturb@proton.me
