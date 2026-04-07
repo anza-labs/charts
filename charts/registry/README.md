@@ -1,6 +1,6 @@
 # registry
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat)
+![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.1.0](https://img.shields.io/badge/AppVersion-3.1.0-informational?style=flat)
 
 The Registry is a stateless, highly scalable server side application that
 stores and lets you distribute container images and other content.
@@ -36,7 +36,7 @@ stores and lets you distribute container images and other content.
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"docker.io/library/registry"` | Registry and repository for the registry image. |
-| image.tag | string | `"3.0.0"` | Tag for the image. |
+| image.tag | string | `"3.1.0"` | Tag for the image. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | ingress.annotations | object | `{}` | Annotations to add to the ingress. |
 | ingress.className | string | `""` | Ingress class name. |

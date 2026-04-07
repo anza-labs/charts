@@ -7,7 +7,7 @@ description: |-
 home: https://distribution.github.io/distribution/
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/registry/icon.png
 version: 1.0.2
-appVersion: "3.0.0"
+appVersion: "3.1.0"
 sources:
   - https://github.com/distribution/distribution
 keywords:
@@ -18,13 +18,13 @@ keywords:
 annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: fixed
-      description: '**main:** use `strategy` instead of `updateStrategy` in deployments'
+    - kind: changed
+      description: '**deps:** update docker.io/library/registry docker tag to v3.1.0'
       links:
-      - name: 'GitHub Issue #356'
-        url: https://github.com/anza-labs/charts/issues/356
-      - name: Commit e9ac474
-        url: https://github.com/anza-labs/charts/commit/e9ac4747a3e0f6bc9b5b62a73da0df7c2bf5b6a7
+      - name: 'GitHub Issue #368'
+        url: https://github.com/anza-labs/charts/issues/368
+      - name: Commit 1a7c0c9
+        url: https://github.com/anza-labs/charts/commit/1a7c0c98c791ede5c864b6442dd3a417e7775b94
 maintainers:
   - name: shanduur
     email: maturb@proton.me
