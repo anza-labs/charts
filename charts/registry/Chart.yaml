@@ -6,7 +6,7 @@ description: |-
   stores and lets you distribute container images and other content.
 home: https://distribution.github.io/distribution/
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/registry/icon.png
-version: 1.0.2
+version: 1.1.0
 appVersion: "3.1.0"
 sources:
   - https://github.com/distribution/distribution
@@ -18,6 +18,43 @@ keywords:
 annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
+    - kind: added
+      description: add htpasswd auth
+      links:
+      - name: Commit da621e7
+        url: https://github.com/anza-labs/charts/commit/da621e7b3b9b8eda1ca5e805b6e8836f814d26ed
+    - kind: added
+      description: add pyoci chart
+      links:
+      - name: Commit 4facd07
+        url: https://github.com/anza-labs/charts/commit/4facd07faee26a3de1378cf2028d60952d2126cc
+    - kind: added
+      description: add registry chart
+      links:
+      - name: Commit b8d1366
+        url: https://github.com/anza-labs/charts/commit/b8d13660ed61c55aed561b4e647232a553693ad1
+    - kind: added
+      description: add updateStrategy to multiple charts
+      links:
+      - name: Commit 87ce31e
+        url: https://github.com/anza-labs/charts/commit/87ce31ef82f1553bf8bd74a1e9c294a56a0172dd
+    - kind: fixed
+      description: failing e2e with htpasswd
+      links:
+      - name: Commit d364a6c
+        url: https://github.com/anza-labs/charts/commit/d364a6cd8dbf94a79f8b699e60415e65f41f3496
+    - kind: fixed
+      description: '**main:** use `strategy` instead of `updateStrategy` in deployments'
+      links:
+      - name: 'GitHub Issue #356'
+        url: https://github.com/anza-labs/charts/issues/356
+      - name: Commit e9ac474
+        url: https://github.com/anza-labs/charts/commit/e9ac4747a3e0f6bc9b5b62a73da0df7c2bf5b6a7
+    - kind: fixed
+      description: '**registry:** set htpasswd as RO always'
+      links:
+      - name: Commit 9cc50f8
+        url: https://github.com/anza-labs/charts/commit/9cc50f8e7559736065e56bc5d8451fa512320d22
     - kind: changed
       description: '**deps:** update docker.io/library/registry docker tag to v3.1.0'
       links:
@@ -25,6 +62,42 @@ annotations:
         url: https://github.com/anza-labs/charts/issues/368
       - name: Commit 1a7c0c9
         url: https://github.com/anza-labs/charts/commit/1a7c0c98c791ede5c864b6442dd3a417e7775b94
+    - kind: changed
+      description: generate docs and schemas
+      links:
+      - name: Commit f2ad0de
+        url: https://github.com/anza-labs/charts/commit/f2ad0de519f6932484fd55ff647011942c4ac092
+    - kind: changed
+      description: '**main:** release registry 1.0.0'
+      links:
+      - name: 'GitHub Issue #225'
+        url: https://github.com/anza-labs/charts/issues/225
+      - name: Commit f3a7c4d
+        url: https://github.com/anza-labs/charts/commit/f3a7c4d8f01d5495e4a7ac81f91f8a25ee190056
+    - kind: changed
+      description: '**main:** release registry 1.0.1'
+      links:
+      - name: 'GitHub Issue #355'
+        url: https://github.com/anza-labs/charts/issues/355
+      - name: Commit c5e6f7f
+        url: https://github.com/anza-labs/charts/commit/c5e6f7f3c86781fed713daa2f087bb572c1e7ea3
+    - kind: changed
+      description: '**main:** release registry 1.0.2'
+      links:
+      - name: 'GitHub Issue #372'
+        url: https://github.com/anza-labs/charts/issues/372
+      - name: Commit ed6a04d
+        url: https://github.com/anza-labs/charts/commit/ed6a04d831d019a615bb47dc862b1dd31aee8de2
+    - kind: changed
+      description: add push n pull tests
+      links:
+      - name: Commit f2bc0dd
+        url: https://github.com/anza-labs/charts/commit/f2bc0dd56abaed423a797155be749f7f7efd8951
+    - kind: changed
+      description: fix secret unittests
+      links:
+      - name: Commit 0816670
+        url: https://github.com/anza-labs/charts/commit/08166701cfeee84d5591f7eb77d06eb20ce4b93d
 maintainers:
   - name: shanduur
     email: maturb@proton.me
