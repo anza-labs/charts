@@ -17,12 +17,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.6.3'
+      description: '**deps:** update docker.io/curlimages/curl docker tag to v8.19.0'
       links:
-      - name: 'GitHub Issue #364'
-        url: https://github.com/anza-labs/charts/issues/364
-      - name: Commit 8b00f6f
-        url: https://github.com/anza-labs/charts/commit/8b00f6f9530a716b147068d4c3f65bd5eb220f00
+      - name: 'GitHub Issue #377'
+        url: https://github.com/anza-labs/charts/issues/377
+      - name: Commit ae3cbd2
+        url: https://github.com/anza-labs/charts/commit/ae3cbd292f452e49ed868ce56170db600ee560cf
 maintainers:
   - name: shanduur
     email: maturb@proton.me
