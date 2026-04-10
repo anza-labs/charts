@@ -1,6 +1,6 @@
 # pocket-id
 
-![Version: 2.0.2](https://img.shields.io/badge/Version-2.0.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.5.0](https://img.shields.io/badge/AppVersion-v2.5.0-informational?style=flat)
+![Version: 2.0.3](https://img.shields.io/badge/Version-2.0.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.5.0](https://img.shields.io/badge/AppVersion-v2.5.0-informational?style=flat)
 
 pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
 with their passkeys to your services.
@@ -28,7 +28,7 @@ with their passkeys to your services.
 | backup.enabled | bool | `false` | Specifies whether backup/replication is enabled. |
 | backup.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | backup.image.repository | string | `"docker.io/litestream/litestream"` | Registry and repository for the litestream image. |
-| backup.image.tag | string | `"0.5.10"` | Tag for the image. |
+| backup.image.tag | string | `"0.5.11"` | Tag for the image. |
 | backup.logging.level | string | `"INFO"` | Logging level. Options: DEBUG, INFO, WARNING, ERROR |
 | backup.logging.stderr | bool | `false` | Whether to log to stderr (default is stdout) |
 | backup.logging.type | string | `"text"` | Logging format. Options: text or json |
