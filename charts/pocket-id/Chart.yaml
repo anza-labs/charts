@@ -20,12 +20,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.10'
+      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.11'
       links:
-      - name: 'GitHub Issue #358'
-        url: https://github.com/anza-labs/charts/issues/358
-      - name: Commit c0880b9
-        url: https://github.com/anza-labs/charts/commit/c0880b9ecc734a0d81830e9dce2b1b7a03b3174a
+      - name: 'GitHub Issue #378'
+        url: https://github.com/anza-labs/charts/issues/378
+      - name: Commit cfdf92d
+        url: https://github.com/anza-labs/charts/commit/cfdf92dbe2e7f1e6587ade8bc5e038507a4cdf6c
 maintainers:
   - name: shanduur
     email: maturb@proton.me
