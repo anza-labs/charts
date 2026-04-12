@@ -18,6 +18,17 @@ maxmindLicenseKey: ""
 # -- Host where you will access the app.
 host: ""
 
+# -- Trust proxy headers (e.g. X-Forwarded-For) from the reverse proxy in front of pocket-id.
+trustProxy: true
+
+# -- Specifies the platform trusted by the application.
+# Supported values:
+# - `X-Appengine-Remote-Addr` - For Google App Engine
+# - `CF-Connecting-IP` - For Cloudflare
+# - `Fly-Client-IP` - For Fly.io
+# - Any custom header name that your reverse proxy uses to pass the client's real IP.
+trustedPlatform: ""
+
 # -- Encryption key used to encrypt sensitive data.
 # Required: Generate with `openssl rand -base64 32`
 encryptionKey: ""

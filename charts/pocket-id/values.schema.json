@@ -587,6 +587,12 @@
     "tolerations": {
       "type": "array"
     },
+    "trustProxy": {
+      "type": "boolean"
+    },
+    "trustedPlatform": {
+      "type": "string"
+    },
     "updateStrategy": {
       "type": "object",
       "properties": {
