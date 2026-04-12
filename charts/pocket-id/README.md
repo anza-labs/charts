@@ -149,6 +149,8 @@ with their passkeys to your services.
 | staticApiKey | string | `""` | Static API key that grants admin access. Creates an admin account called "Static API User". |
 | timeZone | string | `"Etc/UTC"` | Specifies the time zone to be used by the application. Use a valid IANA time zone string (e.g., "Etc/UTC", "America/New_York"). |
 | tolerations | list | `[]` | Tolerations for the pods. |
+| trustProxy | bool | `true` | Trust proxy headers (e.g. X-Forwarded-For) from the reverse proxy in front of pocket-id. |
+| trustedPlatform | string | `""` | Specifies the platform trusted by the application. Supported values: - `X-Appengine-Remote-Addr` - For Google App Engine - `CF-Connecting-IP` - For Cloudflare - `Fly-Client-IP` - For Fly.io - Any custom header name that your reverse proxy uses to pass the client's real IP. |
 | updateStrategy.rollingUpdate.maxUnavailable | string | `"100%"` |  |
 | updateStrategy.rollingUpdate.partition | int | `0` |  |
 | updateStrategy.type | string | `"RollingUpdate"` | The deployment strategy to use to replace existing pods with new ones. Options: "RollingUpdate" or "OnDelete". |

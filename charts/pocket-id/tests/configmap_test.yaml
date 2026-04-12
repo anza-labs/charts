@@ -30,6 +30,7 @@ tests:
       - isSubset:
           path: data
           content:
+            TRUST_PROXY: "true"
             ANALYTICS_DISABLED: "false"
             VERSION_CHECK_DISABLED: "true"
             GEOLITE_DB_URL: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"
@@ -37,11 +38,17 @@ tests:
             TZ: "Etc/UTC"
             TRACING_ENABLED: "false"
             METRICS_ENABLED: "false"
+      - isNotSubset:
+          path: data
+          content:
+            TRUSTED_PLATFORM: ""
 
   - it: Should create ConfigMap with overrides
     set:
       ingress.host: example.com
       timeZone: Europe/Berlin
+      trustProxy: false
+      trustedPlatform: CF-Connecting-IP
       geoliteDatabaseURL: https://example.com/db.tar.gz
       analyticsDisabled: true
     asserts:
@@ -50,6 +57,8 @@ tests:
       - isSubset:
           path: data
           content:
+            TRUST_PROXY: "false"
+            TRUSTED_PLATFORM: "CF-Connecting-IP"
             ANALYTICS_DISABLED: "true"
             VERSION_CHECK_DISABLED: "true"
             GEOLITE_DB_URL: "https://example.com/db.tar.gz"

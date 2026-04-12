@@ -15,7 +15,14 @@ metadata:
 data:
   HOST: "0.0.0.0"
   PORT: "1411"
+  {{ if not (quote .Values.trustProxy | empty) }}
+  TRUST_PROXY: "{{ .Values.trustProxy }}"
+  {{ else }}
   TRUST_PROXY: "true"
+  {{ end }}
+  {{ if .Values.trustedPlatform }}
+  TRUSTED_PLATFORM: "{{ .Values.trustedPlatform }}"
+  {{ end }}
   VERSION_CHECK_DISABLED: "true"
   ANALYTICS_DISABLED: "{{ .Values.analyticsDisabled | default false }}"
   GEOLITE_DB_PATH: "data/GeoLite2-City.mmdb"
