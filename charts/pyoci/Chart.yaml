@@ -5,8 +5,8 @@ description: |-
   Publish and install private python packages using OCI/docker registries.
 home: https://pyoci.com
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
-version: "1.1.1"
-appVersion: "v0.1.38"
+version: "1.1.2"
+appVersion: "v0.1.39"
 sources:
   - https://github.com/AllexVeldman/pyoci
 keywords:
@@ -16,18 +16,13 @@ keywords:
 annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: fixed
-      description: '**main:** use `strategy` instead of `updateStrategy` in deployments'
+    - kind: changed
+      description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.39'
       links:
-      - name: 'GitHub Issue #356'
-        url: https://github.com/anza-labs/charts/issues/356
-      - name: Commit e9ac474
-        url: https://github.com/anza-labs/charts/commit/e9ac4747a3e0f6bc9b5b62a73da0df7c2bf5b6a7
-    - kind: fixed
-      description: regenerated schemas
-      links:
-      - name: Commit b498930
-        url: https://github.com/anza-labs/charts/commit/b498930092e60a0ef47bcb6ff10f225fd3be4b4f
+      - name: 'GitHub Issue #375'
+        url: https://github.com/anza-labs/charts/issues/375
+      - name: Commit 062daa5
+        url: https://github.com/anza-labs/charts/commit/062daa52b11d4e406f704a4e1363f8b6c7751337
 maintainers:
   - name: shanduur
     email: maturb@proton.me
