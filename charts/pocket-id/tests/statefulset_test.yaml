@@ -101,3 +101,67 @@ tests:
           path: spec.template.spec.initContainers
           any: true
           content: {}
+
+  - it: Should use hostPath volume when hostPath is enabled
+    set:
+      persistence:
+        data:
+          hostPath:
+            enabled: true
+            path: /mnt/data
+            type: DirectoryOrCreate
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: RELEASE-NAME-pocket-id-data
+            hostPath:
+              path: /mnt/data
+              type: DirectoryOrCreate
+      - contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: RELEASE-NAME-pocket-id-data
+            mountPath: /app/data
+      - notExists:
+          path: spec.volumeClaimTemplates
+
+  - it: Should use hostPath volume without type when type is not set
+    set:
+      persistence:
+        data:
+          hostPath:
+            enabled: true
+            path: /mnt/data
+    asserts:
+      - contains:
+          path: spec.template.spec.volumes
+          content:
+            name: RELEASE-NAME-pocket-id-data
+            hostPath:
+              path: /mnt/data
+      - notExists:
+          path: spec.volumeClaimTemplates
+
+  - it: Should fail when hostPath is enabled and existingClaim is set
+    set:
+      persistence:
+        data:
+          existingClaim: my-claim
+          hostPath:
+            enabled: true
+            path: /mnt/data
+    asserts:
+      - failedTemplate:
+          errorMessage: "persistence.data.hostPath.enabled and persistence.data.existingClaim are mutually exclusive"
+
+  - it: Should fail when hostPath is enabled and path is empty
+    set:
+      persistence:
+        data:
+          hostPath:
+            enabled: true
+            path: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: "persistence.data.hostPath.path must not be empty when persistence.data.hostPath.enabled is true"

@@ -446,6 +446,20 @@
             "existingClaim": {
               "type": "string"
             },
+            "hostPath": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              }
+            },
             "size": {
               "type": "string"
             },
