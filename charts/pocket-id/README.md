@@ -125,6 +125,10 @@ with their passkeys to your services.
 | persistence.data.annotations | object | `{}` | Annotations applied to PVC. |
 | persistence.data.enabled | bool | `false` | Enable/disable PVC creation for data. |
 | persistence.data.existingClaim | string | `""` | Use an existing PVC if defined, otherwise create one. |
+| persistence.data.hostPath | object | `{"enabled":false,"path":"","type":""}` | Use a hostPath volume instead of a PVC. Mutually exclusive with existingClaim. |
+| persistence.data.hostPath.enabled | bool | `false` | Enable hostPath volume. When true, existingClaim must be empty. |
+| persistence.data.hostPath.path | string | `""` | Absolute path on the host node to mount. |
+| persistence.data.hostPath.type | string | `""` | Optional hostPath type (e.g. Directory, DirectoryOrCreate, File, FileOrCreate). |
 | persistence.data.size | string | `"10Gi"` | Storage size for the PVC. |
 | persistence.data.storageClass | string | `""` | Specify the StorageClass (if required). |
 | pocketID.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |

@@ -378,6 +378,14 @@ persistence:
     size: 10Gi
     # -- Annotations applied to PVC.
     annotations: {}
+    # -- Use a hostPath volume instead of a PVC. Mutually exclusive with existingClaim.
+    hostPath:
+      # -- Enable hostPath volume. When true, existingClaim must be empty.
+      enabled: false
+      # -- Absolute path on the host node to mount.
+      path: ""
+      # -- Optional hostPath type (e.g. Directory, DirectoryOrCreate, File, FileOrCreate).
+      type: ""
 
 ingress:
   # -- Specifies whether ingress should be enabled.
