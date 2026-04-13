@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/anza-labs/charts/compare/pocket-id-2.0.3...pocket-id-v2.1.0) (2026-04-13)
+
+
+### Features
+
+* **pocket-id:** add hostPath support for persistence ([#385](https://github.com/anza-labs/charts/issues/385)) ([0725e2e](https://github.com/anza-labs/charts/commit/0725e2ec9279fad14f8f47093e8fbc33bbd0f83c))
+* **pocket-id:** add trust proxy configuration options ([#383](https://github.com/anza-labs/charts/issues/383)) ([9a36e9d](https://github.com/anza-labs/charts/commit/9a36e9d63e2db325c80583b6243a6e5513609a64))
+
 ## [2.0.3](https://github.com/anza-labs/charts/compare/pocket-id-2.0.2...pocket-id-v2.0.3) (2026-04-10)
 
 
