@@ -1,6 +1,6 @@
 # pocket-id
 
-![Version: 2.1.0](https://img.shields.io/badge/Version-2.1.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.5.0](https://img.shields.io/badge/AppVersion-v2.5.0-informational?style=flat)
+![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.5.0](https://img.shields.io/badge/AppVersion-v2.5.0-informational?style=flat)
 
 pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
 with their passkeys to your services.
