@@ -1,3 +1,9 @@
+{{- if and .Values.persistence.data.hostPath.enabled (not (eq .Values.persistence.data.existingClaim "")) }}
+  {{- fail "persistence.data.hostPath.enabled and persistence.data.existingClaim are mutually exclusive" }}
+{{- end }}
+{{- if and .Values.persistence.data.hostPath.enabled (eq .Values.persistence.data.hostPath.path "") }}
+  {{- fail "persistence.data.hostPath.path must not be empty when persistence.data.hostPath.enabled is true" }}
+{{- end }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -42,7 +48,14 @@ spec:
           configMap:
             name: {{ include "pocket-id.backupConfig" . }}
       {{- end }}
-      {{- if (and .Values.persistence.data.enabled (not (eq .Values.persistence.data.existingClaim ""))) }}
+      {{- if .Values.persistence.data.hostPath.enabled }}
+        - name: {{ include "pocket-id.pvcData" . }}
+          hostPath:
+            path: "{{ .Values.persistence.data.hostPath.path }}"
+            {{- if .Values.persistence.data.hostPath.type }}
+            type: "{{ .Values.persistence.data.hostPath.type }}"
+            {{- end }}
+      {{- else if (and .Values.persistence.data.enabled (not (eq .Values.persistence.data.existingClaim ""))) }}
         - name: {{ include "pocket-id.pvcData" . }}
           persistentVolumeClaim:
             claimName: {{ include "pocket-id.pvcData" . }}
@@ -135,7 +148,7 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-  {{- if (and .Values.persistence.data.enabled (eq .Values.persistence.data.existingClaim "")) }}
+  {{- if (and .Values.persistence.data.enabled (eq .Values.persistence.data.existingClaim "") (not .Values.persistence.data.hostPath.enabled)) }}
   volumeClaimTemplates:
     - metadata:
         name: {{ include "pocket-id.pvcData" . }}
