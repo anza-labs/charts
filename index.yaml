@@ -1428,6 +1428,48 @@ entries:
   - annotations:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
+        - kind: added
+          description: '**pocket-id:** add hostPath support for persistence'
+          links:
+          - name: 'GitHub Issue #385'
+            url: https://github.com/anza-labs/charts/issues/385
+          - name: Commit 0725e2e
+            url: https://github.com/anza-labs/charts/commit/0725e2ec9279fad14f8f47093e8fbc33bbd0f83c
+        - kind: added
+          description: '**pocket-id:** add trust proxy configuration options'
+          links:
+          - name: 'GitHub Issue #383'
+            url: https://github.com/anza-labs/charts/issues/383
+          - name: Commit 9a36e9d
+            url: https://github.com/anza-labs/charts/commit/9a36e9d63e2db325c80583b6243a6e5513609a64
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v2.5.0
+    created: "2026-04-13T09:29:03.701987321Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: 25cf49e71a6713877813b7082acdac597320f254a8771ddba7667ad0d4b9b7be
+    home: https://pocket-id.org
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-2.1.0/pocket-id-2.1.0.tgz
+    version: 2.1.0
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
         - kind: changed
           description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.11'
           links:
@@ -3621,4 +3663,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-04-12T13:59:22.00595132Z"
+generated: "2026-04-13T09:29:03.702542868Z"
