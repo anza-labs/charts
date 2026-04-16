@@ -190,7 +190,7 @@ KIND_VERSION ?= v0.31.0
 KUBE_LINTER_VERSION ?= v0.8.3
 
 # renovate: datasource=github-tags depName=kubernetes/kubernetes
-KUBECTL_VERSION ?= v1.35.3
+KUBECTL_VERSION ?= v1.35.4
 
 # renovate: datasource=github-tags depName=mikefarah/yq
 YQ_VERSION ?= v4.52.5
