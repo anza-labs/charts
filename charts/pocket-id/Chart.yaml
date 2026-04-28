@@ -6,8 +6,8 @@ description: |
   with their passkeys to your services.
 home: https://pocket-id.org
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
-version: 2.1.0
-appVersion: "v2.5.0"
+version: 2.1.1
+appVersion: "v2.6.2"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -19,20 +19,13 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: added
-      description: '**pocket-id:** add hostPath support for persistence'
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.6.2'
       links:
-      - name: 'GitHub Issue #385'
-        url: https://github.com/anza-labs/charts/issues/385
-      - name: Commit 0725e2e
-        url: https://github.com/anza-labs/charts/commit/0725e2ec9279fad14f8f47093e8fbc33bbd0f83c
-    - kind: added
-      description: '**pocket-id:** add trust proxy configuration options'
-      links:
-      - name: 'GitHub Issue #383'
-        url: https://github.com/anza-labs/charts/issues/383
-      - name: Commit 9a36e9d
-        url: https://github.com/anza-labs/charts/commit/9a36e9d63e2db325c80583b6243a6e5513609a64
+      - name: 'GitHub Issue #391'
+        url: https://github.com/anza-labs/charts/issues/391
+      - name: Commit 8df3df1
+        url: https://github.com/anza-labs/charts/commit/8df3df187243fdfdef5ce32b856be9f2a1c9a15a
 maintainers:
   - name: shanduur
     email: maturb@proton.me
