@@ -1428,6 +1428,41 @@ entries:
   - annotations:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
+        - kind: changed
+          description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.6.2'
+          links:
+          - name: 'GitHub Issue #391'
+            url: https://github.com/anza-labs/charts/issues/391
+          - name: Commit 8df3df1
+            url: https://github.com/anza-labs/charts/commit/8df3df187243fdfdef5ce32b856be9f2a1c9a15a
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v2.6.2
+    created: "2026-04-28T13:16:58.678272374Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: 72ac391696686109d78f4136a4ad68a1644d0fabf3688101a76936a65bfa1dfe
+    home: https://pocket-id.org
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-2.1.1/pocket-id-2.1.1.tgz
+    version: 2.1.1
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
         - kind: added
           description: '**pocket-id:** add hostPath support for persistence'
           links:
@@ -3663,4 +3698,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-04-13T09:29:03.702542868Z"
+generated: "2026-04-28T13:16:58.678775748Z"
