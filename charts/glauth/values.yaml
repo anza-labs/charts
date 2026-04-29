@@ -8,7 +8,7 @@ image:
   # If you want extra functionality, set repository to `ghcr.io/glauth/glauth-plugins`.
   repository: ghcr.io/glauth/glauth
   # -- Tag for the image.
-  tag: "v2.4.0"
+  tag: "v2.5.0"
   # -- Image pull policy.
   pullPolicy: IfNotPresent
 
