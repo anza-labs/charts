@@ -57,6 +57,52 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update docker.io/curlimages/curl docker tag to v8.20.0'
+          links:
+          - name: 'GitHub Issue #401'
+            url: https://github.com/anza-labs/charts/issues/401
+          - name: Commit adf8389
+            url: https://github.com/anza-labs/charts/commit/adf838947c40919b40e3655bbf9da2a07998e47f
+        - kind: changed
+          description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.6.4'
+          links:
+          - name: 'GitHub Issue #388'
+            url: https://github.com/anza-labs/charts/issues/388
+          - name: Commit d3906e8
+            url: https://github.com/anza-labs/charts/commit/d3906e89cbfcb26e346ebb45821ea76b75f2fc32
+        - kind: changed
+          description: '**install:** improve install docs'
+          links:
+          - name: 'GitHub Issue #399'
+            url: https://github.com/anza-labs/charts/issues/399
+          - name: Commit e8fdc56
+            url: https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.6.4
+    created: "2026-04-29T14:30:53.539741732Z"
+    description: 'LubeLogger is a web-based vehicle maintenance and fuel mileage tracker '
+    digest: 91aa6745501a4d488a740419f2053a70cc6886b6ee53d18053fa5e4e81768c80
+    home: https://lubelogger.com
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/lubelogger/icon.png
+    keywords:
+    - vechicle
+    - maintenance
+    - dashboard
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: lubelogger
+    sources:
+    - https://github.com/hargata/lubelog
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/lubelogger-1.4.6/lubelogger-1.4.6.tgz
+    version: 1.4.6
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update docker.io/curlimages/curl docker tag to v8.19.0'
           links:
           - name: 'GitHub Issue #377'
@@ -3698,4 +3744,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-04-28T13:16:58.678775748Z"
+generated: "2026-04-29T14:30:54.317719177Z"
