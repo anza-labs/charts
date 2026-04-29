@@ -1,6 +1,6 @@
 # pocket-id
 
-![Version: 2.1.1](https://img.shields.io/badge/Version-2.1.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.6.2](https://img.shields.io/badge/AppVersion-v2.6.2-informational?style=flat)
+![Version: 2.1.2](https://img.shields.io/badge/Version-2.1.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.6.2](https://img.shields.io/badge/AppVersion-v2.6.2-informational?style=flat)
 
 pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
 with their passkeys to your services.
@@ -24,7 +24,7 @@ To install the chart with the release name `pocket-id`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install pocket-id anza-labs/pocket-id --version 2.1.1
+helm install pocket-id anza-labs/pocket-id --version 2.1.2
 ```
 
 ## Upgrading
@@ -134,7 +134,7 @@ helm uninstall pocket-id
 | fileBackend.uploadPath | string | `"data/uploads"` | The path where uploaded files are stored (only for filesystem/s3) |
 | fullnameOverride | string | `""` | Override for the full name. |
 | geoliteDatabaseURL | string | `"https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"` | URL template to download the MaxMind GeoLite2-City database. `%s` will be replaced with the license key. |
-| host | string | `""` | Host where you will access the app. |
+| host | string | `""` | Host where you will access the app without scheme or port. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | ingress.annotations | object | `{}` | Annotations to add to the ingress. |
 | ingress.className | string | `""` | Ingress class name. |
