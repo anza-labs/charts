@@ -17,6 +17,32 @@ stores and lets you distribute container images and other content.
 
 * <https://github.com/distribution/distribution>
 
+## Installation
+
+To install the chart with the release name `registry`:
+
+```bash
+helm repo add anza-labs https://anza-labs.github.io/charts
+helm repo update anza-labs
+helm install registry anza-labs/registry --version 1.0.2
+```
+
+## Upgrading
+
+To upgrade an existing installation:
+
+```bash
+helm upgrade registry anza-labs/registry
+```
+
+## Uninstalling
+
+To uninstall an existing installation:
+
+```bash
+helm uninstall registry
+```
+
 ## Values
 
 | Key | Type | Default | Description |

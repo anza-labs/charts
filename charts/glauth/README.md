@@ -16,6 +16,32 @@ glauth is a lightweight LDAP server for development, home use, or CI.
 
 * <https://github.com/glauth/glauth>
 
+## Installation
+
+To install the chart with the release name `glauth`:
+
+```bash
+helm repo add anza-labs https://anza-labs.github.io/charts
+helm repo update anza-labs
+helm install glauth anza-labs/glauth --version 0.2.0
+```
+
+## Upgrading
+
+To upgrade an existing installation:
+
+```bash
+helm upgrade glauth anza-labs/glauth
+```
+
+## Uninstalling
+
+To uninstall an existing installation:
+
+```bash
+helm uninstall glauth
+```
+
 ## Values
 
 | Key | Type | Default | Description |

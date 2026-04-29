@@ -17,6 +17,32 @@ with their passkeys to your services.
 
 * <https://github.com/pocket-id/pocket-id>
 
+## Installation
+
+To install the chart with the release name `pocket-id`:
+
+```bash
+helm repo add anza-labs https://anza-labs.github.io/charts
+helm repo update anza-labs
+helm install pocket-id anza-labs/pocket-id --version 2.1.1
+```
+
+## Upgrading
+
+To upgrade an existing installation:
+
+```bash
+helm upgrade pocket-id anza-labs/pocket-id
+```
+
+## Uninstalling
+
+To uninstall an existing installation:
+
+```bash
+helm uninstall pocket-id
+```
+
 ## Values
 
 | Key | Type | Default | Description |
