@@ -4,3 +4,8 @@ description: ''
 type: application
 version: 0.1.2
 appVersion: "meta"
+maintainers:
+  - name: shanduur
+    email: maturb@proton.me
+    url: http://linkedin.com/in/urbanekmateusz
+

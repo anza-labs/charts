@@ -16,6 +16,32 @@ LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 
 * <https://github.com/hargata/lubelog>
 
+## Installation
+
+To install the chart with the release name `lubelogger`:
+
+```bash
+helm repo add anza-labs https://anza-labs.github.io/charts
+helm repo update anza-labs
+helm install lubelogger anza-labs/lubelogger --version 1.4.5
+```
+
+## Upgrading
+
+To upgrade an existing installation:
+
+```bash
+helm upgrade lubelogger anza-labs/lubelogger
+```
+
+## Uninstalling
+
+To uninstall an existing installation:
+
+```bash
+helm uninstall lubelogger
+```
+
 ## Values
 
 | Key | Type | Default | Description |

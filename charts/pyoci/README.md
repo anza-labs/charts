@@ -16,6 +16,32 @@ Publish and install private python packages using OCI/docker registries.
 
 * <https://github.com/AllexVeldman/pyoci>
 
+## Installation
+
+To install the chart with the release name `pyoci`:
+
+```bash
+helm repo add anza-labs https://anza-labs.github.io/charts
+helm repo update anza-labs
+helm install pyoci anza-labs/pyoci --version 1.1.2
+```
+
+## Upgrading
+
+To upgrade an existing installation:
+
+```bash
+helm upgrade pyoci anza-labs/pyoci
+```
+
+## Uninstalling
+
+To uninstall an existing installation:
+
+```bash
+helm uninstall pyoci
+```
+
 ## Values
 
 | Key | Type | Default | Description |
