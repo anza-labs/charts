@@ -5,7 +5,7 @@ description: |
   glauth is a lightweight LDAP server for development, home use, or CI.
 home: https://glauth.github.io
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/glauth/icon.png
-version: 0.2.0
+version: 1.0.0
 appVersion: "v2.4.0"
 sources:
   - https://github.com/glauth/glauth
@@ -16,6 +16,62 @@ keywords:
 annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
+  artifacthub.io/changes: |-
+    - kind: added
+      description: add updateStrategy to multiple charts
+      links:
+      - name: Commit 87ce31e
+        url: https://github.com/anza-labs/charts/commit/87ce31ef82f1553bf8bd74a1e9c294a56a0172dd
+    - kind: added
+      description: '**glauth:** add glauth chart'
+      links:
+      - name: 'GitHub Issue #196'
+        url: https://github.com/anza-labs/charts/issues/196
+      - name: Commit 55ea41c
+        url: https://github.com/anza-labs/charts/commit/55ea41ce4c79aa93734b67b9c3e4594cc9f23866
+    - kind: added
+      description: '**pocket-id:** implement basic v2 chart'
+      links:
+      - name: 'GitHub Issue #350'
+        url: https://github.com/anza-labs/charts/issues/350
+      - name: Commit bb34d3f
+        url: https://github.com/anza-labs/charts/commit/bb34d3f7eccbe50917fbf4cf80b3f02fa4a8882e
+    - kind: fixed
+      description: '**main:** use `strategy` instead of `updateStrategy` in deployments'
+      links:
+      - name: 'GitHub Issue #356'
+        url: https://github.com/anza-labs/charts/issues/356
+      - name: Commit e9ac474
+        url: https://github.com/anza-labs/charts/commit/e9ac4747a3e0f6bc9b5b62a73da0df7c2bf5b6a7
+    - kind: fixed
+      description: regenerated schemas
+      links:
+      - name: Commit b498930
+        url: https://github.com/anza-labs/charts/commit/b498930092e60a0ef47bcb6ff10f225fd3be4b4f
+    - kind: changed
+      description: '**deps:** update ghcr.io/glauth/glauth docker tag to v2.5.0'
+      links:
+      - name: 'GitHub Issue #390'
+        url: https://github.com/anza-labs/charts/issues/390
+      - name: Commit cf49246
+        url: https://github.com/anza-labs/charts/commit/cf49246b47a49c5095f60c4b7ef6c754d3e397af
+    - kind: changed
+      description: generate docs and schemas
+      links:
+      - name: Commit f2ad0de
+        url: https://github.com/anza-labs/charts/commit/f2ad0de519f6932484fd55ff647011942c4ac092
+    - kind: changed
+      description: '**install:** improve install docs'
+      links:
+      - name: 'GitHub Issue #399'
+        url: https://github.com/anza-labs/charts/issues/399
+      - name: Commit e8fdc56
+        url: https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78
+    - kind: changed
+      description: add new simple ldap test
+      links:
+      - name: Commit e3f0b6d
+        url: https://github.com/anza-labs/charts/commit/e3f0b6d7c8e26d346e60634c33b47112caee4540
 maintainers:
   - name: shanduur
     email: maturb@proton.me
