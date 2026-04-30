@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/anza-labs/charts/compare/pyoci-1.1.2...pyoci-v1.1.3) (2026-04-30)
+
+
+### Documentation
+
+* **install:** improve install docs ([#399](https://github.com/anza-labs/charts/issues/399)) ([e8fdc56](https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78))
+
 ## [1.1.2](https://github.com/anza-labs/charts/compare/pyoci-1.1.1...pyoci-v1.1.2) (2026-04-10)
 
 
