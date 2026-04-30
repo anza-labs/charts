@@ -6,7 +6,7 @@ description: |-
   stores and lets you distribute container images and other content.
 home: https://distribution.github.io/distribution/
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/registry/icon.png
-version: 1.0.2
+version: 1.0.3
 appVersion: "3.1.0"
 sources:
   - https://github.com/distribution/distribution
@@ -19,12 +19,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update docker.io/library/registry docker tag to v3.1.0'
+      description: '**install:** improve install docs'
       links:
-      - name: 'GitHub Issue #368'
-        url: https://github.com/anza-labs/charts/issues/368
-      - name: Commit 1a7c0c9
-        url: https://github.com/anza-labs/charts/commit/1a7c0c98c791ede5c864b6442dd3a417e7775b94
+      - name: 'GitHub Issue #399'
+        url: https://github.com/anza-labs/charts/issues/399
+      - name: Commit e8fdc56
+        url: https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78
 maintainers:
   - name: shanduur
     email: maturb@proton.me
