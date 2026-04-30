@@ -1,6 +1,6 @@
 # pocket-id
 
-![Version: 2.1.1](https://img.shields.io/badge/Version-2.1.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.6.2](https://img.shields.io/badge/AppVersion-v2.6.2-informational?style=flat)
+![Version: 2.1.2](https://img.shields.io/badge/Version-2.1.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.6.2](https://img.shields.io/badge/AppVersion-v2.6.2-informational?style=flat)
 
 pocket-id is a simple and easy-to-use OIDC provider that allows users to authenticate
 with their passkeys to your services.
@@ -24,7 +24,7 @@ To install the chart with the release name `pocket-id`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install pocket-id anza-labs/pocket-id --version 2.1.1
+helm install pocket-id anza-labs/pocket-id --version 2.1.2
 ```
 
 ## Upgrading
