@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/anza-labs/charts/compare/pocket-id-2.1.1...pocket-id-v2.1.2) (2026-04-30)
+
+
+### Documentation
+
+* **install:** improve install docs ([#399](https://github.com/anza-labs/charts/issues/399)) ([e8fdc56](https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78))
+
 ## [2.1.1](https://github.com/anza-labs/charts/compare/pocket-id-2.1.0...pocket-id-v2.1.1) (2026-04-28)
 
 
