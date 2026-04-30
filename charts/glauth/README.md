@@ -1,6 +1,6 @@
 # glauth
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.4.0](https://img.shields.io/badge/AppVersion-v2.4.0-informational?style=flat)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.4.0](https://img.shields.io/badge/AppVersion-v2.4.0-informational?style=flat)
 
 glauth is a lightweight LDAP server for development, home use, or CI.
 
@@ -23,7 +23,7 @@ To install the chart with the release name `glauth`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install glauth anza-labs/glauth --version 0.2.0
+helm install glauth anza-labs/glauth --version 1.0.0
 ```
 
 ## Upgrading
@@ -51,7 +51,7 @@ helm uninstall glauth
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"ghcr.io/glauth/glauth"` | Registry and repository for the glauth image. If you want extra functionality, set repository to `ghcr.io/glauth/glauth-plugins`. |
-| image.tag | string | `"v2.4.0"` | Tag for the image. |
+| image.tag | string | `"v2.5.0"` | Tag for the image. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | ingress.annotations | object | `{}` | Annotations to add to the ingress. |
 | ingress.className | string | `""` | Ingress class name. |
