@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/anza-labs/charts/compare/registry-1.0.2...registry-v1.0.3) (2026-04-30)
+
+
+### Documentation
+
+* **install:** improve install docs ([#399](https://github.com/anza-labs/charts/issues/399)) ([e8fdc56](https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78))
+
 ## [1.0.2](https://github.com/anza-labs/charts/compare/registry-1.0.1...registry-v1.0.2) (2026-04-07)
 
 
