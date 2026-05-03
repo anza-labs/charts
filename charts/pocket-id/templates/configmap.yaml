@@ -1,7 +1,7 @@
 {{- if .Values.config.create -}}
 {{- $host := coalesce .Values.host .Values.ingress.host "localhost" }}
 {{- if or (hasPrefix "http://" $host) (hasPrefix "https://" $host) }}
-{{- fail (printf "Host value '%s' cannot contain prefix" $host) }}
+  {{- fail (printf ".Values.host cannot contain prefix (got '%s')" $host) }}
 {{- end }}
 {{- range $key, $value := .Values.config.telemetry.otel }}
   {{- if not (hasPrefix "OTEL_" $key) }}
