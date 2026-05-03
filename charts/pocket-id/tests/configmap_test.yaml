@@ -5,6 +5,26 @@ templates:
   - configmap.yaml
 
 tests:
+  - it: Should fail for invalid prefix when host contains https:// prefix
+    set:
+      host: "https://example.com"
+    asserts:
+      - failedTemplate:
+          errorMessage: ".Values.host cannot contain prefix (got 'https://example.com')"
+  
+  - it: Should fail for invalid prefix when host contains http:// prefix
+    set:
+      host: "http://example.com"
+    asserts:
+      - failedTemplate:
+        errorMessage: ".Values.host cannot contain prefix (got 'http://example.com')"
+
+  - it: Should pass with valid host with no prefix
+    set:
+      host: "example.com"
+    asserts:
+      - notFailedTemplate: {}
+
   - it: Should fail for invalid prefix env vars in otel configuration.
     set:
       config.telemetry:

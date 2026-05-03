@@ -134,7 +134,7 @@ helm uninstall pocket-id
 | fileBackend.uploadPath | string | `"data/uploads"` | The path where uploaded files are stored (only for filesystem/s3) |
 | fullnameOverride | string | `""` | Override for the full name. |
 | geoliteDatabaseURL | string | `"https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz"` | URL template to download the MaxMind GeoLite2-City database. `%s` will be replaced with the license key. |
-| host | string | `""` | Host where you will access the app. |
+| host | string | `""` | Host where you will access the app. (without prefix, ex: pocketid.example.com) |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | ingress.annotations | object | `{}` | Annotations to add to the ingress. |
 | ingress.className | string | `""` | Ingress class name. |

@@ -15,7 +15,7 @@ analyticsDisabled: false
 # -- MaxMind license key used to download the GeoLite2 database. Leave blank to disable download.
 maxmindLicenseKey: ""
 
-# -- Host where you will access the app.
+# -- Host where you will access the app. (without prefix, ex: pocketid.example.com)
 host: ""
 
 # -- Trust proxy headers (e.g. X-Forwarded-For) from the reverse proxy in front of pocket-id.
