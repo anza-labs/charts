@@ -5,7 +5,7 @@ description: |-
   Publish and install private python packages using OCI/docker registries.
 home: https://pyoci.com
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pyoci/icon.jpg
-version: "1.1.2"
+version: "1.1.3"
 appVersion: "v0.1.39"
 sources:
   - https://github.com/AllexVeldman/pyoci
@@ -17,12 +17,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update ghcr.io/allexveldman/pyoci docker tag to v0.1.39'
+      description: '**install:** improve install docs'
       links:
-      - name: 'GitHub Issue #375'
-        url: https://github.com/anza-labs/charts/issues/375
-      - name: Commit 062daa5
-        url: https://github.com/anza-labs/charts/commit/062daa52b11d4e406f704a4e1363f8b6c7751337
+      - name: 'GitHub Issue #399'
+        url: https://github.com/anza-labs/charts/issues/399
+      - name: Commit e8fdc56
+        url: https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78
 maintainers:
   - name: shanduur
     email: maturb@proton.me

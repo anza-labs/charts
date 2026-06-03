@@ -1,6 +1,6 @@
 # pyoci
 
-![Version: 1.1.2](https://img.shields.io/badge/Version-1.1.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.1.39](https://img.shields.io/badge/AppVersion-v0.1.39-informational?style=flat)
+![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.1.39](https://img.shields.io/badge/AppVersion-v0.1.39-informational?style=flat)
 
 Publish and install private python packages using OCI/docker registries.
 
@@ -23,7 +23,7 @@ To install the chart with the release name `pyoci`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install pyoci anza-labs/pyoci --version 1.1.2
+helm install pyoci anza-labs/pyoci --version 1.1.3
 ```
 
 ## Upgrading
