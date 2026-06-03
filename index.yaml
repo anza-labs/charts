@@ -1484,6 +1484,41 @@ entries:
       artifacthub.io/immutable: "true"
     apiVersion: v2
     appVersion: v2.6.2
+    created: "2026-06-03T16:35:10.934388629Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: 22710ed0ad7bcee1e6d89918a9daa6090adf9d3a7d26ca6a4df6b5fef7631201
+    home: https://pocket-id.org
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-2.1.2/pocket-id-2.1.2.tgz
+    version: 2.1.2
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.6.2'
+          links:
+          - name: 'GitHub Issue #391'
+            url: https://github.com/anza-labs/charts/issues/391
+          - name: Commit 8df3df1
+            url: https://github.com/anza-labs/charts/commit/8df3df187243fdfdef5ce32b856be9f2a1c9a15a
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v2.6.2
     created: "2026-04-28T13:16:58.678272374Z"
     description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
       users to authenticate with their passkeys to your services. '
@@ -3785,4 +3820,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-05-05T09:07:49.322305129Z"
+generated: "2026-06-03T16:35:10.934703359Z"
