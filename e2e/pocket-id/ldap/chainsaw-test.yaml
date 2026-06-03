@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/test-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: pocket-id-ldap
+  labels:
+    chart: pocket-id
+
+spec:
+  concurrent: true
+  timeouts:
+    cleanup: 60s
+
+  bindings:
+    - name: apiKey
+      value: test-static-api-key-for-e2e
+    - name: ldapUrl
+      value: (join('', ['ldap://', $namespace, '-glauth.', $namespace, ':3893']))
+    - name: glauthArgs
+      value: |
+        --set-json=secret.value.users=[{"name":"serviceuser","mail":"serviceuser@example.com","uidnumber":5003,"primarygroup":5502,"passsha256":"652c7dc687d98c9889304ed2e408c74b611e86a40caa51c4b43f1dd5913c5cd0","capabilities":[{"action":"search","object":"*"}]},{"name":"johndoe","mail":"johndoe@example.com","givenname":"John","sn":"Doe","uidnumber":5004,"primarygroup":5503,"passsha256":"652c7dc687d98c9889304ed2e408c74b611e86a40caa51c4b43f1dd5913c5cd0"}]
+        --set-json=secret.value.groups=[{"name":"svcaccts","gidnumber":5502},{"name":"users","gidnumber":5503}]
+    - name: pocketIdArgs
+      value: >-
+        (join(' ', [join('', ['--set=staticApiKey=', $apiKey]),
+        '--set=config.ui.useDefaults=false',
+        join('', ['--set=config.ui.settings.ldap.url=', $ldapUrl]),
+        '--set=config.ui.settings.ldap.enabled=true',
+        '--set=config.ui.settings.ldap.bindDN=cn=serviceuser\,ou=svcaccts\,dc=glauth\,dc=com',
+        '--set=config.ui.settings.ldap.bindPassword=mysecret',
+        '--set=config.ui.settings.ldap.base=dc=glauth\,dc=com',
+        '--set=config.ui.settings.ldap.userSearchFilter=(objectClass=posixAccount)',
+        '--set=config.ui.settings.ldap.userGroupSearchFilter=(objectClass=posixGroup)',
+        '--set=config.ui.settings.ldap.attributes.user.uniqueIdentifier=uidNumber',
+        '--set=config.ui.settings.ldap.attributes.user.username=cn',
+        '--set=config.ui.settings.ldap.attributes.user.email=mail',
+        '--set=config.ui.settings.ldap.attributes.user.firstName=givenName',
+        '--set=config.ui.settings.ldap.attributes.user.lastName=sn',
+        '--set=config.ui.settings.ldap.attributes.group.member=memberUid',
+        '--set=config.ui.settings.ldap.attributes.group.uniqueIdentifier=gidNumber',
+        '--set=config.ui.settings.ldap.attributes.group.name=cn']))
+
+  steps:
+    - name: Install glauth
+      use:
+        template: ../../glauth/_lib/helm-install.step.yaml
+        with:
+          bindings:
+            - name: arguments
+              value: ($glauthArgs)
+            - name: namespace
+              value: ($namespace)
+
+    - name: Validate glauth installation
+      use:
+        template: ../../glauth/_lib/validate-core-installation.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
+    - name: Install pocket-id
+      use:
+        template: ../_lib/helm-install.step.yaml
+        with:
+          bindings:
+            - name: arguments
+              value: ($pocketIdArgs)
+            - name: namespace
+              value: ($namespace)
+
+    - name: Validate pocket-id installation
+      use:
+        template: ../_lib/validate-core-installation.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
+    - name: Verify LDAP user sync
+      use:
+        template: ../_lib/verify-ldap-sync.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+            - name: apiKey
+              value: ($apiKey)
+            - name: expectedUsername
+              value: johndoe

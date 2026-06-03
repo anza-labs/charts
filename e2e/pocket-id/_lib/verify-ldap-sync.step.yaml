@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: verify-ldap-sync
+  labels:
+    chart: pocket-id
+spec:
+  try:
+    - apply:
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-ldap-sync
+            labels:
+              charts.anza-labs.dev/test: pocket-id-ldap-sync
+          spec:
+            backoffLimit: 0
+            template:
+              metadata:
+                labels:
+                  charts.anza-labs.dev/test: pocket-id-ldap-sync
+              spec:
+                restartPolicy: Never
+                containers:
+                  - name: curl
+                    image: curlimages/curl:8.10.1
+                    imagePullPolicy: IfNotPresent
+                    command: ["/bin/sh", "-c"]
+                    args:
+                      - |
+                        set -eu
+
+                        URL="http://${NAMESPACE}-pocket-id.${NAMESPACE}/api/users"
+
+                        for i in $(seq 1 60); do
+                          echo "Attempt ${i}: GET ${URL}"
+                          body="$(curl -sS -f -H "X-API-KEY: ${API_KEY}" "${URL}" || true)"
+                          echo "${body}"
+                          if echo "${body}" | grep -q "\"username\":\"${EXPECTED_USERNAME}\""; then
+                            echo "found ${EXPECTED_USERNAME}"
+                            exit 0
+                          fi
+                          sleep 5
+                        done
+
+                        echo "${EXPECTED_USERNAME} not found in synced users"
+                        exit 1
+                    env:
+                      - name: NAMESPACE
+                        value: ($namespace)
+                      - name: API_KEY
+                        value: ($apiKey)
+                      - name: EXPECTED_USERNAME
+                        value: ($expectedUsername)
+    - assert:
+        timeout: 360s
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-ldap-sync
+          status:
+            succeeded: 1
+  catch:
+    - describe:
+        apiVersion: batch/v1
+        kind: Job
+        name: test-ldap-sync
+    - podLogs:
+        namespace: ($namespace)
+        selector: charts.anza-labs.dev/test=pocket-id-ldap-sync
+        tail: -1
+    - podLogs:
+        namespace: ($namespace)
+        selector: app.kubernetes.io/name=pocket-id
+        tail: -1
+    - podLogs:
+        namespace: ($namespace)
+        selector: app.kubernetes.io/name=glauth
+        tail: -1
