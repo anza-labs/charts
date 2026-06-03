@@ -3,6 +3,102 @@ entries:
   glauth:
   - annotations:
       artifacthub.io/category: security
+      artifacthub.io/changes: |-
+        - kind: added
+          description: add updateStrategy to multiple charts
+          links:
+          - name: Commit 87ce31e
+            url: https://github.com/anza-labs/charts/commit/87ce31ef82f1553bf8bd74a1e9c294a56a0172dd
+        - kind: added
+          description: '**glauth:** add glauth chart'
+          links:
+          - name: 'GitHub Issue #196'
+            url: https://github.com/anza-labs/charts/issues/196
+          - name: Commit 55ea41c
+            url: https://github.com/anza-labs/charts/commit/55ea41ce4c79aa93734b67b9c3e4594cc9f23866
+        - kind: added
+          description: '**pocket-id:** implement basic v2 chart'
+          links:
+          - name: 'GitHub Issue #350'
+            url: https://github.com/anza-labs/charts/issues/350
+          - name: Commit bb34d3f
+            url: https://github.com/anza-labs/charts/commit/bb34d3f7eccbe50917fbf4cf80b3f02fa4a8882e
+        - kind: fixed
+          description: '**glauth:** mount config as TOML file'
+          links:
+          - name: 'GitHub Issue #415'
+            url: https://github.com/anza-labs/charts/issues/415
+          - name: Commit d50a363
+            url: https://github.com/anza-labs/charts/commit/d50a363bf6bb976810b19e829a5cc9a03d3d3969
+        - kind: fixed
+          description: '**main:** use `strategy` instead of `updateStrategy` in deployments'
+          links:
+          - name: 'GitHub Issue #356'
+            url: https://github.com/anza-labs/charts/issues/356
+          - name: Commit e9ac474
+            url: https://github.com/anza-labs/charts/commit/e9ac4747a3e0f6bc9b5b62a73da0df7c2bf5b6a7
+        - kind: fixed
+          description: regenerated schemas
+          links:
+          - name: Commit b498930
+            url: https://github.com/anza-labs/charts/commit/b498930092e60a0ef47bcb6ff10f225fd3be4b4f
+        - kind: changed
+          description: '**deps:** update ghcr.io/glauth/glauth docker tag to v2.5.0'
+          links:
+          - name: 'GitHub Issue #390'
+            url: https://github.com/anza-labs/charts/issues/390
+          - name: Commit cf49246
+            url: https://github.com/anza-labs/charts/commit/cf49246b47a49c5095f60c4b7ef6c754d3e397af
+        - kind: changed
+          description: generate docs and schemas
+          links:
+          - name: Commit f2ad0de
+            url: https://github.com/anza-labs/charts/commit/f2ad0de519f6932484fd55ff647011942c4ac092
+        - kind: changed
+          description: '**install:** improve install docs'
+          links:
+          - name: 'GitHub Issue #399'
+            url: https://github.com/anza-labs/charts/issues/399
+          - name: Commit e8fdc56
+            url: https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78
+        - kind: changed
+          description: add new simple ldap test
+          links:
+          - name: Commit e3f0b6d
+            url: https://github.com/anza-labs/charts/commit/e3f0b6d7c8e26d346e60634c33b47112caee4540
+        - kind: changed
+          description: '**all:** add ingress tests'
+          links:
+          - name: 'GitHub Issue #418'
+            url: https://github.com/anza-labs/charts/issues/418
+          - name: Commit 7034f5c
+            url: https://github.com/anza-labs/charts/commit/7034f5c77d1ee3260f23f36167be934e10ef0530
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v2.4.0
+    created: "2026-06-03T17:27:28.381733589Z"
+    description: 'glauth is a lightweight LDAP server for development, home use, or
+      CI. '
+    digest: 65d1ebe386f2ba3b62f3fc949e9acd7b3306e4ffb85fc7a94511a2584d7fc98a
+    home: https://glauth.github.io
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/glauth/icon.png
+    keywords:
+    - idp
+    - ldap
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: glauth
+    sources:
+    - https://github.com/glauth/glauth
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/glauth-1.0.0/glauth-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      artifacthub.io/category: security
       artifacthub.io/immutable: "true"
     apiVersion: v2
     appVersion: v2.4.0
@@ -3887,4 +3983,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-06-03T17:13:54.514836504Z"
+generated: "2026-06-03T17:27:28.382014592Z"
