@@ -64,3 +64,28 @@ Create secret name used for configuring glauth.
 {{- define "glauth.secret" -}}
     {{- default (printf "%s" (include "glauth.fullname" .)) .Values.secret.name }}
 {{- end }}
+
+{{/*
+Recursively walk a structure and convert float64 -> int64.
+*/}}
+{{- define "convertFloatsToInts" -}}
+    {{- $v := . -}}
+{{- if kindIs "map" $v -}}
+  {{- range $k, $val := $v -}}
+    {{- if kindIs "float64" $val -}}
+      {{- $_ := set $v $k (int64 $val) -}}
+    {{- else if or (kindIs "map" $val) (kindIs "slice" $val) -}}
+      {{- include "convertFloatsToInts" $val -}}
+    {{- end -}}
+  {{- end -}}
+
+{{- else if kindIs "slice" $v -}}
+  {{- range $i, $val := $v -}}
+    {{- if kindIs "float64" $val -}}
+      {{- $_ := set $v $i (int64 $val) -}}
+    {{- else if or (kindIs "map" $val) (kindIs "slice" $val) -}}
+      {{- include "convertFloatsToInts" $val -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}

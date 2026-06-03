@@ -44,7 +44,8 @@ spec:
                         crane --verbose \
                           pull \
                           --insecure=${INSECURE} \
-                          ghcr.io/anza-labs/library/distroless/static:latest \
+                          --platform linux/amd64 \
+                          registry.k8s.io/pause:3.10 \
                           /tmp/test.tar
 
                         crane --verbose \
