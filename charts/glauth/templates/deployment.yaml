@@ -34,12 +34,17 @@ spec:
       serviceAccountName: {{ include "glauth.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: config
+          secret:
+            secretName: {{ include "glauth.secret" . }}
       containers:
         - name: glauth
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["/app/glauth", "--config", "/app/config/config.cfg"]
           ports:
             {{- if .Values.secret.value.api.enabled }}
             - name: api
@@ -56,11 +61,12 @@ spec:
               containerPort: {{ index ( splitList ":" .Values.secret.value.ldaps.listen ) 1 }}
               protocol: TCP
             {{- end }}
+          volumeMounts:
+            - name: config
+              mountPath: /app/config
+              readOnly: true
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          envFrom:
-            - secretRef:
-                name: {{ include "glauth.secret" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
