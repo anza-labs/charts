@@ -1,6 +1,6 @@
 # registry
 
-![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.1.1](https://img.shields.io/badge/AppVersion-3.1.1-informational?style=flat)
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: 3.1.1](https://img.shields.io/badge/AppVersion-3.1.1-informational?style=flat)
 
 The Registry is a stateless, highly scalable server side application that
 stores and lets you distribute container images and other content.
@@ -24,7 +24,7 @@ To install the chart with the release name `registry`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install registry anza-labs/registry --version 1.0.3
+helm install registry anza-labs/registry --version 1.1.0
 ```
 
 ## Upgrading
