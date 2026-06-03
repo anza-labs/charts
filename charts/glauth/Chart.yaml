@@ -5,7 +5,7 @@ description: |
   glauth is a lightweight LDAP server for development, home use, or CI.
 home: https://glauth.github.io
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/glauth/icon.png
-version: 0.2.0
+version: 1.0.0
 appVersion: "v2.4.0"
 sources:
   - https://github.com/glauth/glauth
