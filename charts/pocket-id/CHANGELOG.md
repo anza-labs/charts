@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.1.2](https://github.com/anza-labs/charts/compare/pocket-id-2.1.1...pocket-id-v2.1.2) (2026-06-03)
+
+
+### Miscellaneous Chores
+
+* **deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.8.0 ([#407](https://github.com/anza-labs/charts/issues/407)) ([caca9fb](https://github.com/anza-labs/charts/commit/caca9fb3430ead17ae382acd908e93630ffa46cf))
+
+
+### Documentation
+
+* **install:** improve install docs ([#399](https://github.com/anza-labs/charts/issues/399)) ([e8fdc56](https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78))
+* **pocket-id:** note host is without prefix ([#398](https://github.com/anza-labs/charts/issues/398)) ([1d7e32a](https://github.com/anza-labs/charts/commit/1d7e32a9fd42fa730b2bbd5367b57a0976b38b7f))
+
+
+### Tests
+
+* **pocket-id:** add LDAP sync e2e against glauth ([#416](https://github.com/anza-labs/charts/issues/416)) ([025a946](https://github.com/anza-labs/charts/commit/025a946cb5f514e2e007d0ac1922868c17c89d54))
+
 ## [2.1.1](https://github.com/anza-labs/charts/compare/pocket-id-2.1.0...pocket-id-v2.1.1) (2026-04-28)
 
 
