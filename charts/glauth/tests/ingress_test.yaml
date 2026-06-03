@@ -27,7 +27,7 @@ tests:
           - hosts:
               - glauth
             secretName: test
-      service.port: 8080
+      secret.value.ldap.listen: 0.0.0.0:8080
     asserts:
       - isKind:
           of: Ingress
@@ -60,7 +60,6 @@ tests:
       ingress.paths:
         - path: /
           pathType: Prefix
-      service.port: 8080
     asserts:
       - isKind:
           of: Ingress
@@ -78,9 +77,74 @@ tests:
           value: Prefix
       - equal:
           path: spec.rules[0].http.paths[0].backend.service.port.number
-          value: 8080
+          value: 3893
       - notExists:
           path: spec.tls[0].secretName
+
+  - it: Should use LDAPS listen port when LDAPS enabled
+    capabilities:
+      majorVersion: 1
+      minorVersion: 19
+    set:
+      ingress.enabled: true
+      ingress.host: ldaps.example.local
+      ingress.paths:
+        - path: /
+          pathType: Prefix
+      secret.value.ldaps.enabled: true
+    asserts:
+      - equal:
+          path: spec.rules[0].http.paths[0].backend.service.port.number
+          value: 3894
+
+  - it: Should prefer LDAPS over LDAP when both enabled
+    capabilities:
+      majorVersion: 1
+      minorVersion: 19
+    set:
+      ingress.enabled: true
+      ingress.host: both.example.local
+      ingress.paths:
+        - path: /
+          pathType: Prefix
+      secret.value.ldap.enabled: true
+      secret.value.ldap.listen: 0.0.0.0:1389
+      secret.value.ldaps.enabled: true
+      secret.value.ldaps.listen: 0.0.0.0:1636
+    asserts:
+      - equal:
+          path: spec.rules[0].http.paths[0].backend.service.port.number
+          value: 1636
+
+  - it: Should use custom LDAPS listen port
+    capabilities:
+      majorVersion: 1
+      minorVersion: 19
+    set:
+      ingress.enabled: true
+      ingress.host: ldaps.example.local
+      ingress.paths:
+        - path: /
+          pathType: Prefix
+      secret.value.ldap.enabled: false
+      secret.value.ldaps.enabled: true
+      secret.value.ldaps.listen: 0.0.0.0:6636
+    asserts:
+      - equal:
+          path: spec.rules[0].http.paths[0].backend.service.port.number
+          value: 6636
+
+  - it: Should fail when neither LDAP nor LDAPS is enabled
+    set:
+      ingress.enabled: true
+      ingress.host: fail.example.local
+      ingress.paths:
+        - path: /
+      secret.value.ldap.enabled: false
+      secret.value.ldaps.enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: "Neither LDAP nor LDAPS is enabled, cannot determine service port for Ingress"
 
   - it: Should render ingressClassName if set and K8s >= 1.18
     capabilities:
@@ -92,7 +156,6 @@ tests:
       ingress.host: id.example.local
       ingress.paths:
         - path: /
-      service.port: 80
     asserts:
       - equal:
           path: spec.ingressClassName
@@ -108,7 +171,6 @@ tests:
       ingress.host: legacy.example.local
       ingress.paths:
         - path: /
-      service.port: 80
     asserts:
       - isKind:
           of: Ingress
@@ -126,7 +188,6 @@ tests:
       ingress.host: legacy.example.com
       ingress.paths:
         - path: /
-      service.port: 80
     asserts:
       - isKind:
           of: Ingress
@@ -143,7 +204,6 @@ tests:
       ingress.host: legacy-ext.example.com
       ingress.paths:
         - path: /
-      service.port: 80
     asserts:
       - isKind:
           of: Ingress
@@ -165,7 +225,7 @@ tests:
         - secretName: tls-secret
           hosts:
             - tls.example.com
-      service.port: 443
+      secret.value.ldaps.enabled: true
     asserts:
       - isKind:
           of: Ingress

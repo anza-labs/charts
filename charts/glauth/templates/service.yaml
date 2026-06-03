@@ -1,4 +1,6 @@
-{{- $svcPort := .Values.service.port | default 80 -}}
+{{- if not (or .Values.secret.value.ldap.enabled .Values.secret.value.ldaps.enabled) -}}
+{{- fail "Neither LDAP nor LDAPS is enabled, at least one must be enabled for the Service" -}}
+{{- end -}}
 apiVersion: v1
 kind: Service
 metadata:
