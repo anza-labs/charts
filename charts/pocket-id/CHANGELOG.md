@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/anza-labs/charts/compare/pocket-id-2.1.2...pocket-id-v2.1.3) (2026-06-03)
+
+
+### Miscellaneous Chores
+
+* **main:** release pocket-id 2.1.2 ([#397](https://github.com/anza-labs/charts/issues/397)) ([a12d3ab](https://github.com/anza-labs/charts/commit/a12d3abeeab25b4d86660df031a7f2b1edb49a03))
+
 ## [2.1.2](https://github.com/anza-labs/charts/compare/pocket-id-2.1.1...pocket-id-v2.1.2) (2026-06-03)
 
 
