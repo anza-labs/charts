@@ -129,9 +129,6 @@ data:
   {{ if not (quote .Values.config.ui.settings.ldap.bindDN | empty) }}
   LDAP_BIND_DN: "{{ .Values.config.ui.settings.ldap.bindDN }}"
   {{ end }}
-  {{ if not (quote .Values.config.ui.settings.ldap.bindPassword | empty) }}
-  LDAP_BIND_PASSWORD: "{{ .Values.config.ui.settings.ldap.bindPassword }}"
-  {{ end }}
   {{ if not (quote .Values.config.ui.settings.ldap.base | empty) }}
   LDAP_BASE: "{{ .Values.config.ui.settings.ldap.base }}"
   {{ end }}
