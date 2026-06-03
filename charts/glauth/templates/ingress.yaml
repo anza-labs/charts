@@ -1,6 +1,13 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "glauth.fullname" . -}}
-{{- $svcPort := .Values.service.port -}}
+{{- $svcPort := 0 -}}
+{{- if .Values.secret.value.ldaps.enabled -}}
+{{- $svcPort = index ( splitList ":" .Values.secret.value.ldaps.listen ) 1 -}}
+{{- else if .Values.secret.value.ldap.enabled }}
+{{- $svcPort = index ( splitList ":" .Values.secret.value.ldap.listen ) 1 -}}
+{{- else }}
+{{- fail "Neither LDAP nor LDAPS is enabled, cannot determine service port for Ingress" -}}
+{{- end }}
 {{- if and .Values.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
   {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
     {{- $_ := set .Values.ingress.annotations "kubernetes.io/ingress.class" .Values.ingress.className}}

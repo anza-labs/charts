@@ -75,3 +75,55 @@ tests:
       - equal:
           path: spec.type
           value: NodePort
+
+  - it: Should render both ldap and ldaps ports when both enabled
+    set:
+      secret.value.ldap.enabled: true
+      secret.value.ldaps.enabled: true
+    asserts:
+      - isKind:
+          of: Service
+      - contains:
+          path: spec.ports
+          content:
+            name: ldap
+            port: 3893
+            protocol: TCP
+            targetPort: ldap
+      - contains:
+          path: spec.ports
+          content:
+            name: ldaps
+            port: 3894
+            protocol: TCP
+            targetPort: ldaps
+
+  - it: Should render only ldaps port when only ldaps enabled
+    set:
+      secret.value.ldap.enabled: false
+      secret.value.ldaps.enabled: true
+    asserts:
+      - isKind:
+          of: Service
+      - contains:
+          path: spec.ports
+          content:
+            name: ldaps
+            port: 3894
+            protocol: TCP
+            targetPort: ldaps
+      - notContains:
+          path: spec.ports
+          content:
+            name: ldap
+            port: 3893
+            protocol: TCP
+            targetPort: ldap
+
+  - it: Should fail when neither LDAP nor LDAPS is enabled
+    set:
+      secret.value.ldap.enabled: false
+      secret.value.ldaps.enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: "Neither LDAP nor LDAPS is enabled, at least one must be enabled for the Service"
