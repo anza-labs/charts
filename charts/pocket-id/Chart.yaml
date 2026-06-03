@@ -7,7 +7,7 @@ description: |
 home: https://pocket-id.org
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
 version: 2.1.2
-appVersion: "v2.6.2"
+appVersion: "v2.8.0"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -20,12 +20,33 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.6.2'
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.8.0'
       links:
-      - name: 'GitHub Issue #391'
-        url: https://github.com/anza-labs/charts/issues/391
-      - name: Commit 8df3df1
-        url: https://github.com/anza-labs/charts/commit/8df3df187243fdfdef5ce32b856be9f2a1c9a15a
+      - name: 'GitHub Issue #407'
+        url: https://github.com/anza-labs/charts/issues/407
+      - name: Commit caca9fb
+        url: https://github.com/anza-labs/charts/commit/caca9fb3430ead17ae382acd908e93630ffa46cf
+    - kind: changed
+      description: '**install:** improve install docs'
+      links:
+      - name: 'GitHub Issue #399'
+        url: https://github.com/anza-labs/charts/issues/399
+      - name: Commit e8fdc56
+        url: https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78
+    - kind: changed
+      description: '**pocket-id:** note host is without prefix'
+      links:
+      - name: 'GitHub Issue #398'
+        url: https://github.com/anza-labs/charts/issues/398
+      - name: Commit 1d7e32a
+        url: https://github.com/anza-labs/charts/commit/1d7e32a9fd42fa730b2bbd5367b57a0976b38b7f
+    - kind: changed
+      description: '**pocket-id:** add LDAP sync e2e against glauth'
+      links:
+      - name: 'GitHub Issue #416'
+        url: https://github.com/anza-labs/charts/issues/416
+      - name: Commit 025a946
+        url: https://github.com/anza-labs/charts/commit/025a946cb5f514e2e007d0ac1922868c17c89d54
 maintainers:
   - name: shanduur
     email: maturb@proton.me
