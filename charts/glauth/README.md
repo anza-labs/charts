@@ -1,6 +1,6 @@
 # glauth
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.4.0](https://img.shields.io/badge/AppVersion-v2.4.0-informational?style=flat)
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v2.4.0](https://img.shields.io/badge/AppVersion-v2.4.0-informational?style=flat)
 
 glauth is a lightweight LDAP server for development, home use, or CI.
 
@@ -23,7 +23,7 @@ To install the chart with the release name `glauth`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install glauth anza-labs/glauth --version 1.0.0
+helm install glauth anza-labs/glauth --version 1.1.0
 ```
 
 ## Upgrading

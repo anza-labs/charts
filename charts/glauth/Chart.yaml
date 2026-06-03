@@ -68,6 +68,13 @@ annotations:
       - name: Commit f2ad0de
         url: https://github.com/anza-labs/charts/commit/f2ad0de519f6932484fd55ff647011942c4ac092
     - kind: changed
+      description: '**main:** release glauth 1.0.0'
+      links:
+      - name: 'GitHub Issue #197'
+        url: https://github.com/anza-labs/charts/issues/197
+      - name: Commit ed9c735
+        url: https://github.com/anza-labs/charts/commit/ed9c7350235ae8c7e836919970fb8b00915d0a0f
+    - kind: changed
       description: '**install:** improve install docs'
       links:
       - name: 'GitHub Issue #399'
