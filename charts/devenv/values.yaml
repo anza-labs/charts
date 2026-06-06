@@ -41,7 +41,6 @@ core:
       - ripgrep
       - util-linux
       - xz
-      - virtiofsd
       - zsh
   # -- Login shell for the user (e.g. /bin/zsh).
   shell: "/bin/zsh"

@@ -40,6 +40,12 @@ if [ -f "${SSH_AUTH_KEYS}" ]; then
 fi
 chown -R "${USER_NAME}:${USER_NAME}" "${HOME_DIR}" 2>/dev/null || true
 
+# Ensure .gnupg exists for GPG agent socket forwarding
+mkdir -p "${HOME_DIR}/.gnupg"
+chmod 700 "${HOME_DIR}/.gnupg"
+chown -R "${USER_NAME}:${USER_NAME}" "${HOME_DIR}/.gnupg" 2>/dev/null || true
+echo "use-agent" >"${HOME_DIR}/.gnupg/gpg.conf"
+
 if [ -d /etc/dotfiles ] && [ -n "$(ls -A /etc/dotfiles)" ]; then
     for d in /etc/dotfiles/{*,.[!.]*/}; do
         [ -d "$d" ] || continue

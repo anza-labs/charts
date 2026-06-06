@@ -4,7 +4,7 @@ name: devenv
 description: |
   Nix development environment pod with Tailscale SSH access and optional Docker-in-Docker.
 home: https://github.com/anza-labs/charts
-version: 0.1.0
+version: 0.1.1
 appVersion: "latest"
 sources:
   - https://github.com/anza-labs/charts
@@ -15,11 +15,8 @@ keywords:
   - tailscale
   - dind
 annotations:
-  artifacthub.io/category: developer-tools
+  artifacthub.io/category: skip-prediction
   artifacthub.io/immutable: "true"
-  artifacthub.io/changes: |-
-    - kind: added
-      description: initial devenv chart
 maintainers:
   - name: shanduur
     email: maturb@proton.me

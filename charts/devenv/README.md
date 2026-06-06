@@ -1,6 +1,6 @@
 # devenv
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat)
 
 Nix development environment pod with Tailscale SSH access and optional Docker-in-Docker.
 
@@ -49,7 +49,7 @@ To install the chart with the release name `devenv`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install devenv anza-labs/devenv --version 0.1.0
+helm install devenv anza-labs/devenv --version 0.1.1
 ```
 
 ## Upgrading
@@ -76,7 +76,7 @@ helm uninstall devenv
 | bootstrapScript | string | `""` | Custom bootstrap script (overrides the default). |
 | core.env | list | `[]` | Extra environment variables for the core container. |
 | core.extraVolumeMounts | list | `[]` | Extra volume mounts for the core container. |
-| core.image.packages | list | `["age","coreutils","curl","dnsutils","fd","file","fzf","git","gnupg","gnutar","gzip","htop","iproute2","lsof","ncurses","neovim","openssh","openssl","ripgrep","util-linux","xz","virtiofsd","zsh"]` | Nixery packages to include (e.g. [go, rustc, cargo]). |
+| core.image.packages | list | `["age","coreutils","curl","dnsutils","fd","file","fzf","git","gnupg","gnutar","gzip","htop","iproute2","lsof","ncurses","neovim","openssh","openssl","ripgrep","util-linux","xz","zsh"]` | Nixery packages to include (e.g. [go, rustc, cargo]). |
 | core.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | core.image.repository | string | `"nixery.dev/shell"` | Registry and repository for the image (will have packages appended). |
 | core.image.tag | string | `"latest"` | Image tag. |

@@ -103,7 +103,8 @@ tests:
   - it: Should render core.env as Kubernetes env vars
     set:
       core.env:
-        - FOO="bar"
+        - name: FOO
+          value: bar
     asserts:
       - exists:
           path: spec.template.spec.containers[0].env[?(@.name == "FOO")]
