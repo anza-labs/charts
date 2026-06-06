@@ -1,0 +1,40 @@
+{{- if .Values.reboot.enabled }}
+{{- $fullname := include "devenv.fullname" . -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ printf "%s-reboot" $fullname }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "devenv.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.reboot.schedule | quote }}
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 300
+      template:
+        metadata:
+          labels:
+            {{- include "devenv.selectorLabels" . | nindent 12 }}
+            app.kubernetes.io/component: reboot
+        spec:
+          serviceAccountName: {{ $fullname }}-reboot
+          restartPolicy: Never
+          containers:
+            - name: kubectl
+              image: "{{ .Values.reboot.image.repository }}:{{ .Values.reboot.image.tag }}"
+              imagePullPolicy: {{ .Values.reboot.image.pullPolicy }}
+              command:
+                - kubectl
+              args:
+                - rollout
+                - restart
+                - statefulset
+                - {{ $fullname }}
+                - -n
+                - {{ .Release.Namespace }}
+              {{- with .Values.reboot.resources }}
+              resources:
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+{{- end }}

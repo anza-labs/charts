@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: test-ssh
+  labels:
+    chart: devenv
+spec:
+  try:
+    - apply:
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-ssh
+            labels:
+              charts.anza-labs.dev/test: devenv-ssh
+          spec:
+            ttlSecondsAfterFinished: 30
+            template:
+              metadata:
+                labels:
+                  charts.anza-labs.dev/test: devenv-ssh
+              spec:
+                restartPolicy: Never
+                containers:
+                  - name: ssh
+                    image: alpine:latest
+                    imagePullPolicy: IfNotPresent
+                    command: ["/bin/sh", "-c"]
+                    args:
+                      - |
+                        set -eux
+                        apk add --quiet openssh-client
+                        for i in $(seq 1 24); do
+                          if ssh \
+                            -o StrictHostKeyChecking=no \
+                            -o UserKnownHostsFile=/dev/null \
+                            -o ServerAliveInterval=5 \
+                            -o ConnectTimeout=10 \
+                            -o BatchMode=yes \
+                            -i /key/id_ed25519 \
+                            "${SSH_TARGET}" \
+                            whoami 2>/dev/null; then
+                            exit 0
+                          fi
+                          echo "SSH attempt $i failed, retrying in 5s..."
+                          sleep 5
+                        done
+                        exit 1
+                    env:
+                      - name: SSH_TARGET
+                        value: ($sshTarget)
+                    volumeMounts:
+                      - name: ssh-key
+                        mountPath: /key
+                        readOnly: true
+                volumes:
+                  - name: ssh-key
+                    secret:
+                      secretName: devenv-ssh-key
+                      defaultMode: 0600
+    - assert:
+        timeout: 180s
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-ssh
+          status:
+            succeeded: 1
+  catch:
+    - describe:
+        apiVersion: batch/v1
+        kind: Job
+        name: test-ssh
+    - podLogs:
+        namespace: ($namespace)
+        selector: charts.anza-labs.dev/test=devenv-ssh
+        tail: -1

@@ -1,0 +1,33 @@
+{{- if .Values.tailscale.enabled }}
+{{- $fullname := include "devenv.fullname" . }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ $fullname }}-tailscale
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "devenv.labels" . | nindent 4 }}
+rules:
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["get", "create", "update", "patch", "watch", "list"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create", "patch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ $fullname }}-tailscale
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "devenv.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ $fullname }}-tailscale
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "devenv.serviceAccountName" . }}
+    namespace: {{ .Release.Namespace }}
+{{- end }}

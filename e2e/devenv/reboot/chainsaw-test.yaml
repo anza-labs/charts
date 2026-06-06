@@ -1,0 +1,126 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/test-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: devenv-reboot
+  labels:
+    chart: devenv
+
+spec:
+  concurrent: true
+
+  bindings:
+    - name: fullname
+      value: (join('-', [$namespace, 'devenv']))
+    - name: sshUser
+      value: devpod
+    - name: sshHost
+      value: (join('.', [join('-', [$namespace, 'devenv', '0']), join('-', [$namespace, 'devenv', 'headless']), $namespace, 'svc', 'cluster', 'local']))
+    - name: sshTarget
+      value: (join('@', [$sshUser, $sshHost]))
+
+  steps:
+    - name: Generate SSH key pair
+      use:
+        template: ../_lib/gen-ssh-key.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
+    - name: Install chart with reboot enabled
+      use:
+        template: ../_lib/helm-install.step.yaml
+        with:
+          bindings:
+            - name: arguments
+              value: --set=tailscale.enabled=false --set=reboot.enabled=true --set=core.image.pullPolicy=Always
+            - name: namespace
+              value: ($namespace)
+
+    - name: Validate core installation
+      use:
+        template: ../_lib/validate-core-installation.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
+    - name: Assert reboot resources exist
+      try:
+        - assert:
+            resource:
+              apiVersion: batch/v1
+              kind: CronJob
+              metadata:
+                name: (join('-', [$fullname, 'reboot']))
+              spec:
+                schedule: "0 0 * * 0"
+        - assert:
+            resource:
+              apiVersion: v1
+              kind: ServiceAccount
+              metadata:
+                name: (join('-', [$fullname, 'reboot']))
+        - assert:
+            resource:
+              apiVersion: rbac.authorization.k8s.io/v1
+              kind: Role
+              metadata:
+                name: (join('-', [$fullname, 'reboot']))
+        - assert:
+            resource:
+              apiVersion: rbac.authorization.k8s.io/v1
+              kind: RoleBinding
+              metadata:
+                name: (join('-', [$fullname, 'reboot']))
+
+    - name: Trigger reboot via CronJob
+      try:
+        - script:
+            env:
+              - name: CRONJOB
+                value: (join('-', [$fullname, 'reboot']))
+              - name: NAMESPACE
+                value: ($namespace)
+            content: |
+              kubectl create job --from=cronjob/"${CRONJOB}" reboot-manual -n "${NAMESPACE}"
+
+    - name: Wait for reboot Job to complete
+      try:
+        - assert:
+            timeout: 120s
+            resource:
+              apiVersion: batch/v1
+              kind: Job
+              metadata:
+                name: reboot-manual
+              status:
+                succeeded: 1
+      catch:
+        - describe:
+            apiVersion: batch/v1
+            kind: Job
+            name: reboot-manual
+        - podLogs:
+            namespace: ($namespace)
+            selector: job-name=reboot-manual
+            tail: -1
+
+    - name: Validate StatefulSet ready after restart
+      use:
+        template: ../_lib/validate-core-installation.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
+    - name: Test SSH connection after restart
+      use:
+        template: ../_lib/test-ssh.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+            - name: sshTarget
+              value: ($sshTarget)

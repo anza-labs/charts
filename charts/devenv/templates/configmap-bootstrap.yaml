@@ -1,0 +1,18 @@
+{{- if and .Values.reboot.enabled (ne .Values.core.image.pullPolicy "Always") }}
+  {{- fail "core.image.pullPolicy must be Always when reboot.enabled is true" }}
+{{- end }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "devenv.bootstrapConfigMap" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "devenv.labels" . | nindent 4 }}
+data:
+  {{- if .Values.bootstrapScript }}
+  entrypoint.sh: |
+    {{- .Values.bootstrapScript | nindent 4 }}
+  {{- else }}
+  entrypoint.sh: |
+    {{- .Files.Get "scripts/entrypoint.sh" | nindent 4 }}
+  {{- end }}

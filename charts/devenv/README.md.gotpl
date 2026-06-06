@@ -1,0 +1,72 @@
+{{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "chart.badgesSection" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.homepageLine" . }}
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+## Prerequisites
+
+Before installing, create the required Kubernetes Secrets and ConfigMaps that the chart expects.
+
+### Tailscale auth key
+
+The default `tailscale.authKeySecret` value is `tailscale-auth`. Create it in the target namespace:
+
+```bash
+kubectl create secret generic tailscale-auth \
+  --namespace {{ .Name }} \
+  --from-literal=TS_AUTHKEY=tskey-auth-xxxxxxxx
+```
+
+### SSH authorized keys
+
+Provide public keys via `sshKeys.authorizedKeys` at install time, or create a Secret in advance:
+
+```bash
+cat ~/.ssh/id_ed25519.pub | kubectl create secret generic my-ssh-keys \
+  --namespace {{ .Name }} \
+  --from-file=authorized_keys=/dev/stdin
+```
+
+Then set `--set sshKeys.existingSecret=my-ssh-keys`.
+
+## Installation
+
+To install the chart with the release name `{{ .Name }}`:
+
+```bash
+helm repo add anza-labs https://anza-labs.github.io/charts
+helm repo update anza-labs
+helm install {{ .Name }} anza-labs/{{ .Name }} --version {{ .Version }}
+```
+
+## Upgrading
+
+To upgrade an existing installation:
+
+```bash
+helm upgrade {{ .Name }} anza-labs/{{ .Name }}
+```
+
+## Uninstalling
+
+To uninstall an existing installation:
+
+```bash
+helm uninstall {{ .Name }}
+```
+
+{{ template "chart.valuesSection" . }}
+
+{{- if not .SkipVersionFooter }}
+{{ template "helm-docs.versionFooter" . }}
+{{- end }}

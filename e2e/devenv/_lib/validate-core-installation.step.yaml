@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: validate-core-installation
+  labels:
+    chart: devenv
+spec:
+  try:
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: ServiceAccount
+          metadata:
+            name: (join('-', [$namespace, 'devenv']))
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: ConfigMap
+          metadata:
+            name: (join('-', [$namespace, 'devenv', 'bootstrap']))
+    - assert:
+        resource:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: (join('-', [$namespace, 'devenv', 'headless']))
+    - assert:
+        timeout: 180s
+        resource:
+          apiVersion: apps/v1
+          kind: StatefulSet
+          metadata:
+            name: (join('-', [$namespace, 'devenv']))
+          status:
+            (readyReplicas == replicas): true
+  catch:
+    - describe:
+        apiVersion: apps/v1
+        kind: StatefulSet
+        name: (join('-', [$namespace, 'devenv']))
+    - podLogs:
+        namespace: ($namespace)
+        selector: app.kubernetes.io/name=devenv
+        tail: -1

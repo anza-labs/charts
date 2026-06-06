@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Service
+
+templates:
+  - service.yaml
+
+tests:
+  - it: Should create headless service with defaults
+    asserts:
+      - isKind:
+          of: Service
+      - equal:
+          path: spec.clusterIP
+          value: None
+      - contains:
+          path: spec.ports
+          content:
+            name: ssh
+            port: 22
+            protocol: TCP
+            targetPort: ssh

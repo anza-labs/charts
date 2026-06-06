@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/test-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: devenv-no-nix-config
+  labels:
+    chart: devenv
+
+spec:
+  concurrent: true
+
+  bindings:
+    - name: sshUser
+      value: devpod
+    - name: sshHost
+      value: (join('.', [join('-', [$namespace, 'devenv', '0']), join('-', [$namespace, 'devenv', 'headless']), $namespace, 'svc', 'cluster', 'local']))
+    - name: sshTarget
+      value: (join('@', [$sshUser, $sshHost]))
+
+  steps:
+    - name: Generate SSH key pair
+      use:
+        template: ../_lib/gen-ssh-key.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
+    - name: Install chart
+      use:
+        template: ../_lib/helm-install.step.yaml
+        with:
+          bindings:
+            - name: arguments
+              value: --set=tailscale.enabled=false
+            - name: namespace
+              value: ($namespace)
+
+    - name: Validate core installation
+      use:
+        template: ../_lib/validate-core-installation.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+
+    - name: Test SSH connection
+      use:
+        template: ../_lib/test-ssh.step.yaml
+        with:
+          bindings:
+            - name: namespace
+              value: ($namespace)
+            - name: sshTarget
+              value: ($sshTarget)

@@ -1,0 +1,107 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: test-lang
+  labels:
+    chart: devenv
+spec:
+  try:
+    - apply:
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-lang
+            labels:
+              charts.anza-labs.dev/test: devenv-lang
+          spec:
+            ttlSecondsAfterFinished: 30
+            template:
+              metadata:
+                labels:
+                  charts.anza-labs.dev/test: devenv-lang
+              spec:
+                restartPolicy: Never
+                containers:
+                  - name: dind-lang-test
+                    image: alpine:latest
+                    imagePullPolicy: IfNotPresent
+                    command: ["/bin/sh", "-c"]
+                    args:
+                      - |
+                        set -eux
+
+                        apk add --quiet openssh-client
+
+                        SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=10 -o ConnectTimeout=10 -o BatchMode=yes"
+
+                        echo "=== Waiting for SSH ==="
+                        for i in $(seq 1 36); do
+                          if ssh $SSH_OPTS -i /key/id_ed25519 "${SSH_TARGET}" whoami 2>/dev/null; then
+                            echo "SSH ready after ${i} attempts"
+                            break
+                          fi
+                          if [ "$i" -eq 36 ]; then
+                            echo "SSH not ready after 36 attempts"
+                            exit 1
+                          fi
+                          echo "SSH attempt ${i} failed, retrying in 10s..."
+                          sleep 10
+                        done
+
+                        echo "=== Writing remote test script ==="
+                        printf '%s\n' \
+                          'set -eux' \
+                          '' \
+                          'echo "=== 1. Go version ==="' \
+                          'go version' \
+                          '' \
+                          'echo "=== 2. Go build ==="' \
+                          'mkdir -p /tmp/go-test' \
+                          'printf '\''%s\n'\'' '\''package main'\'' '\''import "fmt"'\'' '\''func main() { fmt.Println("hello from go") }'\'' > /tmp/go-test/main.go' \
+                          'cd /tmp/go-test && go mod init test && go build -o /tmp/go-test/test && /tmp/go-test/test' \
+                          '' \
+                          'echo "=== 3. Rust version ==="' \
+                          'rustc --version' \
+                          'cargo --version' \
+                          '' \
+                          'echo "=== 4. Cargo build ==="' \
+                          'mkdir -p /tmp/rust-test && cd /tmp/rust-test' \
+                          'cargo init --name myapp --quiet' \
+                          'cargo build --quiet && ./target/debug/myapp' \
+                          '' \
+                          'echo "=== ALL LANG TESTS PASSED ==="' > /tmp/remote-test.sh
+
+                        echo "=== Running remote tests ==="
+                        ssh $SSH_OPTS -i /key/id_ed25519 "${SSH_TARGET}" /bin/sh -s < /tmp/remote-test.sh
+                    env:
+                      - name: SSH_TARGET
+                        value: ($sshTarget)
+                    volumeMounts:
+                      - name: ssh-key
+                        mountPath: /key
+                        readOnly: true
+                volumes:
+                  - name: ssh-key
+                    secret:
+                      secretName: devenv-ssh-key
+                      defaultMode: 0600
+    - assert:
+        timeout: 300s
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-lang
+          status:
+            succeeded: 1
+  catch:
+    - describe:
+        apiVersion: batch/v1
+        kind: Job
+        name: test-lang
+    - podLogs:
+        namespace: ($namespace)
+        selector: charts.anza-labs.dev/test=devenv-lang
+        tail: -1

@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Reboot CronJob
+
+templates:
+  - reboot-cronjob.yaml
+
+tests:
+  - it: Should not create CronJob when reboot is disabled
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: Should create CronJob when enabled
+    set:
+      reboot.enabled: true
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: CronJob
+
+  - it: Should have correct schedule and kubectl command
+    set:
+      reboot.enabled: true
+    asserts:
+      - equal:
+          path: spec.schedule
+          value: "0 0 * * 0"
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.containers[0].command[0]
+          value: kubectl
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.containers[0].image
+          value: nixery.dev/kubectl:latest
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].args
+          content: rollout
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].args
+          content: restart
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].args
+          content: statefulset
+
+  - it: Should reference the correct StatefulSet name
+    set:
+      reboot.enabled: true
+    asserts:
+      - contains:
+          path: spec.jobTemplate.spec.template.spec.containers[0].args
+          content: RELEASE-NAME-devenv
+
+  - it: Should use a dedicated ServiceAccount
+    set:
+      reboot.enabled: true
+    asserts:
+      - equal:
+          path: spec.jobTemplate.spec.template.spec.serviceAccountName
+          value: RELEASE-NAME-devenv-reboot

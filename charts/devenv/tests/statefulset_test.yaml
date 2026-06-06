@@ -1,0 +1,179 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: StatefulSet
+
+templates:
+  - statefulset.yaml
+
+tests:
+  - it: Should create StatefulSet with single replica
+    asserts:
+      - isKind:
+          of: StatefulSet
+      - equal:
+          path: spec.replicas
+          value: 1
+
+  - it: Should use headless service and OnDelete update strategy
+    asserts:
+      - equal:
+          path: spec.serviceName
+          value: RELEASE-NAME-devenv-headless
+      - equal:
+          path: spec.updateStrategy.type
+          value: OnDelete
+
+  - it: Should contain core and tailscale containers by default
+    asserts:
+      - lengthEqual:
+          path: spec.template.spec.containers
+          count: 2
+      - equal:
+          path: spec.template.spec.containers[0].name
+          value: nix
+      - equal:
+          path: spec.template.spec.containers[1].name
+          value: tailscale
+
+  - it: Should not contain tailscale sidecar when disabled
+    set:
+      tailscale.enabled: false
+    asserts:
+      - lengthEqual:
+          path: spec.template.spec.containers
+          count: 1
+      - equal:
+          path: spec.template.spec.containers[0].name
+          value: nix
+
+  - it: Should contain dind sidecar when enabled
+    set:
+      dind.enabled: true
+    asserts:
+      - lengthEqual:
+          path: spec.template.spec.containers
+          count: 3
+      - equal:
+          path: spec.template.spec.containers[2].name
+          value: dind
+
+  - it: Should not contain dind sidecar when disabled
+    asserts:
+      - lengthEqual:
+          path: spec.template.spec.containers
+          count: 2
+
+  - it: Should have init container when dotfiles git is set
+    set:
+      dotfiles.git.repository: https://github.com/user/dotfiles
+    asserts:
+      - lengthEqual:
+          path: spec.template.spec.initContainers
+          count: 1
+      - equal:
+          path: spec.template.spec.initContainers[0].name
+          value: clone-dotfiles
+
+  - it: Should set DOTFILES_HOOK_COMMAND env var when hookCommand is set
+    set:
+      dotfiles.git.repository: https://github.com/user/dotfiles
+      dotfiles.git.hookCommand: cd dotfiles && stow .
+    asserts:
+      - exists:
+          path: spec.template.spec.containers[0].env[?(@.name == "DOTFILES_HOOK_COMMAND")]
+      - equal:
+          path: spec.template.spec.containers[0].env[?(@.name == "DOTFILES_HOOK_COMMAND")].value
+          value: cd dotfiles && stow .
+
+  - it: Should not set DOTFILES_HOOK_COMMAND by default
+    set:
+      dotfiles.git.repository: https://github.com/user/dotfiles
+    asserts:
+      - notExists:
+          path: spec.template.spec.containers[0].env[?(@.name == "DOTFILES_HOOK_COMMAND")]
+
+  - it: Should set EXTRA_PATH env var when extraPath is configured
+    set:
+      core.extraPath:
+        - /home/devpod/.local/bin
+        - /home/devpod/.cargo/bin
+    asserts:
+      - exists:
+          path: spec.template.spec.containers[0].env[?(@.name == "EXTRA_PATH")]
+      - equal:
+          path: spec.template.spec.containers[0].env[?(@.name == "EXTRA_PATH")].value
+          value: /home/devpod/.local/bin:/home/devpod/.cargo/bin
+
+  - it: Should not set EXTRA_PATH env var by default
+    asserts:
+      - notExists:
+          path: spec.template.spec.containers[0].env[?(@.name == "EXTRA_PATH")]
+
+  - it: Should set CORE_SHELL env var when shell is configured
+    set:
+      core.shell: /bin/zsh
+    asserts:
+      - exists:
+          path: spec.template.spec.containers[0].env[?(@.name == "CORE_SHELL")]
+      - equal:
+          path: spec.template.spec.containers[0].env[?(@.name == "CORE_SHELL")].value
+          value: /bin/zsh
+
+  - it: Should not set CORE_SHELL env var by default
+    asserts:
+      - notExists:
+          path: spec.template.spec.containers[0].env[?(@.name == "CORE_SHELL")]
+
+  - it: Should clone multi-repo dotfiles with separate directories
+    set:
+      dotfiles.git.repository:
+        - url: https://github.com/user/zsh
+          revision: main
+        - url: https://github.com/user/nvim
+          revision: dev
+    asserts:
+      - lengthEqual:
+          path: spec.template.spec.initContainers
+          count: 1
+      - equal:
+          path: spec.template.spec.initContainers[0].name
+          value: clone-dotfiles
+      - matchRegex:
+          path: spec.template.spec.initContainers[0].command[2]
+          pattern: git clone.*https://github.com/user/zsh.*/dotfiles/
+
+  - it: Should not have init containers when dotfiles git is not set
+    asserts:
+      - notExists:
+          path: spec.template.spec.initContainers
+
+  - it: Should have home and tailscale-state volumeClaimTemplates
+    asserts:
+      - lengthEqual:
+          path: spec.volumeClaimTemplates
+          count: 2
+      - equal:
+          path: spec.volumeClaimTemplates[0].metadata.name
+          value: home
+
+  - it: Should have tailscale-state volumeClaimTemplate
+    asserts:
+      - equal:
+          path: spec.volumeClaimTemplates[1].metadata.name
+          value: tailscale-state
+
+  - it: Should have docker-storage volumeClaimTemplate when dind enabled
+    set:
+      dind.enabled: true
+    asserts:
+      - lengthEqual:
+          path: spec.volumeClaimTemplates
+          count: 3
+      - equal:
+          path: spec.volumeClaimTemplates[2].metadata.name
+          value: docker-storage
+
+  - it: Should not have docker-storage volumeClaimTemplate when dind disabled
+    asserts:
+      - lengthEqual:
+          path: spec.volumeClaimTemplates
+          count: 2

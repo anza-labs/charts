@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Reboot Role
+
+templates:
+  - reboot-role.yaml
+
+tests:
+  - it: Should not create Role when reboot is disabled
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: Should create Role with correct rules when enabled
+    set:
+      reboot.enabled: true
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: Role
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-devenv-reboot
+      - equal:
+          path: rules[0].apiGroups[0]
+          value: apps
+      - equal:
+          path: rules[0].resources[0]
+          value: statefulsets
+      - contains:
+          path: rules[0].verbs
+          content: get
+      - contains:
+          path: rules[0].verbs
+          content: patch

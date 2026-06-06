@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: gen-ssh-key
+  labels:
+    chart: devenv
+spec:
+  try:
+    - script:
+        env:
+          - name: NAMESPACE
+            value: ($namespace)
+        content: |
+          set -eux
+          KEY_FILE="/tmp/devenv-key-${NAMESPACE}"
+          rm -f "${KEY_FILE}" "${KEY_FILE}.pub"
+          ssh-keygen -q -t ed25519 -N "" -f "${KEY_FILE}" -C "devenv-test"
+          kubectl create secret generic "devenv-ssh-key" \
+            --namespace "${NAMESPACE}" \
+            --from-file=id_ed25519="${KEY_FILE}"

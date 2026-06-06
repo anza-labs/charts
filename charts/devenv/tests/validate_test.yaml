@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Validation
+
+templates:
+  - configmap-bootstrap.yaml
+
+tests:
+  - it: Should pass and render ConfigMap when reboot is disabled
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: ConfigMap
+
+  - it: Should pass and render ConfigMap when reboot is enabled with Always pullPolicy
+    set:
+      core.image.pullPolicy: Always
+      reboot.enabled: true
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: ConfigMap
+
+  - it: Should fail when reboot is enabled without Always pullPolicy
+    set:
+      reboot.enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: "core.image.pullPolicy must be Always when reboot.enabled is true"
+
+  - it: Should fail when reboot is enabled with IfNotPresent pullPolicy
+    set:
+      core.image.pullPolicy: IfNotPresent
+      reboot.enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: "core.image.pullPolicy must be Always when reboot.enabled is true"

@@ -1,0 +1,261 @@
+{{- $fullname := include "devenv.fullname" . }}
+{{- $headlessSvc := include "devenv.headlessService" . }}
+{{- $imageRepo := .Values.core.image.repository }}
+{{- $imageTag := .Values.core.image.tag }}
+{{- $packages := .Values.core.image.packages }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ $fullname }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "devenv.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  serviceName: {{ $headlessSvc }}
+  selector:
+    matchLabels:
+      {{- include "devenv.selectorLabels" . | nindent 6 }}
+  {{- with .Values.updateStrategy }}
+  updateStrategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "devenv.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "devenv.serviceAccountName" . }}
+      {{- with .Values.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.dotfiles.git.repository }}
+      initContainers:
+        - name: clone-dotfiles
+          image: {{ .Values.dotfiles.git.image.repository }}:{{ .Values.dotfiles.git.image.tag }}
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/sh
+            - -c
+            - |
+{{- range .Values.dotfiles.git.repository }}
+              git clone --depth 1 --branch {{ .revision | default "main" }} {{ .repo }} /dotfiles/{{ .name }}
+{{- end }}
+          volumeMounts:
+            - name: dotfiles
+              mountPath: /dotfiles
+      {{- end }}
+      containers:
+        - name: nix
+          securityContext:
+            {{- toYaml .Values.containerSecurityContext | nindent 12 }}
+          image: "{{ $imageRepo }}{{ if $packages }}/{{ join "/" $packages }}{{ end }}:{{ $imageTag }}"
+          imagePullPolicy: {{ .Values.core.image.pullPolicy }}
+          command:
+            - /entrypoint.sh
+          ports:
+            - name: ssh
+              containerPort: 22
+              protocol: TCP
+          env:
+            - name: DEV_USER
+              value: {{ .Values.core.user | quote }}
+            - name: SSH_AUTHORIZED_KEYS_FILE
+              value: /etc/ssh-keys/authorized_keys
+            {{- if .Values.core.shell }}
+            - name: CORE_SHELL
+              value: {{ .Values.core.shell | quote }}
+            {{- end }}
+            {{- if .Values.dotfiles.git.hookCommand }}
+            - name: DOTFILES_HOOK_COMMAND
+              value: {{ .Values.dotfiles.git.hookCommand | quote }}
+            {{- end }}
+            {{- if .Values.core.extraPath }}
+            - name: EXTRA_PATH
+              value: {{ join ":" .Values.core.extraPath | quote }}
+            {{- end }}
+            {{- with .Values.core.env }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          volumeMounts:
+            - name: bootstrap-script
+              mountPath: /entrypoint.sh
+              subPath: entrypoint.sh
+              readOnly: true
+            {{- if .Values.persistence.home.enabled }}
+            - name: home
+              mountPath: {{ .Values.core.workingDir }}
+            {{- end }}
+            - name: dotfiles
+              mountPath: /etc/dotfiles
+              readOnly: true
+            - name: ssh-keys
+              mountPath: /etc/ssh-keys
+              readOnly: true
+            {{- if and .Values.dind.enabled .Values.dind.privileged }}
+            - name: docker-socket
+              mountPath: /var/run
+            {{- end }}
+            {{- with .Values.core.extraVolumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          workingDir: {{ .Values.core.workingDir }}
+          resources:
+            {{- toYaml .Values.core.resources | nindent 12 }}
+        {{- if .Values.tailscale.enabled }}
+        - name: tailscale
+          image: "{{ .Values.tailscale.image.repository }}:{{ .Values.tailscale.image.tag }}"
+          imagePullPolicy: {{ .Values.tailscale.image.pullPolicy }}
+          env:
+            - name: TS_AUTHKEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.tailscale.authKeySecret }}
+                  key: TS_AUTHKEY
+            - name: TS_HOSTNAME
+              value: {{ .Values.tailscale.hostname | default (printf "%s-0" $fullname) | quote }}
+            - name: TS_STATE_DIR
+              value: /var/lib/tailscale
+            - name: TS_USERSPACE
+              value: "false"
+            - name: TS_AUTH_ONCE
+              value: "true"
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_UID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.uid
+          volumeMounts:
+            - name: tailscale-state
+              mountPath: /var/lib/tailscale
+            {{- if .Values.hostPathTun.enabled }}
+            - name: tun-device
+              mountPath: {{ .Values.hostPathTun.path }}
+            {{- end }}
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+              drop:
+                - ALL
+          resources:
+            {{- toYaml .Values.tailscale.resources | nindent 12 }}
+        {{- end }}
+        {{- if .Values.dind.enabled }}
+        - name: dind
+          image: "{{ .Values.dind.image.repository }}:{{ .Values.dind.image.tag }}"
+          imagePullPolicy: {{ .Values.dind.image.pullPolicy }}
+          {{- if .Values.dind.userNamespace.enabled }}
+          securityContext:
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
+              add:
+                - NET_BIND_SERVICE
+          {{- else }}
+          securityContext:
+            privileged: {{ .Values.dind.privileged }}
+          {{- end }}
+          env:
+            - name: DOCKER_TLS_CERTDIR
+              value: ""
+          volumeMounts:
+            - name: docker-storage
+              mountPath: /var/lib/docker
+            {{- if .Values.dind.privileged }}
+            - name: docker-socket
+              mountPath: /var/run
+            {{- end }}
+          resources:
+            {{- toYaml .Values.dind.resources | nindent 12 }}
+        {{- end }}
+      volumes:
+        - name: bootstrap-script
+          configMap:
+            name: {{ include "devenv.bootstrapConfigMap" . }}
+            defaultMode: 0755
+        - name: dotfiles
+          emptyDir: {}
+        - name: ssh-keys
+          secret:
+            secretName: {{ include "devenv.sshKeysSecret" . }}
+            defaultMode: 0600
+        {{- if and .Values.tailscale.enabled .Values.hostPathTun.enabled }}
+        - name: tun-device
+          hostPath:
+            path: {{ .Values.hostPathTun.path }}
+            type: CharDevice
+        {{- end }}
+        {{- if and .Values.dind.enabled .Values.dind.privileged }}
+        - name: docker-socket
+          emptyDir: {}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  volumeClaimTemplates:
+    {{- if .Values.persistence.home.enabled }}
+    - metadata:
+        name: home
+      spec:
+        accessModes:
+          {{- toYaml .Values.persistence.home.accessModes | nindent 10 }}
+        resources:
+          requests:
+            storage: {{ .Values.persistence.home.size }}
+        {{- with .Values.persistence.home.storageClass }}
+        storageClassName: {{ . }}
+        {{- end }}
+    {{- end }}
+    {{- if .Values.tailscale.enabled }}
+    - metadata:
+        name: tailscale-state
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: {{ .Values.tailscale.persistence.size }}
+        {{- with .Values.tailscale.persistence.storageClass }}
+        storageClassName: {{ . }}
+        {{- end }}
+    {{- end }}
+    {{- if .Values.dind.enabled }}
+    - metadata:
+        name: docker-storage
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: {{ .Values.dind.persistence.size }}
+        {{- with .Values.dind.persistence.storageClass }}
+        storageClassName: {{ . }}
+        {{- end }}
+    {{- end }}

@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Tailscale RBAC
+
+templates:
+  - tailscale-rbac.yaml
+
+tests:
+  - it: Should not create resources when tailscale is disabled
+    set:
+      tailscale.enabled: false
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: Should create Role and RoleBinding when tailscale is enabled
+    set:
+      tailscale.enabled: true
+    asserts:
+      - hasDocuments:
+          count: 2
+      - isKind:
+          of: Role
+        documentIndex: 0
+      - isKind:
+          of: RoleBinding
+        documentIndex: 1
+
+  - it: Should grant secret and event permissions
+    set:
+      tailscale.enabled: true
+    asserts:
+      - equal:
+          path: rules[0].apiGroups[0]
+          value: ""
+        documentIndex: 0
+      - contains:
+          path: rules[0].resources
+          content: secrets
+        documentIndex: 0
+      - contains:
+          path: rules[0].verbs
+          content: get
+        documentIndex: 0
+      - contains:
+          path: rules[0].verbs
+          content: create
+        documentIndex: 0
+      - contains:
+          path: rules[0].verbs
+          content: update
+        documentIndex: 0
+      - contains:
+          path: rules[1].resources
+          content: events
+        documentIndex: 0
+      - contains:
+          path: rules[1].verbs
+          content: create
+        documentIndex: 0
+      - contains:
+          path: rules[1].verbs
+          content: patch
+        documentIndex: 0
+      - equal:
+          path: subjects[0].kind
+          value: ServiceAccount
+        documentIndex: 1

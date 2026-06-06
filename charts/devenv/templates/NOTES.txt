@@ -1,0 +1,15 @@
+Nix DevPod "{{ .Release.Name }}" deployed.
+
+The pod will be available as "{{ .Release.Name }}-0" in namespace "{{ .Release.Namespace }}".
+
+{{- if .Values.tailscale.enabled }}
+Once the pod is running, Tailscale will assign it an IP and hostname.
+SSH into it:
+  ssh {{ .Values.core.user }}@{{ .Release.Name }}-0
+{{- else }}
+If Tailscale is disabled, the pod is only accessible within the cluster:
+  kubectl exec -n {{ .Release.Namespace }} -it {{ .Release.Name }}-0 -- /bin/sh
+{{- end }}
+
+To check pod status:
+  kubectl get pods -n {{ .Release.Namespace }} -l app.kubernetes.io/instance={{ .Release.Name }}

@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Reboot RoleBinding
+
+templates:
+  - reboot-rolebinding.yaml
+
+tests:
+  - it: Should not create RoleBinding when reboot is disabled
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: Should create RoleBinding with correct subjects when enabled
+    set:
+      reboot.enabled: true
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: RoleBinding
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-devenv-reboot
+      - equal:
+          path: roleRef.name
+          value: RELEASE-NAME-devenv-reboot
+      - equal:
+          path: subjects[0].kind
+          value: ServiceAccount
+      - equal:
+          path: subjects[0].name
+          value: RELEASE-NAME-devenv-reboot

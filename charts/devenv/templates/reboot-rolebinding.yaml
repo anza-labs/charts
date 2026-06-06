@@ -1,0 +1,18 @@
+{{- if .Values.reboot.enabled }}
+{{- $fullname := include "devenv.fullname" . -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ $fullname }}-reboot
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "devenv.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ $fullname }}-reboot
+subjects:
+  - kind: ServiceAccount
+    name: {{ $fullname }}-reboot
+    namespace: {{ .Release.Namespace }}
+{{- end }}

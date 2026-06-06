@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: helm-install
+  labels:
+    chart: devenv
+spec:
+  bindings:
+    - name: chart
+      value: ../../../charts/devenv
+  try:
+    - script:
+        env:
+          - name: CHART
+            value: ($chart)
+          - name: NAME
+            value: ($namespace)
+          - name: NAMESPACE
+            value: ($namespace)
+          - name: ARGV
+            value: ($arguments)
+        content: |
+          set -eux
+          PUBKEY="/tmp/devenv-key-${NAMESPACE}.pub"
+          if [ -f "${PUBKEY}" ]; then
+            helm install "${NAME}-devenv" "${CHART}" \
+              --namespace "${NAMESPACE}" \
+              --create-namespace \
+              --set-file sshKeys.authorizedKeys="${PUBKEY}" \
+              ${ARGV}
+          else
+            helm install "${NAME}-devenv" "${CHART}" \
+              --namespace "${NAMESPACE}" \
+              --create-namespace \
+              ${ARGV}
+          fi

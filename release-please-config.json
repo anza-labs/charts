@@ -20,6 +20,9 @@
     },
     "charts/registry": {
       "release-type": "helm"
+    },
+    "charts/devenv": {
+      "release-type": "helm"
     }
   },
   "changelog-sections": [

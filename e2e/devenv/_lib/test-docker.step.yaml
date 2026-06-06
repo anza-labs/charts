@@ -1,0 +1,107 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kyverno/chainsaw/main/.schemas/json/steptemplate-chainsaw-v1alpha1.json
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: StepTemplate
+metadata:
+  name: test-docker
+  labels:
+    chart: devenv
+spec:
+  try:
+    - apply:
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-docker
+            labels:
+              charts.anza-labs.dev/test: devenv-docker
+          spec:
+            ttlSecondsAfterFinished: 30
+            template:
+              metadata:
+                labels:
+                  charts.anza-labs.dev/test: devenv-docker
+              spec:
+                restartPolicy: Never
+                containers:
+                  - name: dind-docker-test
+                    image: alpine:latest
+                    imagePullPolicy: IfNotPresent
+                    command: ["/bin/sh", "-c"]
+                    args:
+                      - |
+                        set -eux
+
+                        apk add --quiet openssh-client
+
+                        SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=10 -o ConnectTimeout=10 -o BatchMode=yes"
+
+                        echo "=== Waiting for SSH ==="
+                        for i in $(seq 1 36); do
+                          if ssh $SSH_OPTS -i /key/id_ed25519 "${SSH_TARGET}" whoami 2>/dev/null; then
+                            echo "SSH ready after ${i} attempts"
+                            break
+                          fi
+                          if [ "$i" -eq 36 ]; then
+                            echo "SSH not ready after 36 attempts"
+                            exit 1
+                          fi
+                          echo "SSH attempt ${i} failed, retrying in 10s..."
+                          sleep 10
+                        done
+
+                        echo "=== Writing remote test script ==="
+                        printf '%s\n' \
+                          'set -eux' \
+                          '' \
+                          'echo "=== 1. Docker connectivity ==="' \
+                          'docker info' \
+                          '' \
+                          'echo "=== 2. Docker pull ==="' \
+                          'docker pull registry.k8s.io/pause:3.10' \
+                          'docker pull cgr.dev/chainguard/busybox-static:latest' \
+                          '' \
+                          'echo "=== 3. Docker build ==="' \
+                          'mkdir -p /tmp/docker-test' \
+                          'printf '\''%s\n'\'' '\''FROM cgr.dev/chainguard/busybox-static:latest'\'' '\''CMD ["echo", "hello-from-docker-build"]'\'' > /tmp/docker-test/Dockerfile' \
+                          'docker build -t test-image /tmp/docker-test' \
+                          '' \
+                          'echo "=== 4. Docker run ==="' \
+                          'OUTPUT=$(docker run --rm test-image 2>/dev/null)' \
+                          'echo "${OUTPUT}"' \
+                          'test "${OUTPUT}" = "hello-from-docker-build"' \
+                          '' \
+                          'echo "=== ALL DOCKER TESTS PASSED ==="' > /tmp/remote-test.sh
+
+                        echo "=== Running remote tests ==="
+                        ssh $SSH_OPTS -i /key/id_ed25519 "${SSH_TARGET}" /bin/sh -s < /tmp/remote-test.sh
+                    env:
+                      - name: SSH_TARGET
+                        value: ($sshTarget)
+                    volumeMounts:
+                      - name: ssh-key
+                        mountPath: /key
+                        readOnly: true
+                volumes:
+                  - name: ssh-key
+                    secret:
+                      secretName: devenv-ssh-key
+                      defaultMode: 0600
+    - assert:
+        timeout: 600s
+        resource:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: test-docker
+          status:
+            succeeded: 1
+  catch:
+    - describe:
+        apiVersion: batch/v1
+        kind: Job
+        name: test-docker
+    - podLogs:
+        namespace: ($namespace)
+        selector: charts.anza-labs.dev/test=devenv-docker
+        tail: -1
