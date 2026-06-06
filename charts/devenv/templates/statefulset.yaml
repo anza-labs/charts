@@ -10,6 +10,12 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "devenv.labels" . | nindent 4 }}
+    {{- with .Values.podLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  annotations:
+    ignore-check.kube-linter.io/latest-tag: "With Nixery images we want to use the 'latest' tag."
+    ignore-check.kube-linter.io/ssh-port: "This dev environment exposes SSH for development purposes."
 spec:
   replicas: 1
   serviceName: {{ $headlessSvc }}

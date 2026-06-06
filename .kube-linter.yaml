@@ -4,4 +4,3 @@ checks:
     - "run-as-non-root"
     - "unset-cpu-requirements"
     - "unset-memory-requirements"
-    - "non-existent-service-account" # TODO(scribe): validate why it fails
