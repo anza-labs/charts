@@ -64,7 +64,10 @@ tests:
 
   - it: Should have init container when dotfiles git is set
     set:
-      dotfiles.git.repository: https://github.com/user/dotfiles
+      dotfiles.git.repository:
+        - name: dotfiles
+          repo: https://github.com/user/dotfiles
+          revision: main
     asserts:
       - lengthEqual:
           path: spec.template.spec.initContainers
@@ -75,7 +78,10 @@ tests:
 
   - it: Should set DOTFILES_HOOK_COMMAND env var when hookCommand is set
     set:
-      dotfiles.git.repository: https://github.com/user/dotfiles
+      dotfiles.git.repository:
+        - name: dotfiles
+          repo: https://github.com/user/dotfiles
+          revision: main
       dotfiles.git.hookCommand: cd dotfiles && stow .
     asserts:
       - exists:
@@ -86,7 +92,10 @@ tests:
 
   - it: Should not set DOTFILES_HOOK_COMMAND by default
     set:
-      dotfiles.git.repository: https://github.com/user/dotfiles
+      dotfiles.git.repository:
+        - name: dotfiles
+          repo: https://github.com/user/dotfiles
+          revision: main
     asserts:
       - notExists:
           path: spec.template.spec.containers[0].env[?(@.name == "DOTFILES_HOOK_COMMAND")]
@@ -108,9 +117,7 @@ tests:
       - notExists:
           path: spec.template.spec.containers[0].env[?(@.name == "EXTRA_PATH")]
 
-  - it: Should set CORE_SHELL env var when shell is configured
-    set:
-      core.shell: /bin/zsh
+  - it: Should set CORE_SHELL to /bin/zsh by default
     asserts:
       - exists:
           path: spec.template.spec.containers[0].env[?(@.name == "CORE_SHELL")]
@@ -118,17 +125,14 @@ tests:
           path: spec.template.spec.containers[0].env[?(@.name == "CORE_SHELL")].value
           value: /bin/zsh
 
-  - it: Should not set CORE_SHELL env var by default
-    asserts:
-      - notExists:
-          path: spec.template.spec.containers[0].env[?(@.name == "CORE_SHELL")]
-
   - it: Should clone multi-repo dotfiles with separate directories
     set:
       dotfiles.git.repository:
-        - url: https://github.com/user/zsh
+        - name: zsh
+          repo: https://github.com/user/zsh
           revision: main
-        - url: https://github.com/user/nvim
+        - name: nvim
+          repo: https://github.com/user/nvim
           revision: dev
     asserts:
       - lengthEqual:
@@ -139,9 +143,11 @@ tests:
           value: clone-dotfiles
       - matchRegex:
           path: spec.template.spec.initContainers[0].command[2]
-          pattern: git clone.*https://github.com/user/zsh.*/dotfiles/
+          pattern: git clone.*https://github.com/user/zsh.*/dotfiles/zsh
 
-  - it: Should not have init containers when dotfiles git is not set
+  - it: Should not have init containers when dotfiles git repository is not set
+    set:
+      dotfiles.git.repository: []
     asserts:
       - notExists:
           path: spec.template.spec.initContainers

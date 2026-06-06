@@ -25,7 +25,7 @@ tests:
           path: data["entrypoint.sh"]
           pattern: echo custom
 
-  - it: Should include hook command, shell, PATH, and multi-repo logic
+  - it: Should include hook command, shell, PATH, and dotfiles loop logic
     asserts:
       - matchRegex:
           path: data["entrypoint.sh"]
@@ -35,7 +35,7 @@ tests:
           pattern: CORE_SHELL
       - matchRegex:
           path: data["entrypoint.sh"]
-          pattern: Multi-repo
+          pattern: EXTRA_PATH
       - matchRegex:
           path: data["entrypoint.sh"]
-          pattern: EXTRA_PATH
+          pattern: 'for d in /etc/dotfiles/'
