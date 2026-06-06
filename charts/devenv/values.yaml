@@ -20,11 +20,28 @@ core:
     pullPolicy: IfNotPresent
     # -- Nixery packages to include (e.g. [go, rustc, cargo]).
     packages:
-      - openssh
+      - age
+      - coreutils
       - curl
+      - dnsutils
+      - fd
+      - file
+      - fzf
       - git
+      - gnupg
+      - gnutar
+      - gzip
+      - htop
+      - iproute2
+      - lsof
       - ncurses
       - neovim
+      - openssh
+      - openssl
+      - ripgrep
+      - util-linux
+      - xz
+      - virtiofsd
       - zsh
   # -- Login shell for the user (e.g. /bin/zsh).
   shell: "/bin/zsh"
@@ -44,8 +61,11 @@ core:
   env: []
   # -- Extra volume mounts for the core container.
   extraVolumeMounts: []
-  # -- Extra directories to prepend to PATH (e.g. ["/home/devpod/.local/bin", "/home/devpod/.cargo/bin"]).
-  extraPath: []
+
+  # -- Security context (core container)
+  securityContext: {}
+  #  runAsNonRoot: true
+  #  runAsUser: 1000
 
 # Dotfiles source (optional)
 dotfiles:
@@ -173,15 +193,10 @@ persistence:
 podSecurityContext: {}
 #  fsGroup: 1000
 
-# Container security context (core container)
-containerSecurityContext: {}
-#  runAsNonRoot: true
-#  runAsUser: 1000
-
 # -- Node selector for the pods.
 nodeSelector:
   kubernetes.io/os: linux
-  kubernetes.io/arch: amd64
+  # kubernetes.io/arch: amd64
 
 # -- Tolerations for the pods.
 tolerations: []

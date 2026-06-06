@@ -5,14 +5,8 @@ USER_NAME="${DEV_USER:-devpod}"
 HOME_DIR="/home/${USER_NAME}"
 SSH_AUTH_KEYS="${SSH_AUTHORIZED_KEYS_FILE:-/etc/ssh-keys/authorized_keys}"
 
-# Nixery images may have restricted /tmp permissions
 mkdir -p /tmp 2>/dev/null || true
 chmod 1777 /tmp 2>/dev/null || true
-
-# Prepend extra PATH entries
-if [ -n "${EXTRA_PATH}" ]; then
-    export PATH="${EXTRA_PATH}:${PATH}"
-fi
 
 # Nixery images may lack standard passwd/group databases
 if [ ! -f /etc/passwd ]; then

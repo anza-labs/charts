@@ -66,7 +66,7 @@ spec:
       containers:
         - name: nix
           securityContext:
-            {{- toYaml .Values.containerSecurityContext | nindent 12 }}
+            {{- toYaml .Values.core.securityContext | nindent 12 }}
           image: "{{ $imageRepo }}{{ if $packages }}/{{ join "/" $packages }}{{ end }}:{{ $imageTag }}"
           imagePullPolicy: {{ .Values.core.image.pullPolicy }}
           command:
@@ -87,10 +87,6 @@ spec:
             {{- if .Values.dotfiles.git.hookCommand }}
             - name: DOTFILES_HOOK_COMMAND
               value: {{ .Values.dotfiles.git.hookCommand | quote }}
-            {{- end }}
-            {{- if .Values.core.extraPath }}
-            - name: EXTRA_PATH
-              value: {{ join ":" .Values.core.extraPath | quote }}
             {{- end }}
             {{- with .Values.core.env }}
             {{- toYaml . | nindent 12 }}

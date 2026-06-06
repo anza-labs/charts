@@ -74,15 +74,14 @@ helm uninstall devenv
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity settings for the pods. |
 | bootstrapScript | string | `""` | Custom bootstrap script (overrides the default). |
-| containerSecurityContext | object | `{}` |  |
 | core.env | list | `[]` | Extra environment variables for the core container. |
-| core.extraPath | list | `[]` | Extra directories to prepend to PATH (e.g. ["/home/devpod/.local/bin", "/home/devpod/.cargo/bin"]). |
 | core.extraVolumeMounts | list | `[]` | Extra volume mounts for the core container. |
-| core.image.packages | list | `["openssh","curl","git","ncurses","neovim","zsh"]` | Nixery packages to include (e.g. [go, rustc, cargo]). |
+| core.image.packages | list | `["age","coreutils","curl","dnsutils","fd","file","fzf","git","gnupg","gnutar","gzip","htop","iproute2","lsof","ncurses","neovim","openssh","openssl","ripgrep","util-linux","xz","virtiofsd","zsh"]` | Nixery packages to include (e.g. [go, rustc, cargo]). |
 | core.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | core.image.repository | string | `"nixery.dev/shell"` | Registry and repository for the image (will have packages appended). |
 | core.image.tag | string | `"latest"` | Image tag. |
 | core.resources | object | `{"limits":{"cpu":2,"memory":"4Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}` | Resource requests and limits. |
+| core.securityContext | object | `{}` | Security context (core container) |
 | core.shell | string | `"/bin/zsh"` | Login shell for the user (e.g. /bin/zsh). |
 | core.user | string | `"devpod"` | Non-root username. |
 | core.workingDir | string | `"/home/devpod"` | Working directory. |
@@ -106,7 +105,7 @@ helm uninstall devenv
 | hostPathTun.path | string | `"/dev/net/tun"` | Path to the TUN device. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | nameOverride | string | `""` | Override for the name. |
-| nodeSelector | object | `{"kubernetes.io/arch":"amd64","kubernetes.io/os":"linux"}` | Node selector for the pods. |
+| nodeSelector | object | `{"kubernetes.io/os":"linux"}` | Node selector for the pods. |
 | persistence.home.accessModes | list | `["ReadWriteOnce"]` | Access modes for home PVC. |
 | persistence.home.enabled | bool | `true` | Enable home directory PVC. |
 | persistence.home.size | string | `"10Gi"` | Home directory PVC size. |

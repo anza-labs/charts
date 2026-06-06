@@ -100,22 +100,16 @@ tests:
       - notExists:
           path: spec.template.spec.containers[0].env[?(@.name == "DOTFILES_HOOK_COMMAND")]
 
-  - it: Should set EXTRA_PATH env var when extraPath is configured
+  - it: Should render core.env as Kubernetes env vars
     set:
-      core.extraPath:
-        - /home/devpod/.local/bin
-        - /home/devpod/.cargo/bin
+      core.env:
+        - FOO="bar"
     asserts:
       - exists:
-          path: spec.template.spec.containers[0].env[?(@.name == "EXTRA_PATH")]
+          path: spec.template.spec.containers[0].env[?(@.name == "FOO")]
       - equal:
-          path: spec.template.spec.containers[0].env[?(@.name == "EXTRA_PATH")].value
-          value: /home/devpod/.local/bin:/home/devpod/.cargo/bin
-
-  - it: Should not set EXTRA_PATH env var by default
-    asserts:
-      - notExists:
-          path: spec.template.spec.containers[0].env[?(@.name == "EXTRA_PATH")]
+          path: spec.template.spec.containers[0].env[?(@.name == "FOO")].value
+          value: bar
 
   - it: Should set CORE_SHELL to /bin/zsh by default
     asserts:

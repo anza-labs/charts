@@ -8,16 +8,10 @@
     "bootstrapScript": {
       "type": "string"
     },
-    "containerSecurityContext": {
-      "type": "object"
-    },
     "core": {
       "type": "object",
       "properties": {
         "env": {
-          "type": "array"
-        },
-        "extraPath": {
           "type": "array"
         },
         "extraVolumeMounts": {
@@ -69,6 +63,9 @@
               }
             }
           }
+        },
+        "securityContext": {
+          "type": "object"
         },
         "shell": {
           "type": "string"
@@ -222,9 +219,6 @@
     "nodeSelector": {
       "type": "object",
       "properties": {
-        "kubernetes.io/arch": {
-          "type": "string"
-        },
         "kubernetes.io/os": {
           "type": "string"
         }
