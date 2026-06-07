@@ -18,7 +18,11 @@ fi
 
 if ! id "${USER_NAME}" >/dev/null 2>&1; then
     if [ -n "${CORE_SHELL}" ]; then
-        echo "${USER_NAME}:x:1000:1000:${USER_NAME}:${HOME_DIR}:${CORE_SHELL}" >>/etc/passwd
+        SHELL="${CORE_SHELL}"
+        if [ ! -x "${SHELL}" ]; then
+            SHELL="/bin/sh"
+        fi
+        echo "${USER_NAME}:x:1000:1000:${USER_NAME}:${HOME_DIR}:${SHELL}" >>/etc/passwd
         echo "${USER_NAME}:x:1000:" >>/etc/group
         mkdir -p "${HOME_DIR}"
     elif command -v adduser >/dev/null 2>&1; then
