@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -eux
 
 USER_NAME="${DEV_USER:-devpod}"
 HOME_DIR="/home/${USER_NAME}"
@@ -53,7 +53,7 @@ if [ -d /etc/dotfiles ] && [ -n "$(ls -A /etc/dotfiles)" ]; then
         cp -R "$d" "${HOME_DIR}/${name}" || true
     done
     chown -R "${USER_NAME}:${USER_NAME}" "${HOME_DIR}" 2>/dev/null || true
-    if [ -n "${DOTFILES_HOOK_COMMAND}" ]; then
+    if [ -n "${DOTFILES_HOOK_COMMAND:-}" ]; then
         (cd "${HOME_DIR}" && eval "${DOTFILES_HOOK_COMMAND}") || true
     fi
 fi

@@ -78,3 +78,11 @@ spec:
         namespace: ($namespace)
         selector: charts.anza-labs.dev/test=devenv-ssh
         tail: -1
+    - describe:
+        apiVersion: apps/v1
+        kind: StatefulSet
+        name: (join('-', [$namespace, 'devenv']))
+    - podLogs:
+        namespace: ($namespace)
+        selector: app.kubernetes.io/name=devenv
+        tail: -1
