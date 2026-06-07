@@ -6,6 +6,33 @@ entries:
       artifacthub.io/immutable: "true"
     apiVersion: v2
     appVersion: latest
+    created: "2026-06-07T09:35:43.977983502Z"
+    description: 'Nix development environment pod with Tailscale SSH access and optional
+      Docker-in-Docker. '
+    digest: cad92f22bd859bf917626f75bbba3bed2672eced9e1f4cd4f964eac395c75e1a
+    home: https://github.com/anza-labs/charts
+    keywords:
+    - nix
+    - devpod
+    - development
+    - tailscale
+    - dind
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: devenv
+    sources:
+    - https://github.com/anza-labs/charts
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/devenv-0.1.2/devenv-0.1.2.tgz
+    version: 0.1.2
+  - annotations:
+      artifacthub.io/category: skip-prediction
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: latest
     created: "2026-06-07T05:12:25.558679859Z"
     description: 'Nix development environment pod with Tailscale SSH access and optional
       Docker-in-Docker. '
@@ -4073,4 +4100,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-06-07T05:12:25.55898028Z"
+generated: "2026-06-07T09:35:43.978285329Z"
