@@ -1687,6 +1687,58 @@ entries:
   - annotations:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
+        - kind: added
+          description: '**pocket-id:** allow extra envFrom'
+          links:
+          - name: Commit e5e5720
+            url: https://github.com/anza-labs/charts/commit/e5e5720ff56c216c064b3f93865da3cd999b44d8
+        - kind: fixed
+          description: propagate backup.secret.name correctly
+          links:
+          - name: Commit 1ac0b66
+            url: https://github.com/anza-labs/charts/commit/1ac0b665c2207205606db77455cbe7aff437c174
+        - kind: changed
+          description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.12'
+          links:
+          - name: 'GitHub Issue #425'
+            url: https://github.com/anza-labs/charts/issues/425
+          - name: Commit addd209
+            url: https://github.com/anza-labs/charts/commit/addd20932f808480815d7d8428cbe06ea0fea6d4
+        - kind: changed
+          description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.9.0'
+          links:
+          - name: 'GitHub Issue #429'
+            url: https://github.com/anza-labs/charts/issues/429
+          - name: Commit 8e1d2a7
+            url: https://github.com/anza-labs/charts/commit/8e1d2a78b3961638d18044fced946bed149aaca3
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v2.9.0
+    created: "2026-06-17T11:00:37.044431053Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: f6b2692fa7b36926131029782f6395131c3703910f0b5a58aa7baaf8d03b522a
+    home: https://pocket-id.org
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-2.2.0/pocket-id-2.2.0.tgz
+    version: 2.2.0
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
         - kind: changed
           description: '**main:** release pocket-id 2.1.2'
           links:
@@ -4100,4 +4152,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-06-07T09:35:43.978285329Z"
+generated: "2026-06-17T11:00:37.044747275Z"
