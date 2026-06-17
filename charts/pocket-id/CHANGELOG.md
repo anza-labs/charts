@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.2.0](https://github.com/anza-labs/charts/compare/pocket-id-2.1.3...pocket-id-v2.2.0) (2026-06-17)
+
+
+### Features
+
+* **pocket-id:** allow extra envFrom ([e5e5720](https://github.com/anza-labs/charts/commit/e5e5720ff56c216c064b3f93865da3cd999b44d8))
+
+
+### Bug Fixes
+
+* propagate backup.secret.name correctly ([1ac0b66](https://github.com/anza-labs/charts/commit/1ac0b665c2207205606db77455cbe7aff437c174))
+
+
+### Miscellaneous Chores
+
+* **deps:** update docker.io/litestream/litestream docker tag to v0.5.12 ([#425](https://github.com/anza-labs/charts/issues/425)) ([addd209](https://github.com/anza-labs/charts/commit/addd20932f808480815d7d8428cbe06ea0fea6d4))
+* **deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.9.0 ([#429](https://github.com/anza-labs/charts/issues/429)) ([8e1d2a7](https://github.com/anza-labs/charts/commit/8e1d2a78b3961638d18044fced946bed149aaca3))
+
 ## [2.1.3](https://github.com/anza-labs/charts/compare/pocket-id-2.1.2...pocket-id-v2.1.3) (2026-06-03)
 
 
