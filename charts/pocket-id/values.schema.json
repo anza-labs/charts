@@ -320,6 +320,9 @@
     "encryptionKey": {
       "type": "string"
     },
+    "extraEnvFrom": {
+      "type": "array"
+    },
     "fileBackend": {
       "type": "object",
       "properties": {

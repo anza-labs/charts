@@ -419,6 +419,9 @@ ingress:
   #    hosts:
   #      - pocket-id.example.local
 
+# -- Extra environment variables to add to the container.
+extraEnvFrom: []
+
 # -- Annotations to be added to the pods.
 podAnnotations: {}
 # -- Labels to be added to the pods.

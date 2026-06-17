@@ -54,7 +54,7 @@ helm uninstall pocket-id
 | backup.enabled | bool | `false` | Specifies whether backup/replication is enabled. |
 | backup.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | backup.image.repository | string | `"docker.io/litestream/litestream"` | Registry and repository for the litestream image. |
-| backup.image.tag | string | `"0.5.11"` | Tag for the image. |
+| backup.image.tag | string | `"0.5.12"` | Tag for the image. |
 | backup.logging.level | string | `"INFO"` | Logging level. Options: DEBUG, INFO, WARNING, ERROR |
 | backup.logging.stderr | bool | `false` | Whether to log to stderr (default is stdout) |
 | backup.logging.type | string | `"text"` | Logging format. Options: text or json |
@@ -123,6 +123,7 @@ helm uninstall pocket-id
 | config.ui.useDefaults | bool | `true` | Whether to enable default settings for the UI or allow customizations |
 | database.connectionString | string | `"file:data/pocket-id.db"` | Connection string for the database.    - For sqlite: file:data/pocket-id.db    - For postgres: postgres:// or postgresql://user:password@host:port/dbname |
 | encryptionKey | string | `""` | Encryption key used to encrypt sensitive data. Required: Generate with `openssl rand -base64 32` |
+| extraEnvFrom | list | `[]` | Extra environment variables to add to the container. |
 | fileBackend.s3.accessKeyId | string | `""` | S3 access key ID (required if type is s3) |
 | fileBackend.s3.bucket | string | `""` | S3 bucket name (required if type is s3) |
 | fileBackend.s3.disableDefaultIntegrityChecks | bool | `false` | Disable default integrity checks for S3 |

@@ -112,6 +112,9 @@ spec:
                 name: {{ include "pocket-id.secret" . }}
             - configMapRef:
                 name: {{ include "pocket-id.config" . }}
+            {{- with .Values.extraEnvFrom }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
         {{- if .Values.backup.enabled }}
         - name: replication
           securityContext:

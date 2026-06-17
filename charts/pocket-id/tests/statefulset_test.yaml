@@ -165,3 +165,60 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: "persistence.data.hostPath.path must not be empty when persistence.data.hostPath.enabled is true"
+
+  - it: Should include default envFrom entries only when extraEnvFrom is not set
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].envFrom
+          content:
+            secretRef:
+              name: RELEASE-NAME-pocket-id
+      - contains:
+          path: spec.template.spec.containers[0].envFrom
+          content:
+            configMapRef:
+              name: RELEASE-NAME-pocket-id
+      - lengthEqual:
+          path: spec.template.spec.containers[0].envFrom
+          count: 2
+
+  - it: Should include extraEnvFrom entries when specified
+    set:
+      extraEnvFrom:
+        - secretRef:
+            name: my-custom-secret
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].envFrom
+          content:
+            secretRef:
+              name: RELEASE-NAME-pocket-id
+      - contains:
+          path: spec.template.spec.containers[0].envFrom
+          content:
+            configMapRef:
+              name: RELEASE-NAME-pocket-id
+      - contains:
+          path: spec.template.spec.containers[0].envFrom
+          content:
+            secretRef:
+              name: my-custom-secret
+
+  - it: Should include multiple extraEnvFrom entries
+    set:
+      extraEnvFrom:
+        - secretRef:
+            name: custom-secret
+        - configMapRef:
+            name: custom-config
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].envFrom
+          content:
+            secretRef:
+              name: custom-secret
+      - contains:
+          path: spec.template.spec.containers[0].envFrom
+          content:
+            configMapRef:
+              name: custom-config
