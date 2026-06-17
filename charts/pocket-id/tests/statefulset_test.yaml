@@ -102,6 +102,54 @@ tests:
           any: true
           content: {}
 
+  - it: Should reference backup secret in initContainer envFrom
+    set:
+      backup:
+        enabled: true
+    asserts:
+      - contains:
+          path: spec.template.spec.initContainers[0].envFrom
+          content:
+            secretRef:
+              name: RELEASE-NAME-pocket-id-backup
+
+  - it: Should reference backup secret in sidecar envFrom
+    set:
+      backup:
+        enabled: true
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[1].envFrom
+          content:
+            secretRef:
+              name: RELEASE-NAME-pocket-id-backup
+
+  - it: Should propagate custom backup.secret.name to initContainer envFrom
+    set:
+      backup:
+        enabled: true
+        secret:
+          name: custom-backup-secret
+    asserts:
+      - contains:
+          path: spec.template.spec.initContainers[0].envFrom
+          content:
+            secretRef:
+              name: custom-backup-secret
+
+  - it: Should propagate custom backup.secret.name to sidecar envFrom
+    set:
+      backup:
+        enabled: true
+        secret:
+          name: custom-backup-secret
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[1].envFrom
+          content:
+            secretRef:
+              name: custom-backup-secret
+
   - it: Should use hostPath volume when hostPath is enabled
     set:
       persistence:

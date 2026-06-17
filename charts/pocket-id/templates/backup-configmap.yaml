@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "pocket-id.backupSecret" . }}
+  name: {{ include "pocket-id.backupConfig" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "pocket-id.labels" . | nindent 4 }}

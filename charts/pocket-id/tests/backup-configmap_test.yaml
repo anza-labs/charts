@@ -41,6 +41,23 @@ tests:
           path: data["litestream.yaml"]
           pattern: 'secret-access-key: "\$SECRET_KEY"'
 
+  - it: Should use default backup name for ConfigMap metadata
+    set:
+      backup.enabled: true
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-pocket-id-backup
+
+  - it: Should not change ConfigMap name when backup.secret.name is set
+    set:
+      backup.enabled: true
+      backup.secret.name: custom-secret-name
+    asserts:
+      - equal:
+          path: metadata.name
+          value: RELEASE-NAME-pocket-id-backup
+
   - it: Should render with multiple replicas
     set:
       backup.enabled: true
