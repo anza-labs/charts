@@ -1,6 +1,6 @@
 # lubelogger
 
-![Version: 1.4.7](https://img.shields.io/badge/Version-1.4.7-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.6.7](https://img.shields.io/badge/AppVersion-v1.6.7-informational?style=flat)
+![Version: 1.4.8](https://img.shields.io/badge/Version-1.4.8-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.7.0](https://img.shields.io/badge/AppVersion-v1.7.0-informational?style=flat)
 
 LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 
@@ -23,7 +23,7 @@ To install the chart with the release name `lubelogger`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install lubelogger anza-labs/lubelogger --version 1.4.7
+helm install lubelogger anza-labs/lubelogger --version 1.4.8
 ```
 
 ## Upgrading
@@ -83,11 +83,11 @@ helm uninstall lubelogger
 | config.userConfig.VisibleTabs | list | `[0,1,4,2,3,6,5,8]` | Specifies which tabs are visible in the user interface. |
 | curl.image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | curl.image.repository | string | `"docker.io/curlimages/curl"` | Registry and repository for the image. |
-| curl.image.tag | string | `"8.20.0"` | Tag for the image. |
+| curl.image.tag | string | `"8.21.0"` | Tag for the image. |
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"ghcr.io/hargata/lubelogger"` | Registry and repository for the lubelogger image. |
-| image.tag | string | `"v1.6.7"` | Tag for the image. |
+| image.tag | string | `"v1.7.0"` | Tag for the image. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | ingress.annotations | object | `{}` | Annotations to add to the ingress. |
 | ingress.className | string | `""` | Ingress class name. |
