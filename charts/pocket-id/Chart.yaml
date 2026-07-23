@@ -19,30 +19,13 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: added
-      description: '**pocket-id:** allow extra envFrom'
-      links:
-      - name: Commit e5e5720
-        url: https://github.com/anza-labs/charts/commit/e5e5720ff56c216c064b3f93865da3cd999b44d8
-    - kind: fixed
-      description: propagate backup.secret.name correctly
-      links:
-      - name: Commit 1ac0b66
-        url: https://github.com/anza-labs/charts/commit/1ac0b665c2207205606db77455cbe7aff437c174
     - kind: changed
-      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.12'
+      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.15'
       links:
-      - name: 'GitHub Issue #425'
-        url: https://github.com/anza-labs/charts/issues/425
-      - name: Commit addd209
-        url: https://github.com/anza-labs/charts/commit/addd20932f808480815d7d8428cbe06ea0fea6d4
-    - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.9.0'
-      links:
-      - name: 'GitHub Issue #429'
-        url: https://github.com/anza-labs/charts/issues/429
-      - name: Commit 8e1d2a7
-        url: https://github.com/anza-labs/charts/commit/8e1d2a78b3961638d18044fced946bed149aaca3
+      - name: 'GitHub Issue #438'
+        url: https://github.com/anza-labs/charts/issues/438
+      - name: Commit be50983
+        url: https://github.com/anza-labs/charts/commit/be50983204a0c92187c6fb119aa69fecb7bd7702
 maintainers:
   - name: shanduur
     email: maturb@proton.me
