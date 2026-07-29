@@ -1,6 +1,6 @@
 # pyoci
 
-![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.1.39](https://img.shields.io/badge/AppVersion-v0.1.39-informational?style=flat)
+![Version: 1.1.4](https://img.shields.io/badge/Version-1.1.4-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v0.1.40](https://img.shields.io/badge/AppVersion-v0.1.40-informational?style=flat)
 
 Publish and install private python packages using OCI/docker registries.
 
@@ -23,7 +23,7 @@ To install the chart with the release name `pyoci`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install pyoci anza-labs/pyoci --version 1.1.3
+helm install pyoci anza-labs/pyoci --version 1.1.4
 ```
 
 ## Upgrading
@@ -60,7 +60,7 @@ helm uninstall pyoci
 | fullnameOverride | string | `""` | Override for the full name. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy. |
 | image.repository | string | `"ghcr.io/allexveldman/pyoci"` | pyoci and repository for the pyoci image. |
-| image.tag | string | `"v0.1.39"` | Tag for the image. |
+| image.tag | string | `"v0.1.40"` | Tag for the image. |
 | imagePullSecrets | list | `[]` | Secrets for pulling images. |
 | ingress.annotations | object | `{}` | Annotations to add to the ingress. |
 | ingress.className | string | `""` | Ingress class name. |
