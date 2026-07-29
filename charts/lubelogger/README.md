@@ -1,6 +1,6 @@
 # lubelogger
 
-![Version: 1.4.8](https://img.shields.io/badge/Version-1.4.8-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.7.0](https://img.shields.io/badge/AppVersion-v1.7.0-informational?style=flat)
+![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: v1.7.0](https://img.shields.io/badge/AppVersion-v1.7.0-informational?style=flat)
 
 LubeLogger is a web-based vehicle maintenance and fuel mileage tracker
 
@@ -23,7 +23,7 @@ To install the chart with the release name `lubelogger`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install lubelogger anza-labs/lubelogger --version 1.4.8
+helm install lubelogger anza-labs/lubelogger --version 2.0.0
 ```
 
 ## Upgrading
