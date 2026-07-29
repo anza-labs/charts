@@ -238,6 +238,52 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update docker.io/curlimages/curl docker tag to v8.21.0'
+          links:
+          - name: 'GitHub Issue #433'
+            url: https://github.com/anza-labs/charts/issues/433
+          - name: Commit 0e45127
+            url: https://github.com/anza-labs/charts/commit/0e45127b48da9d58d767e27a59beaa8da4357df8
+        - kind: changed
+          description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.6.8'
+          links:
+          - name: 'GitHub Issue #435'
+            url: https://github.com/anza-labs/charts/issues/435
+          - name: Commit f769e5f
+            url: https://github.com/anza-labs/charts/commit/f769e5ff56d5a2b16fecf596a534bb999e6c1823
+        - kind: changed
+          description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.7.0'
+          links:
+          - name: 'GitHub Issue #440'
+            url: https://github.com/anza-labs/charts/issues/440
+          - name: Commit 559a352
+            url: https://github.com/anza-labs/charts/commit/559a3521a4ecbab31abd1c79997554ec77ca637a
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.7.0
+    created: "2026-07-29T05:16:18.867706836Z"
+    description: 'LubeLogger is a web-based vehicle maintenance and fuel mileage tracker '
+    digest: e7c76857b9490a8c386a7d7b7214fbfb9f3366a24b1e8706f34195d42796d117
+    home: https://lubelogger.com
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/lubelogger/icon.png
+    keywords:
+    - vechicle
+    - maintenance
+    - dashboard
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: lubelogger
+    sources:
+    - https://github.com/hargata/lubelog
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/lubelogger-1.4.8/lubelogger-1.4.8.tgz
+    version: 1.4.8
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.6.7'
           links:
           - name: 'GitHub Issue #410'
@@ -4194,4 +4240,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-07-29T05:04:59.830265583Z"
+generated: "2026-07-29T05:16:18.868104376Z"
