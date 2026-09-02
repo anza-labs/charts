@@ -4,7 +4,7 @@ name: devenv
 description: |
   Nix development environment pod with Tailscale SSH access and optional Docker-in-Docker.
 home: https://github.com/anza-labs/charts
-version: 0.1.2
+version: 1.0.0
 appVersion: "latest"
 sources:
   - https://github.com/anza-labs/charts
@@ -17,6 +17,47 @@ keywords:
 annotations:
   artifacthub.io/category: skip-prediction
   artifacthub.io/immutable: "true"
+  artifacthub.io/changes: |-
+    - kind: added
+      description: add a devenv chart
+      links:
+      - name: Commit 59b238d
+        url: https://github.com/anza-labs/charts/commit/59b238db9e350f47c4a5a26487c9ccd6327303f2
+    - kind: added
+      description: add more debugging to e2e
+      links:
+      - name: Commit 23c1c52
+        url: https://github.com/anza-labs/charts/commit/23c1c521f8577fd3bae58695ec09abb651c16b68
+    - kind: added
+      description: change default packages
+      links:
+      - name: Commit 46c8704
+        url: https://github.com/anza-labs/charts/commit/46c87047cdfcfa032014f352dddd21970d345eaa
+    - kind: added
+      description: extend the packages
+      links:
+      - name: Commit 488707d
+        url: https://github.com/anza-labs/charts/commit/488707df83f907a713c4fca9927f50456daa943a
+    - kind: fixed
+      description: add kubelinter annotations
+      links:
+      - name: Commit 3833bf7
+        url: https://github.com/anza-labs/charts/commit/3833bf7e6428a7a42b94e0137d00538652c7d95e
+    - kind: fixed
+      description: correct permissions
+      links:
+      - name: Commit 64c6cbf
+        url: https://github.com/anza-labs/charts/commit/64c6cbf8778a54d121e4937635e513094d08fa2a
+    - kind: fixed
+      description: devenv unittests
+      links:
+      - name: Commit b5211af
+        url: https://github.com/anza-labs/charts/commit/b5211afd6f4dd43d1704c4537f3b47974e1213ba
+    - kind: fixed
+      description: fallback to shell if core shell is not available
+      links:
+      - name: Commit 3e00b0b
+        url: https://github.com/anza-labs/charts/commit/3e00b0bced08d260f41dc9d2615fa14b9af6988f
 maintainers:
   - name: shanduur
     email: maturb@proton.me
