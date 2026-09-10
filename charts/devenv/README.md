@@ -1,6 +1,6 @@
 # devenv
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat)
 
 Nix development environment pod with Tailscale SSH access and optional Docker-in-Docker.
 
@@ -49,7 +49,7 @@ To install the chart with the release name `devenv`:
 ```bash
 helm repo add anza-labs https://anza-labs.github.io/charts
 helm repo update anza-labs
-helm install devenv anza-labs/devenv --version 0.1.2
+helm install devenv anza-labs/devenv --version 1.0.0
 ```
 
 ## Upgrading
