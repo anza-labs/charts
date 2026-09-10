@@ -6,8 +6,8 @@ description: |
   with their passkeys to your services.
 home: https://pocket-id.org
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
-version: 2.2.1
-appVersion: "v2.11.0"
+version: 2.2.2
+appVersion: "v2.14.0"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -20,19 +20,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.15'
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.14.0'
       links:
-      - name: 'GitHub Issue #438'
-        url: https://github.com/anza-labs/charts/issues/438
-      - name: Commit be50983
-        url: https://github.com/anza-labs/charts/commit/be50983204a0c92187c6fb119aa69fecb7bd7702
-    - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.11.0'
-      links:
-      - name: 'GitHub Issue #442'
-        url: https://github.com/anza-labs/charts/issues/442
-      - name: Commit e59e621
-        url: https://github.com/anza-labs/charts/commit/e59e6215188e6dba75de504e97013a752b03e7e8
+      - name: 'GitHub Issue #452'
+        url: https://github.com/anza-labs/charts/issues/452
+      - name: Commit 8988679
+        url: https://github.com/anza-labs/charts/commit/89886790245eedda05dd9939cc67a62c5a6f941d
 maintainers:
   - name: shanduur
     email: maturb@proton.me
