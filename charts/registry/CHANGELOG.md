@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/anza-labs/charts/compare/registry-1.0.3...registry-v1.0.4) (2026-09-26)
+
+
+### Miscellaneous Chores
+
+* **deps:** update docker.io/library/registry docker tag to v3.1.2 ([#474](https://github.com/anza-labs/charts/issues/474)) ([10dd41a](https://github.com/anza-labs/charts/commit/10dd41a0f5484bac22ee0717a039146143f591e5))
+
 ## [1.0.3](https://github.com/anza-labs/charts/compare/registry-1.0.2...registry-v1.0.3) (2026-05-05)
 
 
