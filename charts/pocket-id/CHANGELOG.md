@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.2.2](https://github.com/anza-labs/charts/compare/pocket-id-2.2.1...pocket-id-v2.2.2) (2026-09-26)
+
+
+### Miscellaneous Chores
+
+* **deps:** update docker.io/litestream/litestream docker tag to v0.5.17 ([#453](https://github.com/anza-labs/charts/issues/453)) ([46a6a84](https://github.com/anza-labs/charts/commit/46a6a849be301fb0815f621fc700a5cff057bde0))
+* **deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.14.0 ([#452](https://github.com/anza-labs/charts/issues/452)) ([8988679](https://github.com/anza-labs/charts/commit/89886790245eedda05dd9939cc67a62c5a6f941d))
+* **deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.16.0 ([#472](https://github.com/anza-labs/charts/issues/472)) ([aafebcd](https://github.com/anza-labs/charts/commit/aafebcd465bed267c89fbdc1b6907e06e4e79336))
+
 ## [2.2.1](https://github.com/anza-labs/charts/compare/pocket-id-2.2.0...pocket-id-v2.2.1) (2026-07-29)
 
 
