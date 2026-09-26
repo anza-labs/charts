@@ -6,8 +6,8 @@ description: |-
   stores and lets you distribute container images and other content.
 home: https://distribution.github.io/distribution/
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/registry/icon.png
-version: 1.0.3
-appVersion: "3.1.1"
+version: 1.0.4
+appVersion: "3.1.2"
 sources:
   - https://github.com/distribution/distribution
 keywords:
@@ -19,19 +19,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update docker.io/library/registry docker tag to v3.1.1'
+      description: '**deps:** update docker.io/library/registry docker tag to v3.1.2'
       links:
-      - name: 'GitHub Issue #403'
-        url: https://github.com/anza-labs/charts/issues/403
-      - name: Commit 6c4bc90
-        url: https://github.com/anza-labs/charts/commit/6c4bc906ed98d715dcb760a495958f052fe2b3d0
-    - kind: changed
-      description: '**install:** improve install docs'
-      links:
-      - name: 'GitHub Issue #399'
-        url: https://github.com/anza-labs/charts/issues/399
-      - name: Commit e8fdc56
-        url: https://github.com/anza-labs/charts/commit/e8fdc5680642d4c2e304999da3f35ca1b0f52f78
+      - name: 'GitHub Issue #474'
+        url: https://github.com/anza-labs/charts/issues/474
+      - name: Commit 10dd41a
+        url: https://github.com/anza-labs/charts/commit/10dd41a0f5484bac22ee0717a039146143f591e5
 maintainers:
   - name: shanduur
     email: maturb@proton.me
