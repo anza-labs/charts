@@ -4042,6 +4042,40 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update docker.io/library/registry docker tag to v3.1.2'
+          links:
+          - name: 'GitHub Issue #474'
+            url: https://github.com/anza-labs/charts/issues/474
+          - name: Commit 10dd41a
+            url: https://github.com/anza-labs/charts/commit/10dd41a0f5484bac22ee0717a039146143f591e5
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: 3.1.2
+    created: "2026-09-26T14:05:25.081176623Z"
+    description: The Registry is a stateless, highly scalable server side application
+      that stores and lets you distribute container images and other content.
+    digest: 16022a83a6e5b06cddec33fb5795ee2a3a14ce2bf691efadd02381823e671615
+    home: https://distribution.github.io/distribution/
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/registry/icon.png
+    keywords:
+    - oci-registry
+    - docker
+    - registry
+    - distribution
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: registry
+    sources:
+    - https://github.com/distribution/distribution
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/registry-1.0.4/registry-1.0.4.tgz
+    version: 1.0.4
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update docker.io/library/registry docker tag to v3.1.1'
           links:
           - name: 'GitHub Issue #403'
@@ -4355,4 +4389,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-26T13:18:09.02728838Z"
+generated: "2026-09-26T14:05:25.081438493Z"
