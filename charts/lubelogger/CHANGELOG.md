@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.9](https://github.com/anza-labs/charts/compare/lubelogger-1.4.8...lubelogger-v1.4.9) (2026-09-26)
+
+
+### Miscellaneous Chores
+
+* **deps:** update docker.io/curlimages/curl docker tag to v8.22.0 ([#467](https://github.com/anza-labs/charts/issues/467)) ([b40d329](https://github.com/anza-labs/charts/commit/b40d32958bf13b0f470cbc6ed3b26e0ef2e0cf27))
+* **deps:** update ghcr.io/hargata/lubelogger docker tag to v1.7.3 ([#457](https://github.com/anza-labs/charts/issues/457)) ([8e6d687](https://github.com/anza-labs/charts/commit/8e6d68700eb126ebed2f14dac837df789a9b308e))
+
 ## [1.4.8](https://github.com/anza-labs/charts/compare/lubelogger-1.4.7...lubelogger-v1.4.8) (2026-07-29)
 
 
