@@ -18,12 +18,12 @@ annotations:
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
     - kind: changed
-      description: '**deps:** update ghcr.io/glauth/glauth docker tag to v2.5.2'
+      description: '**deps:** update ghcr.io/glauth/glauth docker tag to v2.5.4'
       links:
-      - name: 'GitHub Issue #444'
-        url: https://github.com/anza-labs/charts/issues/444
-      - name: Commit bc58bb8
-        url: https://github.com/anza-labs/charts/commit/bc58bb8cf252bd5dfc5e26c0e8431f4664a20076
+      - name: 'GitHub Issue #471'
+        url: https://github.com/anza-labs/charts/issues/471
+      - name: Commit ef8890c
+        url: https://github.com/anza-labs/charts/commit/ef8890c18f5831c828635d9bbf6304ec162aa0b0
 maintainers:
   - name: shanduur
     email: maturb@proton.me
