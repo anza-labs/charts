@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/anza-labs/charts/compare/glauth-1.0.1...glauth-v1.0.2) (2026-09-26)
+
+
+### Miscellaneous Chores
+
+* **deps:** update ghcr.io/glauth/glauth docker tag to v2.5.4 ([#471](https://github.com/anza-labs/charts/issues/471)) ([ef8890c](https://github.com/anza-labs/charts/commit/ef8890c18f5831c828635d9bbf6304ec162aa0b0))
+
 ## [1.0.1](https://github.com/anza-labs/charts/compare/glauth-1.0.0...glauth-v1.0.1) (2026-07-29)
 
 
