@@ -272,6 +272,45 @@ entries:
   - annotations:
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update docker.io/curlimages/curl docker tag to v8.22.0'
+          links:
+          - name: 'GitHub Issue #467'
+            url: https://github.com/anza-labs/charts/issues/467
+          - name: Commit b40d329
+            url: https://github.com/anza-labs/charts/commit/b40d32958bf13b0f470cbc6ed3b26e0ef2e0cf27
+        - kind: changed
+          description: '**deps:** update ghcr.io/hargata/lubelogger docker tag to v1.7.3'
+          links:
+          - name: 'GitHub Issue #457'
+            url: https://github.com/anza-labs/charts/issues/457
+          - name: Commit 8e6d687
+            url: https://github.com/anza-labs/charts/commit/8e6d68700eb126ebed2f14dac837df789a9b308e
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v1.7.3
+    created: "2026-09-26T14:08:49.477707802Z"
+    description: 'LubeLogger is a web-based vehicle maintenance and fuel mileage tracker '
+    digest: ef4b8a847c6335f35bad902a27dc275820141abb472260b0db8aea7922d38c2d
+    home: https://lubelogger.com
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/lubelogger/icon.png
+    keywords:
+    - vechicle
+    - maintenance
+    - dashboard
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: lubelogger
+    sources:
+    - https://github.com/hargata/lubelog
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/lubelogger-1.4.9/lubelogger-1.4.9.tgz
+    version: 1.4.9
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update docker.io/curlimages/curl docker tag to v8.21.0'
           links:
           - name: 'GitHub Issue #433'
@@ -4389,4 +4428,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-26T14:05:25.081438493Z"
+generated: "2026-09-26T14:08:49.478246331Z"
