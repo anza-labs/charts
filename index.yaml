@@ -1768,6 +1768,55 @@ entries:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.17'
+          links:
+          - name: 'GitHub Issue #453'
+            url: https://github.com/anza-labs/charts/issues/453
+          - name: Commit 46a6a84
+            url: https://github.com/anza-labs/charts/commit/46a6a849be301fb0815f621fc700a5cff057bde0
+        - kind: changed
+          description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.14.0'
+          links:
+          - name: 'GitHub Issue #452'
+            url: https://github.com/anza-labs/charts/issues/452
+          - name: Commit 8988679
+            url: https://github.com/anza-labs/charts/commit/89886790245eedda05dd9939cc67a62c5a6f941d
+        - kind: changed
+          description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.16.0'
+          links:
+          - name: 'GitHub Issue #472'
+            url: https://github.com/anza-labs/charts/issues/472
+          - name: Commit aafebcd
+            url: https://github.com/anza-labs/charts/commit/aafebcd465bed267c89fbdc1b6907e06e4e79336
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v2.16.0
+    created: "2026-09-26T13:18:08.895641133Z"
+    description: 'pocket-id is a simple and easy-to-use OIDC provider that allows
+      users to authenticate with their passkeys to your services. '
+    digest: 3327b909a2af02dc1bd4b079893fb314441f2a336a087c0a75b2f03e990b0d8f
+    home: https://pocket-id.org
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
+    keywords:
+    - idp
+    - oidc
+    - passkeys
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: pocket-id
+    sources:
+    - https://github.com/pocket-id/pocket-id
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/pocket-id-2.2.2/pocket-id-2.2.2.tgz
+    version: 2.2.2
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.15'
           links:
           - name: 'GitHub Issue #438'
@@ -4306,4 +4355,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-07-29T05:27:08.869334216Z"
+generated: "2026-09-26T13:18:09.02728838Z"
