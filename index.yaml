@@ -90,6 +90,40 @@ entries:
       artifacthub.io/category: security
       artifacthub.io/changes: |-
         - kind: changed
+          description: '**deps:** update ghcr.io/glauth/glauth docker tag to v2.5.4'
+          links:
+          - name: 'GitHub Issue #471'
+            url: https://github.com/anza-labs/charts/issues/471
+          - name: Commit ef8890c
+            url: https://github.com/anza-labs/charts/commit/ef8890c18f5831c828635d9bbf6304ec162aa0b0
+      artifacthub.io/immutable: "true"
+    apiVersion: v2
+    appVersion: v2.4.0
+    created: "2026-09-29T06:00:56.387068346Z"
+    description: 'glauth is a lightweight LDAP server for development, home use, or
+      CI. '
+    digest: 3df5edb29733ddc473ba9b94d7a9549e3856e5bcf968b735e7f81efe1af89825
+    home: https://glauth.github.io
+    icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/glauth/icon.png
+    keywords:
+    - idp
+    - ldap
+    - sso
+    maintainers:
+    - email: maturb@proton.me
+      name: shanduur
+      url: http://linkedin.com/in/urbanekmateusz
+    name: glauth
+    sources:
+    - https://github.com/glauth/glauth
+    type: application
+    urls:
+    - https://github.com/anza-labs/charts/releases/download/glauth-1.0.2/glauth-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |-
+        - kind: changed
           description: '**deps:** update ghcr.io/glauth/glauth docker tag to v2.5.2'
           links:
           - name: 'GitHub Issue #444'
@@ -4428,4 +4462,4 @@ entries:
     urls:
     - https://github.com/anza-labs/charts/releases/download/registry-0.1.0/registry-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-26T14:08:49.478246331Z"
+generated: "2026-09-29T06:00:56.387347463Z"
