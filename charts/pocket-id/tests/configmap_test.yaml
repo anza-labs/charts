@@ -221,7 +221,7 @@ tests:
             LDAP_ATTRIBUTE_GROUP_MEMBER: "member"
             LDAP_ATTRIBUTE_GROUP_UNIQUE_IDENTIFIER: "gid"
             LDAP_ATTRIBUTE_GROUP_NAME: "cn"
-            LDAP_ATTRIBUTE_ADMIN_GROUP: "admins"
+            LDAP_ADMIN_GROUP_NAME: "admins"
 
   - it: Should create ConfigMap with audit values set
     set:

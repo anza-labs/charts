@@ -175,7 +175,7 @@ data:
   LDAP_ATTRIBUTE_GROUP_NAME: "{{ .Values.config.ui.settings.ldap.attributes.group.name }}"
   {{ end }}
   {{ if not (quote .Values.config.ui.settings.ldap.attributes.group.adminGroup | empty) }}
-  LDAP_ATTRIBUTE_ADMIN_GROUP: "{{ .Values.config.ui.settings.ldap.attributes.group.adminGroup }}"
+  LDAP_ADMIN_GROUP_NAME: "{{ .Values.config.ui.settings.ldap.attributes.group.adminGroup }}"
   {{ end }}
   {{- end }}
 {{- end }}
