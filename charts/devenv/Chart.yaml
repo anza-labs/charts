@@ -4,7 +4,7 @@ name: devenv
 description: |
   Nix development environment pod with Tailscale SSH access and optional Docker-in-Docker.
 home: https://github.com/anza-labs/charts
-version: 0.1.2
+version: 1.0.0
 appVersion: "latest"
 sources:
   - https://github.com/anza-labs/charts
