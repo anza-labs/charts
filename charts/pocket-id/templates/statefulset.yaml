@@ -73,6 +73,7 @@ spec:
           args:
             - restore
             - -if-replica-exists=true
+            - -if-db-not-exists=true
             - -config=/mnt/config/litestream.yaml
             - /app/data/pocket-id.db
           resources:
