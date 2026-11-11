@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.3.0](https://github.com/anza-labs/charts/compare/pocket-id-2.2.2...pocket-id-v2.3.0) (2026-11-11)
+
+
+### Features
+
+* **pocket-id:** add argument to restore command in statefulset.yaml ([#496](https://github.com/anza-labs/charts/issues/496)) ([c3ca0c1](https://github.com/anza-labs/charts/commit/c3ca0c1b3aec016244d399971dafc4dbca556baf))
+
+
+### Bug Fixes
+
+* **pocket-id:** use LDAP_ADMIN_GROUP_NAME for the admin group ([#491](https://github.com/anza-labs/charts/issues/491)) ([bf780cc](https://github.com/anza-labs/charts/commit/bf780cc76ad5f700de3423a3fe9eb251fb210f4d))
+
+
+### Miscellaneous Chores
+
+* **deps:** update docker.io/litestream/litestream docker tag to v0.5.18 ([#492](https://github.com/anza-labs/charts/issues/492)) ([8025633](https://github.com/anza-labs/charts/commit/802563315c45f7b258b6a5df1b0fb4a7b4ced676))
+* **deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.19.1 ([#480](https://github.com/anza-labs/charts/issues/480)) ([5a17d91](https://github.com/anza-labs/charts/commit/5a17d910a2c156e7125bac3149e600d426cc0087))
+* **deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.19.2 ([#490](https://github.com/anza-labs/charts/issues/490)) ([5d30b98](https://github.com/anza-labs/charts/commit/5d30b98c6148e8412c60ed6c1e4c33c1995fd644))
+
 ## [2.2.2](https://github.com/anza-labs/charts/compare/pocket-id-2.2.1...pocket-id-v2.2.2) (2026-09-26)
 
 
