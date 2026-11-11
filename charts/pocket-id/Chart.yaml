@@ -7,7 +7,7 @@ description: |
 home: https://pocket-id.org
 icon: https://raw.githubusercontent.com/anza-labs/charts/main/charts/pocket-id/icon.png
 version: 2.3.0
-appVersion: "v2.16.0"
+appVersion: "v2.19.2"
 sources:
   - https://github.com/pocket-id/pocket-id
 keywords:
@@ -19,27 +19,41 @@ annotations:
   artifacthub.io/category: security
   artifacthub.io/immutable: "true"
   artifacthub.io/changes: |-
-    - kind: changed
-      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.17'
+    - kind: added
+      description: '**pocket-id:** add argument to restore command in statefulset.yaml'
       links:
-      - name: 'GitHub Issue #453'
-        url: https://github.com/anza-labs/charts/issues/453
-      - name: Commit 46a6a84
-        url: https://github.com/anza-labs/charts/commit/46a6a849be301fb0815f621fc700a5cff057bde0
-    - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.14.0'
+      - name: 'GitHub Issue #496'
+        url: https://github.com/anza-labs/charts/issues/496
+      - name: Commit c3ca0c1
+        url: https://github.com/anza-labs/charts/commit/c3ca0c1b3aec016244d399971dafc4dbca556baf
+    - kind: fixed
+      description: '**pocket-id:** use LDAP_ADMIN_GROUP_NAME for the admin group'
       links:
-      - name: 'GitHub Issue #452'
-        url: https://github.com/anza-labs/charts/issues/452
-      - name: Commit 8988679
-        url: https://github.com/anza-labs/charts/commit/89886790245eedda05dd9939cc67a62c5a6f941d
+      - name: 'GitHub Issue #491'
+        url: https://github.com/anza-labs/charts/issues/491
+      - name: Commit bf780cc
+        url: https://github.com/anza-labs/charts/commit/bf780cc76ad5f700de3423a3fe9eb251fb210f4d
     - kind: changed
-      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.16.0'
+      description: '**deps:** update docker.io/litestream/litestream docker tag to v0.5.18'
       links:
-      - name: 'GitHub Issue #472'
-        url: https://github.com/anza-labs/charts/issues/472
-      - name: Commit aafebcd
-        url: https://github.com/anza-labs/charts/commit/aafebcd465bed267c89fbdc1b6907e06e4e79336
+      - name: 'GitHub Issue #492'
+        url: https://github.com/anza-labs/charts/issues/492
+      - name: Commit 8025633
+        url: https://github.com/anza-labs/charts/commit/802563315c45f7b258b6a5df1b0fb4a7b4ced676
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.19.1'
+      links:
+      - name: 'GitHub Issue #480'
+        url: https://github.com/anza-labs/charts/issues/480
+      - name: Commit 5a17d91
+        url: https://github.com/anza-labs/charts/commit/5a17d910a2c156e7125bac3149e600d426cc0087
+    - kind: changed
+      description: '**deps:** update ghcr.io/pocket-id/pocket-id docker tag to v2.19.2'
+      links:
+      - name: 'GitHub Issue #490'
+        url: https://github.com/anza-labs/charts/issues/490
+      - name: Commit 5d30b98
+        url: https://github.com/anza-labs/charts/commit/5d30b98c6148e8412c60ed6c1e4c33c1995fd644
 maintainers:
   - name: shanduur
     email: maturb@proton.me
