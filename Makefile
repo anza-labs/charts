@@ -181,7 +181,7 @@ HELM_VERSION ?= v4.3.2
 HELM_DOCS_VERSION ?= v1.14.2
 
 # renovate: datasource=github-tags depName=losisin/helm-values-schema-json
-HELM_VALUES_SCHEMA_JSON_VERSION ?= v2.6.0
+HELM_VALUES_SCHEMA_JSON_VERSION ?= v2.6.1
 
 # renovate: datasource=github-tags depName=kubernetes-sigs/kind
 KIND_VERSION ?= v0.33.0
